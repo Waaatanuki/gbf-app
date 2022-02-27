@@ -1,14 +1,14 @@
 <template>
-  <HelloWorld msg="gbf-app" />
+  <EvokerInfo msg="gbf-app" />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import EvokerInfo from "./components/EvokerInfo.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    EvokerInfo,
   },
 };
 </script>
