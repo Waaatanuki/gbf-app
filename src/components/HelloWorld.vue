@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h3>开发中!!!</h3>
+    <h3>{{ hi }}</h3>
   </div>
 </template>
 
@@ -10,6 +11,9 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String,
+  },
+  setup() {
+    let hi = "(<ゝω・)☆";
   },
 };
 </script>
