@@ -1,14 +1,18 @@
 <template>
-  <EvokerInfo msg="gbf-app" />
+  <h1>贤者素材计算器</h1>
+  <EvokerInfo />
+  <MaterialInfo />
 </template>
 
 <script>
 import EvokerInfo from "./components/EvokerInfo.vue";
+import MaterialInfo from "./components/MaterialInfo.vue";
 
 export default {
   name: "App",
   components: {
     EvokerInfo,
+    MaterialInfo,
   },
 };
 </script>
@@ -19,7 +23,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: rgb(25, 86, 110);
   margin-top: 60px;
+}
+h1 {
+  color: rgb(184, 175, 175);
 }
 </style>

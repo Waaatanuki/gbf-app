@@ -44,37 +44,38 @@
       </select>
     </div>
   </div>
-  <button @click="demo">输出</button>
+  <!-- <button @click="demo">输出</button> -->
 </template>
 
 <script>
-import { ref } from "vue";
+import { reactive } from "@vue/reactivity";
+import { onUpdated } from "@vue/runtime-core";
 export default {
   name: "EvokerInfo",
   setup() {
-    let evokerData = ref([
-      { no: 7, name: "教皇" },
-      { no: 1, name: "芙劳" },
-      { no: 0, name: "女帝" },
-      { no: 8, name: "女教皇" },
-      { no: 4, name: "愚者" },
-      { no: 5, name: "魔术师", tarotLevel: 3, getCard: false },
-      { no: 6, name: "皇帝", tarotLevel: 3, getCard: true },
-      { no: 3, name: "节制", tarotLevel: 3, getCard: false },
-      { no: 2, name: "战车", tarotLevel: 3, getCard: true },
-      { no: 9, name: "尼亚", tarotLevel: 3, getCard: true },
-    ]);
+    let evokerData = reactive(
+      JSON.parse(localStorage.getItem("evokerData")) || [
+        { no: 7, name: "教皇" },
+        { no: 1, name: "芙劳" },
+        { no: 0, name: "女帝" },
+        { no: 8, name: "女教皇" },
+        { no: 4, name: "愚者" },
+        { no: 5, name: "魔术师" },
+        { no: 6, name: "皇帝" },
+        { no: 3, name: "节制" },
+        { no: 2, name: "战车" },
+        { no: 9, name: "尼亚" },
+      ]
+    );
 
+    onUpdated(() => {
+      localStorage.setItem("evokerData", JSON.stringify(evokerData));
+    });
     const demo = function () {
-      // evokerData.value[0].tarotLevel = 7;
-      // console.log();
-      // evokerData[0].tarotLevel = 7;
-      console.log(evokerData.value);
+      console.log(localStorage.getItem("evokerData"));
+      // console.log(evokerData.value);
     };
     return { evokerData, demo };
-  },
-  props: {
-    msg: String,
   },
 };
 </script>
