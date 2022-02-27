@@ -1,18 +1,23 @@
 <template>
-  <h1>贤者素材计算器</h1>
+  <h1>贤者相关素材计算器</h1>
   <EvokerInfo />
-  <MaterialInfo />
+  <div class="materialAbout">
+    <MaterialInfo />
+    <MaterialCompute />
+  </div>
 </template>
 
 <script>
 import EvokerInfo from "./components/EvokerInfo.vue";
 import MaterialInfo from "./components/MaterialInfo.vue";
+import MaterialCompute from "./components/MaterialCompute.vue";
 
 export default {
   name: "App",
   components: {
     EvokerInfo,
     MaterialInfo,
+    MaterialCompute,
   },
 };
 </script>
@@ -28,5 +33,9 @@ export default {
 }
 h1 {
   color: rgb(184, 175, 175);
+}
+.materialAbout {
+  background-color: wheat;
+  display: flex;
 }
 </style>
