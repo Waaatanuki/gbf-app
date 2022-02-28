@@ -1,42 +1,59 @@
 <template>
-  <div class="container">
-    <div class="item" v-for="(v, name) in result.temp" :key="name">
+  <div class="subTitle" v-show="flag == 0">尚未勾选目标</div>
+  <div
+    class="subTitle"
+    v-show="flag == 1 && Object.keys(result.temp).length != 0"
+  >
+    完成目标还需以下素材
+  </div>
+  <div
+    class="subTitle"
+    v-show="flag == 1 && Object.keys(result.temp).length == 0"
+  >
+    目标素材已收集完毕
+  </div>
+  <div class="container_MaterialCompute">
+    <div
+      class="item_MaterialCompute"
+      v-for="(v, name) in result.temp"
+      :key="name"
+    >
       <img style="width: 100%" :src="`./img/item/${name}.jpg`" /><br />
-      <input class="itemNum" :value="v" />
+      <label class="itemNum">{{ v }}</label>
     </div>
   </div>
+
   <!-- <button @click="demo">test</button> -->
 </template>
 
 <script>
 import uncapData from "../assets/uncapData";
+import { ratio } from "../assets/data";
 import { reactive } from "@vue/reactivity";
-import { getCurrentInstance } from "@vue/runtime-core";
+import { ref, getCurrentInstance } from "@vue/runtime-core";
 
 export default {
   name: "MaterialCompute",
   setup() {
     const { proxy } = getCurrentInstance();
-    let tempEvokerInfo = reactive(
-      JSON.parse(localStorage.getItem("evokerData")) || [
-        { no: 7, name: "教皇" },
-        { no: 1, name: "芙劳" },
-        { no: 0, name: "女帝" },
-        { no: 8, name: "女教皇" },
-        { no: 4, name: "愚者" },
-        { no: 5, name: "魔术师" },
-        { no: 6, name: "皇帝" },
-        { no: 3, name: "节制" },
-        { no: 2, name: "战车" },
-        { no: 9, name: "尼亚" },
-      ]
-    );
-    let tempMaterialInfo = reactive(
-      JSON.parse(localStorage.getItem("itemNum")) || {}
-    );
+    let flag = ref(localStorage.getItem("flag") || 0);
+    let schedule = ref(localStorage.getItem("schedule") || 0);
+    let tempEvokerInfo = JSON.parse(localStorage.getItem("evokerData")) || [
+      { no: 7, name: "教皇" },
+      { no: 1, name: "芙劳" },
+      { no: 0, name: "女帝" },
+      { no: 8, name: "女教皇" },
+      { no: 4, name: "愚者" },
+      { no: 5, name: "魔术师" },
+      { no: 6, name: "皇帝" },
+      { no: 3, name: "节制" },
+      { no: 2, name: "战车" },
+      { no: 9, name: "尼亚" },
+    ];
+    let tempMaterialInfo = JSON.parse(localStorage.getItem("itemNum")) || {};
+
     let result = reactive({});
     result.temp = JSON.parse(localStorage.getItem("result")) || {};
-
     const needMaterial = function (e, v) {
       let result = {};
       for (let i = 0; i < 10; i++) {
@@ -128,7 +145,6 @@ export default {
           }
         }
       }
-
       return result;
     };
 
@@ -143,23 +159,29 @@ export default {
       localStorage.setItem("result", JSON.stringify(result.temp));
     });
 
+    proxy.$mybus.on("getFlag", (e) => {
+      flag.value = e;
+      localStorage.setItem("flag", e);
+    });
+
     const demo = function () {};
-    return { demo, result };
+    return { demo, result, flag };
   },
 };
 </script>
 
 <style>
-.container {
-  background-color: rgb(72, 104, 25);
+.container_MaterialCompute {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
-.item {
-  height: 50px;
+.item_MaterialCompute {
+  height: 80px;
   width: 50px;
-  display: inline-block;
-  position: relative;
-  margin-right: 3;
-  background-color: white;
+}
+.subTitle {
+  text-align: center;
+  font-size: 30px;
 }
 </style>

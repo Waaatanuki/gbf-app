@@ -40,6 +40,7 @@ h1 {
 }
 .materialAbout {
   background-color: wheat;
+  width: 100%;
 }
 body {
   margin: 0;

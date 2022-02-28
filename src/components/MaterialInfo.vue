@@ -4,7 +4,11 @@
     <div class="itemLine" v-for="(l, index) in itemList" :key="index">
       <div class="item" v-for="(i, index) in l" :key="index" v-show="i != 0">
         <img style="width: 100%" :src="`./img/item/${i}.jpg`" /><br />
-        <input class="itemNum" v-model.number.lazy="itemNum[i]" />
+        <input
+          class="itemNum"
+          v-model.number.lazy="itemNum[i]"
+          onfocus="this.select()"
+        />
       </div>
     </div>
   </div>
