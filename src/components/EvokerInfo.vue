@@ -67,16 +67,16 @@ export default {
   setup() {
     let evokerData = reactive(
       JSON.parse(localStorage.getItem("evokerData")) || [
-        { no: 7, name: "教皇" },
-        { no: 1, name: "芙劳" },
-        { no: 0, name: "女帝" },
-        { no: 8, name: "女教皇" },
-        { no: 4, name: "愚者" },
-        { no: 5, name: "魔术师" },
-        { no: 6, name: "皇帝" },
-        { no: 3, name: "节制" },
-        { no: 2, name: "战车" },
-        { no: 9, name: "尼亚" },
+        { no: 7, name: "教皇", target: true },
+        { no: 1, name: "芙劳", target: true },
+        { no: 0, name: "女帝", target: true },
+        { no: 8, name: "女教皇", target: true },
+        { no: 4, name: "愚者", target: true },
+        { no: 5, name: "魔术师", target: true },
+        { no: 6, name: "皇帝", target: true },
+        { no: 3, name: "节制", target: true },
+        { no: 2, name: "战车", target: true },
+        { no: 9, name: "尼亚", target: true },
       ]
     );
 
