@@ -1,5 +1,5 @@
 <template>
-  <h1>贤者相关素材计算器</h1>
+  <h1>贤者相关素材计算器v2.0</h1>
   <div class="container">
     <div><MaterialInfo /></div>
 
@@ -7,6 +7,10 @@
       <EvokerInfo />
       <MaterialCompute />
     </div>
+  </div>
+  <div class="footer">
+    <span>Created by Waaatanuki</span><br />
+    <a href="https://bbs.nga.cn/read.php?tid=25257642">问题反馈</a>
   </div>
 </template>
 
@@ -46,5 +50,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(25, 86, 110);
+}
+.footer {
+  margin-top: 20px;
+  color: white;
+}
+a {
+  color: white;
 }
 </style>

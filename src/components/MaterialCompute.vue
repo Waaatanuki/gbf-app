@@ -175,6 +175,7 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .item_MaterialCompute {
   height: 80px;
