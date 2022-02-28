@@ -13,7 +13,7 @@
 
 <script>
 import { reactive } from "@vue/reactivity";
-import { onUpdated } from "@vue/runtime-core";
+import { onUpdated, getCurrentInstance } from "@vue/runtime-core";
 export default {
   name: "MaterialInfo",
   setup() {
@@ -28,7 +28,7 @@ export default {
       [25052, 25053, 25054, 25055, 25056],
       [25070, 25071, 25072, 25073, 25074],
     ];
-
+    const { proxy } = getCurrentInstance();
     let itemNum = reactive(JSON.parse(localStorage.getItem("itemNum")) || {});
 
     const demo = function () {
@@ -36,6 +36,7 @@ export default {
     };
     onUpdated(() => {
       localStorage.setItem("itemNum", JSON.stringify(itemNum));
+      proxy.$mybus.emit("getMaterialInfo", itemNum);
     });
 
     return { itemList, itemNum, demo };

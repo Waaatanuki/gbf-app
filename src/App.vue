@@ -1,9 +1,12 @@
 <template>
   <h1>贤者相关素材计算器</h1>
-  <EvokerInfo />
-  <div class="materialAbout">
-    <MaterialInfo />
-    <MaterialCompute />
+  <div class="container">
+    <div><MaterialInfo /></div>
+
+    <div class="materialAbout">
+      <EvokerInfo />
+      <MaterialCompute />
+    </div>
   </div>
 </template>
 
@@ -24,18 +27,23 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: rgb(25, 86, 110);
-  margin-top: 60px;
+  /* margin: -20px -8px auto; */
+}
+.container {
+  display: flex;
 }
 h1 {
   color: rgb(184, 175, 175);
 }
 .materialAbout {
   background-color: wheat;
-  display: flex;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(25, 86, 110);
 }
 </style>

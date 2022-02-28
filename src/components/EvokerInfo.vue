@@ -11,20 +11,19 @@
         <option value="4">塔罗牌3凸</option>
         <option value="5">塔罗牌SSR化</option>
         <option value="6">塔罗牌4凸</option>
-        <option value="7">塔罗牌5凸</option>
-      </select>
+        <option value="7">塔罗牌5凸</option></select
+      ><br />
       <label style="font-size: 10px"
         ><input type="checkbox" v-model="k.getCard" />交换贤者卡牌</label
-      >
+      ><br />
       <select v-model="k.evokerLevel">
         <option disabled value="undefined">贤者进度</option>
-        <option value="0">未入手</option>
-        <option value="1">贤者0凸</option>
-        <option value="2">贤者1凸</option>
-        <option value="3">贤者2凸</option>
-        <option value="4">贤者3凸</option>
-        <option value="6">贤者4凸</option>
-      </select>
+        <option value="0">贤者0凸</option>
+        <option value="1">贤者1凸</option>
+        <option value="2">贤者2凸</option>
+        <option value="3">贤者3凸</option>
+        <option value="4">贤者4凸</option></select
+      ><br />
       <select v-model="k.weaponLevel">
         <option disabled value="undefined">贤武进度</option>
         <option value="0">未入手</option>
@@ -32,16 +31,19 @@
         <option value="2">贤武1凸</option>
         <option value="3">贤武2凸</option>
         <option value="4">贤武3凸</option>
-        <option value="6">贤武终突</option>
-      </select>
+        <option value="5">贤武终突</option></select
+      ><br />
       <select v-model="k.domainLevel">
         <option disabled value="undefined">领域进度</option>
         <option value="0">未解放</option>
         <option value="1">解放一格</option>
         <option value="2">解放两格</option>
         <option value="3">解放三格</option>
-        <option value="4">全部解放</option>
-      </select>
+        <option value="4">全部解放</option></select
+      ><br />
+      <label style="font-size: 10px"
+        ><input type="checkbox" v-model="k.target" />目标</label
+      >
     </div>
   </div>
   <!-- <button @click="demo">输出</button> -->
@@ -49,7 +51,8 @@
 
 <script>
 import { reactive } from "@vue/reactivity";
-import { onUpdated } from "@vue/runtime-core";
+import { getCurrentInstance, onUpdated } from "@vue/runtime-core";
+
 export default {
   name: "EvokerInfo",
   setup() {
@@ -68,8 +71,12 @@ export default {
       ]
     );
 
-    onUpdated(() => {
+    const { proxy } = getCurrentInstance();
+
+    onUpdated((a) => {
       localStorage.setItem("evokerData", JSON.stringify(evokerData));
+      // console.log(evokerData);
+      proxy.$mybus.emit("getEvokerInfo", evokerData);
     });
     const demo = function () {
       console.log(localStorage.getItem("evokerData"));
@@ -82,13 +89,12 @@ export default {
 
 <style scoped>
 .container {
+  width: 100%;
   background-color: skyblue;
   display: flex;
   justify-content: center;
 }
 .evokerDataClass {
-  width: 100px;
-  height: 200px;
   margin: 10px;
   background-color: rgb(96, 201, 166);
   border-radius: 0.5em;
