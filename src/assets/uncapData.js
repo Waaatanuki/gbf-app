@@ -1,4 +1,4 @@
-export default [
+const evokerData = [
     // no 0 女帝
     {
         tarotUncap: [
@@ -321,6 +321,7 @@ export default [
     },
 ];
 
+export { evokerData };
 // 25000   蓝柱子
 // 25001   火精
 // 25002   水精

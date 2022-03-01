@@ -1,30 +1,12 @@
-<template>
-  <h1>贤者相关素材计算器v2.0</h1>
-  <div class="container">
-    <div><MaterialInfo /></div>
-
-    <div class="materialAbout">
-      <EvokerInfo />
-      <MaterialCompute />
-    </div>
-  </div>
-  <div class="footer">
-    <span>Created by Waaatanuki</span><br />
-    <a href="https://bbs.nga.cn/read.php?tid=25257642">问题反馈</a>
-  </div>
-</template>
+<template><EvokerPage /></template>
 
 <script>
-import EvokerInfo from "./components/EvokerInfo.vue";
-import MaterialInfo from "./components/MaterialInfo.vue";
-import MaterialCompute from "./components/MaterialCompute.vue";
+import EvokerPage from "./components/EvokerPage.vue";
 
 export default {
   name: "App",
   components: {
-    EvokerInfo,
-    MaterialInfo,
-    MaterialCompute,
+    EvokerPage,
   },
 };
 </script>

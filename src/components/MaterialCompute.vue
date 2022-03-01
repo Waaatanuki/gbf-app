@@ -35,7 +35,7 @@ export default {
   name: "MaterialCompute",
   setup() {
     const { proxy } = getCurrentInstance();
-    let flag = ref(localStorage.getItem("flag") || 1);
+    const flag = ref(localStorage.getItem("flag") || 1);
     let tempEvokerInfo = JSON.parse(localStorage.getItem("evokerData")) || [
       { no: 7, name: "教皇", target: true },
       { no: 1, name: "芙劳", target: true },
@@ -50,7 +50,7 @@ export default {
     ];
     let tempMaterialInfo = JSON.parse(localStorage.getItem("itemNum")) || {};
 
-    let result = reactive({});
+    const result = reactive({});
 
     const needMaterial = function (e, v) {
       let result = {};
