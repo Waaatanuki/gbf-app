@@ -6,20 +6,18 @@
         <img style="width: 100%" :src="`./img/item/${i}.jpg`" /><br />
         <input
           class="itemNum"
-          v-model.number.lazy="itemNum[i]"
+          v-model.number.lazy="materialInfo[i]"
           onfocus="this.select()"
         />
       </div>
     </div>
   </div>
-  <!-- <button @click="demo">输出</button> -->
 </template>
 
 <script>
-import { reactive } from "@vue/reactivity";
-import { onUpdated, getCurrentInstance } from "@vue/runtime-core";
 export default {
   name: "MaterialInfo",
+  props: ["materialInfo"],
   setup() {
     const itemList = [
       [0, 0, 0, 25000, 25001],
@@ -32,24 +30,16 @@ export default {
       [25052, 25053, 25054, 25055, 25056],
       [25070, 25071, 25072, 25073, 25074],
     ];
-    const { proxy } = getCurrentInstance();
-    let itemNum = reactive(JSON.parse(localStorage.getItem("itemNum")) || {});
 
-    const demo = function () {
-      console.log(itemNum.data);
-    };
-    onUpdated(() => {
-      localStorage.setItem("itemNum", JSON.stringify(itemNum));
-      proxy.$mybus.emit("getMaterialInfo", itemNum);
-    });
-
-    return { itemList, itemNum, demo };
+    return { itemList };
   },
 };
 </script>
 
 <style>
 .itemBox {
+  padding-top: 10px;
+  height: 800px;
   width: 270px;
   background-color: grey;
 }

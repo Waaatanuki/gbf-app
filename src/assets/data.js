@@ -1,50 +1,24 @@
-const material = {
-    25000: 1870,
-    25001: 1448,
-    25002: 1448,
-    25003: 1448,
-    25004: 1448,
-    25005: 724,
-    25006: 724,
-    25007: 389,
-    25008: 389,
-    25009: 389,
-    25010: 389,
-    25011: 389,
-    25012: 389,
-    25013: 389,
-    25014: 389,
-    25015: 389,
-    25016: 389,
-    25020: 680,
-    25021: 680,
-    25023: 4080,
-    25024: 4080,
-    25025: 4080,
-    25026: 4080,
-    25033: 180,
-    25034: 180,
-    25035: 240,
-    25036: 10,
-    25047: 550,
-    25048: 550,
-    25049: 550,
-    25050: 550,
-    25051: 550,
-    25052: 550,
-    25053: 550,
-    25054: 550,
-    25055: 550,
-    25056: 550,
-    25070: 450,
-    25071: 450,
-    25072: 450,
-    25073: 450,
-    25074: 600,
-};
+import { getEvokerPageResult } from "./tools";
+
+const evokerInfo = [
+    { no: 7, name: "教皇", target: true },
+    { no: 1, name: "芙劳", target: true },
+    { no: 0, name: "女帝", target: true },
+    { no: 8, name: "女教皇", target: true },
+    { no: 4, name: "愚者", target: true },
+    { no: 5, name: "魔术师", target: true },
+    { no: 6, name: "皇帝", target: true },
+    { no: 3, name: "节制", target: true },
+    { no: 2, name: "战车", target: true },
+    { no: 9, name: "尼亚", target: true },
+];
+const materialInfo = {};
+
+const allMaterial = getEvokerPageResult(evokerInfo, materialInfo);
+
 const ratio = {};
-for (const k in material) {
-    ratio[k] = material[k] / material[25074];
+for (const k in allMaterial) {
+    ratio[k] = allMaterial[k] / allMaterial[25074];
 }
 
-export { ratio };
+export { ratio, allMaterial };

@@ -18,26 +18,4 @@ export default {
   background-color: rgb(25, 86, 110);
   /* margin: -20px -8px auto; */
 }
-.container {
-  display: flex;
-}
-h1 {
-  color: rgb(184, 175, 175);
-}
-.materialAbout {
-  background-color: wheat;
-  width: 100%;
-}
-body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(25, 86, 110);
-}
-.footer {
-  margin-top: 20px;
-  color: white;
-}
-a {
-  color: white;
-}
 </style>

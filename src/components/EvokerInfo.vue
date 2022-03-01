@@ -1,6 +1,6 @@
 <template>
   <div class="containe_EvokerInfor">
-    <div class="evokerDataClass" v-for="k in evokerData" :key="k.no">
+    <div class="evokerDataClass" v-for="k in evokerInfo" :key="k.no">
       <img :src="`./img/npc/304016${k.no}000_01.jpg`" />
       <select v-model="k.tarotLevel" :class="{ completed: k.tarotLevel == 7 }">
         <option disabled value="undefined">塔罗牌进度</option>
@@ -55,59 +55,12 @@
       >
     </div>
   </div>
-  <!-- <button @click="demo">输出</button> -->
 </template>
 
 <script>
-import { reactive } from "@vue/reactivity";
-import { getCurrentInstance, onMounted, onUpdated } from "@vue/runtime-core";
-
 export default {
   name: "EvokerInfo",
-  setup() {
-    let evokerData = reactive(
-      JSON.parse(localStorage.getItem("evokerData")) || [
-        { no: 7, name: "教皇", target: true },
-        { no: 1, name: "芙劳", target: true },
-        { no: 0, name: "女帝", target: true },
-        { no: 8, name: "女教皇", target: true },
-        { no: 4, name: "愚者", target: true },
-        { no: 5, name: "魔术师", target: true },
-        { no: 6, name: "皇帝", target: true },
-        { no: 3, name: "节制", target: true },
-        { no: 2, name: "战车", target: true },
-        { no: 9, name: "尼亚", target: true },
-      ]
-    );
-
-    const { proxy } = getCurrentInstance();
-
-    const sendFlag = function () {
-      let flag = 0;
-      evokerData.forEach((e) => {
-        if (e.target) {
-          flag = 1;
-        }
-      });
-      proxy.$mybus.emit("getFlag", flag);
-    };
-
-    onMounted(() => {
-      sendFlag();
-    });
-
-    onUpdated((a) => {
-      localStorage.setItem("evokerData", JSON.stringify(evokerData));
-      // console.log(evokerData);
-      proxy.$mybus.emit("getEvokerInfo", evokerData);
-      sendFlag();
-    });
-    const demo = function () {
-      console.log(localStorage.getItem("evokerData"));
-      // console.log(evokerData.value);
-    };
-    return { evokerData, demo };
-  },
+  props: ["evokerInfo"],
 };
 </script>
 
@@ -141,5 +94,4 @@ input {
 .completed {
   background-color: orange;
 }
-/* style="background-color: yellow" */
 </style>

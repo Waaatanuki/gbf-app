@@ -1,37 +1,41 @@
 <template>
-  <h1>贤者相关素材计算器v2.0</h1>
-  <!-- <div class="container">
-    <div><MaterialInfo /></div>
-
+  <h1>贤者相关素材计算器v2.1</h1>
+  <div class="container">
+    <div><MaterialInfo :materialInfo="materialInfo" /></div>
     <div class="materialAbout">
-      <EvokerInfo />
-      <MaterialCompute />
+      <EvokerInfo :evokerInfo="evokerInfo" />
+      <MaterialResult :result="result" :flag="flag" :percent="percent" />
     </div>
   </div>
   <div class="footer">
     <span>Created by Waaatanuki</span><br />
     <a href="https://bbs.nga.cn/read.php?tid=25257642">问题反馈</a>
-  </div> -->
+  </div>
 </template>
 
 <script>
-import { reactive } from "@vue/reactivity";
+import { reactive, toRefs } from "@vue/reactivity";
+import { computed, onUpdated } from "@vue/runtime-core";
 
 import EvokerInfo from "./EvokerInfo.vue";
 import MaterialInfo from "./MaterialInfo.vue";
-import MaterialCompute from "./MaterialCompute.vue";
+import MaterialResult from "./MaterialResult.vue";
 
-import { getEvokerPageResult } from "../assets/tools";
+import {
+  getEvokerPageResult,
+  getFlag,
+  getEvokerPagePercent,
+} from "../assets/tools";
+import { ratio } from "../assets/data";
 
 export default {
   name: "EvokerPage",
   components: {
     EvokerInfo,
     MaterialInfo,
-    MaterialCompute,
+    MaterialResult,
   },
   setup() {
-    //   数据初始化
     const evokerInfo = JSON.parse(localStorage.getItem("evokerInfo")) || [
       { no: 7, name: "教皇", target: true },
       { no: 1, name: "芙劳", target: true },
@@ -45,15 +49,57 @@ export default {
       { no: 9, name: "尼亚", target: true },
     ];
     const materialInfo = JSON.parse(localStorage.getItem("materialInfo")) || {};
-    const flag = localStorage.getItem("flag") || 1;
-    const result = JSON.parse(localStorage.getItem("result")) || {};
-    getEvokerPageResult(evokerInfo, materialInfo);
 
-    const evokerData = reactive({ evokerInfo, materialInfo, flag, result });
-    console.log(evokerData);
+    const evokerData = reactive({ evokerInfo, materialInfo });
+
+    evokerData.result = computed(() =>
+      getEvokerPageResult(evokerData.evokerInfo, evokerData.materialInfo)
+    );
+    evokerData.flag = computed(() => getFlag(evokerData.evokerInfo));
+    evokerData.percent = computed(() =>
+      getEvokerPagePercent(
+        evokerData.evokerInfo,
+        evokerData.materialInfo,
+        ratio
+      )
+    );
+
+    onUpdated(() => {
+      localStorage.setItem(
+        "materialInfo",
+        JSON.stringify(evokerData.materialInfo)
+      );
+      localStorage.setItem("evokerInfo", JSON.stringify(evokerData.evokerInfo));
+    });
+
+    return {
+      ...toRefs(evokerData),
+    };
   },
 };
 </script>
 
 <style>
+.container {
+  display: flex;
+}
+h1 {
+  color: rgb(184, 175, 175);
+}
+.materialAbout {
+  background-color: wheat;
+  width: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(25, 86, 110);
+}
+.footer {
+  margin-top: 20px;
+  color: white;
+}
+a {
+  color: white;
+}
 </style>
