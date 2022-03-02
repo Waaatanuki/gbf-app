@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import mitt from "mitt";
+import routers from "./router";
 
 const app = createApp(App);
-app.config.globalProperties.$mybus = new mitt();
+app.use(routers);
 app.mount("#app");

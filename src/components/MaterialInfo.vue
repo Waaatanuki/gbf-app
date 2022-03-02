@@ -36,11 +36,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .itemBox {
   padding-top: 10px;
-  height: 800px;
-  width: 270px;
   background-color: grey;
 }
 .itemLine {

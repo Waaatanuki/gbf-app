@@ -1,21 +1,24 @@
-<template><EvokerPage /></template>
+<template>
+  <NavigationBar />
+  <!-- <EvokerPage /> -->
+</template>
 
 <script>
-import EvokerPage from "./components/EvokerPage.vue";
+import NavigationBar from "./components/NavigationBar.vue";
 
 export default {
   name: "App",
   components: {
-    EvokerPage,
+    NavigationBar,
   },
 };
 </script>
 
 <style>
-#app {
+body {
   -webkit-font-smoothing: antialiased;
   text-align: center;
-  background-color: rgb(25, 86, 110);
-  /* margin: -20px -8px auto; */
+  background-color: rgb(25, 85, 110);
+  margin: 0;
 }
 </style>

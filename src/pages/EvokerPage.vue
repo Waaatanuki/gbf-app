@@ -1,10 +1,14 @@
 <template>
-  <h1>贤者相关素材计算器v2.1</h1>
   <div class="container">
-    <div><MaterialInfo :materialInfo="materialInfo" /></div>
-    <div class="materialAbout">
+    <div class="tree"><MaterialInfo :materialInfo="materialInfo" /></div>
+    <div class="leaf">
       <EvokerInfo :evokerInfo="evokerInfo" />
-      <MaterialResult :result="result" :flag="flag" :percent="percent" />
+      <MaterialResult
+        class="showResult"
+        :result="result"
+        :flag="flag"
+        :percent="percent"
+      />
     </div>
   </div>
   <div class="footer">
@@ -17,14 +21,14 @@
 import { reactive, toRefs } from "@vue/reactivity";
 import { computed, onUpdated } from "@vue/runtime-core";
 
-import EvokerInfo from "./EvokerInfo.vue";
-import MaterialInfo from "./MaterialInfo.vue";
-import MaterialResult from "./MaterialResult.vue";
+import EvokerInfo from "../components/EvokerInfo.vue";
+import MaterialInfo from "../components/MaterialInfo.vue";
+import MaterialResult from "../components/MaterialResult.vue";
 
 import {
   getEvokerPageResult,
-  getFlag,
   getEvokerPagePercent,
+  getFlag,
 } from "../assets/tools";
 import { ratio } from "../assets/data";
 
@@ -149,27 +153,25 @@ export default {
 };
 </script>
 
-<style>
-.container {
-  display: flex;
-}
-h1 {
+<style scoped>
+.title {
   color: rgb(184, 175, 175);
 }
-.materialAbout {
-  background-color: wheat;
-  width: 100%;
+.container {
+  display: flex;
+  flex-wrap: wrap;
 }
-body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(25, 86, 110);
+.leaf {
+  width: calc(100% - 270px);
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 .footer {
   margin-top: 20px;
   color: white;
 }
-a {
+.footer a {
   color: white;
 }
 </style>

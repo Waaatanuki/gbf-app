@@ -1,6 +1,6 @@
 <template>
-  <div class="containe_EvokerInfor">
-    <div class="evokerDataClass" v-for="k in evokerInfo" :key="k.no">
+  <div class="container">
+    <div class="item" v-for="k in evokerInfo" :key="k.no">
       <img :src="`./img/npc/304016${k.no}000_01.jpg`" />
       <select v-model="k.tarotLevel" :class="{ completed: k.tarotLevel == 7 }">
         <option disabled value="undefined">塔罗牌进度</option>
@@ -13,8 +13,7 @@
         <option value="6">塔罗牌4凸</option>
         <option value="7">塔罗牌5凸</option></select
       ><br />
-      <label style="font-size: 10px"
-        ><input type="checkbox" v-model="k.getCard" />交换贤者卡牌</label
+      <label><input type="checkbox" v-model="k.getCard" />交换贤者卡牌</label
       ><br />
       <select
         v-model="k.evokerLevel"
@@ -50,9 +49,7 @@
         <option value="3">解放三格</option>
         <option value="4">全部解放</option></select
       ><br />
-      <label style="font-size: 10px"
-        ><input type="checkbox" v-model="k.target" />目标</label
-      >
+      <label><input type="checkbox" v-model="k.target" />目标</label>
     </div>
   </div>
 </template>
@@ -65,30 +62,29 @@ export default {
 </script>
 
 <style scoped>
-.containe_EvokerInfor {
-  width: 100%;
+.container {
   background-color: skyblue;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.evokerDataClass {
+.item {
   margin: 10px;
   background-color: rgb(96, 201, 166);
   border-radius: 0.5em;
   width: 120px;
 }
-img {
+.item img {
   width: 100%;
 }
-label {
+.item label {
+  font-size: 12px;
   vertical-align: middle;
 }
-select {
+.item select {
   text-align: center;
-  margin-top: 0.5em;
 }
-input {
+.item input {
   vertical-align: middle;
 }
 .completed {
