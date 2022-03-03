@@ -1,8 +1,11 @@
-<template><h1>其他页面</h1></template>
+<template><CritCalc /></template>
 
 <script>
+import CritCalc from "../components/CritCalc.vue";
+
 export default {
   name: "OtherPage",
+  components: { CritCalc },
 };
 </script>
 

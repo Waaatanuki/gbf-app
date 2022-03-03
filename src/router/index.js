@@ -7,7 +7,7 @@ const routes = [
     {
         path: "/",
         name: "HomePage",
-        component: EvokerPage,
+        component: HomePage,
     },
     {
         path: "/otherpage",

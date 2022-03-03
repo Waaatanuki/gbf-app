@@ -29,8 +29,8 @@ import {
   getEvokerPageResult,
   getEvokerPagePercent,
   getFlag,
+  getRatio,
 } from "../assets/tools";
-import { ratio } from "../assets/data";
 
 export default {
   name: "EvokerPage",
@@ -134,7 +134,7 @@ export default {
       getEvokerPagePercent(
         evokerData.evokerInfo,
         evokerData.materialInfo,
-        ratio
+        getRatio()
       )
     );
 

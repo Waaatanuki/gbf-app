@@ -1,4 +1,5 @@
 import { evokerData } from "./uncapData";
+import { newEvokerInfo, critData } from "./data";
 const getEvokerPageResult = function (e, v) {
     let result = {};
     let loopGroup = ["tarotUncap", "evokerUncap", "weaponUncap", "domainUncap"];
@@ -113,4 +114,32 @@ const getFlag = function (evokerInfo) {
     return flag;
 };
 
-export { getEvokerPageResult, getEvokerPagePercent, getFlag };
+const getRatio = function () {
+    const allMaterial = getEvokerPageResult(newEvokerInfo, {});
+    const ratio = {};
+    for (const k in allMaterial) {
+        ratio[k] = allMaterial[k] / allMaterial[25074];
+    }
+    return ratio;
+};
+
+const getCritCalcResult = function (boostLevel) {
+    console.log(boostLevel);
+    console.log(critData);
+
+    const start = critData;
+    console.log(start);
+
+    let result = [];
+    for (let i = 0; i < start.length; i++) {
+        const element = start[i];
+        if (element.boosted != false) {
+            console.log(element);
+            element.rate = ((boostLevel[0] + 100) / 100) * element.rate;
+        }
+        result.push(element);
+    }
+    return result;
+};
+
+export { getEvokerPageResult, getEvokerPagePercent, getRatio, getFlag, getCritCalcResult };
