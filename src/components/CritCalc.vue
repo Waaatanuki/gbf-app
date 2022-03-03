@@ -130,25 +130,45 @@
             class="others"
             type="checkbox"
             v-model="inputInfo[4]"
-          />不计算水龙枪</label
+          />计算水龙枪</label
         >
       </div>
     </div>
-    <div class="output"></div>
+    <div class="output">
+      <div v-for="(i, index) in result" :key="index">
+        <p>
+          暴击率{{
+            i[0] +
+            "——" +
+            i[1].skillName +
+            "Lv" +
+            i[1].level +
+            "+" +
+            i[2].skillName +
+            "Lv" +
+            i[2].level +
+            "+" +
+            i[3].skillName +
+            "Lv" +
+            i[3].level
+          }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { reactive } from "@vue/reactivity";
 import { computed, onUpdated } from "@vue/runtime-core";
-import { getCritCalcResult } from "../assets/tools";
+import { getCritCalcResult, getBestThreeWeaponCrit } from "../assets/tools";
 export default {
   name: "CritCalc",
   setup() {
-    const inputInfo = reactive(["kami150", "kami150", 20, false, true]);
+    const inputInfo = reactive(["kami150", "kami150", 20, false, false]);
 
     // 0为老王加护数值 1为方阵加护数值
-    const boostLevel = computed(() => {
+    let boostLevel = computed(() => {
       const arr = [inputInfo[2], 0];
       arr[inputInfo[0].indexOf("kami") == 0 ? 0 : 1] += Number(
         inputInfo[0].match(/\d+/g)[0]
@@ -161,13 +181,15 @@ export default {
       return arr;
     });
 
-    const result = computed(() => {
-      return getCritCalcResult(boostLevel.value);
+    let result = computed(() => {
+      return getBestThreeWeaponCrit(
+        getCritCalcResult(boostLevel.value, inputInfo)
+      );
     });
 
-    onUpdated(() => {
-      console.log("result.value", result.value);
-    });
+    // onUpdated(() => {
+    //   console.log("result.value", result.value, inputInfo);
+    // });
     return { inputInfo, result };
   },
 };

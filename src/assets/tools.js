@@ -1,5 +1,6 @@
 import { evokerData } from "./uncapData";
 import { newEvokerInfo, critData } from "./data";
+
 const getEvokerPageResult = function (e, v) {
     let result = {};
     let loopGroup = ["tarotUncap", "evokerUncap", "weaponUncap", "domainUncap"];
@@ -122,24 +123,59 @@ const getRatio = function () {
     }
     return ratio;
 };
-
-const getCritCalcResult = function (boostLevel) {
-    console.log(boostLevel);
-    console.log(critData);
-
-    const start = critData;
-    console.log(start);
-
+// 所有暴击选项
+const getCritCalcResult = function (boostLevel, inputInfo) {
     let result = [];
-    for (let i = 0; i < start.length; i++) {
-        const element = start[i];
+    for (let i = 0; i < critData.length; i++) {
+        let element = critData[i];
         if (element.boosted != false) {
-            console.log(element);
-            element.rate = ((boostLevel[0] + 100) / 100) * element.rate;
+            for (let index = 0; index < boostLevel.length; index++) {
+                if (boostLevel[index] != 0) {
+                    if (element.onlyOne && index == 1) continue;
+                    element.boostRate = Number((((boostLevel[index] + 100) / 100) * element.rate).toFixed(2));
+                    result.push(JSON.parse(JSON.stringify(element)));
+                }
+            }
+        } else {
+            if (element.waterOnly && !inputInfo[4]) continue;
+            if (element.sandboxOnly && !inputInfo[3]) continue;
+            element.boostRate = element.rate;
+            result.push(JSON.parse(JSON.stringify(element)));
         }
-        result.push(element);
     }
     return result;
 };
+const getBestThreeWeaponCrit = function (result) {
+    // 三把武器
+    let threeWeaponTemp = [];
+    for (let i = 0; i < result.length; i++) {
+        for (let j = 0; j < result.length; j++) {
+            for (let k = 0; k < result.length; k++) {
+                let totalRate = result[i].boostRate + result[j].boostRate + result[k].boostRate;
+                if (totalRate > 95 && totalRate < 105)
+                    threeWeaponTemp.push(
+                        JSON.stringify(
+                            [
+                                totalRate.toFixed(2),
+                                JSON.stringify(result[i]),
+                                JSON.stringify(result[j]),
+                                JSON.stringify(result[k]),
+                            ].sort()
+                        )
+                    );
+            }
+        }
+    }
+    // 去重后的json数组
+    let threeWeaponResult = [...new Set(threeWeaponTemp)];
+    for (let i = 0; i < threeWeaponResult.length; i++) {
+        threeWeaponResult[i] = JSON.parse(threeWeaponResult[i]);
+        for (let j = 0; j < threeWeaponResult[i].length; j++) {
+            threeWeaponResult[i][j] = JSON.parse(threeWeaponResult[i][j]);
+        }
+    }
 
-export { getEvokerPageResult, getEvokerPagePercent, getRatio, getFlag, getCritCalcResult };
+    return threeWeaponResult.sort((a, b) => b[0] - a[0]);
+};
+
+export { getEvokerPageResult, getEvokerPagePercent, getRatio, getFlag, getCritCalcResult, getBestThreeWeaponCrit };
