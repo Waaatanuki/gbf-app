@@ -163,7 +163,7 @@ export default {
 }
 .leaf {
   width: calc(100% - 270px);
-  min-width: 400px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
 }
