@@ -124,21 +124,25 @@ const getRatio = function () {
     return ratio;
 };
 // 所有暴击选项
-const getCritCalcResult = function (boostLevel, inputInfo) {
+const getCritCalcResult = function (inputInfo) {
+    let boostLevel = [inputInfo[0][0] + inputInfo[1], inputInfo[0][1]];
     let result = [];
     for (let i = 0; i < critData.length; i++) {
-        let element = critData[i];
+        let element = { ...critData[i] };
         if (element.boosted != false) {
             for (let index = 0; index < boostLevel.length; index++) {
                 if (boostLevel[index] != 0) {
-                    if (element.onlyOne && index == 1) continue;
+                    if (element.kamiOnly && index == 1) continue;
+                    if (element.waterOnly && !inputInfo[3]) continue;
+                    if (element.magunaOnly && index == 0) continue;
+                    if (element.sekiyu && !inputInfo[4]) continue;
                     element.boostRate = Number((((boostLevel[index] + 100) / 100) * element.rate).toFixed(2));
                     result.push(JSON.parse(JSON.stringify(element)));
                 }
             }
         } else {
-            if (element.waterOnly && !inputInfo[4]) continue;
-            if (element.sandboxOnly && !inputInfo[3]) continue;
+            if (element.waterOnly && !inputInfo[3]) continue;
+            if (element.sandboxOnly && !inputInfo[2]) continue;
             element.boostRate = element.rate;
             result.push(JSON.parse(JSON.stringify(element)));
         }
