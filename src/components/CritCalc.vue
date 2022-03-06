@@ -318,6 +318,7 @@ button {
   background-color: rgb(100, 166, 219);
   margin: 2px;
   border-radius: 5px;
+  color: black;
 }
 .showTotalCrit {
   display: flex;
