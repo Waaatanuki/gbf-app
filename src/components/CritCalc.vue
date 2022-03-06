@@ -4,7 +4,7 @@
     <div class="input">
       <div>
         加护:
-        <label
+        <label :class="{ goal: inputInfo[0][0] == 300 }"
           ><input
             type="radio"
             name="boostType"
@@ -12,7 +12,7 @@
             :value="[300, 0]"
           />双面神石</label
         >
-        <label
+        <label :class="{ goal: inputInfo[0][0] == 150 }"
           ><input
             type="radio"
             name="boostType"
@@ -20,7 +20,7 @@
             :value="[150, 0]"
           />单面神石</label
         >
-        <label
+        <label :class="{ goal: inputInfo[0][1] == 280 }"
           ><input
             type="radio"
             name="boostType"
@@ -28,7 +28,7 @@
             :value="[0, 280]"
           />双面方阵</label
         >
-        <label
+        <label :class="{ goal: inputInfo[0][1] == 140 }"
           ><input
             type="radio"
             name="boostType"
@@ -36,7 +36,7 @@
             :value="[0, 140]"
           />单面方阵</label
         >
-        <label
+        <label :class="{ goal: inputInfo[0][0] == 0 && inputInfo[0][1] == 0 }"
           ><input
             type="radio"
             name="boostType"
@@ -47,7 +47,7 @@
       </div>
       <div>
         六龙SUB加护:
-        <label
+        <label :class="{ goal: inputInfo[1] == 20 }"
           ><input
             type="radio"
             name="dragon"
@@ -55,7 +55,7 @@
             :value="20"
           />20</label
         >
-        <label
+        <label :class="{ goal: inputInfo[1] == 10 }"
           ><input
             type="radio"
             name="dragon"
@@ -63,7 +63,7 @@
             :value="10"
           />10</label
         >
-        <label
+        <label :class="{ goal: inputInfo[1] == 0 }"
           ><input
             type="radio"
             name="dragon"
@@ -256,7 +256,7 @@ export default {
     };
 
     onUpdated(() => {
-      // console.log("calcItems", calcItems);
+      // console.log("calcItems", inputInfo[0]);
     });
 
     return {
@@ -276,7 +276,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(190, 142, 51);
+  width: 500px;
 }
 .title {
   font-weight: bold;
@@ -299,10 +299,10 @@ export default {
   width: 33%;
 }
 .sRate {
-  background-color: rgb(120, 100, 200);
+  background-color: rgb(100, 100, 200);
 }
 .mRate {
-  background-color: rgb(90, 130, 200);
+  background-color: rgb(123, 146, 200);
 }
 .lRate {
   background-color: rgb(60, 160, 200);
@@ -311,12 +311,13 @@ export default {
   background-color: rgb(30, 190, 200);
 }
 .goal {
-  color: rgb(190, 30, 30);
+  color: orange;
 }
 button {
   width: 70px;
   background-color: rgb(100, 166, 219);
   margin: 2px;
+  border-radius: 5px;
 }
 .showTotalCrit {
   display: flex;

@@ -21,3 +21,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+Vue项目打包部署到GitHub Pages.md
