@@ -1,28 +1,45 @@
 
 <template>
-  <div class="container">
+  <div class="gachacalc">
     <div class="title">攒井计算器</div>
-    <div class="setData">
-      <ul>
-        <li>
-          10连券<input v-model.number="tenTicket" onfocus="this.select()" />
-        </li>
-        <li>
-          单抽券<input v-model.number="sigleTicket" onfocus="this.select()" />
-        </li>
-        <li>
-          宝晶石<input v-model.number="crystal" onfocus="this.select()" />
-        </li>
-        <li>已抽<input v-model.number="drawn" onfocus="this.select()" /></li>
-        <li>
-          梦宝谷点数<input v-model.number="mobacoin" onfocus="this.select()" />
-        </li>
-        <li>==============</li>
-        <li>点数价格<input /></li>
-        <li>对应点数<input /></li>
-      </ul>
+    <div class="show">
+      <div class="setData">
+        <ul>
+          <li>
+            10连券<input v-model.number="tenTicket" onfocus="this.select()" />
+          </li>
+          <li>
+            单抽券<input v-model.number="sigleTicket" onfocus="this.select()" />
+          </li>
+          <li>
+            宝晶石<input v-model.number="crystal" onfocus="this.select()" />
+          </li>
+          <li>已抽<input v-model.number="drawn" onfocus="this.select()" /></li>
+          <li>
+            剩余点数<input v-model.number="mobacoin" onfocus="this.select()" />
+          </li>
+          <li>==============</li>
+          <li>
+            点数价格<input v-model.number="rmb" onfocus="this.select()" />
+          </li>
+          <li>
+            对应点数<input v-model.number="point" onfocus="this.select()" />
+          </li>
+        </ul>
+      </div>
+      <div class="result">
+        <p>
+          当前{{ parseInt(totalCrystal / 90000) }}井 , 下一井需要补{{
+            300 - (totalDraw % 300)
+          }}抽 , 合计{{ 90000 - (totalCrystal % 90000) }}点数
+        </p>
+        <br />
+        <p v-show="rmb && point">
+          对应RMB :
+          {{ parseInt((rmb * (90000 - (totalCrystal % 90000))) / point) }}元
+        </p>
+      </div>
     </div>
-    <div class="output"></div>
   </div>
 </template>
 
@@ -41,79 +58,62 @@ export default {
       mobacoin: 0,
     });
 
-    const needCrystal = computed(() => {
-      const sum =
+    gachaData.totalCrystal = computed(() => {
+      return (
         gachaData.sigleTicket * 300 +
         gachaData.tenTicket * 3000 +
         gachaData.crystal +
         gachaData.drawn * 300 +
-        gachaData.mobacoin;
-
-      return sum;
+        gachaData.mobacoin
+      );
     });
 
-    onUpdated(() => {
-      console.log(needCrystal.value);
+    gachaData.totalDraw = computed(() => {
+      return parseInt(gachaData.totalCrystal / 300);
     });
-    return { ...toRefs(gachaData) };
+    const price = reactive({
+      rmb: 0,
+      point: 0,
+    });
+
+    return { ...toRefs(gachaData), ...toRefs(price) };
   },
 };
 </script>
 
 <style scoped>
-.container {
+.gachacalc {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 500px;
+  padding: 5px;
+  margin: 10px;
 }
 .title {
   font-weight: bold;
   font-size: 20px;
 }
-.setData {
+.show {
+  border: 1px solid;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  margin: 10px;
+}
+.setData {
+  width: 200px;
 }
 input {
   width: 80px;
-  direction: rtl;
 }
 ul {
   text-align: justify;
   text-align-last: justify;
   list-style: none;
 }
-.selectDiv {
-  display: flex;
-}
-.select {
-  display: flex;
-  width: 50%;
-  border: 1px solid;
-  padding: 5px;
-}
-
-.goal {
-  color: orange;
-}
-button {
-  width: 70px;
-  background-color: rgb(100, 166, 219);
-  margin: 2px;
-  border-radius: 5px;
-}
-.showTotalCrit {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  font-size: 20px;
-  align-items: center;
-}
-.showTotalCrit label {
-  height: 10px;
-}
-.clear {
-  background-color: rgb(255, 255, 255);
+.result p {
+  margin: 0px;
+  padding: 0px;
 }
 </style>

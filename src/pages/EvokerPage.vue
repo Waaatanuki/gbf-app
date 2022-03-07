@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="evokerpage">
     <div class="tree"><MaterialInfo :materialInfo="materialInfo" /></div>
     <div class="leaf">
       <EvokerInfo :evokerInfo="evokerInfo" />
@@ -154,10 +154,7 @@ export default {
 </script>
 
 <style scoped>
-.title {
-  color: rgb(184, 175, 175);
-}
-.container {
+.evokerpage {
   display: flex;
   flex-wrap: wrap;
 }
@@ -169,9 +166,9 @@ export default {
 }
 .footer {
   margin-top: 20px;
-  color: white;
+  color: 1a2a3a;
 }
 .footer a {
-  color: white;
+  color: #1a2a3a;
 }
 </style>

@@ -26,7 +26,7 @@ export default {
   background-color: skyblue;
   flex-grow: 1;
   line-height: 30px;
-  color: black;
+  color: #282828;
   text-decoration: none;
   text-align: center;
   border-left: 0.5px solid grey;

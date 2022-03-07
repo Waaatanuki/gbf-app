@@ -24,7 +24,7 @@ const critData = [
     { skillName: "石油弓", level: 20, rate: 11.5, kamiOnly: true, sekiyu: true },
     { skillName: "技巧II", level: 15, rate: 12, kamiOnly: true },
     { skillName: "水龙枪", level: 15, rate: 20, waterOnly: true, boosted: false },
-    { skillName: "转世武器", level: 10, rate: 20, sandboxOnly: true, boosted: false },
-    { skillName: "转世武器", level: 15, rate: 30, sandboxOnly: true, boosted: false },
+    { skillName: "转世武", level: 10, rate: 20, sandboxOnly: true, boosted: false },
+    { skillName: "转世武", level: 15, rate: 30, sandboxOnly: true, boosted: false },
 ];
 export { newEvokerInfo, critData };

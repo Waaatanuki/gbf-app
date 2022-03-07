@@ -1,5 +1,5 @@
 <template>
-  <div class="container"><CritCalc /> <GachaCalc /></div>
+  <div class="otherpage"><CritCalc /> <GachaCalc /></div>
 </template>
 
 <script>
@@ -12,8 +12,9 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.otherpage {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 </style>
