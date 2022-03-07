@@ -291,6 +291,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5px;
+  margin: 5px;
 }
 .input div {
   margin: 5px;

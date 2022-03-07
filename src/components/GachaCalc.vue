@@ -86,8 +86,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5px;
-  margin: 10px;
 }
 .title {
   font-weight: bold;
@@ -99,7 +97,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 5px;
-  margin: 10px;
+  margin: 5px;
 }
 .setData {
   width: 200px;
