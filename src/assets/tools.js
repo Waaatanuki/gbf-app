@@ -257,10 +257,12 @@ function importFromJson(idbDatabase, jsonString, cb) {
             let count = 0;
 
             const aux = Array.from(importObject[storeName] || []);
-
             if (importObject[storeName] && aux.length > 0) {
                 aux.forEach(toAdd => {
-                    const request = transaction.objectStore(storeName).add(toAdd);
+                    console.log(Object.keys(toAdd)[0]);
+                    const request = transaction
+                        .objectStore(storeName)
+                        .add(toAdd[Object.keys(toAdd)[0]], Object.keys(toAdd)[0]);
                     request.onsuccess = () => {
                         count++;
                         if (count === importObject[storeName].length) {

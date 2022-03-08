@@ -9,9 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "indexeddb-export-import": "^2.1.5",
     "localforage": "^1.10.0",
-    "mitt": "^3.0.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13"
   },

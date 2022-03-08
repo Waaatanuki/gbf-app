@@ -6,7 +6,6 @@
 
 <script>
 import localforage from "localforage";
-import IDBExportImport from "indexeddb-export-import";
 import { exportToJson, importFromJson, clearDatabase } from "../assets/tools";
 export default {
   name: "HihiiroSuki",
