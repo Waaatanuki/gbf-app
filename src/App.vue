@@ -1,6 +1,5 @@
 <template>
   <NavigationBar />
-  <!-- <EvokerPage /> -->
 </template>
 
 <script>

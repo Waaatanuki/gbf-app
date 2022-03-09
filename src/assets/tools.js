@@ -262,7 +262,7 @@ function importFromJson(idbDatabase, jsonString, cb) {
                     console.log(Object.keys(toAdd)[0]);
                     const request = transaction
                         .objectStore(storeName)
-                        .add(toAdd[Object.keys(toAdd)[0]], Object.keys(toAdd)[0]);
+                        .put(toAdd[Object.keys(toAdd)[0]], Object.keys(toAdd)[0]);
                     request.onsuccess = () => {
                         count++;
                         if (count === importObject[storeName].length) {
@@ -323,6 +323,49 @@ function clearDatabase(idbDatabase, cb) {
     }
 }
 
+function getHihiiroShowData(rawData) {
+    rawData.sort(function (a, b) {
+        return Object.keys(a)[0] - Object.keys(b)[0];
+    });
+    const raidNameList = ["cb", "tuyobaha", "akx", "gurande"];
+    const showData = [{}, {}, {}, {}];
+
+    // 初始化
+    for (let i = 0; i < raidNameList.length; i++) {
+        showData[i].count = 0;
+        showData[i].blueChestCount = 0;
+        showData[i].redChestFFJ = 0;
+        showData[i].blueChestFFJ = 0;
+        showData[i].normalChestFFJ = 0;
+        showData[i].totalFFJ = 0;
+        showData[i].whiteRing = 0;
+        showData[i].blackRing = 0;
+        showData[i].redRing = 0;
+        showData[i].lastCount = 0;
+        showData[i].lastBlueChestCount = 0;
+    }
+    for (let i = 0; i < rawData.length; i++) {
+        const item = rawData[i];
+        const key = Object.keys(item)[0];
+        const value = item[key];
+        const dataNo = raidNameList.indexOf(value.raidName);
+        showData[dataNo].count++;
+        value.blueChests && showData[dataNo].blueChestCount++;
+        value.goldBrick == 4 && showData[dataNo].redChestFFJ++;
+        value.goldBrick == 11 && showData[dataNo].blueChestFFJ++;
+        value.goldBrick == 3 && showData[dataNo].normalChestFFJ++;
+        showData[dataNo].totalFFJ =
+            showData[dataNo].redChestFFJ + showData[dataNo].blueChestFFJ + showData[dataNo].normalChestFFJ;
+        value.blueChests == "73_1" && showData[dataNo].whiteRing++;
+        value.blueChests == "73_2" && showData[dataNo].blackRing++;
+        value.blueChests == "73_3" && showData[dataNo].redRing++;
+        showData[dataNo].lastCount = value.goldBrick ? 0 : showData[dataNo].lastCount++;
+        showData[dataNo].lastBlueChestCount =
+            value.blueChests == "17_20004" ? 0 : showData[dataNo].lastBlueChestCount++;
+    }
+    return showData;
+}
+
 export {
     getEvokerPageResult,
     getEvokerPagePercent,
@@ -333,4 +376,5 @@ export {
     exportToJson,
     importFromJson,
     clearDatabase,
+    getHihiiroShowData,
 };
