@@ -334,6 +334,7 @@ button {
   margin: 2px;
   border-radius: 5px;
   color: black;
+  font-size: 13.3333px;
 }
 .showTotalCrit {
   display: flex;

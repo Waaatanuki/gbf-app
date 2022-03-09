@@ -1,15 +1,14 @@
 <template>
   <div class="hihiirrosuki">
     <div class="raid" v-for="(raid, index) in showData" :key="index">
-      <div class="title itemlist">{{ RAID_NAME[index] }}</div>
+      <div class="title">
+        <img :src="`./img/raid/${RAID_NAME[index]}.jpg`" />
+      </div>
       <div class="itemlist">
         <div class="item">总次数：{{ raid.count }}</div>
         <div class="item" v-if="index != 0">
           蓝箱次数：{{ raid.blueChestCount }}
         </div>
-      </div>
-      <div class="itemlist">
-        <div class="item">总金：{{ raid.totalFFJ }}</div>
         <div class="item" v-if="index == 0">自发金：{{ raid.redChestFFJ }}</div>
         <div class="item" v-if="index != 0">
           蓝箱金：{{ raid.blueChestFFJ }}
@@ -18,22 +17,40 @@
           金箱金：{{ raid.normalChestFFJ }}
         </div>
       </div>
-      <div class="itemlist" v-if="index == 1">
+      <div class="itemlist" v-if="index != 0">
+        <div class="item">
+          总金率：{{
+            ((raid.blueChestFFJ / raid.count || 0) * 100).toFixed(2)
+          }}%
+        </div>
+        <div class="item">
+          蓝箱率：{{
+            ((raid.blueChestCount / raid.count || 0) * 100).toFixed(2)
+          }}%
+        </div>
+        <div class="item">
+          蓝箱金率：{{
+            ((raid.blueChestFFJ / raid.blueChestCount || 0) * 100).toFixed(2)
+          }}%
+        </div>
+      </div>
+      <div class="itemlist" v-if="index != 0">
         <div class="item">白戒指：{{ raid.whiteRing }}</div>
         <div class="item">黑戒指：{{ raid.blackRing }}</div>
         <div class="item">红戒指：{{ raid.redChestFFJ }}</div>
       </div>
       <div class="itemlist">
-        <div class="item">距离上次出金已经过去了{{ raid.lastCount }}次</div>
-      </div>
-      <div class="itemlist">
-        <div class="item" v-if="index != 0">
-          距离上次出金已经过去了{{ raid.lastBlueChestCount }}蓝箱
+        <div class="item longitem" v-if="index != 0">
+          距离上次出金已经过去了{{ raid.lastCount }}把{{
+            raid.lastBlueChestCount
+          }}个蓝箱
+        </div>
+        <div class="item longitem" v-if="index == 0">
+          距离上次出金已经过去了{{ raid.lastCount }}把
         </div>
       </div>
     </div>
-
-    <button @click="demo">测试</button>
+    <div class="raid result">总掉落FFJ：{{ totalFFJ }}</div>
   </div>
 </template>
 
@@ -70,13 +87,19 @@ export default {
 
     const showData = computed(() => getHihiiroShowData(rawData));
 
-    const RAID_NAME = ["超巴", "大巴", "阿卡夏", "大公"];
+    const totalFFJ = computed(() => {
+      return showData.value.reduce(function (total, kv) {
+        return total + kv.totalFFJ;
+      }, 0);
+    });
 
-    const demo = function () {
-      console.log(showData.value);
-    };
+    const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
 
-    return { showData, RAID_NAME, demo };
+    // const demo = function () {
+    //   console.log(showData.value);
+    // };
+
+    return { showData, RAID_NAME, totalFFJ };
   },
 };
 </script>
@@ -86,30 +109,42 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  direction: column;
   padding: 5px;
 }
 .raid {
   width: 48%;
-  height: 300px;
   background-color: wheat;
   margin: 5px;
   border: 1px solid;
   display: flex;
   flex-direction: column;
 }
+
+img {
+  width: 90%;
+}
 .title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 .itemlist {
   display: flex;
   justify-content: center;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .item {
   width: 50%;
+}
+.longitem {
+  width: 100%;
+}
+.result {
+  width: 50%;
+  background-color: rgb(255, 217, 0);
+  line-height: 50px;
+  font-size: 25px;
+  font-weight: bold;
 }
 </style>>

@@ -74,6 +74,9 @@ export default {
   border-radius: 0.5em;
   width: 120px;
 }
+select {
+  font-size: 13.3333px;
+}
 .item img {
   width: 100%;
 }

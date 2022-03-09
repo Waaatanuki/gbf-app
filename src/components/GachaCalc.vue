@@ -104,6 +104,7 @@ export default {
 }
 input {
   width: 80px;
+  font-size: 13.3333px;
 }
 ul {
   text-align: justify;

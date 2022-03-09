@@ -23,5 +23,6 @@ body {
   margin: 0;
   background-color: #f0ebe6;
   color: #1a2a3a;
+  font-size: 13.3333px;
 }
 </style>

@@ -329,7 +329,6 @@ function getHihiiroShowData(rawData) {
     });
     const raidNameList = ["cb", "tuyobaha", "akx", "gurande"];
     const showData = [{}, {}, {}, {}];
-
     // 初始化
     for (let i = 0; i < raidNameList.length; i++) {
         showData[i].count = 0;
@@ -348,6 +347,7 @@ function getHihiiroShowData(rawData) {
         const item = rawData[i];
         const key = Object.keys(item)[0];
         const value = item[key];
+
         const dataNo = raidNameList.indexOf(value.raidName);
         showData[dataNo].count++;
         value.blueChests && showData[dataNo].blueChestCount++;
@@ -359,9 +359,13 @@ function getHihiiroShowData(rawData) {
         value.blueChests == "73_1" && showData[dataNo].whiteRing++;
         value.blueChests == "73_2" && showData[dataNo].blackRing++;
         value.blueChests == "73_3" && showData[dataNo].redRing++;
-        showData[dataNo].lastCount = value.goldBrick ? 0 : showData[dataNo].lastCount++;
+        showData[dataNo].lastCount = value.goldBrick ? 0 : showData[dataNo].lastCount + 1;
         showData[dataNo].lastBlueChestCount =
-            value.blueChests == "17_20004" ? 0 : showData[dataNo].lastBlueChestCount++;
+            value.blueChests == "17_20004"
+                ? 0
+                : value.blueChests
+                ? showData[dataNo].lastBlueChestCount + 1
+                : showData[dataNo].lastBlueChestCount;
     }
     return showData;
 }

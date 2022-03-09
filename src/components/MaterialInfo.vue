@@ -65,4 +65,7 @@ export default {
   margin-top: 15px;
   margin-left: 7px;
 }
+input {
+  font-size: 13.3333px;
+}
 </style>
