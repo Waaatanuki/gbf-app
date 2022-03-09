@@ -113,7 +113,7 @@ export default {
   padding: 5px;
 }
 .raid {
-  width: 48%;
+  width: 600px;
   background-color: wheat;
   margin: 5px;
   border: 1px solid;
