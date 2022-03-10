@@ -1,5 +1,6 @@
 import { evokerData } from "./uncapData";
 import { newEvokerInfo, critData } from "./data";
+import Papa from "papaparse";
 
 const getEvokerPageResult = function (e, v) {
     let result = {};
@@ -369,7 +370,45 @@ function getHihiiroShowData(rawData) {
     }
     return showData;
 }
-
+function exportCsv(itemList) {
+    console.log(itemList);
+    var csv = Papa.unparse(itemList);
+    let content = new Blob([csv]);
+    let urlObject = window.URL || window.webkitURL || window;
+    let url = urlObject.createObjectURL(content);
+    let el = document.createElement("a");
+    el.href = url;
+    el.download = "文件导出.cvs";
+    el.click();
+    urlObject.revokeObjectURL(url);
+}
+function importCsv() {
+    console.log(123);
+    let selectedFile = null;
+    selectedFile = this.$refs.refFile.files[0];
+    if (selectedFile === undefined) {
+        return;
+    }
+    var reader = new FileReader();
+    reader.readAsDataURL(selectedFile);
+    reader.onload = evt => {
+        // 检查编码
+        // let encoding = this.checkEncoding(evt.target.result);
+        // 将csv转换成二维数组
+        Papa.parse(selectedFile, {
+            encoding: "ANSI",
+            complete: res => {
+                // UTF8 \r\n与\n混用时有可能会出问题
+                let data = res.data;
+                if (data[data.length - 1] == "") {
+                    //去除最后的空行
+                    data.pop();
+                }
+                console.log(data); // data就是文件里面的数据
+            },
+        });
+    };
+}
 export {
     getEvokerPageResult,
     getEvokerPagePercent,
@@ -381,4 +420,6 @@ export {
     importFromJson,
     clearDatabase,
     getHihiiroShowData,
+    exportCsv,
+    importCsv,
 };

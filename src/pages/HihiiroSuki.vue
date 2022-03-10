@@ -52,18 +52,19 @@
         </div>
       </div>
     </div>
-    <div class="raid result">总掉落FFJ：{{ totalFFJ }}</div>
+    <div class="raid result">
+      总掉落FFJ：{{ totalFFJ }}
+      <div class="outin">
+        <button>导入</button><button @click="exportCsv(rawData)">导出</button>
+        <input type="file" v-on:change="importCsv" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import localforage from "localforage";
-import {
-  exportToJson,
-  importFromJson,
-  clearDatabase,
-  getHihiiroShowData,
-} from "../assets/tools";
+import { getHihiiroShowData, exportCsv, importCsv } from "../assets/tools";
 import { computed, reactive } from "vue";
 export default {
   name: "HihiiroSuki",
@@ -97,11 +98,7 @@ export default {
 
     const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
 
-    // const demo = function () {
-    //   console.log(showData.value);
-    // };
-
-    return { showData, RAID_NAME, totalFFJ };
+    return { showData, RAID_NAME, totalFFJ, exportCsv, importCsv };
   },
 };
 </script>
@@ -111,7 +108,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  direction: column;
   padding: 5px;
 }
 .raid {
@@ -149,5 +145,8 @@ img {
   line-height: 50px;
   font-size: 25px;
   font-weight: bold;
+}
+button {
+  margin: 10px;
 }
 </style>>
