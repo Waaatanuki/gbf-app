@@ -9,7 +9,9 @@
         <div class="item" v-if="index != 0">
           蓝箱次数：{{ raid.blueChestCount }}
         </div>
-        <div class="item" v-if="index == 0">自发金：{{ raid.redChestFFJ }}</div>
+        <div class="item" v-if="index == 0 || index == 1">
+          自发金：{{ raid.redChestFFJ }}
+        </div>
         <div class="item" v-if="index != 0">
           蓝箱金：{{ raid.blueChestFFJ }}
         </div>
@@ -113,7 +115,7 @@ export default {
   padding: 5px;
 }
 .raid {
-  width: 600px;
+  width: 400px;
   background-color: wheat;
   margin: 5px;
   border: 1px solid;
@@ -142,6 +144,7 @@ img {
 }
 .result {
   width: 50%;
+  height: 50px;
   background-color: rgb(255, 217, 0);
   line-height: 50px;
   font-size: 25px;
