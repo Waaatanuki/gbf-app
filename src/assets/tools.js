@@ -371,14 +371,14 @@ function getHihiiroShowData(rawData) {
     return showData;
 }
 function exportCsv(itemList) {
-    console.log(itemList);
-    var csv = Papa.unparse(itemList);
-    let content = new Blob([csv]);
+    const data = JSON.stringify(itemList);
+
+    let content = new Blob([data]);
     let urlObject = window.URL || window.webkitURL || window;
     let url = urlObject.createObjectURL(content);
     let el = document.createElement("a");
     el.href = url;
-    el.download = "文件导出.cvs";
+    el.download = "文件导出.json";
     el.click();
     urlObject.revokeObjectURL(url);
 }

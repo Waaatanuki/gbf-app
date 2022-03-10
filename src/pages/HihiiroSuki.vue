@@ -64,7 +64,12 @@
 
 <script>
 import localforage from "localforage";
-import { getHihiiroShowData, exportCsv, importCsv } from "../assets/tools";
+import {
+  getHihiiroShowData,
+  exportCsv,
+  importCsv,
+  importFromJson,
+} from "../assets/tools";
 import { computed, reactive } from "vue";
 export default {
   name: "HihiiroSuki",
@@ -98,7 +103,7 @@ export default {
 
     const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
 
-    return { showData, RAID_NAME, totalFFJ, exportCsv, importCsv };
+    return { showData, RAID_NAME, rawData, totalFFJ, exportCsv, importCsv };
   },
 };
 </script>
