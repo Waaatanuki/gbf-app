@@ -1,6 +1,11 @@
 <template>
-  <div class="hihiirrosuki">
-    <div class="raid" v-for="(raid, index) in showData" :key="index">
+  <div class="hihiirrosuki" v-show="!showDetail">
+    <div
+      class="raid"
+      v-for="(raid, index) in showData"
+      :key="index"
+      @click="demo(RAID_NAME[index])"
+    >
       <div class="title">
         <img :src="`./img/raid/${RAID_NAME[index]}.jpg`" />
       </div>
@@ -52,7 +57,7 @@
         </div>
       </div>
     </div>
-    <div class="raid result">
+    <div class="result">
       总掉落FFJ：{{ totalFFJ }}
       <div class="outin">
         <button @click="exportJSONFile(rawData)">导出</button>
@@ -66,6 +71,8 @@
       </div>
     </div>
   </div>
+  <button v-show="showDetail" @click="backButton">返回</button>
+  <router-view v-show="showDetail"></router-view>
 </template>
 
 <script>
@@ -75,11 +82,12 @@ import {
   exportJSONFile,
   importJSONFile,
 } from "../assets/tools";
-import { computed, reactive, ref } from "vue";
+import { computed, reactive, ref, onUpdated, onMounted } from "vue";
+import router from "@/router";
 export default {
   name: "HihiiroSuki",
 
-  setup() {
+  setup(a, b) {
     localforage.config({
       name: "gbfApp",
       storeName: "GoldBrick",
@@ -97,21 +105,38 @@ export default {
         console.log(err);
       });
 
-    const showUploadButton = ref(0);
-    const showData = computed(() => getHihiiroShowData(rawData));
+    let showUploadButton = ref(0);
+    let showDetail = ref(0);
+    const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
 
+    const showData = computed(() => getHihiiroShowData(rawData));
     const totalFFJ = computed(() => {
       return showData.value.reduce(function (total, kv) {
         return total + kv.totalFFJ;
       }, 0);
     });
 
-    const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
-
     const uploadFile = function ({ target }) {
       importJSONFile(target);
       location.reload();
     };
+
+    const demo = function (index) {
+      showDetail.value = !showDetail.value;
+      // console.log(index);
+      // console.log(showDetail);
+      router.push({ name: index });
+    };
+    const backButton = function (index) {
+      showDetail.value = !showDetail.value;
+      router.back();
+    };
+    // onUpdated(() => {
+    //   for (let i = 0; i < RAID_NAME.length; i++) {
+    //     showDetail.value =
+    //       document.URL.indexOf(RAID_NAME[i]) != -1 ? true : false;
+    //   }
+    // });
 
     return {
       showData,
@@ -122,6 +147,9 @@ export default {
       importJSONFile,
       showUploadButton,
       uploadFile,
+      demo,
+      backButton,
+      showDetail,
     };
   },
 };
@@ -142,7 +170,9 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
+.raid:hover {
+  background-color: rgb(248, 191, 85);
+}
 img {
   width: 90%;
 }
@@ -165,6 +195,8 @@ img {
 .result {
   width: 50%;
   height: 50px;
+  margin: 5px;
+  border: 1px solid;
   background-color: rgb(255, 217, 0);
   line-height: 50px;
   font-size: 25px;
