@@ -39,7 +39,7 @@
       <div class="itemlist" v-if="index != 0">
         <div class="item">白戒指：{{ raid.whiteRing }}</div>
         <div class="item">黑戒指：{{ raid.blackRing }}</div>
-        <div class="item">红戒指：{{ raid.redChestFFJ }}</div>
+        <div class="item">红戒指：{{ raid.redRing }}</div>
       </div>
       <div class="itemlist">
         <div class="item longitem" v-if="index != 0">
