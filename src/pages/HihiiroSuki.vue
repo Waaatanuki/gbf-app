@@ -55,8 +55,14 @@
     <div class="raid result">
       总掉落FFJ：{{ totalFFJ }}
       <div class="outin">
-        <button>导入</button><button @click="exportCsv(rawData)">导出</button>
-        <input type="file" v-on:change="importCsv" />
+        <button @click="exportJSONFile(rawData)">导出</button>
+        <button @click="showUploadButton = 1">导入</button>
+        <input
+          type="file"
+          accept=".json"
+          v-show="showUploadButton"
+          v-on:change="uploadFile"
+        />
       </div>
     </div>
   </div>
@@ -66,11 +72,10 @@
 import localforage from "localforage";
 import {
   getHihiiroShowData,
-  exportCsv,
-  importCsv,
-  importFromJson,
+  exportJSONFile,
+  importJSONFile,
 } from "../assets/tools";
-import { computed, reactive } from "vue";
+import { computed, reactive, ref } from "vue";
 export default {
   name: "HihiiroSuki",
 
@@ -81,7 +86,6 @@ export default {
     });
 
     const rawData = reactive([]);
-
     localforage
       .iterate(function (value, key) {
         rawData.push({ [key]: value });
@@ -93,6 +97,7 @@ export default {
         console.log(err);
       });
 
+    const showUploadButton = ref(0);
     const showData = computed(() => getHihiiroShowData(rawData));
 
     const totalFFJ = computed(() => {
@@ -103,7 +108,21 @@ export default {
 
     const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
 
-    return { showData, RAID_NAME, rawData, totalFFJ, exportCsv, importCsv };
+    const uploadFile = function ({ target }) {
+      importJSONFile(target);
+      location.reload();
+    };
+
+    return {
+      showData,
+      RAID_NAME,
+      rawData,
+      totalFFJ,
+      exportJSONFile,
+      importJSONFile,
+      showUploadButton,
+      uploadFile,
+    };
   },
 };
 </script>

@@ -1,6 +1,5 @@
 import { evokerData } from "./uncapData";
 import { newEvokerInfo, critData } from "./data";
-import Papa from "papaparse";
 
 const getEvokerPageResult = function (e, v) {
     let result = {};
@@ -260,7 +259,7 @@ function importFromJson(idbDatabase, jsonString, cb) {
             const aux = Array.from(importObject[storeName] || []);
             if (importObject[storeName] && aux.length > 0) {
                 aux.forEach(toAdd => {
-                    console.log(Object.keys(toAdd)[0]);
+                    // console.log(Object.keys(toAdd)[0]);
                     const request = transaction
                         .objectStore(storeName)
                         .put(toAdd[Object.keys(toAdd)[0]], Object.keys(toAdd)[0]);
@@ -345,68 +344,94 @@ function getHihiiroShowData(rawData) {
         showData[i].lastBlueChestCount = 0;
     }
     for (let i = 0; i < rawData.length; i++) {
-        const item = rawData[i];
-        const key = Object.keys(item)[0];
-        const value = item[key];
+        try {
+            const item = rawData[i];
+            const key = Object.keys(item)[0];
+            const value = item[key];
 
-        const dataNo = raidNameList.indexOf(value.raidName);
-        showData[dataNo].count++;
-        value.blueChests && showData[dataNo].blueChestCount++;
-        value.goldBrick == 4 && showData[dataNo].redChestFFJ++;
-        value.goldBrick == 11 && showData[dataNo].blueChestFFJ++;
-        value.goldBrick == 3 && showData[dataNo].normalChestFFJ++;
-        showData[dataNo].totalFFJ =
-            showData[dataNo].redChestFFJ + showData[dataNo].blueChestFFJ + showData[dataNo].normalChestFFJ;
-        value.blueChests == "73_1" && showData[dataNo].whiteRing++;
-        value.blueChests == "73_2" && showData[dataNo].blackRing++;
-        value.blueChests == "73_3" && showData[dataNo].redRing++;
-        showData[dataNo].lastCount = value.goldBrick ? 0 : showData[dataNo].lastCount + 1;
-        showData[dataNo].lastBlueChestCount =
-            value.blueChests == "17_20004"
-                ? 0
-                : value.blueChests
-                ? showData[dataNo].lastBlueChestCount + 1
-                : showData[dataNo].lastBlueChestCount;
+            const dataNo = raidNameList.indexOf(value.raidName);
+            showData[dataNo].count++;
+            value.blueChests && showData[dataNo].blueChestCount++;
+            value.goldBrick == 4 && showData[dataNo].redChestFFJ++;
+            value.goldBrick == 11 && showData[dataNo].blueChestFFJ++;
+            value.goldBrick == 3 && showData[dataNo].normalChestFFJ++;
+            showData[dataNo].totalFFJ =
+                showData[dataNo].redChestFFJ + showData[dataNo].blueChestFFJ + showData[dataNo].normalChestFFJ;
+            value.blueChests == "73_1" && showData[dataNo].whiteRing++;
+            value.blueChests == "73_2" && showData[dataNo].blackRing++;
+            value.blueChests == "73_3" && showData[dataNo].redRing++;
+            showData[dataNo].lastCount = value.goldBrick ? 0 : showData[dataNo].lastCount + 1;
+            showData[dataNo].lastBlueChestCount =
+                value.blueChests == "17_20004"
+                    ? 0
+                    : value.blueChests
+                    ? showData[dataNo].lastBlueChestCount + 1
+                    : showData[dataNo].lastBlueChestCount;
+        } catch (error) {
+            console.log("数据异常");
+        }
     }
     return showData;
 }
-function exportCsv(itemList) {
-    const data = JSON.stringify(itemList);
-
-    let content = new Blob([data]);
-    let urlObject = window.URL || window.webkitURL || window;
-    let url = urlObject.createObjectURL(content);
-    let el = document.createElement("a");
-    el.href = url;
-    el.download = "文件导出.json";
-    el.click();
-    urlObject.revokeObjectURL(url);
+function exportJSONFile(itemList) {
+    if (itemList.length == 0) {
+        alert("没有数据");
+    } else {
+        const data = JSON.stringify(itemList);
+        let content = new Blob([data]);
+        let urlObject = window.URL || window.webkitURL || window;
+        let url = urlObject.createObjectURL(content);
+        let el = document.createElement("a");
+        el.href = url;
+        el.download = "gbfApp_金本统计数据.json";
+        el.click();
+        urlObject.revokeObjectURL(url);
+    }
 }
-function importCsv() {
-    console.log(123);
+function importJSONFile(target) {
     let selectedFile = null;
-    selectedFile = this.$refs.refFile.files[0];
+    selectedFile = target.files[0];
     if (selectedFile === undefined) {
         return;
     }
+    if (selectedFile.type !== "application/json") {
+        alert("文件格式不对");
+        target.value = "";
+        return;
+    }
     var reader = new FileReader();
-    reader.readAsDataURL(selectedFile);
-    reader.onload = evt => {
-        // 检查编码
-        // let encoding = this.checkEncoding(evt.target.result);
-        // 将csv转换成二维数组
-        Papa.parse(selectedFile, {
-            encoding: "ANSI",
-            complete: res => {
-                // UTF8 \r\n与\n混用时有可能会出问题
-                let data = res.data;
-                if (data[data.length - 1] == "") {
-                    //去除最后的空行
-                    data.pop();
+
+    reader.readAsText(selectedFile);
+    reader.onload = function () {
+        let data = JSON.parse(this.result);
+        const DBOpenRequest = window.indexedDB.open("gbfApp");
+        let db;
+
+        DBOpenRequest.onupgradeneeded = function (event) {
+            db = event.target.result;
+            if (!db.objectStoreNames.contains("GoldBrick")) {
+                db.createObjectStore("GoldBrick");
+            }
+        };
+        DBOpenRequest.onsuccess = async function (event) {
+            db = DBOpenRequest.result;
+
+            const jsonstr = {
+                GoldBrick: [],
+            };
+
+            for (let i = 0; i < data.length; i++) {
+                const element = data[i];
+                const key = Object.keys(element)[0];
+                jsonstr.GoldBrick.push({ [key]: element[key] });
+            }
+
+            importFromJson(db, JSON.stringify(jsonstr), function (err) {
+                if (!err) {
+                    alert("导入成功");
                 }
-                console.log(data); // data就是文件里面的数据
-            },
-        });
+            });
+        };
     };
 }
 export {
@@ -420,6 +445,6 @@ export {
     importFromJson,
     clearDatabase,
     getHihiiroShowData,
-    exportCsv,
-    importCsv,
+    exportJSONFile,
+    importJSONFile,
 };
