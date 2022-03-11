@@ -19,28 +19,6 @@ const routes = [
         path: "/hihiirosuki",
         name: "HihiiroSuki",
         component: HihiiroSuki,
-        children: [
-            {
-                path: "cb",
-                name: "cb",
-                component: HihiiroSukiDetail,
-            },
-            {
-                path: "tuyobaha",
-                name: "tuyobaha",
-                component: HihiiroSukiDetail,
-            },
-            {
-                path: "akx",
-                name: "akx",
-                component: HihiiroSukiDetail,
-            },
-            {
-                path: "gurande",
-                name: "gurande",
-                component: HihiiroSukiDetail,
-            },
-        ],
     },
     {
         path: "/otherpage",

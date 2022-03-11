@@ -6,7 +6,11 @@
     <router-link active-class="active" to="/otherpage">杂项</router-link>
   </div>
   <hr />
-  <router-view></router-view>
+  <router-view v-slot="{ Component }">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
 </template>
 
 <script>

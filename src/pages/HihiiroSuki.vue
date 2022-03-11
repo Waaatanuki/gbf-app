@@ -1,10 +1,10 @@
 <template>
-  <div class="hihiirrosuki" v-show="!showDetail">
+  <div class="hihiirrosuki">
     <div
       class="raid"
       v-for="(raid, index) in showData"
       :key="index"
-      @click="demo(RAID_NAME[index])"
+      @click="goDetailPage(RAID_NAME[index])"
     >
       <div class="title">
         <img :src="`./img/raid/${RAID_NAME[index]}.jpg`" />
@@ -26,9 +26,7 @@
       </div>
       <div class="itemlist" v-if="index != 0">
         <div class="item">
-          总金率：{{
-            ((raid.blueChestFFJ / raid.count || 0) * 100).toFixed(2)
-          }}%
+          总金率：{{ ((raid.totalFFJ / raid.count || 0) * 100).toFixed(2) }}%
         </div>
         <div class="item">
           蓝箱率：{{
@@ -71,8 +69,6 @@
       </div>
     </div>
   </div>
-  <button v-show="showDetail" @click="backButton">返回</button>
-  <router-view v-show="showDetail"></router-view>
 </template>
 
 <script>
@@ -82,8 +78,8 @@ import {
   exportJSONFile,
   importJSONFile,
 } from "../assets/tools";
-import { computed, reactive, ref, onUpdated, onMounted } from "vue";
-import router from "@/router";
+import { computed, reactive, ref, onUpdated } from "vue";
+
 export default {
   name: "HihiiroSuki",
 
@@ -106,7 +102,6 @@ export default {
       });
 
     let showUploadButton = ref(0);
-    let showDetail = ref(0);
     const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
 
     const showData = computed(() => getHihiiroShowData(rawData));
@@ -121,16 +116,8 @@ export default {
       location.reload();
     };
 
-    const demo = function (index) {
-      showDetail.value = !showDetail.value;
-      // console.log(index);
-      // console.log(showDetail);
-      router.push({ name: index });
-    };
-    const backButton = function (index) {
-      showDetail.value = !showDetail.value;
-      router.back();
-    };
+    const goDetailPage = function (index) {};
+
     // onUpdated(() => {
     //   for (let i = 0; i < RAID_NAME.length; i++) {
     //     showDetail.value =
@@ -147,9 +134,7 @@ export default {
       importJSONFile,
       showUploadButton,
       uploadFile,
-      demo,
-      backButton,
-      showDetail,
+      goDetailPage,
     };
   },
 };
