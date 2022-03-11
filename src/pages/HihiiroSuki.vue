@@ -1,11 +1,6 @@
 <template>
-  <div class="hihiirrosuki">
-    <div
-      class="raid"
-      v-for="(raid, index) in showData"
-      :key="index"
-      @click="goDetailPage(RAID_NAME[index])"
-    >
+  <div class="hihiirrosuki" v-show="!showDetail">
+    <div class="raid" v-for="(raid, index) in showData" :key="index">
       <div class="title">
         <img :src="`./img/raid/${RAID_NAME[index]}.jpg`" />
       </div>
@@ -69,6 +64,7 @@
       </div>
     </div>
   </div>
+  <HihiiroSukiDetail :showData="showData" v-show="showDetail" />
 </template>
 
 <script>
@@ -78,12 +74,15 @@ import {
   exportJSONFile,
   importJSONFile,
 } from "../assets/tools";
+import HihiiroSukiDetail from "../components/HihiiroSukiDetail.vue";
 import { computed, reactive, ref, onUpdated } from "vue";
 
 export default {
   name: "HihiiroSuki",
-
-  setup(a, b) {
+  components: {
+    HihiiroSukiDetail,
+  },
+  setup() {
     localforage.config({
       name: "gbfApp",
       storeName: "GoldBrick",
@@ -102,6 +101,7 @@ export default {
       });
 
     let showUploadButton = ref(0);
+    let showDetail = ref(0);
     const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
 
     const showData = computed(() => getHihiiroShowData(rawData));
@@ -113,10 +113,11 @@ export default {
 
     const uploadFile = function ({ target }) {
       importJSONFile(target);
-      location.reload();
     };
 
-    const goDetailPage = function (index) {};
+    const goDetailPage = function (index) {
+      showDetail.value = true;
+    };
 
     // onUpdated(() => {
     //   for (let i = 0; i < RAID_NAME.length; i++) {
@@ -133,6 +134,7 @@ export default {
       exportJSONFile,
       importJSONFile,
       showUploadButton,
+      showDetail,
       uploadFile,
       goDetailPage,
     };

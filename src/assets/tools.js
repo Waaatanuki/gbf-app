@@ -255,7 +255,6 @@ function importFromJson(idbDatabase, jsonString, cb) {
 
         objectStoreNames.forEach(storeName => {
             let count = 0;
-
             const aux = Array.from(importObject[storeName] || []);
             if (importObject[storeName] && aux.length > 0) {
                 aux.forEach(toAdd => {
@@ -428,6 +427,7 @@ function importJSONFile(target) {
 
             importFromJson(db, JSON.stringify(jsonstr), function (err) {
                 if (!err) {
+                    location.reload();
                     alert("导入成功");
                 }
             });

@@ -3,7 +3,6 @@ import OtherPage from "../pages/OtherPage.vue";
 import HomePage from "../pages/HomePage.vue";
 import EvokerPage from "../pages/EvokerPage.vue";
 import HihiiroSuki from "../pages/HihiiroSuki.vue";
-import HihiiroSukiDetail from "../components/HihiiroSukiDetail.vue";
 const routes = [
     {
         path: "/",

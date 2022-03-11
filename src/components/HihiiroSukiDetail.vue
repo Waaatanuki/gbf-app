@@ -1,6 +1,5 @@
 <template>
-  <h1>hello{{ raid }}</h1>
-  <button @click="raid = !raid">1111</button>
+  <h1>hello</h1>
 </template>
 
 <script>
@@ -17,17 +16,8 @@ import router from "../router";
 import { useRoute } from "vue-router";
 export default {
   name: "HihiiroSukiDetail",
-  props: ["raid"],
-  setup() {
-    const demo = function () {};
-
-    onBeforeUnmount(() => {
-      console.log("son due");
-      router.replace({
-        name: "HihiiroSuki",
-      });
-    });
-  },
+  props: ["showData"],
+  setup() {},
 };
 </script>
 
