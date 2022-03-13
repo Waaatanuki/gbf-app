@@ -86,7 +86,7 @@ export default {
                 },
                 padding: {
                   top: 20,
-                  bottom: 10,
+                  bottom: 20,
                 },
               },
               scales: {
@@ -132,8 +132,8 @@ export default {
                   size: 20,
                 },
                 padding: {
-                  top: 30,
-                  bottom: 10,
+                  top: 20,
+                  bottom: 20,
                 },
               },
               scales: {

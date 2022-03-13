@@ -575,7 +575,7 @@ function getHihiiroDetailBlueChestData({ rawData }) {
                 showData[dataNo].labels.push(showData[dataNo].labels[showData[dataNo].labels.length - 1] + 1);
                 showData[dataNo].count.push(0);
             } else {
-                showData[dataNo].count[showData[dataNo].count.length - 1]++;
+                value.blueChests && showData[dataNo].count[showData[dataNo].count.length - 1]++;
             }
         }
     }
