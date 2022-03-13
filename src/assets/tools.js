@@ -1,6 +1,6 @@
 import { evokerData } from "./uncapData";
 import { newEvokerInfo, critData } from "./data";
-
+import dayjs from "dayjs";
 const getEvokerPageResult = function (e, v) {
     let result = {};
     let loopGroup = ["tarotUncap", "evokerUncap", "weaponUncap", "domainUncap"];
@@ -187,35 +187,84 @@ const getBestThreeWeaponCrit = function (result) {
  * @param {IDBDatabase} idbDatabase - to export from
  * @param {function(Object?, string?)} cb - callback with signature (error, jsonString)
  */
-function exportToJson(idbDatabase, cb) {
-    const exportObject = {};
-    const objectStoreNamesSet = new Set(idbDatabase.objectStoreNames);
-    const size = objectStoreNamesSet.size;
-    if (size === 0) {
-        cb(null, JSON.stringify(exportObject));
-    } else {
-        const objectStoreNames = Array.from(objectStoreNamesSet);
-        const transaction = idbDatabase.transaction(objectStoreNames, "readonly");
-        transaction.onerror = event => cb(event, null);
+// function exportToJson(storeName) {
+//     const DBOpenRequest = window.indexedDB.open("gbfApp");
+//     let db;
+//     const allObjects = [];
+//     DBOpenRequest.onupgradeneeded = function (event) {
+//         db = event.target.result;
+//         if (!db.objectStoreNames.contains(storeName)) {
+//             db.createObjectStore(storeName);
+//         }
+//     };
+//     DBOpenRequest.onsuccess = async function (event) {
+//         db = DBOpenRequest.result;
 
-        objectStoreNames.forEach(storeName => {
-            const allObjects = [];
-            transaction.objectStore(storeName).openCursor().onsuccess = event => {
-                const cursor = event.target.result;
-                const item = {};
-                if (cursor) {
-                    item[cursor.key] = cursor.value;
-                    allObjects.push(item);
-                    cursor.continue();
-                } else {
-                    exportObject[storeName] = allObjects;
-                    if (objectStoreNames.length === Object.keys(exportObject).length) {
-                        cb(null, JSON.stringify(exportObject));
+//         const exportObject = {};
+//         const objectStoreNamesSet = new Set(db.objectStoreNames);
+//         const size = objectStoreNamesSet.size;
+//         if (size === 0) {
+//             return null;
+//         } else {
+//             const transaction = db.transaction(storeName, "readonly");
+//             transaction.onerror = event => null;
+
+//             transaction.objectStore(storeName).openCursor().onsuccess = event => {
+//                 const cursor = event.target.result;
+//                 const item = {};
+//                 if (cursor) {
+//                     item[cursor.key] = cursor.value;
+//                     allObjects.push(item);
+//                     cursor.continue();
+//                 }
+//             };
+//         }
+//     };
+//     return allObjects;
+// }
+function exportToJson(cb) {
+    const DBOpenRequest = window.indexedDB.open("gbfApp");
+    let db;
+
+    DBOpenRequest.onupgradeneeded = function (event) {
+        db = event.target.result;
+        if (!db.objectStoreNames.contains("GoldBrick")) {
+            db.createObjectStore("GoldBrick");
+        }
+    };
+    DBOpenRequest.onsuccess = async function (event) {
+        db = DBOpenRequest.result;
+
+        const exportObject = {};
+        const objectStoreNamesSet = new Set(["GoldBrick"]);
+        // const objectStoreNamesSet = new Set(db.objectStoreNames);
+        const size = objectStoreNamesSet.size;
+        if (size === 0) {
+            cb(null, exportObject);
+        } else {
+            const objectStoreNames = Array.from(objectStoreNamesSet);
+            const transaction = db.transaction(objectStoreNames, "readonly");
+            transaction.onerror = event => cb(event, null);
+
+            objectStoreNames.forEach(storeName => {
+                const allObjects = [];
+                transaction.objectStore(storeName).openCursor().onsuccess = event => {
+                    const cursor = event.target.result;
+                    const item = {};
+                    if (cursor) {
+                        item[cursor.key] = cursor.value;
+                        allObjects.push(item);
+                        cursor.continue();
+                    } else {
+                        exportObject[storeName] = allObjects;
+                        if (objectStoreNames.length === Object.keys(exportObject).length) {
+                            cb(null, exportObject);
+                        }
                     }
-                }
-            };
-        });
-    }
+                };
+            });
+        }
+    };
 }
 
 /**
@@ -427,12 +476,110 @@ function importJSONFile(target) {
 
             importFromJson(db, JSON.stringify(jsonstr), function (err) {
                 if (!err) {
-                    location.reload();
                     alert("导入成功");
+                    location.reload();
                 }
             });
         };
     };
+}
+function getHihiiroDetailCountData({ range, rawData }) {
+    rawData.sort(function (a, b) {
+        return Object.keys(a)[0] - Object.keys(b)[0];
+    });
+    const raidNameList = ["tuyobaha", "akx", "gurande"];
+
+    const showData = [{}, {}, {}];
+    // 初始化
+    for (let i = 0; i < raidNameList.length; i++) {
+        showData[i].labels = [0];
+        showData[i].count = [0];
+        if (range == "month") {
+            let date = dayjs().subtract(30, "day");
+            for (let j = 0; j < 30; j++) {
+                showData[i].labels.push(`${date.month() + 1}-${date.date()}`);
+                showData[i].count.push(0);
+                date = dayjs(date).add(1, "day");
+            }
+        } else if (range == "halfYear") {
+            let date = dayjs().subtract(6, "month");
+            for (let j = 0; j < 6; j++) {
+                showData[i].labels.push(`${date.month() + 1}`);
+                showData[i].count.push(0);
+                date = dayjs(date).add(1, "month");
+            }
+        } else if (range == "year") {
+            let date = dayjs().subtract(1, "year");
+            for (let j = 0; j < 12; j++) {
+                showData[i].labels.push(`${date.month() + 1}`);
+                showData[i].count.push(0);
+                date = dayjs(date).add(1, "month");
+            }
+        }
+    }
+    for (let i = 0; i < rawData.length; i++) {
+        const item = rawData[i];
+        const key = Object.keys(item)[0];
+        const value = item[key];
+        const dataNo = raidNameList.indexOf(value.raidName);
+        if (dataNo != -1) {
+            if (range == "month") {
+                let date = dayjs().subtract(30, "day");
+                for (let j = 0; j < 30; j++) {
+                    if (date.isSame(dayjs(value.timestamp), "date")) {
+                        showData[dataNo].count[j]++;
+                    }
+                    date = date.add(1, "day");
+                }
+            } else if (range == "halfYear") {
+                let date = dayjs().subtract(6, "month");
+                for (let j = 0; j < 6; j++) {
+                    if (date.isSame(dayjs(value.timestamp), "month")) {
+                        showData[dataNo].count[j]++;
+                    }
+                    date = dayjs(date).add(1, "month");
+                }
+            } else if (range == "year") {
+                let date = dayjs().subtract(1, "year");
+                for (let j = 0; j < 12; j++) {
+                    if (date.isSame(dayjs(value.timestamp), "month")) {
+                        showData[dataNo].count[j]++;
+                    }
+                    date = dayjs(date).add(1, "month");
+                }
+            }
+        }
+    }
+    return showData;
+}
+
+function getHihiiroDetailBlueChestData({ rawData }) {
+    rawData.sort(function (a, b) {
+        return Object.keys(a)[0] - Object.keys(b)[0];
+    });
+    const raidNameList = ["tuyobaha", "akx", "gurande"];
+
+    const showData = [{}, {}, {}];
+    // 初始化
+    for (let i = 0; i < raidNameList.length; i++) {
+        showData[i].labels = [1];
+        showData[i].count = [0];
+    }
+    for (let i = 0; i < rawData.length; i++) {
+        const item = rawData[i];
+        const key = Object.keys(item)[0];
+        const value = item[key];
+        const dataNo = raidNameList.indexOf(value.raidName);
+        if (dataNo != -1) {
+            if (value.goldBrick == 11) {
+                showData[dataNo].labels.push(showData[dataNo].labels[showData[dataNo].labels.length - 1] + 1);
+                showData[dataNo].count.push(0);
+            } else {
+                showData[dataNo].count[showData[dataNo].count.length - 1]++;
+            }
+        }
+    }
+    return showData;
 }
 export {
     getEvokerPageResult,
@@ -447,4 +594,6 @@ export {
     getHihiiroShowData,
     exportJSONFile,
     importJSONFile,
+    getHihiiroDetailCountData,
+    getHihiiroDetailBlueChestData,
 };

@@ -1,6 +1,11 @@
 <template>
-  <div class="hihiirrosuki" v-show="!showDetail">
-    <div class="raid" v-for="(raid, index) in showData" :key="index">
+  <div class="hihiirrosuki" v-show="!isShowDetail">
+    <div
+      class="raid"
+      v-for="(raid, index) in showData"
+      :key="index"
+      @click="toDetailPage(RAID_NAME[index])"
+    >
       <div class="title">
         <img :src="`./img/raid/${RAID_NAME[index]}.jpg`" />
       </div>
@@ -53,8 +58,8 @@
     <div class="result">
       总掉落FFJ：{{ totalFFJ }}
       <div class="outin">
-        <button @click="exportJSONFile(rawData)">导出</button>
-        <button @click="showUploadButton = 1">导入</button>
+        <button @click="downloadFile">导出</button>
+        <button @click="showUploadButton = !showUploadButton">导入</button>
         <input
           type="file"
           accept=".json"
@@ -64,79 +69,72 @@
       </div>
     </div>
   </div>
-  <HihiiroSukiDetail :showData="showData" v-show="showDetail" />
+  <router-view v-slot="{ Component }" v-show="isShowDetail">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
 </template>
 
 <script>
-import localforage from "localforage";
 import {
   getHihiiroShowData,
   exportJSONFile,
   importJSONFile,
+  exportToJson,
 } from "../assets/tools";
-import HihiiroSukiDetail from "../components/HihiiroSukiDetail.vue";
-import { computed, reactive, ref, onUpdated } from "vue";
-
+import { computed, reactive, onUpdated, toRefs } from "vue";
+import router from "@/router";
+import { onBeforeRouteLeave, onBeforeRouteUpdate } from "vue-router";
 export default {
   name: "HihiiroSuki",
-  components: {
-    HihiiroSukiDetail,
-  },
   setup() {
-    localforage.config({
-      name: "gbfApp",
-      storeName: "GoldBrick",
+    const config = reactive({
+      RAID_NAME: ["cb", "tuyobaha", "akx", "gurande"],
+      showData: {},
+      showUploadButton: 0,
+      totalFFJ: 0,
+      isShowDetail: 0,
     });
 
-    const rawData = reactive([]);
-    localforage
-      .iterate(function (value, key) {
-        rawData.push({ [key]: value });
-      })
-      .then(function () {
-        console.log("成功读取indexedDB数据");
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-    let showUploadButton = ref(0);
-    let showDetail = ref(0);
-    const RAID_NAME = ["cb", "tuyobaha", "akx", "gurande"];
-
-    const showData = computed(() => getHihiiroShowData(rawData));
-    const totalFFJ = computed(() => {
-      return showData.value.reduce(function (total, kv) {
-        return total + kv.totalFFJ;
-      }, 0);
+    exportToJson((err, data) => {
+      if (!err) {
+        config.rawData = data.GoldBrick;
+        config.showData = computed(() => getHihiiroShowData(config.rawData));
+        config.totalFFJ = computed(() => {
+          return config.showData.reduce(function (total, kv) {
+            return total + kv.totalFFJ;
+          }, 0);
+        });
+      }
     });
-
+    const toDetailPage = function (raidName) {
+      if (raidName != "cb") {
+        router.push({
+          name: "HihiiroSukiDetail",
+          params: { raidName },
+        });
+      }
+    };
     const uploadFile = function ({ target }) {
       importJSONFile(target);
     };
+    const downloadFile = () => exportJSONFile(config.rawData);
 
-    const goDetailPage = function (index) {
-      showDetail.value = true;
-    };
-
-    // onUpdated(() => {
-    //   for (let i = 0; i < RAID_NAME.length; i++) {
-    //     showDetail.value =
-    //       document.URL.indexOf(RAID_NAME[i]) != -1 ? true : false;
-    //   }
-    // });
+    onBeforeRouteUpdate((to, from, next) => {
+      config.isShowDetail = to.name == "HihiiroSuki" ? false : true;
+      next();
+    });
+    onBeforeRouteLeave((to, from, next) => {
+      config.isShowDetail = false;
+      next();
+    });
 
     return {
-      showData,
-      RAID_NAME,
-      rawData,
-      totalFFJ,
-      exportJSONFile,
-      importJSONFile,
-      showUploadButton,
-      showDetail,
+      ...toRefs(config),
       uploadFile,
-      goDetailPage,
+      downloadFile,
+      toDetailPage,
     };
   },
 };

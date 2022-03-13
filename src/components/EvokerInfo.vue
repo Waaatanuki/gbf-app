@@ -4,7 +4,7 @@
       <img :src="`./img/npc/304016${k.no}000_01.jpg`" />
       <select v-model="k.tarotLevel" :class="{ completed: k.tarotLevel == 7 }">
         <option disabled value="undefined">塔罗牌进度</option>
-        <option value="0" isshow="1">未入手</option>
+        <option value="0">未入手</option>
         <option value="1">塔罗牌0凸</option>
         <option value="2">塔罗牌1凸</option>
         <option value="3">塔罗牌2凸</option>

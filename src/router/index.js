@@ -3,6 +3,7 @@ import OtherPage from "../pages/OtherPage.vue";
 import HomePage from "../pages/HomePage.vue";
 import EvokerPage from "../pages/EvokerPage.vue";
 import HihiiroSuki from "../pages/HihiiroSuki.vue";
+import HihiiroSukiDetail from "../pages/HihiiroSukiDetail.vue";
 const routes = [
     {
         path: "/",
@@ -18,6 +19,21 @@ const routes = [
         path: "/hihiirosuki",
         name: "HihiiroSuki",
         component: HihiiroSuki,
+        children: [
+            {
+                path: ":raidName",
+                name: "HihiiroSukiDetail",
+                component: HihiiroSukiDetail,
+                props: true,
+                beforeEnter: (to, from, next) => {
+                    if (from.name != "HihiiroSuki") {
+                        next("/hihiirosuki");
+                    } else {
+                        next();
+                    }
+                },
+            },
+        ],
     },
     {
         path: "/otherpage",
@@ -25,6 +41,7 @@ const routes = [
         component: OtherPage,
     },
 ];
+
 export default createRouter({
     history: createWebHashHistory(),
     routes,

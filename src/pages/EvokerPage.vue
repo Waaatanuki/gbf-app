@@ -11,10 +11,6 @@
       />
     </div>
   </div>
-  <div class="footer">
-    <span>Created by Waaatanuki</span><br />
-    <a href="https://bbs.nga.cn/read.php?tid=25257642">问题反馈</a>
-  </div>
 </template>
 
 <script>
@@ -163,12 +159,5 @@ export default {
   min-width: 300px;
   display: flex;
   flex-direction: column;
-}
-.footer {
-  margin-top: 20px;
-  color: 1a2a3a;
-}
-.footer a {
-  color: #1a2a3a;
 }
 </style>

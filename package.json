@@ -8,8 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "chart.js": "^3.7.1",
+    "chartjs-plugin-datalabels": "^2.0.0",
     "core-js": "^3.8.3",
-    "localforage": "^1.10.0",
+    "dayjs": "^1.10.8",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13"
   },
