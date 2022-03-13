@@ -187,41 +187,7 @@ const getBestThreeWeaponCrit = function (result) {
  * @param {IDBDatabase} idbDatabase - to export from
  * @param {function(Object?, string?)} cb - callback with signature (error, jsonString)
  */
-// function exportToJson(storeName) {
-//     const DBOpenRequest = window.indexedDB.open("gbfApp");
-//     let db;
-//     const allObjects = [];
-//     DBOpenRequest.onupgradeneeded = function (event) {
-//         db = event.target.result;
-//         if (!db.objectStoreNames.contains(storeName)) {
-//             db.createObjectStore(storeName);
-//         }
-//     };
-//     DBOpenRequest.onsuccess = async function (event) {
-//         db = DBOpenRequest.result;
 
-//         const exportObject = {};
-//         const objectStoreNamesSet = new Set(db.objectStoreNames);
-//         const size = objectStoreNamesSet.size;
-//         if (size === 0) {
-//             return null;
-//         } else {
-//             const transaction = db.transaction(storeName, "readonly");
-//             transaction.onerror = event => null;
-
-//             transaction.objectStore(storeName).openCursor().onsuccess = event => {
-//                 const cursor = event.target.result;
-//                 const item = {};
-//                 if (cursor) {
-//                     item[cursor.key] = cursor.value;
-//                     allObjects.push(item);
-//                     cursor.continue();
-//                 }
-//             };
-//         }
-//     };
-//     return allObjects;
-// }
 function exportToJson(cb) {
     const DBOpenRequest = window.indexedDB.open("gbfApp");
     let db;
@@ -492,8 +458,8 @@ function getHihiiroDetailCountData({ range, rawData }) {
     const showData = [{}, {}, {}];
     // 初始化
     for (let i = 0; i < raidNameList.length; i++) {
-        showData[i].labels = [0];
-        showData[i].count = [0];
+        showData[i].labels = [];
+        showData[i].count = [];
         if (range == "month") {
             let date = dayjs().subtract(30, "day");
             for (let j = 0; j < 30; j++) {
@@ -521,6 +487,10 @@ function getHihiiroDetailCountData({ range, rawData }) {
         const item = rawData[i];
         const key = Object.keys(item)[0];
         const value = item[key];
+        // if (value.raidName == "tuyobaha") {
+        //     console.log(dayjs(value.timestamp).format("MM-DD"));
+        // }
+
         const dataNo = raidNameList.indexOf(value.raidName);
         if (dataNo != -1) {
             if (range == "month") {
@@ -550,6 +520,7 @@ function getHihiiroDetailCountData({ range, rawData }) {
             }
         }
     }
+    // console.log(showData);
     return showData;
 }
 
