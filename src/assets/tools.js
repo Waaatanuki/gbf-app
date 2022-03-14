@@ -543,7 +543,8 @@ function getHihiiroDetailBlueChestData({ rawData }) {
         const dataNo = raidNameList.indexOf(value.raidName);
         if (dataNo != -1) {
             if (value.goldBrick == 11) {
-                showData[dataNo].labels.push(showData[dataNo].labels[showData[dataNo].labels.length - 1] + 1);
+                showData[dataNo].count[showData[dataNo].count.length - 1]++;
+                showData[dataNo].labels.push(showData[dataNo].labels.length + 1);
                 showData[dataNo].count.push(0);
             } else {
                 value.blueChests && showData[dataNo].count[showData[dataNo].count.length - 1]++;
