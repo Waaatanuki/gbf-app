@@ -98,6 +98,7 @@ export default {
   align-items: center;
   padding: 5px;
   margin: 5px;
+  width: 300px;
 }
 .setData {
   width: 200px;
@@ -110,6 +111,9 @@ ul {
   text-align: justify;
   text-align-last: justify;
   list-style: none;
+}
+li {
+  margin-top: 5px;
 }
 .result p {
   margin: 0px;
