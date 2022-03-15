@@ -1,6 +1,8 @@
 import { evokerData } from "./uncapData";
 import { newEvokerInfo, critData } from "./data";
 import dayjs from "dayjs";
+import axios from "axios";
+import qs from "qs";
 const getEvokerPageResult = function (e, v) {
     let result = {};
     let loopGroup = ["tarotUncap", "evokerUncap", "weaponUncap", "domainUncap"];
@@ -553,6 +555,23 @@ function getHihiiroDetailBlueChestData({ rawData }) {
     }
     return showData;
 }
+
+async function getKosenjouData() {
+    const instance = axios.create({
+        baseURL: "/api",
+        timeout: 10000,
+    });
+    instance({
+        url: "/web/userrank",
+        method: "POST",
+        params: {
+            method: "getUserrank",
+            params: { userid: "", username: "牛肉" },
+        },
+    }).then(res => {
+        console.log(res);
+    });
+}
 export {
     getEvokerPageResult,
     getEvokerPagePercent,
@@ -568,4 +587,5 @@ export {
     importJSONFile,
     getHihiiroDetailCountData,
     getHihiiroDetailBlueChestData,
+    getKosenjouData,
 };

@@ -15,22 +15,22 @@ export default {
 </script>
 
 <style scoped>
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 800px;
+}
 .main {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  margin-top: 10px;
   font-weight: bold;
   width: 370px;
   font-size: 9em;
   text-align: center;
 }
 .footer {
-  position: absolute;
-  left: 50%;
-  bottom: 0%;
-  transform: translate3d(-50%, -50%, 0);
-  width: 300px;
+  margin-bottom: 10px;
 }
 a {
   color: #1a2a3a;
