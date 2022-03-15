@@ -25,7 +25,6 @@ export default {
 <style scoped>
 #nav {
   display: flex;
-  height: 30px;
 }
 
 #nav a:hover {

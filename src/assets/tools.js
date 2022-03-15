@@ -3,6 +3,8 @@ import { newEvokerInfo, critData } from "./data";
 import dayjs from "dayjs";
 import axios from "axios";
 import qs from "qs";
+import superagent from "superagent";
+import instance from "./axios_instance";
 const getEvokerPageResult = function (e, v) {
     let result = {};
     let loopGroup = ["tarotUncap", "evokerUncap", "weaponUncap", "domainUncap"];
@@ -557,19 +559,18 @@ function getHihiiroDetailBlueChestData({ rawData }) {
 }
 
 async function getKosenjouData() {
-    const instance = axios.create({
-        baseURL: "/api",
-        timeout: 10000,
-    });
+    const data = qs.stringify({ method: "getUserrank", params: JSON.stringify({ userid: "", username: "牛肉" }) });
     instance({
-        url: "/web/userrank",
+        url: "/login",
         method: "POST",
-        params: {
-            method: "getUserrank",
-            params: { userid: "", username: "牛肉" },
-        },
-    }).then(res => {
-        console.log(res);
+    }).catch(function () {
+        instance({
+            url: "/web/userrank",
+            method: "POST",
+            data,
+        }).then(res => {
+            console.log("返回数据：", res);
+        });
     });
 }
 export {
