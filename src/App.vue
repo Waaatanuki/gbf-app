@@ -14,7 +14,8 @@ export default {
 </script>
 
 <style>
-html {
+html,
+body {
   height: 100%;
 }
 body {
@@ -24,5 +25,6 @@ body {
   background-color: #f0ebe6;
   color: #1a2a3a;
   font-size: 13.3333px;
+  height: 100%;
 }
 </style>

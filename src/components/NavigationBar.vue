@@ -1,17 +1,19 @@
 <template>
   <div id="nav">
     <router-link active-class="active" to="/">主页</router-link>
-    <router-link active-class="active" to="/kosenjou">团战助手</router-link>
-    <router-link active-class="active" to="/hihiirosuki">金本统计</router-link>
+    <!-- <router-link active-class="active" to="/kosenjou">团战助手</router-link> -->
     <router-link active-class="active" to="/evokerpage">贤者素材</router-link>
+    <router-link active-class="active" to="/hihiirosuki">金本统计</router-link>
     <router-link active-class="active" to="/otherpage">杂项</router-link>
   </div>
   <hr />
-  <router-view v-slot="{ Component }">
-    <keep-alive>
-      <component :is="Component" />
-    </keep-alive>
-  </router-view>
+  <div class="main">
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
+  </div>
 </template>
 
 <script>
@@ -23,6 +25,7 @@ export default {
 <style scoped>
 #nav {
   display: flex;
+  height: 30px;
 }
 
 #nav a:hover {
@@ -50,5 +53,8 @@ hr {
     rgba(0, 0, 0, 0.75),
     rgba(0, 0, 0, 0)
   );
+}
+.main {
+  height: 100%;
 }
 </style>
