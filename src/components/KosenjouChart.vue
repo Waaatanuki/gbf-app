@@ -7,45 +7,79 @@
 <script>
 import Chart from "chart.js/auto";
 import { onMounted, onUpdated } from "vue";
+import { getKosenjouData } from "../assets/tools";
+
 export default {
   name: "KosenjouChart",
   props: ["chartInfo"],
   setup(props) {
-    let countChart;
+    let chart;
+    const individualLineRank = {
+      2000: "英雄线",
+      80000: "一档线",
+      140000: "二档线",
+      180000: "三档线",
+    };
     onMounted(() => {
       const ctx = document.getElementById(props.chartInfo.id);
-
-      countChart = new Chart(ctx, {
-        type: props.chartInfo.chartType,
-        data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [
+      getKosenjouData(
+        props.chartInfo.method[0],
+        {
+          rank: props.chartInfo.individualLine,
+        },
+        function (result) {
+          getKosenjouData(
+            props.chartInfo.method[1],
             {
-              label: "# of Votes",
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1,
+              userid: props.chartInfo.userId,
             },
-          ],
-        },
-        options: {
-          plugins: {
-            legend: {
-              display: false,
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          },
-        },
-      });
+            function (userResult) {
+              chart = new Chart(ctx, {
+                type: props.chartInfo.chartType,
+                data: {
+                  labels: result.labels,
+                  datasets: [
+                    {
+                      label: individualLineRank[props.chartInfo.individualLine],
+                      data: [result.data, userResult.data],
+                      borderWidth: 1,
+                    },
+                  ],
+                },
+                options: {
+                  plugins: {
+                    scales: {
+                      y: {
+                        beginAtZero: true,
+                      },
+                    },
+                  },
+                },
+              });
+            }
+          );
+        }
+      );
     });
 
     onUpdated(() => {
-      countChart.destroy();
+      console.log(props);
+      getKosenjouData(
+        props.chartInfo.method[0],
+        {
+          rank: props.chartInfo.individualLine,
+        },
+        function (result) {
+          chart.data.labels = result.labels;
+          chart.data.datasets[0].data = result.data;
+          chart.data.datasets[0].label =
+            individualLineRank[props.chartInfo.individualLine];
+          chart.update();
+        }
+      );
     });
-    return { countChart };
+
+    return { chart };
   },
 };
 </script>

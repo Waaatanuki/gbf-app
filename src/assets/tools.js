@@ -1,10 +1,10 @@
 import { evokerData } from "./uncapData";
 import { newEvokerInfo, critData } from "./data";
 import dayjs from "dayjs";
-import axios from "axios";
 import qs from "qs";
+import axios from "axios";
 import superagent from "superagent";
-import instance from "./axios_instance";
+import { instance, request } from "./axios_instance";
 const getEvokerPageResult = function (e, v) {
     let result = {};
     let loopGroup = ["tarotUncap", "evokerUncap", "weaponUncap", "domainUncap"];
@@ -558,20 +558,22 @@ function getHihiiroDetailBlueChestData({ rawData }) {
     return showData;
 }
 
-async function getKosenjouData() {
-    const data = qs.stringify({ method: "getUserrank", params: JSON.stringify({ userid: "", username: "牛肉" }) });
-    instance({
-        url: "/login",
-        method: "POST",
-    }).catch(function () {
-        instance({
-            url: "/web/userrank",
-            method: "POST",
-            data,
-        }).then(res => {
-            console.log("返回数据：", res);
-        });
+async function getKosenjouData(type, params, cb) {
+    const teamRaidInfo = await request.getResponse("teamraidlist", {});
+    const result = await request.getResponse(type, {
+        teamraidid: teamRaidInfo[0].teamraidid,
+        rank: params.rank,
     });
+    const title = Object.keys(result[1])[0];
+    const rawData = result[1][title];
+    const labels = [];
+    const data = [];
+    for (let i = 0; i < rawData.length; i++) {
+        labels.push(rawData[i].updatetime);
+        data.push(rawData[i].point);
+    }
+    const temp = { title, labels, data };
+    cb(temp);
 }
 export {
     getEvokerPageResult,

@@ -1,38 +1,44 @@
 <template>
   <div class="kosenjou">
-    <template v-for="(value, key, index) in monitorInfo" :key="index">
+    <template v-for="(item, index) in monitorInfo" :key="index">
       <div class="title">
         <img
-          :src="`./img/icon/expand_${value.isShow ? 'down' : 'right'}.png`"
-          @click="value.isShow = !value.isShow"
+          :src="`./img/icon/expand_${item.isShow ? 'down' : 'right'}.png`"
+          @click="item.isShow = !item.isShow"
         />
-        {{ key }}
+        {{ item.title }}
       </div>
-      <div class="content" v-show="value.isShow">
-        <div class="monitorInfo" v-if="key == '个排及团排监控'">
+      <div class="content" v-show="item.isShow">
+        <div class="monitorInfo" v-if="item.title == '个排及团排监控'">
           <div class="monitorItem">
             <div class="inputInfo">
               <label
-                ><select v-model="value.individualLine">
+                ><select v-model="item.individualLine">
                   <option disabled value="undefined">个排选择</option>
-                  <option value="0">英雄线</option>
-                  <option value="1">一档线</option>
-                  <option value="2">二档线</option>
-                  <option value="3">三档线</option>
+                  <option value="2000">英雄线</option>
+                  <option value="80000">一档线</option>
+                  <option value="140000">二档线</option>
+                  <option value="180000">三档线</option>
                 </select>
-                <input placeholder="玩家ID" />
+                <input placeholder="玩家ID" v-model.lazy="item.userId" />
               </label>
             </div>
             <div class="chart">
               <KosenjouChart
-                :chartInfo="{ id: 'individualLineChart', chartType: 'line' }"
+                :chartInfo="{
+                  id: 'individualLineChart',
+                  chartType: 'line',
+                  individualLine: item.individualLine,
+                  userId: item.userId,
+                  method: ['getUserrankChartByRank', 'getUserrankChartById'],
+                }"
               ></KosenjouChart>
             </div>
           </div>
           <div class="monitorItem">
             <div class="inputInfo">
               <label
-                ><select v-model="value.teamLine">
+                ><select v-model="item.teamLine">
                   <option disabled value="undefined">团排选择</option>
                   <option value="0">300线</option>
                   <option value="1">一档线</option>
@@ -43,13 +49,13 @@
               </label>
             </div>
             <div class="chart">
-              <KosenjouChart
+              <!-- <KosenjouChart
                 :chartInfo="{ id: 'teamLineChart', chartType: 'line' }"
-              ></KosenjouChart>
+              ></KosenjouChart> -->
             </div>
           </div>
         </div>
-        <div class="monitorInfo" v-if="key == '对战情况监控'">
+        <div class="monitorInfo" v-if="item.title == '对战情况监控'">
           <div class="monitorItem">
             <div class="inputInfo">
               <label>
@@ -61,7 +67,7 @@
             <div class="chart"></div>
           </div>
         </div>
-        <div class="monitorInfo" v-if="key == '个人及骑空团查询'">
+        <div class="monitorInfo" v-if="item.title == '个人及骑空团查询'">
           <div class="monitorItem">
             <div class="inputInfo">
               <label>
@@ -81,30 +87,55 @@
           </div>
         </div>
       </div>
+      <!-- <button @click="demo">22222222</button> -->
     </template>
   </div>
 </template>
 
 <script>
-import { reactive } from "vue";
+import {
+  reactive,
+  ref,
+  computed,
+  onUpdated,
+  getCurrentInstance,
+  watch,
+  defineAsyncComponent,
+} from "vue";
 import KosenjouChart from "../components/KosenjouChart.vue";
-import { getKosenjouData } from "../assets/tools";
+
 export default {
   name: "Kosenjou",
   components: {
     KosenjouChart,
   },
   setup() {
-    const monitorInfo = reactive({
-      个排及团排监控: { isShow: true, individualLine: "1", teamLine: "1" },
-      对战情况监控: { isShow: true },
-      个人及骑空团查询: { isShow: true },
-    });
-    console.log(getKosenjouData());
+    const instance = getCurrentInstance();
+    const monitorInfo = reactive([
+      {
+        title: "个排及团排监控",
+        isShow: true,
+        individualLine: "80000",
+        teamLine: "1",
+        userId: "",
+      },
+      { title: "对战情况监控", isShow: true },
+      { title: "个人及骑空团查询", isShow: true },
+    ]);
+
+    // watch(monitorInfo, () => {
+    //   console.log("change");
+    //   instance.proxy.$forceUpdate();
+    // });
+
     const demo = function () {
-      console.log(monitorInfo);
+      console.log(monitorInfo[0].individualLineData);
     };
-    return { monitorInfo };
+
+    // onUpdated(() => {
+    //   console.log(monitorInfo[0]);
+    // });
+    return { monitorInfo, demo };
   },
 };
 </script>
@@ -136,6 +167,7 @@ input {
 }
 .monitorItem {
   width: 45%;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
   margin-right: 10px;
