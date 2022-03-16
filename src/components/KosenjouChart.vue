@@ -7,7 +7,7 @@
 <script>
 import Chart from "chart.js/auto";
 import { onMounted, onUpdated } from "vue";
-import { getKosenjouData } from "../assets/tools";
+import { getKosenjouData, formatKosenjouData } from "../assets/tools";
 
 export default {
   name: "KosenjouChart",
@@ -24,25 +24,33 @@ export default {
       const ctx = document.getElementById(props.chartInfo.id);
       getKosenjouData(
         props.chartInfo.method[0],
-        {
-          rank: props.chartInfo.individualLine,
-        },
-        function (result) {
+        props.chartInfo.params[0],
+        function (lineResult) {
           getKosenjouData(
             props.chartInfo.method[1],
-            {
-              userid: props.chartInfo.userId,
-            },
+            props.chartInfo.params[1],
             function (userResult) {
+              lineResult.data = formatKosenjouData(lineResult, userResult);
+              // console.log(lineResult);
+              // console.log(userResult);
               chart = new Chart(ctx, {
                 type: props.chartInfo.chartType,
                 data: {
-                  labels: result.labels,
+                  labels: userResult.labels,
                   datasets: [
                     {
-                      label: individualLineRank[props.chartInfo.individualLine],
-                      data: [result.data, userResult.data],
-                      borderWidth: 1,
+                      label: individualLineRank[props.chartInfo.params[0].rank],
+                      data: lineResult.data,
+                      borderColor: "red",
+                      borderWidth: 2,
+                      pointRadius: 2,
+                    },
+                    {
+                      label: props.chartInfo.params[1].userid,
+                      data: userResult.data,
+                      borderColor: "blue",
+                      borderWidth: 2,
+                      pointRadius: 2,
                     },
                   ],
                 },

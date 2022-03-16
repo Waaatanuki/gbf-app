@@ -28,9 +28,11 @@
                 :chartInfo="{
                   id: 'individualLineChart',
                   chartType: 'line',
-                  individualLine: item.individualLine,
-                  userId: item.userId,
                   method: ['getUserrankChartByRank', 'getUserrankChartById'],
+                  params: [
+                    { teamraidid: 'teamraid060', rank: item.individualLine },
+                    { teamraidid: 'teamraid060', userid: '25246588' },
+                  ],
                 }"
               ></KosenjouChart>
             </div>

@@ -559,11 +559,8 @@ function getHihiiroDetailBlueChestData({ rawData }) {
 }
 
 async function getKosenjouData(type, params, cb) {
-    const teamRaidInfo = await request.getResponse("teamraidlist", {});
-    const result = await request.getResponse(type, {
-        teamraidid: teamRaidInfo[0].teamraidid,
-        rank: params.rank,
-    });
+    // const teamRaidInfo = await request.getResponse("teamraidlist", {});
+    const result = await request.getResponse(type, params);
     const title = Object.keys(result[1])[0];
     const rawData = result[1][title];
     const labels = [];
@@ -574,6 +571,18 @@ async function getKosenjouData(type, params, cb) {
     }
     const temp = { title, labels, data };
     cb(temp);
+}
+
+function formatKosenjouData(a, b) {
+    let newList = [];
+    let result = [];
+    for (let i = 0; i < b.labels.length; i++) {
+        newList.push(a.labels.indexOf(b.labels[i]));
+    }
+    for (let i = 0; i < newList.length; i++) {
+        result.push(a.data[newList[i]]);
+    }
+    return result;
 }
 export {
     getEvokerPageResult,
@@ -591,4 +600,5 @@ export {
     getHihiiroDetailCountData,
     getHihiiroDetailBlueChestData,
     getKosenjouData,
+    formatKosenjouData,
 };
