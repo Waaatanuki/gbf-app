@@ -68,33 +68,82 @@
         </div>
         <div class="monitorInfo" v-if="item.title == '对战情况监控'">
           <div class="monitorItem">
-            <div class="inputInfo">
-              <label>
-                <input placeholder="己方团ID" />
-                VS
-                <input placeholder="对方团ID" />
-              </label>
+            <div class="chart">
+              <KosenjouChart
+                :chartInfo="{
+                  data: item.data,
+                  msg: item.msg,
+                  showTable: item.showTable,
+                }"
+              >
+                <div class="inputInfo">
+                  <label>
+                    <input
+                      placeholder="己方团ID"
+                      v-model.lazy="item['params'][0].guildid"
+                    />
+                    VS
+                    <input
+                      placeholder="对方团ID"
+                      v-model.lazy="item['params'][1].guildid"
+                    />
+                    <button @click="search(item, index)">查询</button>
+                  </label>
+                </div>
+              </KosenjouChart>
             </div>
-            <div class="chart"></div>
           </div>
         </div>
         <div class="monitorInfo" v-if="item.title == '个人及骑空团查询'">
           <div class="monitorItem">
-            <div class="inputInfo">
-              <label>
-                <input placeholder="玩家名" /> <input placeholder="玩家ID" />
-              </label>
+            <div class="chart">
+              <KosenjouChart
+                :chartInfo="{
+                  data: item.data1,
+                  msg: item.msg1,
+                  showTable: item.showTable1,
+                }"
+              >
+                <div class="inputInfo">
+                  <label
+                    ><input
+                      placeholder="玩家名"
+                      v-model="item['params1'][0].username"
+                    />
+                    <input
+                      placeholder="玩家ID"
+                      v-model="item['params1'][1].userid"
+                    />
+                    <button @click="search(item, index, 1)">查询</button>
+                  </label>
+                </div>
+              </KosenjouChart>
             </div>
-            <div class="chart"></div>
           </div>
           <div class="monitorItem">
-            <div class="inputInfo">
-              <label>
-                <input placeholder="骑空团名" />
-                <input placeholder="骑空团ID" />
-              </label>
+            <div class="chart">
+              <KosenjouChart
+                :chartInfo="{
+                  data: item.data2,
+                  msg: item.msg2,
+                  showTable: item.showTable2,
+                }"
+              >
+                <div class="inputInfo">
+                  <label>
+                    <input
+                      placeholder="骑空团名"
+                      v-model="item['params2'][0].guildname"
+                    />
+                    <input
+                      placeholder="骑空团ID"
+                      v-model="item['params2'][1].guildid"
+                    />
+                    <button @click="search(item, index, 2)">查询</button>
+                  </label>
+                </div>
+              </KosenjouChart>
             </div>
-            <div class="chart"></div>
           </div>
         </div>
       </div>
@@ -114,7 +163,12 @@ import {
   defineAsyncComponent,
 } from "vue";
 import KosenjouChart from "../components/KosenjouChart.vue";
-import { getKosenjouData, formatKosenjouData } from "../assets/tools";
+import {
+  getKosenjouData,
+  formatKosenjouData1,
+  formatKosenjouData2,
+  formatKosenjouData3,
+} from "../assets/tools";
 export default {
   name: "Kosenjou",
   components: {
@@ -136,25 +190,52 @@ export default {
           { teamraidid: "teamraid060", guildid: "" },
         ],
       },
-      { title: "对战情况监控", isShow: true },
-      { title: "个人及骑空团查询", isShow: true },
+      {
+        title: "对战情况监控",
+        isShow: true,
+        method: ["getGuildrankChartById", "getGuildrankChartById"],
+        params: [
+          { teamraidid: "teamraid060", guildid: "" },
+          { teamraidid: "teamraid060", guildid: "" },
+        ],
+      },
+      {
+        title: "个人及骑空团查询",
+        isShow: true,
+        method1: ["getUserrank", "getUserDayPoint"],
+        params1: [
+          { userid: "", username: "" },
+          { teamraidid: "teamraid060", userid: "" },
+        ],
+        method2: ["getGuildrank", "getGuildDayPoint"],
+        params2: [
+          { teamraidid: "teamraid060", guildid: "", guildname: "" },
+          { teamraidid: "teamraid060", guildid: "" },
+        ],
+      },
     ]);
 
-    const search = function (item, index, no) {
+    const search = function (item, index, no = "") {
       monitorInfo[index]["showTable" + no] = 1;
+      let temp;
       getKosenjouData(
         item["method" + no][0],
         item["params" + no][0],
-        function (lineData) {
+        function (firstData) {
           getKosenjouData(
             item["method" + no][1],
             item["params" + no][1],
-            function (userData) {
-              const temp = formatKosenjouData(lineData, userData);
+            function (secondData) {
+              temp =
+                item.title == "个排及团排监控"
+                  ? formatKosenjouData1(firstData, secondData)
+                  : item.title == "对战情况监控"
+                  ? formatKosenjouData2(firstData, secondData)
+                  : formatKosenjouData3(firstData, secondData);
+
               monitorInfo[index]["data" + no] = temp.result;
               monitorInfo[index]["msg" + no] = temp.msg;
               monitorInfo[index]["showTable" + no] = 2;
-              console.log(monitorInfo[0]);
             }
           );
         }
@@ -194,9 +275,9 @@ img {
 input {
   width: 80px;
 }
+
 .monitorItem {
-  width: 45%;
-  min-width: 400px;
+  width: 420px;
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -205,5 +286,8 @@ input {
 select,
 input {
   margin: 5px;
+}
+button {
+  margin-left: 10px;
 }
 </style>

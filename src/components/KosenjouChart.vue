@@ -3,8 +3,8 @@
   <div class="tip" v-show="chartInfo.showTable == 1">加载中。。。</div>
   <div class="mainTable" v-show="chartInfo.showTable == 2">
     <label class="msg">{{ chartInfo.msg }}</label>
-    <table border="1" v-for="(item, index) in chartInfo.data" :key="index">
-      <tr>
+    <table border="1">
+      <tr v-for="(item, index) in chartInfo.data" :key="index">
         <td>{{ item[0] }}</td>
         <td>{{ item[1] }}</td>
         <td>{{ item[2] }}</td>
@@ -36,7 +36,7 @@ table {
   margin: 1px;
 }
 td {
-  width: 50px;
+  width: 80px;
   line-height: 20px;
 }
 tr:hover {

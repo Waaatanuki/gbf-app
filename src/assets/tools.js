@@ -561,17 +561,19 @@ function getHihiiroDetailBlueChestData({ rawData }) {
 async function getKosenjouData(type, params, cb) {
     // const teamRaidInfo = await request.getResponse("teamraidlist", {});
     const result = await request.getResponse(type, params);
-    if (result.length != 1) {
+    if (["getUserrank", "getUserDayPoint", "getGuildrank", "getGuildDayPoint"].indexOf(type) != -1) {
+        cb(result);
+    } else if (result.length > 1) {
         const date = Object.keys(result[1])[0];
         const rawData = result[1][date];
-        console.log(rawData);
+        // console.log(rawData);
         cb(rawData);
     } else {
         cb([]);
     }
 }
 
-function formatKosenjouData(lineData, userData) {
+function formatKosenjouData1(lineData, userData) {
     // # 25246588  四月一日
     if (userData.length != 0) {
         let result = [["时间", "我贡", "线贡", "我速", "线速", "贡献差"]];
@@ -648,6 +650,114 @@ function formatKosenjouData(lineData, userData) {
         return { result, msg };
     }
 }
+function formatKosenjouData2(ourData, enemyData) {
+    if (ourData.length != 0 && enemyData.length != 0) {
+        let result = [["时间", "我贡", "敌贡", "我速", "敌速", "贡献差"]];
+        let newOurData = [];
+        let newEnemyData = [];
+        let msg = "";
+        for (let i = 0; i < ourData.length; i++) {
+            for (let j = 0; j < enemyData.length; j++) {
+                if (ourData[i].updatetime == enemyData[j].updatetime) {
+                    newOurData.push(ourData[i]);
+                    newEnemyData.push(enemyData[j]);
+                }
+            }
+        }
+        for (let i = 1; i < newOurData.length; i++) {
+            const time = newOurData[i].updatetime - newOurData[i - 1].updatetime;
+            const ourSpeed = (newOurData[i].point - newOurData[i - 1].point) / 100000000 / (time / 3600);
+            const enemySpeed = (newEnemyData[i].point - newEnemyData[i - 1].point) / 100000000 / (time / 3600);
+            result.push([
+                dayjs.unix(newOurData[i].updatetime).format("HH:mm"),
+                ((newOurData[i].point - newOurData[0].point) / 100000000).toFixed(2),
+                ((newEnemyData[i].point - newEnemyData[0].point) / 100000000).toFixed(2),
+                ourSpeed.toFixed(2),
+                enemySpeed.toFixed(2),
+                (
+                    (newOurData[i].point - newOurData[0].point - (newEnemyData[i].point - newEnemyData[0].point)) /
+                    100000000
+                ).toFixed(2),
+            ]);
+        }
+
+        const lastData = result.slice(-1)[0];
+        if (lastData[5] > 0 && lastData[3] >= lastData[4]) {
+            msg = "目前我方领先，而且差距在拉大!";
+        }
+        if (lastData[5] < 0 && lastData[3] <= lastData[4]) {
+            msg = "目前我方落后，而且差距在拉大，别划了xdm！";
+        }
+        if (lastData[5] > 0 && lastData[3] < lastData[4]) {
+            msg = `目前我方领先，但对方正在追赶，以当前速度${(lastData[5] / (lastData[4] - lastData[3])).toFixed(
+                2
+            )}小时后被追平`;
+        }
+        if (lastData[5] < 0 && lastData[3] > lastData[4]) {
+            msg = `目前我方落后，但比对方快，以当前速度${(-lastData[5] / (lastData[3] - lastData[4])).toFixed(
+                2
+            )}小时后追平`;
+        }
+        if (lastData[5] == 0) {
+            msg = "持平了！冲啊xdm！！！";
+        }
+
+        return { result, msg };
+    } else {
+        alert("没有设置双方团id或没有数据");
+        return {};
+    }
+}
+function formatKosenjouData3(listData, pointData) {
+    // # 25246588  四月一日
+    if (pointData.length != 0) {
+        let result = [["日期", "当日贡献", "累计贡献"]];
+        pointData.push({ updatedate: "", maxp: 0, minp: 0 });
+        // console.log(pointData);
+        for (let i = 0; i < pointData.length - 1; i++) {
+            result.push([
+                pointData[i].updatedate,
+                toThousands(pointData[i].maxp - pointData[i + 1].maxp),
+                toThousands(pointData[i].maxp),
+            ]);
+        }
+        console.log(result);
+        return { result, msg: "" };
+    } else if (listData.length != 0) {
+        if (listData[0].hasOwnProperty("userid")) {
+            listData.sort((a, b) => b.level - a.level);
+            let result = [["等级", "玩家名", "玩家ID"]];
+            for (let i = 0; i < (listData.length > 30 ? 30 : listData.length); i++) {
+                result.push([listData[i].level, listData[i].name, listData[i].userid]);
+            }
+            console.log(result);
+            return { result, msg: "" };
+        } else if (listData[0].hasOwnProperty("guildid")) {
+            let arr = [];
+            let temp = [];
+            let result = [["预选排名", "预选贡献", "团名", "团ID"]];
+            for (let i = 0; i < (listData.length > 30 ? 30 : listData.length); i++) {
+                if (listData[i].rank == "-") {
+                    arr.push([listData[i].rank, toThousands(listData[i].point), listData[i].name, listData[i].guildid]);
+                } else {
+                    temp.push(listData[i]);
+                }
+            }
+            temp.sort((a, b) => a.rank - b.rank);
+            for (let i = 0; i < (temp.length > 30 ? 30 : temp.length); i++) {
+                result.push([temp[i].rank, toThousands(temp[i].point), temp[i].name, temp[i].guildid]);
+            }
+            result.push(...arr);
+            return { result, msg: "" };
+        }
+    } else {
+        alert("没有数据匹配");
+        return {};
+    }
+}
+function toThousands(num) {
+    return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, "$1,");
+}
 export {
     getEvokerPageResult,
     getEvokerPagePercent,
@@ -664,5 +774,7 @@ export {
     getHihiiroDetailCountData,
     getHihiiroDetailBlueChestData,
     getKosenjouData,
-    formatKosenjouData,
+    formatKosenjouData1,
+    formatKosenjouData2,
+    formatKosenjouData3,
 };
