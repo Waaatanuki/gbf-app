@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 const instance = axios.create({
     baseURL: "/api",
-    timeout: 10000,
+    // timeout: 10000,
 });
 
 instance.interceptors.request.use(

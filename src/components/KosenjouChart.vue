@@ -1,96 +1,48 @@
 <template>
-  <div class="canvasItem">
-    <canvas :id="chartInfo.id"></canvas>
+  <slot></slot>
+  <div class="tip" v-show="chartInfo.showTable == 1">加载中。。。</div>
+  <div class="mainTable" v-show="chartInfo.showTable == 2">
+    <label class="msg">{{ chartInfo.msg }}</label>
+    <table border="1" v-for="(item, index) in chartInfo.data" :key="index">
+      <tr>
+        <td>{{ item[0] }}</td>
+        <td>{{ item[1] }}</td>
+        <td>{{ item[2] }}</td>
+        <td v-show="item[3]">{{ item[3] }}</td>
+        <td v-show="item[4]">{{ item[4] }}</td>
+        <td v-show="item[5]">{{ item[5] }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
-import Chart from "chart.js/auto";
-import { onMounted, onUpdated } from "vue";
-import { getKosenjouData, formatKosenjouData } from "../assets/tools";
+import { onMounted, onUpdated, onBeforeUpdate, ref, reactive } from "vue";
 
 export default {
   name: "KosenjouChart",
   props: ["chartInfo"],
-  setup(props) {
-    let chart;
-    const individualLineRank = {
-      2000: "英雄线",
-      80000: "一档线",
-      140000: "二档线",
-      180000: "三档线",
-    };
-    onMounted(() => {
-      const ctx = document.getElementById(props.chartInfo.id);
-      getKosenjouData(
-        props.chartInfo.method[0],
-        props.chartInfo.params[0],
-        function (lineResult) {
-          getKosenjouData(
-            props.chartInfo.method[1],
-            props.chartInfo.params[1],
-            function (userResult) {
-              lineResult.data = formatKosenjouData(lineResult, userResult);
-              // console.log(lineResult);
-              // console.log(userResult);
-              chart = new Chart(ctx, {
-                type: props.chartInfo.chartType,
-                data: {
-                  labels: userResult.labels,
-                  datasets: [
-                    {
-                      label: individualLineRank[props.chartInfo.params[0].rank],
-                      data: lineResult.data,
-                      borderColor: "red",
-                      borderWidth: 2,
-                      pointRadius: 2,
-                    },
-                    {
-                      label: props.chartInfo.params[1].userid,
-                      data: userResult.data,
-                      borderColor: "blue",
-                      borderWidth: 2,
-                      pointRadius: 2,
-                    },
-                  ],
-                },
-                options: {
-                  plugins: {
-                    scales: {
-                      y: {
-                        beginAtZero: true,
-                      },
-                    },
-                  },
-                },
-              });
-            }
-          );
-        }
-      );
-    });
-
-    onUpdated(() => {
-      console.log(props);
-      getKosenjouData(
-        props.chartInfo.method[0],
-        {
-          rank: props.chartInfo.individualLine,
-        },
-        function (result) {
-          chart.data.labels = result.labels;
-          chart.data.datasets[0].data = result.data;
-          chart.data.datasets[0].label =
-            individualLineRank[props.chartInfo.individualLine];
-          chart.update();
-        }
-      );
-    });
-
-    return { chart };
-  },
+  setup() {},
 };
 </script>
 
-<style>
+<style scoped>
+.mainTable {
+  display: flex;
+  flex-direction: column;
+}
+table {
+  border-collapse: collapse;
+  margin: 1px;
+}
+td {
+  width: 50px;
+  line-height: 20px;
+}
+tr:hover {
+  background-color: wheat;
+}
+.msg {
+  margin-bottom: 10px;
+}
 </style>

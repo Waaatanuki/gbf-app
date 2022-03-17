@@ -561,28 +561,92 @@ function getHihiiroDetailBlueChestData({ rawData }) {
 async function getKosenjouData(type, params, cb) {
     // const teamRaidInfo = await request.getResponse("teamraidlist", {});
     const result = await request.getResponse(type, params);
-    const title = Object.keys(result[1])[0];
-    const rawData = result[1][title];
-    const labels = [];
-    const data = [];
-    for (let i = 0; i < rawData.length; i++) {
-        labels.push(rawData[i].updatetime);
-        data.push(rawData[i].point);
+    if (result.length != 1) {
+        const date = Object.keys(result[1])[0];
+        const rawData = result[1][date];
+        console.log(rawData);
+        cb(rawData);
+    } else {
+        cb([]);
     }
-    const temp = { title, labels, data };
-    cb(temp);
 }
 
-function formatKosenjouData(a, b) {
-    let newList = [];
-    let result = [];
-    for (let i = 0; i < b.labels.length; i++) {
-        newList.push(a.labels.indexOf(b.labels[i]));
+function formatKosenjouData(lineData, userData) {
+    // # 25246588  四月一日
+    if (userData.length != 0) {
+        let result = [["时间", "我贡", "线贡", "我速", "线速", "贡献差"]];
+        let newUserData = [];
+        let newLineData = [];
+        let msg = "";
+        for (let i = 0; i < userData.length; i++) {
+            for (let j = 0; j < lineData.length; j++) {
+                if (userData[i].updatetime == lineData[j].updatetime) {
+                    newUserData.push(userData[i]);
+                    newLineData.push(lineData[j]);
+                }
+            }
+        }
+        for (let i = 1; i < newUserData.length; i++) {
+            const time = newUserData[i].updatetime - newUserData[i - 1].updatetime;
+            const userSpeed = (newUserData[i].point - newUserData[i - 1].point) / 100000000 / (time / 3600);
+            const lineSpeed = (newLineData[i].point - newLineData[i - 1].point) / 100000000 / (time / 3600);
+            result.push([
+                dayjs.unix(newUserData[i].updatetime).format("HH:mm"),
+                (newUserData[i].point / 100000000).toFixed(2),
+                (newLineData[i].point / 100000000).toFixed(2),
+                userSpeed.toFixed(2),
+                lineSpeed.toFixed(2),
+                ((newUserData[i].point - newLineData[i].point) / 100000000).toFixed(2),
+            ]);
+        }
+
+        const lastData = result.slice(-1)[0];
+        if (lastData[5] > 0 && lastData[3] >= lastData[4]) {
+            msg = "目前在线内，而且速度比线快，稳住！";
+        }
+        if (lastData[5] < 0 && lastData[3] <= lastData[4]) {
+            msg = "目前在线外，而且速度没线快，别睡了！";
+        }
+        if (lastData[5] > 0 && lastData[3] < lastData[4]) {
+            msg = `目前在线内，但速度没线快，以当前速度${(lastData[5] / (lastData[4] - lastData[3])).toFixed(
+                2
+            )}小时后掉出去，快冲啊！`;
+        }
+        if (lastData[5] < 0 && lastData[3] > lastData[4]) {
+            msg = `目前在线外，但比线速度快，以当前速度${(-lastData[5] / (lastData[3] - lastData[4])).toFixed(
+                2
+            )}小时后进线，冲冲冲！`;
+        }
+        if (lastData[5] == 0) {
+            msg = "持平了！冲啊！！！";
+        }
+
+        return { result, msg };
+    } else {
+        let result = [["时间", "线贡", "线速"]];
+        let msg = "";
+        for (let j = 1; j < lineData.length; j++) {
+            const time = lineData[j].updatetime - lineData[j - 1].updatetime;
+            const lineSpeed = (lineData[j].point - lineData[j - 1].point) / 100000000 / (time / 3600);
+            result.push([
+                dayjs.unix(lineData[j].updatetime).format("HH:mm"),
+                (lineData[j].point / 100000000).toFixed(2),
+                lineSpeed.toFixed(2),
+            ]);
+        }
+
+        const lastData = result.slice(-1)[0];
+        const lastTimeStamp = lineData[lineData.length - 1].updatetime;
+        const endTimeStamp = dayjs(dayjs().format("YYYY-MM-DD") + " 23:00:00").unix();
+        msg =
+            endTimeStamp > lastTimeStamp && dayjs().isSame(dayjs(lastTimeStamp))
+                ? `以当前速度，到今天23点线将达到${(
+                      parseFloat(lastData[1]) +
+                      ((endTimeStamp - lastTimeStamp) / 3600) * parseFloat(lastData[2])
+                  ).toFixed(2)}亿贡献`
+                : "";
+        return { result, msg };
     }
-    for (let i = 0; i < newList.length; i++) {
-        result.push(a.data[newList[i]]);
-    }
-    return result;
 }
 export {
     getEvokerPageResult,
