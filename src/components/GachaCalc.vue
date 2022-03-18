@@ -101,7 +101,7 @@ export default {
   width: 300px;
 }
 .setData {
-  width: 200px;
+  width: 150px;
 }
 input {
   width: 80px;
@@ -111,6 +111,8 @@ ul {
   text-align: justify;
   text-align-last: justify;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 li {
   margin-top: 5px;
