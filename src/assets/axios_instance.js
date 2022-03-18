@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 const instance = axios.create({
-    baseURL: "/api",
+    baseURL: "https://info.gbfteamraid.fun",
     timeout: 10000,
 });
 
