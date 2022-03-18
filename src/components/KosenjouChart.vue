@@ -3,7 +3,7 @@
   <div class="tip" v-show="chartInfo.showTable == 1">加载中。。。</div>
   <div class="mainTable" v-show="chartInfo.showTable == 2">
     <label class="msg">{{ chartInfo.msg }}</label>
-    <table border="1">
+    <table border="2">
       <tr v-for="(item, index) in chartInfo.data" :key="index">
         <td>{{ item[0] }}</td>
         <td>{{ item[1] }}</td>
@@ -17,12 +17,9 @@
 </template>
 
 <script>
-import { onMounted, onUpdated, onBeforeUpdate, ref, reactive } from "vue";
-
 export default {
   name: "KosenjouChart",
   props: ["chartInfo"],
-  setup() {},
 };
 </script>
 

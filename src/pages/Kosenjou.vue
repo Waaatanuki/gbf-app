@@ -147,21 +147,12 @@
           </div>
         </div>
       </div>
-      <!-- <button @click="demo">22222222</button> -->
     </template>
   </div>
 </template>
 
 <script>
-import {
-  reactive,
-  ref,
-  computed,
-  onUpdated,
-  getCurrentInstance,
-  watch,
-  defineAsyncComponent,
-} from "vue";
+import { reactive, toRef } from "vue";
 import KosenjouChart from "../components/KosenjouChart.vue";
 import {
   getKosenjouData,
@@ -175,19 +166,28 @@ export default {
     KosenjouChart,
   },
   setup() {
+    const initData = reactive({ teamraidid: "" });
+    getKosenjouData("teamraidlist", {}, function (err, data) {
+      if (!err) {
+        initData.teamraidid = data[0].teamraidid;
+      } else {
+        console.log(err);
+      }
+    });
+
     const monitorInfo = reactive([
       {
         title: "个排及团排监控",
         isShow: true,
         method1: ["getUserrankChartByRank", "getUserrankChartById"],
         params1: [
-          { teamraidid: "teamraid060", rank: "80000" },
-          { teamraidid: "teamraid060", userid: "" },
+          { teamraidid: toRef(initData, "teamraidid"), rank: "80000" },
+          { teamraidid: toRef(initData, "teamraidid"), userid: "" },
         ],
         method2: ["getGuildrankChartByRank", "getGuildrankChartById"],
         params2: [
-          { teamraidid: "teamraid060", rank: "2000" },
-          { teamraidid: "teamraid060", guildid: "" },
+          { teamraidid: toRef(initData, "teamraidid"), rank: "2000" },
+          { teamraidid: toRef(initData, "teamraidid"), guildid: "" },
         ],
       },
       {
@@ -195,8 +195,8 @@ export default {
         isShow: true,
         method: ["getGuildrankChartById", "getGuildrankChartById"],
         params: [
-          { teamraidid: "teamraid060", guildid: "" },
-          { teamraidid: "teamraid060", guildid: "" },
+          { teamraidid: toRef(initData, "teamraidid"), guildid: "" },
+          { teamraidid: toRef(initData, "teamraidid"), guildid: "" },
         ],
       },
       {
@@ -205,12 +205,16 @@ export default {
         method1: ["getUserrank", "getUserDayPoint"],
         params1: [
           { userid: "", username: "" },
-          { teamraidid: "teamraid060", userid: "" },
+          { teamraidid: toRef(initData, "teamraidid"), userid: "" },
         ],
         method2: ["getGuildrank", "getGuildDayPoint"],
         params2: [
-          { teamraidid: "teamraid060", guildid: "", guildname: "" },
-          { teamraidid: "teamraid060", guildid: "" },
+          {
+            teamraidid: toRef(initData, "teamraidid"),
+            guildid: "",
+            guildname: "",
+          },
+          { teamraidid: toRef(initData, "teamraidid"), guildid: "" },
         ],
       },
     ]);
@@ -221,30 +225,47 @@ export default {
       getKosenjouData(
         item["method" + no][0],
         item["params" + no][0],
-        function (firstData) {
-          getKosenjouData(
-            item["method" + no][1],
-            item["params" + no][1],
-            function (secondData) {
-              temp =
-                item.title == "个排及团排监控"
-                  ? formatKosenjouData1(firstData, secondData)
-                  : item.title == "对战情况监控"
-                  ? formatKosenjouData2(firstData, secondData)
-                  : formatKosenjouData3(firstData, secondData);
+        function (err, firstData) {
+          if (!err) {
+            getKosenjouData(
+              item["method" + no][1],
+              item["params" + no][1],
+              function (err, secondData) {
+                if (!err) {
+                  temp =
+                    item.title == "个排及团排监控"
+                      ? formatKosenjouData1(firstData, secondData)
+                      : item.title == "对战情况监控"
+                      ? formatKosenjouData2(firstData, secondData)
+                      : formatKosenjouData3(firstData, secondData);
 
-              monitorInfo[index]["data" + no] = temp.result;
-              monitorInfo[index]["msg" + no] = temp.msg;
-              monitorInfo[index]["showTable" + no] = 2;
+                  monitorInfo[index]["data" + no] = temp.result;
+                  monitorInfo[index]["msg" + no] = temp.msg;
+                  monitorInfo[index]["showTable" + no] = 2;
+                } else {
+                  if (err.message.includes("timeout")) {
+                    alert("请求超时");
+                  } else {
+                    console.log(err);
+                    alert("请求出错");
+                  }
+                  monitorInfo[index]["showTable" + no] = "";
+                }
+              }
+            );
+          } else {
+            if (err.message.includes("timeout")) {
+              alert("请求超时");
+            } else {
+              console.log(err);
+              alert("请求出错");
             }
-          );
+            monitorInfo[index]["showTable" + no] = "";
+          }
         }
       );
     };
 
-    // onUpdated(() => {
-    //   console.log(monitorInfo[0]);
-    // });
     return { monitorInfo, search };
   },
 };
@@ -277,10 +298,9 @@ input {
 }
 
 .monitorItem {
-  width: 420px;
+  width: 450px;
   display: flex;
   flex-direction: column;
-  margin: 10px;
 }
 .inputInfo,
 select,

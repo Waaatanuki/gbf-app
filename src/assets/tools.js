@@ -1,10 +1,7 @@
 import { evokerData } from "./uncapData";
 import { newEvokerInfo, critData } from "./data";
 import dayjs from "dayjs";
-import qs from "qs";
-import axios from "axios";
-import superagent from "superagent";
-import { instance, request } from "./axios_instance";
+import { request } from "./axios_instance";
 const getEvokerPageResult = function (e, v) {
     let result = {};
     let loopGroup = ["tarotUncap", "evokerUncap", "weaponUncap", "domainUncap"];
@@ -559,22 +556,26 @@ function getHihiiroDetailBlueChestData({ rawData }) {
 }
 
 async function getKosenjouData(type, params, cb) {
-    // const teamRaidInfo = await request.getResponse("teamraidlist", {});
-    const result = await request.getResponse(type, params);
-    if (["getUserrank", "getUserDayPoint", "getGuildrank", "getGuildDayPoint"].indexOf(type) != -1) {
-        cb(result);
-    } else if (result.length > 1) {
-        const date = Object.keys(result[1])[0];
-        const rawData = result[1][date];
-        // console.log(rawData);
-        cb(rawData);
-    } else {
-        cb([]);
+    try {
+        const result = await request.getResponse(type, params);
+        if (
+            ["teamraidlist", "getUserrank", "getUserDayPoint", "getGuildrank", "getGuildDayPoint"].indexOf(type) != -1
+        ) {
+            cb(null, result);
+        } else if (result.length > 1) {
+            const date = Object.keys(result[1])[0];
+            const rawData = result[1][date];
+            // console.log(rawData);
+            cb(null, rawData);
+        } else {
+            cb(null, []);
+        }
+    } catch (error) {
+        cb(error, []);
     }
 }
 
 function formatKosenjouData1(lineData, userData) {
-    // # 25246588  四月一日
     if (userData.length != 0) {
         let result = [["时间", "我贡", "线贡", "我速", "线速", "贡献差"]];
         let newUserData = [];
@@ -721,7 +722,7 @@ function formatKosenjouData3(listData, pointData) {
                 toThousands(pointData[i].maxp),
             ]);
         }
-        console.log(result);
+        // console.log(result);
         return { result, msg: "" };
     } else if (listData.length != 0) {
         if (listData[0].hasOwnProperty("userid")) {
@@ -730,7 +731,7 @@ function formatKosenjouData3(listData, pointData) {
             for (let i = 0; i < (listData.length > 30 ? 30 : listData.length); i++) {
                 result.push([listData[i].level, listData[i].name, listData[i].userid]);
             }
-            console.log(result);
+            // console.log(result);
             return { result, msg: "" };
         } else if (listData[0].hasOwnProperty("guildid")) {
             let arr = [];

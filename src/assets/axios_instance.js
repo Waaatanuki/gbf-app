@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 const instance = axios.create({
     baseURL: "/api",
-    // timeout: 10000,
+    timeout: 10000,
 });
 
 instance.interceptors.request.use(
@@ -25,9 +25,6 @@ instance.interceptors.response.use(
     function (error) {
         // Any status codes that falls outside the range of 2xx cause this function to trigger
         // Do something with response error
-        if (error.message.includes("timeout")) {
-            console.log("网络超时");
-        }
         return Promise.reject(error);
     }
 );
