@@ -1,5 +1,8 @@
 <template>
-  <div class="otherpage"><CritCalc /> <GachaCalc /><TokenCalc /></div>
+  <div class="otherpage">
+    <div><CritCalc /></div>
+    <div><GachaCalc /><TokenCalc /></div>
+  </div>
 </template>
 
 <script>
@@ -15,7 +18,7 @@ export default {
 <style scoped>
 .otherpage {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 </style>

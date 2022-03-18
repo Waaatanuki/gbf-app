@@ -5,7 +5,6 @@
     <div class="show">
       <div class="setData">
         <select v-model="type">
-          <option disabled value="undefined">战货类型</option>
           <option value="0">古战场战货</option>
           <option value="1">月末战货</option>
         </select>
@@ -62,8 +61,9 @@ export default {
         { 0: { perToken: 1600, drawnBox: 0 } },
       ],
       [
-        { 40704: { perToken: 2104, drawnBox: 20 } },
-        { 4800: { perToken: 2112, drawnBox: 3 } },
+        { 40706: { perToken: 2104, drawnBox: 20 } },
+        { 6914: { perToken: 2112, drawnBox: 4 } },
+        { 4800: { perToken: 2114, drawnBox: 3 } },
         { 2800: { perToken: 2000, drawnBox: 2 } },
         { 1200: { perToken: 1600, drawnBox: 1 } },
         { 0: { perToken: 1200, drawnBox: 0 } },
