@@ -3,6 +3,9 @@ import qs from "qs";
 const instance = axios.create({
     baseURL: "/api",
     timeout: 10000,
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+    },
 });
 
 instance.interceptors.request.use(
