@@ -66,6 +66,7 @@
           v-show="showUploadButton"
           v-on:change="uploadFile"
         />
+        <button @click="clearData">清空数据</button>
       </div>
     </div>
   </div>
@@ -82,6 +83,7 @@ import {
   exportJSONFile,
   importJSONFile,
   exportToJson,
+  clearDatabase,
 } from "../assets/tools";
 import { computed, reactive, onUpdated, toRefs } from "vue";
 import router from "@/router";
@@ -121,6 +123,21 @@ export default {
     };
     const downloadFile = () => exportJSONFile(config.rawData);
 
+    const clearData = () => {
+      if (
+        confirm("注意!!!清空将会导致所有金本统计数据丢失!!!\n是否确定清空?")
+      ) {
+        clearDatabase((err) => {
+          if (!err) {
+            alert("清空成功");
+            location.reload();
+          } else {
+            console.log(err);
+          }
+        });
+      }
+    };
+
     onBeforeRouteUpdate((to, from, next) => {
       config.isShowDetail = to.name == "HihiiroSuki" ? false : true;
       next();
@@ -135,6 +152,7 @@ export default {
       uploadFile,
       downloadFile,
       toDetailPage,
+      clearData,
     };
   },
 };

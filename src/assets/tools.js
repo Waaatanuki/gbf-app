@@ -315,27 +315,40 @@ function importFromJson(idbDatabase, jsonString, cb) {
  * @param {function(Object)} cb - callback with signature (error), where error is null on success
  * @return {void}
  */
-function clearDatabase(idbDatabase, cb) {
-    const objectStoreNamesSet = new Set(idbDatabase.objectStoreNames);
-    const size = objectStoreNamesSet.size;
-    if (size === 0) {
-        cb(null);
-    } else {
-        const objectStoreNames = Array.from(objectStoreNamesSet);
-        const transaction = idbDatabase.transaction(objectStoreNames, "readwrite");
-        transaction.onerror = event => cb(event);
+function clearDatabase(cb) {
+    const DBOpenRequest = window.indexedDB.open("gbfApp");
+    let db;
 
-        let count = 0;
-        objectStoreNames.forEach(function (storeName) {
-            transaction.objectStore(storeName).clear().onsuccess = () => {
-                count++;
-                if (count === size) {
-                    // cleared all object stores
-                    cb(null);
-                }
-            };
-        });
-    }
+    DBOpenRequest.onupgradeneeded = function (event) {
+        db = event.target.result;
+        if (!db.objectStoreNames.contains("GoldBrick")) {
+            db.createObjectStore("GoldBrick");
+        }
+    };
+    DBOpenRequest.onsuccess = async function (event) {
+        db = DBOpenRequest.result;
+
+        const objectStoreNamesSet = new Set(db.objectStoreNames);
+        const size = objectStoreNamesSet.size;
+        if (size === 0) {
+            cb(null);
+        } else {
+            const objectStoreNames = Array.from(objectStoreNamesSet);
+            const transaction = db.transaction(objectStoreNames, "readwrite");
+            transaction.onerror = event => cb(event);
+
+            let count = 0;
+            objectStoreNames.forEach(function (storeName) {
+                transaction.objectStore(storeName).clear().onsuccess = () => {
+                    count++;
+                    if (count === size) {
+                        // cleared all object stores
+                        cb(null);
+                    }
+                };
+            });
+        }
+    };
 }
 
 function getHihiiroShowData(rawData) {
