@@ -348,5 +348,7 @@ button {
 }
 .clear {
   background-color: rgb(255, 255, 255);
+  color: #1a2a3a;
+  font-size: 13.3333px;
 }
 </style>
