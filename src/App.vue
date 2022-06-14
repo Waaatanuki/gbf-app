@@ -1,30 +1,21 @@
-<template>
-  <NavigationBar />
-</template>
-
-<script>
-import NavigationBar from "./components/NavigationBar.vue";
-
-export default {
-  name: "App",
-  components: {
-    NavigationBar,
-  },
-};
+<script setup>
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
+<template>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Hello Vue 3 + Vite" />
+</template>
+
 <style>
-html,
-body {
-  height: 100%;
-}
-body {
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin: 0;
-  background-color: #f0ebe6;
-  color: #1a2a3a;
-  font-size: 13.3333px;
-  height: 100%;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
