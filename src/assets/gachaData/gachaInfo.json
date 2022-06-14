@@ -1,0 +1,196 @@
+{
+    "rarity_csv": {
+        "1": {
+            "id": "1",
+            "rarity": "N",
+            "rarity_jp": "ノーマル",
+            "rarity_jp_en": "Normal",
+            "treasure_type": "1"
+        },
+        "2": {
+            "id": "2",
+            "rarity": "R",
+            "rarity_jp": "レア",
+            "rarity_jp_en": "Rare",
+            "treasure_type": "2"
+        },
+        "3": {
+            "id": "3",
+            "rarity": "SR",
+            "rarity_jp": "Sレア",
+            "rarity_jp_en": "S Rare",
+            "treasure_type": "3"
+        },
+        "4": {
+            "id": "4",
+            "rarity": "SSR",
+            "rarity_jp": "SSレア",
+            "rarity_jp_en": "SS Rare",
+            "treasure_type": "10"
+        }
+    },
+    "stone_num": "84447",
+    "gachaticket_popup": [],
+    "enable_beginner_free_legend_10": false,
+    "enable_free_legend_10": false,
+    "enable_term_free_legend": false,
+    "enable_term_free_legend_10": false,
+    "enable_term_free_legend_roulette": false,
+    "enable_term_free_legend_10_item": false,
+    "box": [],
+    "legend": {
+        "lineup": [
+            {
+                "id": "205060",
+                "name": "レジェンド10連ガチャ",
+                "class_name": "prt-title-legend10",
+                "bg_image1": "gacha_bg1",
+                "bg_image2": "gacha_bg2",
+                "discount": {
+                    "enable": false
+                },
+                "campaign_id": null,
+                "campaign_news_id": null,
+                "start": "5月31日 12:00",
+                "end": "6月3日 18:59",
+                "image_path": "",
+                "text_btn_image": "text_legend10",
+                "text_btn_image_ticket": "text_legendticket10",
+                "text_btn_image_stone": "text_stone10",
+                "description": "レア以上確定10連続ガチャと<br>【蒼光の御印】10個のセット<br>ガチャではSレア以上の装備を必ずゲット！",
+                "attention": "※出現率がUPしている装備は「提供割合」のページからご確認ください。",
+                "unit_price": "3000",
+                "enable_stone": true,
+                "ticket_id": 20010,
+                "ticket_name": "レジェンド10連ガチャチケット",
+                "ticket_num": "2",
+                "stone_flg": true,
+                "times": "10",
+                "service_start": "2022/5/31 12:00",
+                "service_end": "2022/6/3 18:59",
+                "disp_service_end": "6/3 18:59"
+            },
+            {
+                "id": "205061",
+                "name": "レジェンドガチャ",
+                "class_name": "prt-title-legend1",
+                "bg_image1": "gacha_bg1",
+                "bg_image2": "gacha_bg2",
+                "discount": {
+                    "enable": true,
+                    "type": 1,
+                    "id": "2",
+                    "price": 90
+                },
+                "campaign_id": null,
+                "campaign_news_id": null,
+                "start": "5月31日 12:00",
+                "end": "6月3日 18:59",
+                "image_path": "",
+                "text_btn_image": "text_legend",
+                "text_btn_image_ticket": "text_legendticket",
+                "text_btn_image_stone": "text_stone",
+                "description": "レア以上の装備を必ずゲットできるガチャと<br>【蒼光の御印】1個のセット",
+                "attention": "※出現率がUPしている装備は「提供割合」のページからご確認ください。",
+                "unit_price": "300",
+                "enable_stone": true,
+                "ticket_id": 20011,
+                "ticket_name": "レジェンドガチャチケット",
+                "ticket_num": "113",
+                "stone_flg": true,
+                "times": "1",
+                "service_start": "2022/5/31 12:00",
+                "service_end": "2022/6/3 18:59",
+                "disp_service_end": "6/3 18:59"
+            }
+        ],
+        "random_key": "6u9dsiqj"
+    },
+    "event_info": [],
+    "appearance_gacha_id": "205061",
+    "user_info": {
+        "reward_to": 1,
+        "weapon_max": null,
+        "weapon_count": null,
+        "summon_max": null,
+        "summon_count": null,
+        "money": "159515598",
+        "user_money": "84447",
+        "requirement_money": 100,
+        "available_times": 0,
+        "limit_count": 100,
+        "free_count": 0,
+        "gacha_skip_flag": "0",
+        "is_free": false,
+        "normal_gacha_id": "6002"
+    },
+    "normal": {
+        "random_key": "ldl7ws51"
+    },
+    "ticket_gacha": [],
+    "auto_recycling_weapon": {
+        "normal": "2",
+        "rare": "2",
+        "super_rare": "2"
+    },
+    "auto_recycling_summon": {
+        "normal": "2",
+        "rare": "2",
+        "super_rare": "2"
+    },
+    "is_recycling_skill_weapon": "1",
+    "auto_sell_weapon": [],
+    "auto_sell_summon": [],
+    "auto_custom_weapon": [],
+    "ceiling": {
+        "name": "蒼光の御印",
+        "is_available": true,
+        "start": "2022/5/31 12:00",
+        "end": "2022/6/3 18:59",
+        "disp_end": "6/3 18:59",
+        "can_exchange": false,
+        "use_count": 0
+    },
+    "ceiling_bonus_item": {
+        "next": {
+            "play_count": "50",
+            "items": ["至極の指輪×1"],
+            "info_image": "step_1.png"
+        },
+        "list": [
+            {
+                "play_count": "50",
+                "items": ["至極の指輪×1"],
+                "info_image": "step_1.png"
+            },
+            {
+                "play_count": "100",
+                "items": ["ゴールドムーン×1"],
+                "info_image": "step_2.png"
+            },
+            {
+                "play_count": "150",
+                "items": ["シルバームーン×10", "○○の耳飾り×1(ランダム1種)"],
+                "info_image": "step_3.png"
+            },
+            {
+                "play_count": "200",
+                "items": ["ガチャ特典SSレア武器確定チケット×1"],
+                "info_image": "step_4.png"
+            },
+            {
+                "play_count": "250",
+                "items": ["エリクシールハーフ×100", "ソウルシード×100"],
+                "info_image": "step_5.png"
+            },
+            {
+                "play_count": "300",
+                "items": ["対象装備が交換可能！"],
+                "info_image": "step_6.png"
+            }
+        ]
+    },
+    "draw_starlegend_gacha_id": 0,
+    "header_images": ["1040023100", "1040116100"],
+    "logo_image": "logo"
+}

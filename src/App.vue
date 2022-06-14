@@ -1,21 +1,54 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/layouts/Header.vue'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div id="animation_bg"></div>
+  <div class="site">
+    <el-header>
+      <Header></Header>
+    </el-header>
+    <el-main>
+      <router-view></router-view>
+    </el-main>
+  </div>
+
 </template>
 
-<style>
+<style lang="less" scoped>
+* {
+  padding: 0px;
+  margin: 0px;
+  --el-menu-hover-bg-color: #fff;
+}
+
+html,
+body,
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#animation_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(assets/common_bg.png) no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+}
+
+.el-header {
+  padding: 0px;
+  margin-bottom: 5px
+}
+
+.el-main {
+  padding: 0px;
+  margin: 0px;
 }
 </style>
