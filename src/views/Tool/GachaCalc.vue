@@ -49,23 +49,23 @@
                     <div class="gacha-bg">
                         <div>
                             <el-image v-for="item in result.slice(0, 3)"
-                                :src="`http://game-a1.granbluefantasy.jp/assets/img/sp/assets/${item.cat}/m/${item.id}.jpg`" />
+                                :src="`./img/gacha/${item.cat}/${item.id}.jpg`" />
                         </div>
 
                         <div>
                             <el-image v-for="item in result.slice(3, 7)"
-                                :src="`http://game-a1.granbluefantasy.jp/assets/img/sp/assets/${item.cat}/m/${item.id}.jpg`" />
+                                :src="`./img/gacha/${item.cat}/${item.id}.jpg`" />
                         </div>
                         <div>
                             <el-image v-for="item in result.slice(7, 10)"
-                                :src="`http://game-a1.granbluefantasy.jp/assets/img/sp/assets/${item.cat}/m/${item.id}.jpg`" />
+                                :src="`./img/gacha/${item.cat}/${item.id}.jpg`" />
                         </div>
                     </div>
 
                     <div class="show-ssr-box">
                         <el-scrollbar height="265px">
                             <el-image v-for="item in ssrList" :class="{ target: item.incidence == '1' }"
-                                :src="`http://game-a1.granbluefantasy.jp/assets/img/sp/assets/${item.cat}/m/${item.id}.jpg`" />
+                                :src="`./img/gacha/${item.cat}/${item.id}.jpg`" />
                         </el-scrollbar>
                     </div>
                 </div>
@@ -258,7 +258,7 @@ const reset = () => {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: url(http://game-a.granbluefantasy.jp/assets/img/sp/gacha/gacha_result_bg.jpg) 50% 50% no-repeat;
+            background: url(/img/bg/gacha_result_bg.jpg) 50% 50% no-repeat;
         }
 
         .el-image {

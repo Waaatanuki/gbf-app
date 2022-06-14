@@ -1,10 +1,9 @@
 <template>
     <div class="carousel-box">
         <el-carousel :interval="4000" height="660px" :autoplay="true">
-            <el-carousel-item v-for="item in showData" :key="item">
+            <el-carousel-item v-for="src in imgSrc">
                 <div class="carousel-card">
-                    <img :src="`http://game-a.granbluefantasy.jp/assets/img/sp/gacha/header/${item.imgSrc}.png`"
-                        class="image" />
+                    <img :src="`./img/homepage/carousel/${src}.png`" class="image" />
                 </div>
             </el-carousel-item>
         </el-carousel>
@@ -16,9 +15,9 @@ import { ref } from 'vue'
 import gachaInfo from '../../assets/gachaData/gachaInfo.json'
 
 
-const showData = ref([])
+const imgSrc = ref([])
 for (const img of gachaInfo.header_images) {
-    showData.value.push({ imgSrc: img })
+    imgSrc.value.push(img)
 }
 </script>
 

@@ -37,7 +37,7 @@ body,
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(assets/common_bg.png) no-repeat center center;
+  background: url(/img/bg/common_bg.png) no-repeat center center;
   background-size: cover;
   z-index: -1;
 }

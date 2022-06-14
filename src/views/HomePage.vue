@@ -36,7 +36,7 @@ import Footer from '../components/layouts/Footer.vue'
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(../assets/home_bg.png) no-repeat center center;
+    background: url(/img/bg/home_bg.png) no-repeat center center;
     background-size: cover;
     z-index: -1;
 }
