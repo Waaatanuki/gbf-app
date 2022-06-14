@@ -333,7 +333,7 @@ button {
   background-color: rgb(100, 166, 219);
   margin: 2px;
   border-radius: 5px;
-  color: black;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 13.3333px;
 }
 .showTotalCrit {
@@ -348,5 +348,7 @@ button {
 }
 .clear {
   background-color: rgb(255, 255, 255);
+  color: #1a2a3a;
+  font-size: 13.3333px;
 }
 </style>
