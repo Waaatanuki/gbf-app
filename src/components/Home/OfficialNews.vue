@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import news from '../../assets/news.json'
+import news from '../../assets/twitter.json'
 import dayjs from 'dayjs'
 
 </script>

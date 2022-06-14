@@ -89,7 +89,7 @@ const form = reactive({
     mobacoin: { desc: '剩余点数', value: 0 },
 })
 
-const price = ref(156)
+const price = ref(160)
 const point = ref(3000)
 
 const totalStone = computed(() =>

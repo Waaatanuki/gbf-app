@@ -17,7 +17,6 @@
 <script setup>
 import { computed, ref } from "vue";
 import BarChart from '../Chart/BarChart.vue'
-import database from '../../assets/goldbrick.json'
 import dayjs from 'dayjs'
 
 const props = defineProps(['raidIndex', 'data'])
