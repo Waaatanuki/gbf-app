@@ -31,6 +31,11 @@ const routes = [
         name: "HihiiroSuki",
         component: () => import("../views/HihiiroSuki.vue"),
     },
+    {
+        path: "/playground",
+        name: "Playground",
+        component: () => import("../views/Playground.vue"),
+    },
     // {
     //     path: "/guildwarsmonitor",
     //     name: "GuildWarsMonitor",
