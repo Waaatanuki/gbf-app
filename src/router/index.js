@@ -32,6 +32,11 @@ const routes = [
         component: () => import("../views/HihiiroSuki.vue"),
     },
     {
+        path: "/ngatools",
+        name: "NGATools",
+        component: () => import("../views/NGATools.vue"),
+    },
+    {
         path: "/playground",
         name: "Playground",
         component: () => import("../views/Playground.vue"),

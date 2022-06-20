@@ -10,7 +10,8 @@
       <el-menu-item index="/critcalc">暴击计算器</el-menu-item>
       <el-menu-item index="/gachacalc">攒井计算器</el-menu-item>
     </el-sub-menu>
-    <el-menu-item index="/playground">实验广场</el-menu-item>
+    <el-menu-item index="/ngatools">NGA工具</el-menu-item>
+    <!-- <el-menu-item index="/playground">实验广场</el-menu-item> -->
   </el-menu>
 </template>
 
