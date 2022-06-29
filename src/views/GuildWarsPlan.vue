@@ -4,8 +4,8 @@
             <template #header>
                 <div class="card-header">
                     <span>古战场规划
-                        <el-tag effect="plain" type='danger'>
-                            由于追加200hl，当前规划失效，正式开始后更新数据
+                        <el-tag effect="plain" type='success'>
+                            已更新200HL数据
                         </el-tag>
                     </span>
                     <el-button class="button" @click="changeMeat">修改打牛效率</el-button>
@@ -60,9 +60,10 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { tokenData, tableData, setOptions, apPerHalfElixir } from '../settings/guildWars.setting'
+import { ElMessageBox } from 'element-plus'
 
-const honorPlan = ref([0, 10, 10, 40, 40])
-const hellPlan = ref(['HELL Lv90', 'HELL Lv95', 'HELL Lv95', 'HELL Lv150', 'HELL Lv150'])
+const honorPlan = ref([0, 10, 30, 50, 50])
+const hellPlan = ref(['HELL Lv90', 'HELL Lv95', 'HELL Lv150', 'HELL Lv200', 'HELL Lv200'])
 
 const totalMeat = computed(() => {
     let res = 0

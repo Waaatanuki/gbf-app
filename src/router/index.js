@@ -27,6 +27,11 @@ const routes = [
         component: () => import("../views/Tool/GachaCalc.vue"),
     },
     {
+        path: "/tokencalc",
+        name: "TokenCalc",
+        component: () => import("../views/Tool/TokenCalc.vue"),
+    },
+    {
         path: "/hihiirosuki",
         name: "HihiiroSuki",
         component: () => import("../views/HihiiroSuki.vue"),

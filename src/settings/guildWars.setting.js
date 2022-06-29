@@ -41,11 +41,11 @@ export const tableData = [
     },
     {
         type: "HELL Lv200",
-        honor: "???",
-        honorNumber: "???",
-        meat: "???",
-        ap: "???",
-        token: "???",
+        honor: "10,260,000",
+        honorNumber: 10260000,
+        meat: 30,
+        ap: 50,
+        token: 338,
     },
 ];
 
@@ -60,9 +60,17 @@ export const tokenData = [
 export const setOptions = [
     { title: "休息日", selectOptions: ["HELL Lv90"], max: 100 },
     { title: "本战第一天", selectOptions: ["HELL Lv90", "HELL Lv95"], max: 100 },
-    { title: "本战第二天", selectOptions: ["HELL Lv90", "HELL Lv95"], max: 100 },
-    { title: "本战第三天", selectOptions: ["HELL Lv90", "HELL Lv95", "HELL Lv100", "HELL Lv150"], max: 200 },
-    { title: "本战第四天", selectOptions: ["HELL Lv90", "HELL Lv95", "HELL Lv100", "HELL Lv150"], max: 200 },
+    { title: "本战第二天", selectOptions: ["HELL Lv90", "HELL Lv95", "HELL Lv100", "HELL Lv150"], max: 200 },
+    {
+        title: "本战第三天",
+        selectOptions: ["HELL Lv90", "HELL Lv95", "HELL Lv100", "HELL Lv150", "HELL Lv200"],
+        max: 200,
+    },
+    {
+        title: "本战第四天",
+        selectOptions: ["HELL Lv90", "HELL Lv95", "HELL Lv100", "HELL Lv150", "HELL Lv200"],
+        max: 200,
+    },
 ];
 
 export const apPerHalfElixir = 75;
