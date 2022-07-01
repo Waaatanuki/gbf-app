@@ -2,11 +2,11 @@
     <el-card class="box-card" :body-style="{ padding: '20px 20px 0px 20px' }">
         <template #header>
             <div class="card-header">
-                <span>六月日程表</span>
+                <span>{{ dayjs().month() + 1 }}月日程表</span>
             </div>
         </template>
         <el-scrollbar height="600px">
-            <el-timeline style="padding:0 15px 0 0">
+            <el-timeline style="padding:0 15px 0 0" v-if="dayjs().isSame(dayjs(schedule[3].start), 'month')">
                 <el-timeline-item placement="top" v-for="activity in schedule"
                     :timestamp="dayjs(activity.start).format('MM/DD HH:mm') + ' - ' + dayjs(activity.end).format('MM/DD HH:mm')"
                     :color="handleColor(activity.start, activity.end)">
@@ -16,6 +16,7 @@
                     </el-card>
                 </el-timeline-item>
             </el-timeline>
+            <label v-else>暂未更新</label>
         </el-scrollbar>
     </el-card>
 </template>
