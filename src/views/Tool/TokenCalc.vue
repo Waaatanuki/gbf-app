@@ -11,8 +11,9 @@
                 <el-form :model="form" label-width="120px">
                     <el-form-item label="类型">
                         <el-radio-group v-model="form.type">
-                            <el-radio :label="0">古战场战货</el-radio>
-                            <el-radio :label="1">月末战货</el-radio>
+                            <el-radio :label="0">古战场</el-radio>
+                            <el-radio :label="1">月末剧情</el-radio>
+                            <el-radio :label="2">工会战</el-radio>
                         </el-radio-group>
                     </el-form-item>
                     <el-form-item label="当前战货数量">
@@ -57,6 +58,13 @@ const data = [
         { 2800: { perToken: 2000, drawnBox: 2 } },
         { 1200: { perToken: 1600, drawnBox: 1 } },
         { 0: { perToken: 1200, drawnBox: 0 } },
+    ],
+    [
+        { 240800: { perToken: 15000, drawnBox: 40 } },
+        { 40800: { perToken: 10000, drawnBox: 20 } },
+        { 8800: { perToken: 2000, drawnBox: 4 } },
+        { 1600: { perToken: 2400, drawnBox: 1 } },
+        { 0: { perToken: 1600, drawnBox: 0 } },
     ],
 ];
 form.totalToken = computed(() => {
