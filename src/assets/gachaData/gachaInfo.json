@@ -29,7 +29,7 @@
             "treasure_type": "10"
         }
     },
-    "stone_num": "16622",
+    "stone_num": "16342",
     "gachaticket_popup": [],
     "enable_beginner_free_legend_10": false,
     "enable_free_legend_10": false,
@@ -41,7 +41,47 @@
     "legend": {
         "lineup": [
             {
-                "id": "205210",
+                "id": "292310",
+                "name": "スターレジェンドガチャセット",
+                "class_name": "prt-title-starlegend",
+                "bg_image1": "gacha_bg1",
+                "bg_image2": "gacha_bg2",
+                "discount": {
+                    "enable": false
+                },
+                "campaign_id": "286",
+                "campaign_news_id": null,
+                "start": "7月24日 19:00",
+                "end": "7月27日 18:59",
+                "image_path": "gacha/9n6c7czc/info/banner_292310_9n6c7czc",
+                "text_btn_image": "text_starlegend10",
+                "text_btn_image_ticket": "text_legendticket10",
+                "text_btn_image_stone": "text_stone10",
+                "description": "Sレア以上1回確定10連続ガチャ,SSレア確定ガチャ,<br>ボーナスアイテム1種類,【金剛晶の欠片】1個,【蒼光の御印】11個のセット!<br>SSレア確定ガチャでは対象の光属性召喚石を必ず1つゲット!<br>購入は7/24 19:00～7/27 18:59中1回限定!",
+                "attention": "",
+                "unit_price": "3000",
+                "enable_stone": true,
+                "ticket_id": null,
+                "ticket_name": null,
+                "ticket_num": 0,
+                "stone_flg": false,
+                "campaign_gacha_ids": [
+                    {
+                        "id": "292310",
+                        "name": "スターレジェンドガチャセット",
+                        "text_btn_image": "text_starlegend10",
+                        "payment_image": "gacha/info/icon_gacha_mbga_star10ssr",
+                        "provision_ratio_type": 0,
+                        "is_purchased": false
+                    }
+                ],
+                "times": "10",
+                "service_start": "2022/7/24 19:00",
+                "service_end": "2022/7/27 18:59",
+                "disp_service_end": "7/27 18:59"
+            },
+            {
+                "id": "205290",
                 "name": "レジェンド10連ガチャ",
                 "class_name": "prt-title-legend10",
                 "bg_image1": "gacha_bg1",
@@ -51,8 +91,8 @@
                 },
                 "campaign_id": null,
                 "campaign_news_id": null,
-                "start": "6月30日 12:00",
-                "end": "12月31日 23:59",
+                "start": "7月24日 19:00",
+                "end": "7月27日 18:59",
                 "image_path": "",
                 "text_btn_image": "text_legend10",
                 "text_btn_image_ticket": "text_legendticket10",
@@ -66,12 +106,12 @@
                 "ticket_num": "0",
                 "stone_flg": true,
                 "times": "10",
-                "service_start": "2022/6/30 12:00",
-                "service_end": "2022/7/3 18:59",
-                "disp_service_end": "7/3 18:59"
+                "service_start": "2022/7/24 19:00",
+                "service_end": "2022/7/27 18:59",
+                "disp_service_end": "7/27 18:59"
             },
             {
-                "id": "205211",
+                "id": "205291",
                 "name": "レジェンドガチャ",
                 "class_name": "prt-title-legend1",
                 "bg_image1": "gacha_bg1",
@@ -84,8 +124,8 @@
                 },
                 "campaign_id": null,
                 "campaign_news_id": null,
-                "start": "6月30日 12:00",
-                "end": "12月31日 23:59",
+                "start": "7月24日 19:00",
+                "end": "7月27日 18:59",
                 "image_path": "",
                 "text_btn_image": "text_legend",
                 "text_btn_image_ticket": "text_legendticket",
@@ -96,26 +136,26 @@
                 "enable_stone": true,
                 "ticket_id": 20011,
                 "ticket_name": "レジェンドガチャチケット",
-                "ticket_num": "19",
+                "ticket_num": "33",
                 "stone_flg": true,
                 "times": "1",
-                "service_start": "2022/6/30 12:00",
-                "service_end": "2022/7/3 18:59",
-                "disp_service_end": "7/3 18:59"
+                "service_start": "2022/7/24 19:00",
+                "service_end": "2022/7/27 18:59",
+                "disp_service_end": "7/27 18:59"
             }
         ],
-        "random_key": "1vpd5soo"
+        "random_key": "9n6c7czc"
     },
     "event_info": [],
-    "appearance_gacha_id": "205211",
+    "appearance_gacha_id": "205291",
     "user_info": {
         "reward_to": 1,
         "weapon_max": null,
         "weapon_count": null,
         "summon_max": null,
         "summon_count": null,
-        "money": "161329472",
-        "user_money": "16622",
+        "money": "161695005",
+        "user_money": "16342",
         "requirement_money": 100,
         "available_times": 0,
         "limit_count": 100,
@@ -129,12 +169,32 @@
     },
     "ticket_gacha": [
         {
+            "ticket_id": "10021",
+            "type": "legendticket",
+            "gacha_id": "205290",
+            "title": "Sレア以上確定ガチャチケット",
+            "description": "Sレア以上が必ず当たる、特別なガチャチケットです。",
+            "count": "3",
+            "expired": false,
+            "times": "1"
+        },
+        {
+            "ticket_id": "100141",
+            "type": "ticketonly",
+            "gacha_id": "100141",
+            "title": "Sレア武器確定ガチャ",
+            "description": "Sレア武器確定ガチャが引けるチケット！",
+            "count": "3",
+            "expired": false,
+            "times": "1"
+        },
+        {
             "ticket_id": "103301",
             "type": "legendticket",
-            "gacha_id": "205211",
+            "gacha_id": "205291",
             "title": "特典ポイントガチャ",
             "description": "特典ポイントガチャが利用できるチケットです。",
-            "count": "5",
+            "count": "10",
             "expired": false,
             "times": "1"
         }
@@ -156,9 +216,9 @@
     "ceiling": {
         "name": "蒼光の御印",
         "is_available": true,
-        "start": "2022/6/30 12:00",
-        "end": "2022/7/3 18:59",
-        "disp_end": "7/3 18:59",
+        "start": "2022/7/24 19:00",
+        "end": "2022/7/27 18:59",
+        "disp_end": "7/27 18:59",
         "can_exchange": false,
         "use_count": 0
     },
@@ -202,6 +262,6 @@
         ]
     },
     "draw_starlegend_gacha_id": 0,
-    "header_images": ["1040913900", "1040023300"],
+    "header_images": ["2040409000", "2040330000", "2040275000", "2040080000", "2040065000", "2040056000"],
     "logo_image": "logo"
 }
