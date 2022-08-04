@@ -6,7 +6,7 @@
             </div>
         </template>
         <el-scrollbar height="600px">
-            <el-timeline style="padding:0 15px 0 0" v-if="dayjs().isSame(dayjs(schedule[3].start), 'month')">
+            <el-timeline style="padding:0 15px 0 0" v-if="dayjs().isSame(dayjs(schedule[0].end), 'month')">
                 <el-timeline-item placement="top" v-for="activity in schedule"
                     :timestamp="dayjs(activity.start).format('MM/DD HH:mm') + ' - ' + dayjs(activity.end).format('MM/DD HH:mm')"
                     :color="handleColor(activity.start, activity.end)">
