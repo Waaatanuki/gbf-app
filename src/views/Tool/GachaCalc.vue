@@ -39,10 +39,7 @@
                         }}%</span>
                         <div>
                             <el-button type="warning" @click="reset">重置</el-button>
-                            <el-button type="primary" @click="draw300">一井</el-button>
-                            <el-button type="primary" @click="draw10">十连</el-button>
                         </div>
-
                     </div>
                 </template>
                 <div class="card-body">
@@ -61,9 +58,16 @@
                                 :src="`./img/gacha/${item.cat}/${item.id}.jpg`" />
                         </div>
                     </div>
-
+                    <div class="btn-gacha-box">
+                        <div class="btn-gacha" :class="{ on: isBtn10On }" @click="draw10">
+                            <img class="img-gacha-button" src="/img//gacha/text_legend10.png" alt="text_legend10">
+                        </div>
+                        <div class="btn-gacha" :class="{ on: isBtn300On }" @click="draw300">
+                            <img class="img-gacha-button" src="/img//gacha/text_legend300.png" alt="text_legend300">
+                        </div>
+                    </div>
                     <div class="show-ssr-box">
-                        <el-scrollbar height="265px">
+                        <el-scrollbar height="200px">
                             <el-image v-for="item in ssrList" :class="{ target: item.incidence == '1' }"
                                 :src="`./img/gacha/${item.cat}/${item.id}.jpg`" />
                         </el-scrollbar>
@@ -73,6 +77,16 @@
             </el-card>
         </div>
     </div>
+    <!-- <el-dialog v-model="animationVisible" destroy-on-close :show-close="false" width="480px"> -->
+    <div class="animation" v-if="animationVisible" @click="animationVisible = false">
+        <div class="animation-bg"> </div>
+        <div v-for="rare in result">
+            {{ rare }}
+            <div :style="{ background: 'url(/img/gacha/ssr.png) no-repeat', height: '400px', 'z-index': 50 }">
+            </div>
+        </div>
+    </div>
+    <!-- </el-dialog> -->
 </template>
 
 <script setup>
@@ -91,6 +105,11 @@ const form = reactive({
 
 const price = ref(160)
 const point = ref(3000)
+
+const isBtn10On = ref(false)
+const isBtn300On = ref(true)
+const animationVisible = ref(false)
+const gachaResult = ref([])
 
 const totalStone = computed(() =>
     form.legendticket10.value * 3000 +
@@ -178,6 +197,7 @@ const gacha10 = () => {
 };
 
 const draw10 = () => {
+    animationVisible.value = true
     if (!cardN) cardN = getRate(gachaNormalRatio);
     if (!cardSR) cardSR = getRate(gachaSrRatio);
     result.value = gacha10();
@@ -191,6 +211,7 @@ const draw10 = () => {
 }
 
 const draw300 = () => {
+    animationVisible.value = true
     if (!cardN) cardN = getRate(gachaNormalRatio);
     if (!cardSR) cardSR = getRate(gachaSrRatio);
     for (let i = 0; i < 30; i++) {
@@ -223,6 +244,8 @@ const reset = () => {
     height: 550px;
     width: 250px;
 
+
+
     .input-form {
         display: flex;
         justify-content: center;
@@ -245,11 +268,44 @@ const reset = () => {
         justify-content: space-between;
         align-items: center;
         height: 21px;
+
+
     }
 
     .card-body {
         display: flex;
         flex-direction: column;
+
+        .btn-gacha-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .btn-gacha {
+                background: url(/img/gacha/parts_common.png) no-repeat 0 -232px;
+                background-size: 320px 5559px;
+                width: 148px;
+                height: 65px;
+                box-sizing: border-box;
+                display: inline-block;
+                text-align: center;
+                position: relative;
+                padding-top: 11px;
+
+                img {
+                    width: 112px;
+                    height: 38px;
+                }
+            }
+
+            .btn-gacha:active {
+                background: url(/img/gacha/parts_common.png) no-repeat 0 -776px;
+                background-size: 320px 5559px;
+                transform: scale(0.9)
+            }
+
+
+        }
 
         .gacha-bg {
             height: 166px;
@@ -290,5 +346,25 @@ const reset = () => {
         right: 1px;
         font-size: 13px;
     }
+}
+
+
+.animation {
+    // background-color: rgba(0, 0, 0);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.animation-bg {
+
+    background: url(/img/gacha/gacha_bg.jpg) no-repeat center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 </style>
