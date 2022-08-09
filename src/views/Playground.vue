@@ -4,7 +4,7 @@
             <div class="circle">
                 <img class="list" :class="`result${index - 1}`" v-for=" index in 10" :key="index"
                     src="/img/gacha/ssr.png"
-                    :style="`transform:translate(70%, -50%) rotateZ(${36 * (index - 1)}deg );opacity: 0;`">
+                    :style="`transform:translate(-50%, -150%) rotateZ(${36 * (index - 1)}deg );opacity: 0;`">
             </div>
         </div>
     </div>
@@ -15,8 +15,8 @@ import { onMounted, ref, computed, reactive } from 'vue'
 const result = []
 
 for (let i = 0; i < 10; i++) {
-    const top = 250 - Math.cos((i * 36) * Math.PI / 180) * 100
-    const left = 250 + Math.sin((i * 36) * Math.PI / 180) * 100
+    const top = 375 - Math.cos((i * 36) * Math.PI / 180) * 100
+    const left = 375 + Math.sin((i * 36) * Math.PI / 180) * 100
     result.push({ top: top + 'px', left: left + 'px' })
 
     document.styleSheets[0].insertRule(
