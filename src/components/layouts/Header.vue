@@ -12,7 +12,7 @@
       <el-menu-item index="/tokencalc">战货计算器</el-menu-item>
     </el-sub-menu>
     <el-menu-item index="/ngatools">NGA工具</el-menu-item>
-    <!-- <el-menu-item index="/playground">实验广场</el-menu-item> -->
+    <el-menu-item index="/playground">实验广场</el-menu-item>
   </el-menu>
 </template>
 

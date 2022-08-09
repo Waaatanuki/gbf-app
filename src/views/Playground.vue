@@ -1,93 +1,39 @@
 <template>
     <div class="playground">
-        <canvas ref="canvas" :width="WIDTH" :height="HEIGHT"></canvas>
+        <div>
+            <div class="circle">
+                <img class="list" :class="`result${index - 1}`" v-for=" index in 10" :key="index"
+                    src="/img/gacha/ssr.png"
+                    :style="`transform:translate(70%, -50%) rotateZ(${36 * (index - 1)}deg );opacity: 0;`">
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
 import { onMounted, ref, computed, reactive } from 'vue'
-const canvas = ref()
-const ctx = computed(() => canvas.value.getContext('2d'))
-const WIDTH = 500
-const HEIGHT = 500
-const startLine = reactive({
-    x: WIDTH / 2, y: HEIGHT, length: 20, angle: -Math.PI / 2
-})
-const taskFuction = ref([])
+const result = []
 
-function getEndPoint(line) {
-    return {
-        x: line.x + line.length * Math.cos(line.angle),
-        y: line.y + line.length * Math.sin(line.angle),
-    }
+for (let i = 0; i < 10; i++) {
+    const top = 250 - Math.cos((i * 36) * Math.PI / 180) * 100
+    const left = 250 + Math.sin((i * 36) * Math.PI / 180) * 100
+    result.push({ top: top + 'px', left: left + 'px' })
+
+    document.styleSheets[0].insertRule(
+        "@keyframes move" + i +
+        "{" +
+        "from {top: 50%;left: 50%;}" +
+        `to {top: ${top}px;left: ${left}px;opacity: 1;}` +
+        "}"
+    )
+    document.styleSheets[0].insertRule(".result" + i + "{" +
+        `animation: move${i} 2s ${0.5 * i}s;` +
+        " animation-fill-mode: forwards;" +
+        "}"
+    )
+
+
 }
-
-
-
-function drawLine(line, depth = 0) {
-    const endPoint = getEndPoint(line)
-    lineTo({ x: line.x, y: line.y }, endPoint)
-
-    if (depth < 5 || Math.random() < 0.4) {
-        taskFuction.value.push(() => {
-            drawLine({
-                x: endPoint.x,
-                y: endPoint.y,
-                length: line.length + Math.random() * 10 - 5,
-                angle: line.angle - 0.4 * Math.random()
-            }, depth + 1)
-        })
-    }
-    if (depth < 5 || Math.random() < 0.4) {
-        taskFuction.value.push(() => {
-            drawLine({
-                x: endPoint.x,
-                y: endPoint.y,
-                length: line.length + Math.random() * 10 - 5,
-                angle: line.angle + 0.4 * Math.random()
-            }, depth + 1)
-        })
-    }
-}
-
-function lineTo(p1, p2) {
-    // ctx.value.strokeStyle = 'rgba(0,0,0,0.5)'
-    ctx.value.beginPath();
-    ctx.value.moveTo(p1.x, p1.y);
-    ctx.value.lineTo(p2.x, p2.y);
-    ctx.value.stroke();
-}
-
-function init() {
-    drawLine(startLine)
-}
-
-function frame() {
-    const tasks = [...taskFuction.value]
-    taskFuction.value.length = 0
-    tasks.forEach(func => func())
-    return tasks.length
-}
-
-let count = 0
-let length = 1
-function render() {
-    requestAnimationFrame(() => {
-        count++
-        if (count % 3 == 0) {
-            length = frame()
-        }
-        if (length > 0) {
-            console.log(length);
-            render()
-        }
-    })
-}
-render()
-
-onMounted(() => {
-    init()
-})
 
 </script>
 
@@ -98,8 +44,20 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
 
-    canvas {
-        border: 1px solid black
+
+    .circle {
+        position: relative;
+        width: 750px;
+        height: 750px;
+        background: url(/img/gacha/gacha_bg.jpg) no-repeat center;
+        // border: 1px solid black;
+
+        .list {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: bottom;
+        }
     }
 }
 </style>
