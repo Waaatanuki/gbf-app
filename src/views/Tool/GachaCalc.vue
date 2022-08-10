@@ -77,11 +77,9 @@
             </el-card>
         </div>
     </div>
-    <!-- <el-dialog v-model="animationVisible" destroy-on-close :show-close="false" width="480px"> -->
     <div class="animation" v-if="animationVisible" @click="closeAnimation">
         <GachaAnimation :resultList='animationResult' @close='closeAnimation' />
     </div>
-    <!-- </el-dialog> -->
 </template>
 
 <script setup>
