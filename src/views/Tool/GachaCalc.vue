@@ -78,19 +78,15 @@
         </div>
     </div>
     <!-- <el-dialog v-model="animationVisible" destroy-on-close :show-close="false" width="480px"> -->
-    <div class="animation" v-if="animationVisible" @click="animationVisible = false">
-        <div class="animation-bg"> </div>
-        <div v-for="rare in result">
-            {{ rare }}
-            <div :style="{ background: 'url(/img/gacha/ssr.png) no-repeat', height: '400px', 'z-index': 50 }">
-            </div>
-        </div>
+    <div class="animation" v-if="animationVisible" @click="closeAnimation">
+        <GachaAnimation :resultList='animationResult' @close='closeAnimation' />
     </div>
     <!-- </el-dialog> -->
 </template>
 
 <script setup>
 import { computed, reactive, ref } from 'vue';
+import GachaAnimation from '../../components/Tool/Gacha/GachaAnimation.vue'
 import gachaNormalRatio from '../../assets/gachaData/gachaNormalRatio.json'
 import gachaSrRatio from '../../assets/gachaData/gachaSrRatio.json'
 import gachaInfo from '../../assets/gachaData/gachaInfo.json'
@@ -109,7 +105,6 @@ const point = ref(3000)
 const isBtn10On = ref(false)
 const isBtn300On = ref(true)
 const animationVisible = ref(false)
-const gachaResult = ref([])
 
 const totalStone = computed(() =>
     form.legendticket10.value * 3000 +
@@ -133,6 +128,7 @@ const rarityType = {
 };
 const result = ref([])
 const ssrList = ref([])
+const animationResult = ref([]);
 const count = ref(0)
 const ssrCount = ref(0)
 const gachaLineup = "*当前卡池时间：" + gachaInfo.legend.lineup[0].service_start + '—' + gachaInfo.legend.lineup[0].service_end + ' 彩框为卡池UP'
@@ -201,6 +197,7 @@ const draw10 = () => {
     if (!cardN) cardN = getRate(gachaNormalRatio);
     if (!cardSR) cardSR = getRate(gachaSrRatio);
     result.value = gacha10();
+    animationResult.value = [...result.value]
     count.value += 10
     for (const item of result.value) {
         if (item.type === 'ssr') {
@@ -212,10 +209,12 @@ const draw10 = () => {
 
 const draw300 = () => {
     animationVisible.value = true
+    animationResult.value.length = 0
     if (!cardN) cardN = getRate(gachaNormalRatio);
     if (!cardSR) cardSR = getRate(gachaSrRatio);
     for (let i = 0; i < 30; i++) {
         result.value = gacha10();
+        animationResult.value = animationResult.value.concat([...result.value])
         count.value += 10
         for (const item of result.value) {
             if (item.type === 'ssr') {
@@ -232,6 +231,10 @@ const reset = () => {
     ssrCount.value = 0
 }
 
+function closeAnimation() {
+    animationVisible.value = false;
+    animationResult.value.length = 0
+}
 </script>
 
 <style lang="less" scoped>
@@ -303,8 +306,6 @@ const reset = () => {
                 background-size: 320px 5559px;
                 transform: scale(0.9)
             }
-
-
         }
 
         .gacha-bg {
@@ -346,25 +347,5 @@ const reset = () => {
         right: 1px;
         font-size: 13px;
     }
-}
-
-
-.animation {
-    // background-color: rgba(0, 0, 0);
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.animation-bg {
-
-    background: url(/img/gacha/gacha_bg.jpg) no-repeat center;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 </style>

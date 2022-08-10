@@ -15,14 +15,17 @@ import { onMounted, ref, computed, reactive } from 'vue'
 
 const playground = ref()
 
+const props = defineProps(['resultList'])
 
-const resultList = ref([{ type: 'ssr' }, { type: 'ssr' }, { type: 'ssr' }, { type: 'ssr' }, { type: 'ssr' }, { type: 'ssr' }, { type: 'ssr' }, { type: 'ssr' }, { type: 'ssr' }, { type: 'ssr' }])
+const emits = defineEmits(['close'])
+let num = ref(0)
 
 function start() {
     for (let i = 0; i < document.styleSheets[0].cssRules.length; i++) {
         document.styleSheets[0].deleteRule(i)
     }
-    for (let i = 0; i < 30; i++) {
+
+    for (let i = 0; i < props.resultList.length; i++) {
         const top = 375 - Math.cos((i * 36) * Math.PI / 180) * 100
         const left = 250 + Math.sin((i * 36) * Math.PI / 180) * 100
 
@@ -33,17 +36,24 @@ function start() {
             "{" +
             "0% {top: 50%;left: 50%;}" +
             `90% {top: ${top}px;left: ${left}px;opacity: 1;}` +
-            `100% {top: ${top}px;left: ${left}px;opacity: 0;}` +
+            `100% {top: ${_top}px;left: ${_left}px;opacity: 0;}` +
             "}"
         )
+        const speed = props.resultList.length > 10 ? `animation: move${i} 0.5s ${0.1 * i}s;` : `animation: move${i} 2s ${0.5 * i}s;`
         document.styleSheets[0].insertRule(".result" + i + "{" +
-            `animation: move${i} 1s ${0.1 * i}s infinite;` +
+            speed +
             " animation-fill-mode: forwards;" +
             "}"
         )
     }
 }
 onMounted(() => {
+    playground.value.addEventListener('animationend', () => {
+        num.value++
+        if (num.value == props.resultList.length) {
+            emits('close')
+        }
+    });
     start()
 })
 
@@ -57,8 +67,10 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     user-select: none;
+    background: black;
+
     position: fixed;
-    top: 80px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -77,7 +89,6 @@ onMounted(() => {
             left: 50%;
             top: 50%;
             transform-origin: bottom;
-
         }
     }
 }
