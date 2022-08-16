@@ -59,11 +59,11 @@
                         </div>
                     </div>
                     <div class="btn-gacha-box">
-                        <div class="btn-gacha" :class="{ on: isBtn10On }" @click="draw10">
-                            <img class="img-gacha-button" src="/img//gacha/text_legend10.png" alt="text_legend10">
+                        <div class="btn-gacha" @click="draw(1)">
+                            <img class="img-gacha-button" src="/img/gacha/text_legend10.png" alt="text_legend10">
                         </div>
-                        <div class="btn-gacha" :class="{ on: isBtn300On }" @click="draw300">
-                            <img class="img-gacha-button" src="/img//gacha/text_legend300.png" alt="text_legend300">
+                        <div class="btn-gacha" @click="draw(30)">
+                            <img class="img-gacha-button" src="/img/gacha/text_legend300.png" alt="text_legend300">
                         </div>
                     </div>
                     <div class="show-ssr-box">
@@ -100,8 +100,6 @@ const form = reactive({
 const price = ref(160)
 const point = ref(3000)
 
-const isBtn10On = ref(false)
-const isBtn300On = ref(true)
 const animationVisible = ref(false)
 
 const totalStone = computed(() =>
@@ -190,27 +188,12 @@ const gacha10 = () => {
     return result;
 };
 
-const draw10 = () => {
-    animationVisible.value = true
-    if (!cardN) cardN = getRate(gachaNormalRatio);
-    if (!cardSR) cardSR = getRate(gachaSrRatio);
-    result.value = gacha10();
-    animationResult.value = [...result.value]
-    count.value += 10
-    for (const item of result.value) {
-        if (item.type === 'ssr') {
-            ssrCount.value++
-            ssrList.value.push(item);
-        }
-    }
-}
-
-const draw300 = () => {
+const draw = (times) => {
     animationVisible.value = true
     animationResult.value.length = 0
     if (!cardN) cardN = getRate(gachaNormalRatio);
     if (!cardSR) cardSR = getRate(gachaSrRatio);
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < times; i++) {
         result.value = gacha10();
         animationResult.value = animationResult.value.concat([...result.value])
         count.value += 10
@@ -222,6 +205,7 @@ const draw300 = () => {
         }
     }
 }
+
 const reset = () => {
     result.value = []
     ssrList.value = []
