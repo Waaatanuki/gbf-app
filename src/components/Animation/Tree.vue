@@ -1,7 +1,5 @@
 <template>
-    <div class="playground">
-        <canvas ref="canvas" :width="WIDTH" :height="HEIGHT"></canvas>
-    </div>
+    <canvas ref="canvas" :width="WIDTH" :height="HEIGHT"></canvas>
 </template>
 
 <script setup>
@@ -21,8 +19,6 @@ function getEndPoint(line) {
         y: line.y + line.length * Math.sin(line.angle),
     }
 }
-
-
 
 function drawLine(line, depth = 0) {
     const endPoint = getEndPoint(line)
@@ -92,15 +88,8 @@ onMounted(() => {
 </script>
 
 <style lang="less" scoped>
-.playground {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    canvas {
-        border: 1px solid black
-    }
+canvas {
+    border: 1px solid black
 }
 </style>
 
