@@ -1,11 +1,11 @@
 <template>
     <div ref="playground" class="playground">
-        <DrawWithMusic />
+        <AudioVisualizers />
     </div>
 </template>
 
 <script setup>
-import DrawWithMusic from '../components/Animation/DrawWithMusic.vue';
+import AudioVisualizers from '../components/Animation/AudioVisualizers.vue';
 
 </script>
 
