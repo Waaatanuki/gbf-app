@@ -77,7 +77,7 @@ function drawVisualiser(bufferLength, dataArray) {
         const hue = baseColor.value + i * 0.05
         ctx.value.fillStyle = `hsl(${hue},100%,50%)`;
         ctx.value.beginPath();
-        ctx.value.arc(0, barHeight / 2, barHeight / 4, 0, Math.PI / 4)
+        ctx.value.arc(0, barHeight / 4, barHeight / 4, 0, Math.PI / 4)
         ctx.value.fill()
         ctx.value.stroke();
         ctx.value.restore();
@@ -90,7 +90,7 @@ function drawVisualiser(bufferLength, dataArray) {
 canvas {
     // border: 1px solid black;
     margin: 10px;
-    filter: blur(1px) contrast(20)
+    filter: blur(1px) contrast(2)
 }
 
 audio {
