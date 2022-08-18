@@ -46,7 +46,7 @@ function init() {
 
 function handleChange(uploadFile) {
     if (!analyser.value) init()
-    audio1.value.src = uploadFile ? URL.createObjectURL(uploadFile.raw) : '/music/Paradise Lost.mp3'
+    audio1.value.src = uploadFile ? URL.createObjectURL(uploadFile.raw) : './music/ParadiseLost.mp3'
     baseColor.value = Math.random() * 360
     audio1.value.load()
     nextTick(() => audio1.value.play())
