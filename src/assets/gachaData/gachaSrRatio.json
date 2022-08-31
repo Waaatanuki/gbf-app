@@ -17,30 +17,19 @@
             "category_name": "キャラ解放武器",
             "item": [
                 {
-                    "name": "アントウェルペン",
-                    "drop_rate": "0.007",
+                    "name": "ブレード・オブ・ロイヤリティ",
+                    "drop_rate": "0.300",
                     "attribute": "1",
                     "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1040009000,
-                    "character_name": "パーシヴァル",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "アイン・ソフ",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1040018700,
-                    "character_name": "サンダルフォン",
+                    "incidence": "1",
+                    "reward_id": 1040023600,
+                    "character_name": "アンダーソン",
                     "is_season": false,
                     "season_message": ""
                 },
                 {
                     "name": "ゴットフリート",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -51,7 +40,7 @@
                 },
                 {
                     "name": "ナーゲルリング",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -61,19 +50,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "パーマフロスト・ソード",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1040012500,
-                    "character_name": "イシュミール",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ブルーライトニング",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -84,7 +62,7 @@
                 },
                 {
                     "name": "プロエリウム",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -95,7 +73,7 @@
                 },
                 {
                     "name": "ミュルグレス",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -106,7 +84,7 @@
                 },
                 {
                     "name": "エムブラスク・デミクロン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "1",
                     "incidence": null,
@@ -117,7 +95,7 @@
                 },
                 {
                     "name": "セイレーノス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "1",
                     "incidence": null,
@@ -127,30 +105,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ディープデザイア",
-                    "drop_rate": "0.007",
-                    "attribute": "3",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1040004700,
-                    "character_name": "ヴィーラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "第一子行鞭",
-                    "drop_rate": "0.200",
-                    "attribute": "3",
-                    "kind": "1",
-                    "incidence": "1",
-                    "reward_id": 1040023300,
-                    "character_name": "ビカラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "イイルクーン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -160,19 +116,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "セ・ラ・ヴィ",
-                    "drop_rate": "0.007",
-                    "attribute": "4",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1040022400,
-                    "character_name": "イングヴェイ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ハイリゲスシュヴェールト",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -183,7 +128,7 @@
                 },
                 {
                     "name": "ヴェルゲルミル",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -194,7 +139,7 @@
                 },
                 {
                     "name": "泡沫夢幻",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -205,7 +150,7 @@
                 },
                 {
                     "name": "コールブランド",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "1",
                     "incidence": null,
@@ -215,19 +160,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "シースフィア",
-                    "drop_rate": "0.200",
-                    "attribute": "5",
-                    "kind": "1",
-                    "incidence": "1",
-                    "reward_id": 1040023400,
-                    "character_name": "スツルム",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "フェアネスマーク",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "1",
                     "incidence": null,
@@ -238,7 +172,7 @@
                 },
                 {
                     "name": "ブレイブソード",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "1",
                     "incidence": null,
@@ -249,7 +183,7 @@
                 },
                 {
                     "name": "ヴァルテール",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "1",
                     "incidence": null,
@@ -259,19 +193,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "与力十手",
-                    "drop_rate": "0.007",
-                    "attribute": "5",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1040020400,
-                    "character_name": "ロザミア",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ディスペアー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "1",
                     "incidence": null,
@@ -282,7 +205,7 @@
                 },
                 {
                     "name": "ライトニング・シュヴァルツ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "1",
                     "incidence": null,
@@ -292,19 +215,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "デルタ・クォーツ",
-                    "drop_rate": "0.007",
-                    "attribute": "1",
-                    "kind": "2",
-                    "incidence": null,
-                    "reward_id": 1040108300,
-                    "character_name": "ベアトリクス",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ドス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "2",
                     "incidence": null,
@@ -314,30 +226,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "クリスタルベルフラワー",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "2",
-                    "incidence": null,
-                    "reward_id": 1040111400,
-                    "character_name": "エウロペ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "ゾディアコ・ヴィテ",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "2",
-                    "incidence": null,
-                    "reward_id": 1040115100,
-                    "character_name": "ヘレル・ベン・シャレム",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ファントムシーフナイフ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "2",
                     "incidence": null,
@@ -348,7 +238,7 @@
                 },
                 {
                     "name": "レヴェイエ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "2",
                     "incidence": null,
@@ -359,7 +249,7 @@
                 },
                 {
                     "name": "ウルジュワーニー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "2",
                     "incidence": null,
@@ -370,7 +260,7 @@
                 },
                 {
                     "name": "ジャックナイフ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "2",
                     "incidence": null,
@@ -380,19 +270,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "トーニーローズ",
-                    "drop_rate": "0.007",
-                    "attribute": "3",
-                    "kind": "2",
-                    "incidence": null,
-                    "reward_id": 1040110700,
-                    "character_name": "ロゼッタ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "エターナル・ラヴ",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "4",
                     "kind": "2",
                     "incidence": null,
@@ -403,7 +282,7 @@
                 },
                 {
                     "name": "ボン・ジョワ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "2",
                     "incidence": null,
@@ -414,7 +293,7 @@
                 },
                 {
                     "name": "リユニオン",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "4",
                     "kind": "2",
                     "incidence": null,
@@ -424,19 +303,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "散沙牡丹・夕時雨",
-                    "drop_rate": "0.200",
-                    "attribute": "4",
-                    "kind": "2",
-                    "incidence": "1",
-                    "reward_id": 1040116200,
-                    "character_name": "シオン",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "アーク",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "5",
                     "kind": "2",
                     "incidence": null,
@@ -446,19 +314,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ダイヤモンドエッジ",
-                    "drop_rate": "0.007",
-                    "attribute": "5",
-                    "kind": "2",
-                    "incidence": null,
-                    "reward_id": 1040101300,
-                    "character_name": "レ・フィーエ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "デュアルヘリックス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "2",
                     "incidence": null,
@@ -469,7 +326,7 @@
                 },
                 {
                     "name": "ランセット",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "2",
                     "incidence": null,
@@ -479,19 +336,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "レター",
-                    "drop_rate": "0.007",
-                    "attribute": "5",
-                    "kind": "2",
-                    "incidence": null,
-                    "reward_id": 1040111200,
-                    "character_name": "ハールート・マールート",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "藍炎之刃",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "2",
                     "incidence": null,
@@ -502,7 +348,7 @@
                 },
                 {
                     "name": "降魔の包丁",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "2",
                     "incidence": null,
@@ -513,7 +359,7 @@
                 },
                 {
                     "name": "ガンドリン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "2",
                     "incidence": null,
@@ -524,7 +370,7 @@
                 },
                 {
                     "name": "ブラッディスカー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "2",
                     "incidence": null,
@@ -535,7 +381,7 @@
                 },
                 {
                     "name": "ミミングバゼラード",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "2",
                     "incidence": null,
@@ -546,7 +392,7 @@
                 },
                 {
                     "name": "セイクリッドランス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "3",
                     "incidence": null,
@@ -557,7 +403,7 @@
                 },
                 {
                     "name": "フェードラッヘフラッグ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "3",
                     "incidence": null,
@@ -568,7 +414,7 @@
                 },
                 {
                     "name": "ベルファスト",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "3",
                     "incidence": null,
@@ -579,7 +425,7 @@
                 },
                 {
                     "name": "旅立ちの魔箒",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "3",
                     "incidence": null,
@@ -590,7 +436,7 @@
                 },
                 {
                     "name": "火尖鎗",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "3",
                     "incidence": null,
@@ -600,22 +446,11 @@
                     "season_message": ""
                 },
                 {
-                    "name": "第十二猪行槍",
-                    "drop_rate": "0.007",
-                    "attribute": "1",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1040216000,
-                    "character_name": "クビラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "アトランティス",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.300",
                     "attribute": "2",
                     "kind": "3",
-                    "incidence": null,
+                    "incidence": "1",
                     "reward_id": 1040216300,
                     "character_name": "ポセイドン",
                     "is_season": false,
@@ -623,7 +458,7 @@
                 },
                 {
                     "name": "アルベス・デミクロン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "3",
                     "incidence": null,
@@ -634,7 +469,7 @@
                 },
                 {
                     "name": "ダイモーンスパイン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "3",
                     "incidence": null,
@@ -644,52 +479,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ドラグホーン",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1040211400,
-                    "character_name": "グレア",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "ブルータル・ハープーン",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1040216200,
-                    "character_name": "ジークフリート",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "ミスティーク",
-                    "drop_rate": "0.200",
-                    "attribute": "2",
-                    "kind": "3",
-                    "incidence": "1",
-                    "reward_id": 1040217800,
-                    "character_name": "ジャンヌダルク",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "暇無し",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1040214900,
-                    "character_name": "コルル",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "銀氷の槍グレイシャー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "3",
                     "incidence": null,
@@ -700,7 +491,7 @@
                 },
                 {
                     "name": "グレートスピア",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -711,7 +502,7 @@
                 },
                 {
                     "name": "ゲイダーグ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -722,7 +513,7 @@
                 },
                 {
                     "name": "バリアントランス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -733,7 +524,7 @@
                 },
                 {
                     "name": "マイムールクローズ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -744,7 +535,7 @@
                 },
                 {
                     "name": "インサイテッドランス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "3",
                     "incidence": null,
@@ -754,19 +545,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "オルレアン・フラッグ",
-                    "drop_rate": "0.007",
-                    "attribute": "4",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1040210900,
-                    "character_name": "ジャンヌダルク",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ギャラクティカインパクト",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "3",
                     "incidence": null,
@@ -777,7 +557,7 @@
                 },
                 {
                     "name": "ディアドリックシンボル",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "3",
                     "incidence": null,
@@ -788,7 +568,7 @@
                 },
                 {
                     "name": "朱槍",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "3",
                     "incidence": null,
@@ -798,41 +578,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "クリスタルルーン",
-                    "drop_rate": "0.007",
-                    "attribute": "5",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1040206600,
-                    "character_name": "ヘルエス",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "クレティネ",
-                    "drop_rate": "0.007",
-                    "attribute": "5",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1040200000,
-                    "character_name": "ゼタ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "コニファラス",
-                    "drop_rate": "0.007",
-                    "attribute": "5",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1040211200,
-                    "character_name": "ノイシュ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "パンタグリュエル",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "3",
                     "incidence": null,
@@ -843,7 +590,7 @@
                 },
                 {
                     "name": "サンスポットスピア",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "3",
                     "incidence": null,
@@ -854,7 +601,7 @@
                 },
                 {
                     "name": "シャドウサーペント",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "3",
                     "incidence": null,
@@ -865,7 +612,7 @@
                 },
                 {
                     "name": "双竜槍",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "3",
                     "incidence": null,
@@ -876,7 +623,7 @@
                 },
                 {
                     "name": "呪蝕の骸槍",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "6",
                     "kind": "3",
                     "incidence": null,
@@ -886,8 +633,19 @@
                     "season_message": ""
                 },
                 {
+                    "name": "天干地支刀・未之飾",
+                    "drop_rate": "0.036",
+                    "attribute": "6",
+                    "kind": "3",
+                    "incidence": null,
+                    "reward_id": 1040202800,
+                    "character_name": "アニラ",
+                    "is_season": false,
+                    "season_message": ""
+                },
+                {
                     "name": "宿無し",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "3",
                     "incidence": null,
@@ -898,7 +656,7 @@
                 },
                 {
                     "name": "醤箸玉杯",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "3",
                     "incidence": null,
@@ -909,7 +667,7 @@
                 },
                 {
                     "name": "アックスガール・アックス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "4",
                     "incidence": null,
@@ -920,7 +678,7 @@
                 },
                 {
                     "name": "グロウノス・デミクロン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "4",
                     "incidence": null,
@@ -931,7 +689,7 @@
                 },
                 {
                     "name": "ツーバイフォー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "4",
                     "incidence": null,
@@ -942,7 +700,7 @@
                 },
                 {
                     "name": "手斧",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "4",
                     "incidence": null,
@@ -953,7 +711,7 @@
                 },
                 {
                     "name": "炎威の翼鎌",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "1",
                     "kind": "4",
                     "incidence": null,
@@ -964,7 +722,7 @@
                 },
                 {
                     "name": "テイウァッツ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "4",
                     "incidence": null,
@@ -975,7 +733,7 @@
                 },
                 {
                     "name": "ブロッサムアクス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "4",
                     "incidence": null,
@@ -985,19 +743,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "第九申行棒",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "4",
-                    "incidence": null,
-                    "reward_id": 1040314200,
-                    "character_name": "アンチラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "アトロシウスブラッド",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "4",
                     "incidence": null,
@@ -1008,7 +755,7 @@
                 },
                 {
                     "name": "ウルツァイトサイズ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "4",
                     "incidence": null,
@@ -1019,7 +766,7 @@
                 },
                 {
                     "name": "バーベル",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "4",
                     "incidence": null,
@@ -1030,7 +777,7 @@
                 },
                 {
                     "name": "ブラビューラ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "4",
                     "incidence": null,
@@ -1041,7 +788,7 @@
                 },
                 {
                     "name": "八幡薙刀",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "3",
                     "kind": "4",
                     "incidence": null,
@@ -1052,7 +799,7 @@
                 },
                 {
                     "name": "グリンブルスティ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "4",
                     "incidence": null,
@@ -1063,7 +810,7 @@
                 },
                 {
                     "name": "スプリットエンド",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "4",
                     "incidence": null,
@@ -1074,7 +821,7 @@
                 },
                 {
                     "name": "真武虎薙",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "4",
                     "incidence": null,
@@ -1084,19 +831,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "第八綿羊行刃",
-                    "drop_rate": "0.007",
-                    "attribute": "4",
-                    "kind": "4",
-                    "incidence": null,
-                    "reward_id": 1040313100,
-                    "character_name": "アニラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "クレイヴ・ソリッシュ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "4",
                     "incidence": null,
@@ -1107,7 +843,7 @@
                 },
                 {
                     "name": "タバルジン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "4",
                     "incidence": null,
@@ -1118,7 +854,7 @@
                 },
                 {
                     "name": "ハイメタルストック",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "4",
                     "incidence": null,
@@ -1129,7 +865,7 @@
                 },
                 {
                     "name": "ソウルイーター",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "4",
                     "incidence": null,
@@ -1140,7 +876,7 @@
                 },
                 {
                     "name": "マスターキー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "4",
                     "incidence": null,
@@ -1151,7 +887,7 @@
                 },
                 {
                     "name": "アーソン・ブレイズ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -1162,7 +898,7 @@
                 },
                 {
                     "name": "インフェルノリークス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -1172,19 +908,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サンフラワーワンド",
-                    "drop_rate": "0.007",
-                    "attribute": "1",
-                    "kind": "5",
-                    "incidence": null,
-                    "reward_id": 1040401300,
-                    "character_name": "イオ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "チャーミング・ブルーム",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -1194,19 +919,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "トロピカルフェアリー",
-                    "drop_rate": "0.007",
-                    "attribute": "1",
-                    "kind": "5",
-                    "incidence": null,
-                    "reward_id": 1040416800,
-                    "character_name": "ティナ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "レッドスフィア",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -1217,7 +931,7 @@
                 },
                 {
                     "name": "月刊キラメキ ＶｏＬ.29",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -1227,19 +941,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "オンリー・プリティ・ガール",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "5",
-                    "incidence": null,
-                    "reward_id": 1040415600,
-                    "character_name": "カリオストロ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "フェアトラウエン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "5",
                     "incidence": null,
@@ -1250,7 +953,7 @@
                 },
                 {
                     "name": "モンタギュオウス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "5",
                     "incidence": null,
@@ -1261,7 +964,7 @@
                 },
                 {
                     "name": "氷星の煌杖",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "5",
                     "incidence": null,
@@ -1272,7 +975,7 @@
                 },
                 {
                     "name": "エウリピデス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "5",
                     "incidence": null,
@@ -1282,19 +985,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サマーヒーリング",
-                    "drop_rate": "0.200",
-                    "attribute": "3",
-                    "kind": "5",
-                    "incidence": "1",
-                    "reward_id": 1040420800,
-                    "character_name": "ティコ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "テュルソス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "5",
                     "incidence": null,
@@ -1305,7 +997,7 @@
                 },
                 {
                     "name": "ディスターバンスシグナ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -1316,7 +1008,7 @@
                 },
                 {
                     "name": "ホワイトウイング",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -1327,7 +1019,7 @@
                 },
                 {
                     "name": "リターナースタッフ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -1338,7 +1030,7 @@
                 },
                 {
                     "name": "リトルブーケフルール",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -1349,7 +1041,7 @@
                 },
                 {
                     "name": "三相女神",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -1360,7 +1052,7 @@
                 },
                 {
                     "name": "ウロボロス・オリジン",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "5",
                     "kind": "5",
                     "incidence": null,
@@ -1371,7 +1063,7 @@
                 },
                 {
                     "name": "ガンバンテイン",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "5",
                     "kind": "5",
                     "incidence": null,
@@ -1382,7 +1074,7 @@
                 },
                 {
                     "name": "キャピュレティオウス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "5",
                     "incidence": null,
@@ -1393,7 +1085,7 @@
                 },
                 {
                     "name": "君と僕の桃色水平線",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "5",
                     "incidence": null,
@@ -1404,7 +1096,7 @@
                 },
                 {
                     "name": "森神の祈杖",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "5",
                     "incidence": null,
@@ -1414,19 +1106,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "究極不変のダイアグラム",
-                    "drop_rate": "0.007",
-                    "attribute": "5",
-                    "kind": "5",
-                    "incidence": null,
-                    "reward_id": 1040419000,
-                    "character_name": "シヴァ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "グリダーヴォル",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "5",
                     "incidence": null,
@@ -1436,19 +1117,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サマーメモリーリークス",
-                    "drop_rate": "0.007",
-                    "attribute": "6",
-                    "kind": "5",
-                    "incidence": null,
-                    "reward_id": 1040415900,
-                    "character_name": "アンスリア",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ブラック・ウロボロス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "5",
                     "incidence": null,
@@ -1458,30 +1128,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "プルメリアンセプター",
-                    "drop_rate": "0.200",
-                    "attribute": "6",
-                    "kind": "5",
-                    "incidence": "1",
-                    "reward_id": 1040420700,
-                    "character_name": "マギサ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "コルクバレットシューター",
-                    "drop_rate": "0.200",
-                    "attribute": "1",
-                    "kind": "6",
-                    "incidence": "1",
-                    "reward_id": 1040515300,
-                    "character_name": "シルヴァ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ベネディーア",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "1",
                     "kind": "6",
                     "incidence": null,
@@ -1492,7 +1140,7 @@
                 },
                 {
                     "name": "ミスティックブラシ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "6",
                     "incidence": null,
@@ -1503,7 +1151,7 @@
                 },
                 {
                     "name": "アシッドボルト",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "6",
                     "incidence": null,
@@ -1514,7 +1162,7 @@
                 },
                 {
                     "name": "コマンダーピストル",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "6",
                     "incidence": null,
@@ -1524,8 +1172,19 @@
                     "season_message": ""
                 },
                 {
+                    "name": "ハイランドクーガー",
+                    "drop_rate": "0.300",
+                    "attribute": "2",
+                    "kind": "6",
+                    "incidence": "1",
+                    "reward_id": 1040515600,
+                    "character_name": "エリカ",
+                    "is_season": false,
+                    "season_message": ""
+                },
+                {
                     "name": "プラズマクラック",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "6",
                     "incidence": null,
@@ -1536,7 +1195,7 @@
                 },
                 {
                     "name": "ホワイトホーク",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "6",
                     "incidence": null,
@@ -1547,7 +1206,7 @@
                 },
                 {
                     "name": "メテオラ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "6",
                     "incidence": null,
@@ -1558,7 +1217,7 @@
                 },
                 {
                     "name": "エーケイ・フォーエイ",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "3",
                     "kind": "6",
                     "incidence": null,
@@ -1568,30 +1227,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "バブルレター",
-                    "drop_rate": "0.007",
-                    "attribute": "3",
-                    "kind": "6",
-                    "incidence": null,
-                    "reward_id": 1040514600,
-                    "character_name": "イルノート",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "ヴリスラグナ・サンドカモ",
-                    "drop_rate": "0.007",
-                    "attribute": "3",
-                    "kind": "6",
-                    "incidence": null,
-                    "reward_id": 1040513600,
-                    "character_name": "シルヴァ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ティアマトボルト・オリジン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "6",
                     "incidence": null,
@@ -1601,19 +1238,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "バブルガムバンカー",
-                    "drop_rate": "0.200",
-                    "attribute": "4",
-                    "kind": "6",
-                    "incidence": "1",
-                    "reward_id": 1040515400,
-                    "character_name": "ユーステス",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "タケミナカタ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "6",
                     "incidence": null,
@@ -1624,7 +1250,7 @@
                 },
                 {
                     "name": "フェイトルーラー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "6",
                     "incidence": null,
@@ -1635,7 +1261,7 @@
                 },
                 {
                     "name": "レールガン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "6",
                     "incidence": null,
@@ -1646,7 +1272,7 @@
                 },
                 {
                     "name": "アラクネ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "6",
                     "incidence": null,
@@ -1657,7 +1283,7 @@
                 },
                 {
                     "name": "イシュタル",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "6",
                     "incidence": null,
@@ -1668,7 +1294,7 @@
                 },
                 {
                     "name": "ドラグクロー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "7",
                     "incidence": null,
@@ -1679,7 +1305,7 @@
                 },
                 {
                     "name": "マグマガントレット",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "7",
                     "incidence": null,
@@ -1690,7 +1316,7 @@
                 },
                 {
                     "name": "天華簪",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "7",
                     "incidence": null,
@@ -1700,19 +1326,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "瑠璃茉莉髪帯",
-                    "drop_rate": "0.007",
-                    "attribute": "1",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1040615100,
-                    "character_name": "イシュミール",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "絶拳",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "1",
                     "kind": "7",
                     "incidence": null,
@@ -1722,19 +1337,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "トレピリ",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1040608800,
-                    "character_name": "ディアンサ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "メタルハンド",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "7",
                     "incidence": null,
@@ -1745,7 +1349,7 @@
                 },
                 {
                     "name": "エンシェントバンテージ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -1755,19 +1359,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ニーベルン・グラス",
-                    "drop_rate": "0.007",
-                    "attribute": "3",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1040611800,
-                    "character_name": "ブローディア",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ネコパンチ・プロ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -1778,7 +1371,7 @@
                 },
                 {
                     "name": "メルヴェイユ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -1789,7 +1382,7 @@
                 },
                 {
                     "name": "レインボーハンド",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -1800,7 +1393,7 @@
                 },
                 {
                     "name": "天干地支爪・寅之飾",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -1811,7 +1404,7 @@
                 },
                 {
                     "name": "硬式ナッコォ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -1821,19 +1414,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "蒼宵光華",
-                    "drop_rate": "0.007",
-                    "attribute": "3",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1040611600,
-                    "character_name": "ジェシカ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "龍虎双滅拳",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -1844,7 +1426,7 @@
                 },
                 {
                     "name": "ゴールドドラゴン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "7",
                     "incidence": null,
@@ -1855,7 +1437,7 @@
                 },
                 {
                     "name": "ディアドリッククロー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "7",
                     "incidence": null,
@@ -1866,7 +1448,7 @@
                 },
                 {
                     "name": "宿命鉄拳",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "7",
                     "incidence": null,
@@ -1877,7 +1459,7 @@
                 },
                 {
                     "name": "ゴシックカトラリー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "7",
                     "incidence": null,
@@ -1888,7 +1470,7 @@
                 },
                 {
                     "name": "ホープナックル",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "7",
                     "incidence": null,
@@ -1898,19 +1480,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ウルスラグローブ",
-                    "drop_rate": "0.007",
-                    "attribute": "6",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1040615200,
-                    "character_name": "メグ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ガーリッシュドルチェ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "7",
                     "incidence": null,
@@ -1920,30 +1491,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サマージェネシス",
-                    "drop_rate": "0.007",
-                    "attribute": "6",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1040613700,
-                    "character_name": "アーミラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "タアロ・マサラ",
-                    "drop_rate": "0.007",
-                    "attribute": "6",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1040615400,
-                    "character_name": "タヴィーナ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "プレデタークロー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "7",
                     "incidence": null,
@@ -1954,7 +1503,7 @@
                 },
                 {
                     "name": "ルーリングペン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "7",
                     "incidence": null,
@@ -1964,30 +1513,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "アルジュナン・ボウ",
-                    "drop_rate": "0.007",
-                    "attribute": "1",
-                    "kind": "8",
-                    "incidence": null,
-                    "reward_id": 1040708600,
-                    "character_name": "イルザ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "メドゥシアナ・フロート",
-                    "drop_rate": "0.200",
-                    "attribute": "1",
-                    "kind": "8",
-                    "incidence": "1",
-                    "reward_id": 1040711800,
-                    "character_name": "メドゥーサ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "太歳精弓",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "2",
                     "kind": "8",
                     "incidence": null,
@@ -1998,7 +1525,7 @@
                 },
                 {
                     "name": "ガーンディーヴァ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "8",
                     "incidence": null,
@@ -2008,19 +1535,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "マリンエーテリアル",
-                    "drop_rate": "0.007",
-                    "attribute": "3",
-                    "kind": "8",
-                    "incidence": null,
-                    "reward_id": 1040711200,
-                    "character_name": "メーテラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "オーロラボウ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "8",
                     "incidence": null,
@@ -2031,7 +1547,7 @@
                 },
                 {
                     "name": "天の鹿児弓",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "8",
                     "incidence": null,
@@ -2042,7 +1558,7 @@
                 },
                 {
                     "name": "雷上動",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "8",
                     "incidence": null,
@@ -2053,7 +1569,7 @@
                 },
                 {
                     "name": "アイオーン",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "8",
                     "incidence": null,
@@ -2064,7 +1580,7 @@
                 },
                 {
                     "name": "アヤの弓",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "8",
                     "incidence": null,
@@ -2075,7 +1591,7 @@
                 },
                 {
                     "name": "レヴィオンシューター",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "8",
                     "incidence": null,
@@ -2086,7 +1602,7 @@
                 },
                 {
                     "name": "スキニス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "9",
                     "incidence": null,
@@ -2096,19 +1612,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ミムメモ人形",
-                    "drop_rate": "0.007",
-                    "attribute": "1",
-                    "kind": "9",
-                    "incidence": null,
-                    "reward_id": 1040812900,
-                    "character_name": "ミムルメモル",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ラ・シルフィード",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "9",
                     "incidence": null,
@@ -2119,7 +1624,7 @@
                 },
                 {
                     "name": "オフィーリア",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "9",
                     "incidence": null,
@@ -2129,19 +1634,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "オーシャンクライン",
-                    "drop_rate": "0.200",
-                    "attribute": "2",
-                    "kind": "9",
-                    "incidence": "1",
-                    "reward_id": 1040814700,
-                    "character_name": "クラリス",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ベスちゃんにんぎょう",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "9",
                     "incidence": null,
@@ -2152,7 +1646,7 @@
                 },
                 {
                     "name": "虹の琴",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "9",
                     "incidence": null,
@@ -2163,7 +1657,7 @@
                 },
                 {
                     "name": "イノセント・フィギュア",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "9",
                     "incidence": null,
@@ -2174,7 +1668,7 @@
                 },
                 {
                     "name": "ハート・ソングバーズ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "9",
                     "incidence": null,
@@ -2185,7 +1679,7 @@
                 },
                 {
                     "name": "ブランドニューメロディ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "9",
                     "incidence": null,
@@ -2196,7 +1690,7 @@
                 },
                 {
                     "name": "ベッラ・アエテルヌス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "9",
                     "incidence": null,
@@ -2207,7 +1701,7 @@
                 },
                 {
                     "name": "アナザースカイ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "9",
                     "incidence": null,
@@ -2218,7 +1712,7 @@
                 },
                 {
                     "name": "エッタマク・イオ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "9",
                     "incidence": null,
@@ -2229,7 +1723,7 @@
                 },
                 {
                     "name": "キタラアングリカ",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "9",
                     "incidence": null,
@@ -2239,19 +1733,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ハッピーエンドベル",
-                    "drop_rate": "0.007",
-                    "attribute": "4",
-                    "kind": "9",
-                    "incidence": null,
-                    "reward_id": 1040806200,
-                    "character_name": "コルワ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "フュージョンメビウス",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "9",
                     "incidence": null,
@@ -2261,19 +1744,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "日輪橙音",
-                    "drop_rate": "0.007",
-                    "attribute": "5",
-                    "kind": "9",
-                    "incidence": null,
-                    "reward_id": 1040813800,
-                    "character_name": "ザルハメリナ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ウン・ハイル",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "6",
                     "kind": "9",
                     "incidence": null,
@@ -2284,7 +1756,7 @@
                 },
                 {
                     "name": "シューニャ",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "6",
                     "kind": "9",
                     "incidence": null,
@@ -2295,7 +1767,7 @@
                 },
                 {
                     "name": "タンザナイトブレイド",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "10",
                     "incidence": null,
@@ -2306,7 +1778,7 @@
                 },
                 {
                     "name": "ボンサイブレード",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "10",
                     "incidence": null,
@@ -2317,7 +1789,7 @@
                 },
                 {
                     "name": "メタル・デストロイヤー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "10",
                     "incidence": null,
@@ -2327,19 +1799,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "晴風番傘・花緑青",
-                    "drop_rate": "0.200",
-                    "attribute": "1",
-                    "kind": "10",
-                    "incidence": "1",
-                    "reward_id": 1040914000,
-                    "character_name": "ミリン",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "黒竜のアギト",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "1",
                     "kind": "10",
                     "incidence": null,
@@ -2350,7 +1811,7 @@
                 },
                 {
                     "name": "十六夜",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "2",
                     "kind": "10",
                     "incidence": null,
@@ -2360,30 +1821,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "暁",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "10",
-                    "incidence": null,
-                    "reward_id": 1040912300,
-                    "character_name": "ルシオ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "雷切",
-                    "drop_rate": "0.007",
-                    "attribute": "2",
-                    "kind": "10",
-                    "incidence": null,
-                    "reward_id": 1040905700,
-                    "character_name": "ナルメア",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "一期一振",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "3",
                     "kind": "10",
                     "incidence": null,
@@ -2394,7 +1833,7 @@
                 },
                 {
                     "name": "相州正宗",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "3",
                     "kind": "10",
                     "incidence": null,
@@ -2404,19 +1843,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "シネンシス",
-                    "drop_rate": "0.007",
-                    "attribute": "4",
-                    "kind": "10",
-                    "incidence": null,
-                    "reward_id": 1040908100,
-                    "character_name": "ジークフリート",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "スカイエース",
-                    "drop_rate": "0.015",
+                    "drop_rate": "0.036",
                     "attribute": "4",
                     "kind": "10",
                     "incidence": null,
@@ -2426,19 +1854,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ライトニング・サヴァイヴ",
-                    "drop_rate": "0.007",
-                    "attribute": "4",
-                    "kind": "10",
-                    "incidence": null,
-                    "reward_id": 1040912500,
-                    "character_name": "アルベール",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "童子切安綱",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "4",
                     "kind": "10",
                     "incidence": null,
@@ -2448,19 +1865,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "蒼紅之華刀",
-                    "drop_rate": "0.007",
-                    "attribute": "4",
-                    "kind": "10",
-                    "incidence": null,
-                    "reward_id": 1040910900,
-                    "character_name": "ユエル",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ギガントブレイダー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "10",
                     "incidence": null,
@@ -2471,7 +1877,7 @@
                 },
                 {
                     "name": "白司雕竜",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "5",
                     "kind": "10",
                     "incidence": null,
@@ -2481,19 +1887,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "鬼切安綱",
-                    "drop_rate": "0.200",
-                    "attribute": "5",
-                    "kind": "10",
-                    "incidence": "1",
-                    "reward_id": 1040913600,
-                    "character_name": "ナルメア",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ギガントスライサー",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "10",
                     "incidence": null,
@@ -2503,19 +1898,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "三日月",
-                    "drop_rate": "0.007",
-                    "attribute": "6",
-                    "kind": "10",
-                    "incidence": null,
-                    "reward_id": 1040902400,
-                    "character_name": "ダヌア",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "数珠丸",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "10",
                     "incidence": null,
@@ -2526,23 +1910,12 @@
                 },
                 {
                     "name": "極・白刃",
-                    "drop_rate": "0.007",
+                    "drop_rate": "0.018",
                     "attribute": "6",
                     "kind": "10",
                     "incidence": null,
                     "reward_id": 1040911900,
                     "character_name": "ルシウス",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "第十一戌行刃",
-                    "drop_rate": "0.200",
-                    "attribute": "6",
-                    "kind": "10",
-                    "incidence": "1",
-                    "reward_id": 1040913900,
-                    "character_name": "ヴァジラ",
                     "is_season": false,
                     "season_message": ""
                 }
@@ -2556,7 +1929,7 @@
             "item": [
                 {
                     "name": "アグニス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2566,19 +1939,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "アテナ",
-                    "drop_rate": "0.014",
-                    "attribute": "1",
-                    "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040369000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "ウィルナス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2588,19 +1950,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サテュロス",
-                    "drop_rate": "0.014",
-                    "attribute": "1",
-                    "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040335000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "ザオシェン",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2611,7 +1962,7 @@
                 },
                 {
                     "name": "シヴァ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2622,7 +1973,7 @@
                 },
                 {
                     "name": "スルト",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2633,7 +1984,7 @@
                 },
                 {
                     "name": "セキトバ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2644,7 +1995,7 @@
                 },
                 {
                     "name": "セスランス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2654,19 +2005,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ベリアル",
-                    "drop_rate": "0.250",
-                    "attribute": "1",
-                    "kind": null,
-                    "incidence": "1",
-                    "reward_id": 2040411000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "ミカエル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2677,7 +2017,7 @@
                 },
                 {
                     "name": "白純の霊蝶 シルフ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "1",
                     "kind": null,
                     "incidence": null,
@@ -2688,7 +2028,7 @@
                 },
                 {
                     "name": "エウロペ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2699,7 +2039,7 @@
                 },
                 {
                     "name": "カグヤ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2710,7 +2050,7 @@
                 },
                 {
                     "name": "カツウォヌス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2721,7 +2061,7 @@
                 },
                 {
                     "name": "カリュブディス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2732,7 +2072,7 @@
                 },
                 {
                     "name": "カー・オン",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2743,7 +2083,7 @@
                 },
                 {
                     "name": "ガブリエル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2754,7 +2094,7 @@
                 },
                 {
                     "name": "スノウホワイト",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2764,19 +2104,19 @@
                     "season_message": ""
                 },
                 {
-                    "name": "マキュラ・マリウス",
-                    "drop_rate": "0.014",
+                    "name": "ワムデュス",
+                    "drop_rate": "0.500",
                     "attribute": "2",
                     "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040293000,
+                    "incidence": "1",
+                    "reward_id": 2040413000,
                     "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
+                    "is_season": false,
+                    "season_message": ""
                 },
                 {
                     "name": "ヴァルナ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2787,7 +2127,7 @@
                 },
                 {
                     "name": "気高き水神 ポセイドン",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2798,7 +2138,7 @@
                 },
                 {
                     "name": "竜吉公主",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "2",
                     "kind": null,
                     "incidence": null,
@@ -2809,7 +2149,7 @@
                 },
                 {
                     "name": "アンクシャ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2820,7 +2160,7 @@
                 },
                 {
                     "name": "ウリエル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2831,7 +2171,7 @@
                 },
                 {
                     "name": "ガレヲン",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2842,7 +2182,7 @@
                 },
                 {
                     "name": "ギルガメッシュ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2853,7 +2193,7 @@
                 },
                 {
                     "name": "ゴッドガード・ブローディア",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2864,7 +2204,7 @@
                 },
                 {
                     "name": "ゴリラ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2875,7 +2215,7 @@
                 },
                 {
                     "name": "ツチノコ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2886,7 +2226,7 @@
                 },
                 {
                     "name": "ティターン",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2897,7 +2237,7 @@
                 },
                 {
                     "name": "テスカトリポカ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2908,7 +2248,7 @@
                 },
                 {
                     "name": "ドグー",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2918,30 +2258,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "フレイ",
-                    "drop_rate": "0.014",
-                    "attribute": "3",
-                    "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040374000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(浴衣バージョン)"
-                },
-                {
-                    "name": "マンドラゴラ",
-                    "drop_rate": "0.014",
-                    "attribute": "3",
-                    "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040403000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "マンモス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2951,19 +2269,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ユグドラシル",
-                    "drop_rate": "0.014",
-                    "attribute": "3",
-                    "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040333000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "破格の戦鬼 マルドゥーク",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "3",
                     "kind": null,
                     "incidence": null,
@@ -2974,7 +2281,7 @@
                 },
                 {
                     "name": "イーウィヤ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -2985,7 +2292,7 @@
                 },
                 {
                     "name": "エッリル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -2996,7 +2303,7 @@
                 },
                 {
                     "name": "オウルキャット",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3007,7 +2314,7 @@
                 },
                 {
                     "name": "グリームニル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3018,7 +2325,7 @@
                 },
                 {
                     "name": "シャインホーク・ガルラ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3029,7 +2336,7 @@
                 },
                 {
                     "name": "セト",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3040,7 +2347,7 @@
                 },
                 {
                     "name": "ゼピュロス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3050,19 +2357,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ティアマト",
-                    "drop_rate": "0.014",
-                    "attribute": "4",
-                    "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040402000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "ハンサ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3073,7 +2369,7 @@
                 },
                 {
                     "name": "フレイ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3084,7 +2380,7 @@
                 },
                 {
                     "name": "ラファエル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3095,7 +2391,7 @@
                 },
                 {
                     "name": "ローズクイーン",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3105,19 +2401,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ローズクイーン",
-                    "drop_rate": "0.014",
-                    "attribute": "4",
-                    "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040336000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "愛と戦いの神 アナト",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3128,7 +2413,7 @@
                 },
                 {
                     "name": "魔鯛",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "4",
                     "kind": null,
                     "incidence": null,
@@ -3139,7 +2424,7 @@
                 },
                 {
                     "name": "アドラメレク",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3150,7 +2435,7 @@
                 },
                 {
                     "name": "アフロディーテ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3161,7 +2446,7 @@
                 },
                 {
                     "name": "アルテミス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3171,19 +2456,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "カグヤ",
-                    "drop_rate": "0.014",
-                    "attribute": "5",
-                    "kind": null,
-                    "incidence": null,
-                    "reward_id": 2040375000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "ジ・オーダー・グランデ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3194,7 +2468,7 @@
                 },
                 {
                     "name": "ゼウス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3205,7 +2479,7 @@
                 },
                 {
                     "name": "トール",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3216,7 +2490,7 @@
                 },
                 {
                     "name": "ハールート・マールート",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3227,7 +2501,7 @@
                 },
                 {
                     "name": "ヘイムダル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3238,7 +2512,7 @@
                 },
                 {
                     "name": "ヘクトル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3249,7 +2523,7 @@
                 },
                 {
                     "name": "メタトロン",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3260,7 +2534,7 @@
                 },
                 {
                     "name": "ルシフェル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3271,7 +2545,7 @@
                 },
                 {
                     "name": "ル・オー",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3282,7 +2556,7 @@
                 },
                 {
                     "name": "三知一鎧の賢者 マギ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "5",
                     "kind": null,
                     "incidence": null,
@@ -3293,7 +2567,7 @@
                 },
                 {
                     "name": "アヌビス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3304,7 +2578,7 @@
                 },
                 {
                     "name": "サリエル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3315,7 +2589,7 @@
                 },
                 {
                     "name": "ジルニトラ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3325,19 +2599,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "スリーピィ",
-                    "drop_rate": "0.250",
-                    "attribute": "6",
-                    "kind": null,
-                    "incidence": "1",
-                    "reward_id": 2040412000,
-                    "character_name": null,
-                    "is_season": true,
-                    "season_message": "(水着バージョン)"
-                },
-                {
                     "name": "ツクヨミ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3348,7 +2611,7 @@
                 },
                 {
                     "name": "テュポーン",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3359,7 +2622,7 @@
                 },
                 {
                     "name": "ナイアルラトホテップ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3370,7 +2633,7 @@
                 },
                 {
                     "name": "ナハト",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3381,7 +2644,7 @@
                 },
                 {
                     "name": "ハデス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3392,7 +2655,7 @@
                 },
                 {
                     "name": "バハムート",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3403,7 +2666,7 @@
                 },
                 {
                     "name": "ベリアル",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3414,7 +2677,7 @@
                 },
                 {
                     "name": "ベルゼバブ",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3425,7 +2688,7 @@
                 },
                 {
                     "name": "冥界の三魔犬 ケルベロス",
-                    "drop_rate": "0.014",
+                    "drop_rate": "0.015",
                     "attribute": "6",
                     "kind": null,
                     "incidence": null,
@@ -3444,7 +2707,7 @@
             "item": [
                 {
                     "name": "タンザナイトソード・ミコー",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "1",
                     "incidence": null,
@@ -3454,30 +2717,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ファイアウィップ",
-                    "drop_rate": "0.227",
-                    "attribute": "1",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030009400,
-                    "character_name": "フェリ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "プレミアムソード",
-                    "drop_rate": "0.227",
-                    "attribute": "1",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030008700,
-                    "character_name": "フライデー",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ラム・ダオ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "1",
                     "incidence": null,
@@ -3488,7 +2729,7 @@
                 },
                 {
                     "name": "年季の入った焼鏝",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "1",
                     "incidence": null,
@@ -3499,7 +2740,7 @@
                 },
                 {
                     "name": "護焔の剣",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "1",
                     "incidence": null,
@@ -3510,7 +2751,7 @@
                 },
                 {
                     "name": "アクアブレード",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -3521,7 +2762,7 @@
                 },
                 {
                     "name": "ソード・オブ・ソーサリー",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -3531,19 +2772,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "フロートソード",
-                    "drop_rate": "0.227",
-                    "attribute": "2",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030006700,
-                    "character_name": "シャルロッテ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ブロッサムグラス",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -3553,30 +2783,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "マクアフティル",
-                    "drop_rate": "0.227",
-                    "attribute": "2",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030007300,
-                    "character_name": "ファラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "リプルレイピア",
-                    "drop_rate": "0.227",
-                    "attribute": "2",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030002400,
-                    "character_name": "カタリナ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ロイヤルレイピア",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "1",
                     "incidence": null,
@@ -3587,7 +2795,7 @@
                 },
                 {
                     "name": "アスターコーム",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "1",
                     "incidence": null,
@@ -3598,7 +2806,7 @@
                 },
                 {
                     "name": "グレートソード",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "1",
                     "incidence": null,
@@ -3609,7 +2817,7 @@
                 },
                 {
                     "name": "フライパン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "1",
                     "incidence": null,
@@ -3620,7 +2828,7 @@
                 },
                 {
                     "name": "プライドソード",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "1",
                     "incidence": null,
@@ -3631,7 +2839,7 @@
                 },
                 {
                     "name": "アオハル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -3642,7 +2850,7 @@
                 },
                 {
                     "name": "キリジ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -3652,30 +2860,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サマーステラン",
-                    "drop_rate": "0.227",
-                    "attribute": "4",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030007200,
-                    "character_name": "ユイシス",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "スカートチェイサー",
-                    "drop_rate": "0.227",
-                    "attribute": "4",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030002600,
-                    "character_name": "ヘルナル",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "バリザルド",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -3685,19 +2871,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "パイレーツソード",
-                    "drop_rate": "0.227",
-                    "attribute": "4",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030004800,
-                    "character_name": "リーシャ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ホワイトフラッグ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -3708,7 +2883,7 @@
                 },
                 {
                     "name": "銀のハリセン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "1",
                     "incidence": null,
@@ -3719,7 +2894,7 @@
                 },
                 {
                     "name": "おサムライソード",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "1",
                     "incidence": null,
@@ -3730,7 +2905,7 @@
                 },
                 {
                     "name": "アロンダイト",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "1",
                     "incidence": null,
@@ -3741,7 +2916,7 @@
                 },
                 {
                     "name": "トゥルーティアー",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "1",
                     "incidence": null,
@@ -3751,19 +2926,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "狂恋団扇",
-                    "drop_rate": "0.227",
-                    "attribute": "5",
-                    "kind": "1",
-                    "incidence": null,
-                    "reward_id": 1030009300,
-                    "character_name": "タイアー",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "シルバーショテル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "1",
                     "incidence": null,
@@ -3774,7 +2938,7 @@
                 },
                 {
                     "name": "ティルヴァング",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "1",
                     "incidence": null,
@@ -3785,7 +2949,7 @@
                 },
                 {
                     "name": "ラスト",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "1",
                     "incidence": null,
@@ -3796,7 +2960,7 @@
                 },
                 {
                     "name": "無垢白刃",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "1",
                     "incidence": null,
@@ -3807,7 +2971,7 @@
                 },
                 {
                     "name": "絆の短剣",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "2",
                     "incidence": null,
@@ -3818,7 +2982,7 @@
                 },
                 {
                     "name": "キルナイフ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "2",
                     "incidence": null,
@@ -3829,7 +2993,7 @@
                 },
                 {
                     "name": "ソード・オブ・リスブラン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "2",
                     "incidence": null,
@@ -3840,7 +3004,7 @@
                 },
                 {
                     "name": "ソウルエッジ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "2",
                     "incidence": null,
@@ -3851,7 +3015,7 @@
                 },
                 {
                     "name": "ウィルムスクロウ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "2",
                     "incidence": null,
@@ -3862,7 +3026,7 @@
                 },
                 {
                     "name": "カッツバルゲル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "2",
                     "incidence": null,
@@ -3872,19 +3036,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "シェイドナイフ",
-                    "drop_rate": "0.227",
-                    "attribute": "6",
-                    "kind": "2",
-                    "incidence": null,
-                    "reward_id": 1030103900,
-                    "character_name": "ターニャ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "スカルペル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "2",
                     "incidence": null,
@@ -3895,7 +3048,7 @@
                 },
                 {
                     "name": "傀儡の包丁",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "2",
                     "incidence": null,
@@ -3906,7 +3059,7 @@
                 },
                 {
                     "name": "フレアグレイブ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "3",
                     "incidence": null,
@@ -3917,7 +3070,7 @@
                 },
                 {
                     "name": "レイジングハルバード",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "3",
                     "incidence": null,
@@ -3928,7 +3081,7 @@
                 },
                 {
                     "name": "チタンハープーン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "3",
                     "incidence": null,
@@ -3939,7 +3092,7 @@
                 },
                 {
                     "name": "ナーヴァル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "3",
                     "incidence": null,
@@ -3950,7 +3103,7 @@
                 },
                 {
                     "name": "スウィーピングモップ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -3961,7 +3114,7 @@
                 },
                 {
                     "name": "ディヴァインスピア",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -3972,7 +3125,7 @@
                 },
                 {
                     "name": "バリアントスパイク",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -3983,7 +3136,7 @@
                 },
                 {
                     "name": "ビッグフォーク",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -3993,19 +3146,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "ビーチ・ナイトフラッグ",
-                    "drop_rate": "0.227",
-                    "attribute": "3",
-                    "kind": "3",
-                    "incidence": null,
-                    "reward_id": 1030207200,
-                    "character_name": "白竜の双騎士 ランスロット＆ヴェイン",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "マッチョハントウェポン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -4016,7 +3158,7 @@
                 },
                 {
                     "name": "丈八蛇矛",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "3",
                     "incidence": null,
@@ -4027,7 +3169,7 @@
                 },
                 {
                     "name": "インスパールランス",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "3",
                     "incidence": null,
@@ -4038,7 +3180,7 @@
                 },
                 {
                     "name": "リュミエールフラッグ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "3",
                     "incidence": null,
@@ -4049,7 +3191,7 @@
                 },
                 {
                     "name": "ブロッケンランス",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "3",
                     "incidence": null,
@@ -4060,7 +3202,7 @@
                 },
                 {
                     "name": "マッシヴアクス",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "4",
                     "incidence": null,
@@ -4071,7 +3213,7 @@
                 },
                 {
                     "name": "グレートハンマー",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "4",
                     "incidence": null,
@@ -4082,7 +3224,7 @@
                 },
                 {
                     "name": "フレイメルンハンマー",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "4",
                     "incidence": null,
@@ -4092,19 +3234,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "フレイメル・ゴールデン",
-                    "drop_rate": "0.227",
-                    "attribute": "3",
-                    "kind": "4",
-                    "incidence": null,
-                    "reward_id": 1030304300,
-                    "character_name": "アルメイダ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "クラウドトマホーク",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "4",
                     "incidence": null,
@@ -4115,7 +3246,7 @@
                 },
                 {
                     "name": "ホーリーアクス",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "4",
                     "incidence": null,
@@ -4126,7 +3257,7 @@
                 },
                 {
                     "name": "ゴールデンダッグ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "4",
                     "incidence": null,
@@ -4137,7 +3268,7 @@
                 },
                 {
                     "name": "ヴォウジェ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "4",
                     "incidence": null,
@@ -4148,7 +3279,7 @@
                 },
                 {
                     "name": "アーソン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -4158,19 +3289,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "アーソン・デス",
-                    "drop_rate": "0.227",
-                    "attribute": "1",
-                    "kind": "5",
-                    "incidence": null,
-                    "reward_id": 1030403400,
-                    "character_name": "エルモート",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "アーソン・リンク",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -4181,7 +3301,7 @@
                 },
                 {
                     "name": "サルヴトーチ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -4192,7 +3312,7 @@
                 },
                 {
                     "name": "神秘の仙杖",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -4203,7 +3323,7 @@
                 },
                 {
                     "name": "魔女の箒",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "5",
                     "incidence": null,
@@ -4213,19 +3333,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サンシェードパラソル",
-                    "drop_rate": "0.227",
-                    "attribute": "2",
-                    "kind": "5",
-                    "incidence": null,
-                    "reward_id": 1030403500,
-                    "character_name": "スフラマール",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "森精の杖",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "5",
                     "incidence": null,
@@ -4236,7 +3345,7 @@
                 },
                 {
                     "name": "氷枝杖",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "5",
                     "incidence": null,
@@ -4247,7 +3356,7 @@
                 },
                 {
                     "name": "ツォンペリ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "5",
                     "incidence": null,
@@ -4258,7 +3367,7 @@
                 },
                 {
                     "name": "トゥグリル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "5",
                     "incidence": null,
@@ -4269,7 +3378,7 @@
                 },
                 {
                     "name": "エアリアルケーン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -4280,7 +3389,7 @@
                 },
                 {
                     "name": "キューブ・スタッフ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -4291,7 +3400,7 @@
                 },
                 {
                     "name": "フラワークラウン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -4302,7 +3411,7 @@
                 },
                 {
                     "name": "風詠みの杖",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "5",
                     "incidence": null,
@@ -4313,7 +3422,7 @@
                 },
                 {
                     "name": "ホーリーインデックス",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "5",
                     "incidence": null,
@@ -4324,7 +3433,7 @@
                 },
                 {
                     "name": "リプディエートスタッフ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "5",
                     "incidence": null,
@@ -4335,7 +3444,7 @@
                 },
                 {
                     "name": "星探の旅杖",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "5",
                     "incidence": null,
@@ -4346,7 +3455,7 @@
                 },
                 {
                     "name": "アンライトセプター",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "5",
                     "incidence": null,
@@ -4357,7 +3466,7 @@
                 },
                 {
                     "name": "カースドケーン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "5",
                     "incidence": null,
@@ -4367,19 +3476,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "アークゥイバス・カスタム",
-                    "drop_rate": "0.227",
-                    "attribute": "1",
-                    "kind": "6",
-                    "incidence": null,
-                    "reward_id": 1030501300,
-                    "character_name": "ジェシカ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "シグナルバレット",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "6",
                     "incidence": null,
@@ -4390,7 +3488,7 @@
                 },
                 {
                     "name": "ドルフェーン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "6",
                     "incidence": null,
@@ -4401,7 +3499,7 @@
                 },
                 {
                     "name": "ピーシーズ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "6",
                     "incidence": null,
@@ -4412,7 +3510,7 @@
                 },
                 {
                     "name": "ミスリルボルト",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "6",
                     "incidence": null,
@@ -4423,7 +3521,7 @@
                 },
                 {
                     "name": "カラフリャーガン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "6",
                     "incidence": null,
@@ -4434,7 +3532,7 @@
                 },
                 {
                     "name": "クォレル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "6",
                     "incidence": null,
@@ -4444,19 +3542,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "デザートアームズ",
-                    "drop_rate": "0.227",
-                    "attribute": "3",
-                    "kind": "6",
-                    "incidence": null,
-                    "reward_id": 1030503100,
-                    "character_name": "オイゲン",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ハンディ・アークゥイバス",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "6",
                     "incidence": null,
@@ -4467,7 +3554,7 @@
                 },
                 {
                     "name": "アルビオン制式ボルト",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "6",
                     "incidence": null,
@@ -4478,7 +3565,7 @@
                 },
                 {
                     "name": "オブ・ゴールド",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "6",
                     "incidence": null,
@@ -4489,7 +3576,7 @@
                 },
                 {
                     "name": "ジーニアス・ジーニアス",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "6",
                     "incidence": null,
@@ -4500,7 +3587,7 @@
                 },
                 {
                     "name": "ハンターライフル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "6",
                     "incidence": null,
@@ -4510,19 +3597,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "わたあめ",
-                    "drop_rate": "0.227",
-                    "attribute": "1",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1030608400,
-                    "character_name": "カシウス",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "カップ＆ソーサー",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "7",
                     "incidence": null,
@@ -4533,7 +3609,7 @@
                 },
                 {
                     "name": "グレートタロン",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "7",
                     "incidence": null,
@@ -4544,7 +3620,7 @@
                 },
                 {
                     "name": "タムタム麺",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "7",
                     "incidence": null,
@@ -4555,7 +3631,7 @@
                 },
                 {
                     "name": "チェインナックル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "7",
                     "incidence": null,
@@ -4565,30 +3641,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "綱巻甲",
-                    "drop_rate": "0.227",
-                    "attribute": "1",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1030605600,
-                    "character_name": "ガンダゴウザ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "ウォーターバルーン",
-                    "drop_rate": "0.227",
-                    "attribute": "2",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1030604900,
-                    "character_name": "クムユ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "カイザーナックル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "7",
                     "incidence": null,
@@ -4599,7 +3653,7 @@
                 },
                 {
                     "name": "ライト・ビートプレート",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "7",
                     "incidence": null,
@@ -4610,7 +3664,7 @@
                 },
                 {
                     "name": "ライフセーブグローブ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "7",
                     "incidence": null,
@@ -4621,7 +3675,7 @@
                 },
                 {
                     "name": "インパクトナックル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -4632,7 +3686,7 @@
                 },
                 {
                     "name": "コーヒーカップ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -4642,19 +3696,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "シルバーリング",
-                    "drop_rate": "0.227",
-                    "attribute": "3",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1030604800,
-                    "character_name": "Ｊ・Ｊ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "スダルサナ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -4664,19 +3707,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "トロピカルバンテージ",
-                    "drop_rate": "0.227",
-                    "attribute": "3",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1030605500,
-                    "character_name": "アイル",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ミスリルトンファー",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -4687,7 +3719,7 @@
                 },
                 {
                     "name": "メタルグローブ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "3",
                     "kind": "7",
                     "incidence": null,
@@ -4697,19 +3729,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "シーサイドメモリー",
-                    "drop_rate": "0.227",
-                    "attribute": "4",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1030605700,
-                    "character_name": "クロエ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "無慈悲な制裁",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "7",
                     "incidence": null,
@@ -4720,7 +3741,7 @@
                 },
                 {
                     "name": "クロコダイルグローブ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "7",
                     "incidence": null,
@@ -4731,7 +3752,7 @@
                 },
                 {
                     "name": "タイガーファング",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "7",
                     "incidence": null,
@@ -4742,7 +3763,7 @@
                 },
                 {
                     "name": "ブラストヘヴィナックル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "7",
                     "incidence": null,
@@ -4753,7 +3774,7 @@
                 },
                 {
                     "name": "ミサンガ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "7",
                     "incidence": null,
@@ -4764,7 +3785,7 @@
                 },
                 {
                     "name": "クルエルクロー",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "7",
                     "incidence": null,
@@ -4774,19 +3795,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サマーナイトロシュ",
-                    "drop_rate": "0.227",
-                    "attribute": "6",
-                    "kind": "7",
-                    "incidence": null,
-                    "reward_id": 1030606800,
-                    "character_name": "アルルメイヤ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ヴァンプネイル",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "6",
                     "kind": "7",
                     "incidence": null,
@@ -4797,7 +3807,7 @@
                 },
                 {
                     "name": "グラスボウ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "8",
                     "incidence": null,
@@ -4808,7 +3818,7 @@
                 },
                 {
                     "name": "アイスボウ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "8",
                     "incidence": null,
@@ -4819,7 +3829,7 @@
                 },
                 {
                     "name": "翠枝の弓",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "8",
                     "incidence": null,
@@ -4830,7 +3840,7 @@
                 },
                 {
                     "name": "スリングショット",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "8",
                     "incidence": null,
@@ -4841,7 +3851,7 @@
                 },
                 {
                     "name": "アクアリウムハープ",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "2",
                     "kind": "9",
                     "incidence": null,
@@ -4851,30 +3861,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "サマービーチスフィア",
-                    "drop_rate": "0.227",
-                    "attribute": "2",
-                    "kind": "9",
-                    "incidence": null,
-                    "reward_id": 1030803500,
-                    "character_name": "リルル",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "さざ波の砂弦",
-                    "drop_rate": "0.227",
-                    "attribute": "3",
-                    "kind": "9",
-                    "incidence": null,
-                    "reward_id": 1030802700,
-                    "character_name": "サラ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "ストラヴァリア",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "9",
                     "incidence": null,
@@ -4885,7 +3873,7 @@
                 },
                 {
                     "name": "吟遊詩人の竪琴",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "9",
                     "incidence": null,
@@ -4896,7 +3884,7 @@
                 },
                 {
                     "name": "バードハミング",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "5",
                     "kind": "9",
                     "incidence": null,
@@ -4907,7 +3895,7 @@
                 },
                 {
                     "name": "彷徨の刃",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "1",
                     "kind": "10",
                     "incidence": null,
@@ -4917,30 +3905,8 @@
                     "season_message": ""
                 },
                 {
-                    "name": "柳葉刀",
-                    "drop_rate": "0.227",
-                    "attribute": "2",
-                    "kind": "10",
-                    "incidence": null,
-                    "reward_id": 1030903400,
-                    "character_name": "レオナ",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
-                    "name": "赤虎刀",
-                    "drop_rate": "0.227",
-                    "attribute": "3",
-                    "kind": "10",
-                    "incidence": null,
-                    "reward_id": 1030902200,
-                    "character_name": "ジン",
-                    "is_season": false,
-                    "season_message": ""
-                },
-                {
                     "name": "斬馬刀",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "10",
                     "incidence": null,
@@ -4951,7 +3917,7 @@
                 },
                 {
                     "name": "無銘刀",
-                    "drop_rate": "0.227",
+                    "drop_rate": "0.282",
                     "attribute": "4",
                     "kind": "10",
                     "incidence": null,
