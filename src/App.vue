@@ -1,5 +1,5 @@
-<script setup>
-import Header from './components/layouts/Header.vue'
+<script setup lang="ts">
+import Header from '@/layout/Header/index.vue'
 </script>
 
 <template>
@@ -9,13 +9,12 @@ import Header from './components/layouts/Header.vue'
       <Header></Header>
     </el-header>
     <el-main>
-      <router-view></router-view>
+      <router-view />
     </el-main>
   </div>
-
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 * {
   padding: 0px;
   margin: 0px;
@@ -37,14 +36,14 @@ body,
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(/img/bg/common_bg.png) no-repeat center center;
+  background: url(@/assets/images/bg/common_bg.png) no-repeat center center;
   background-size: cover;
   z-index: -1;
 }
 
 .el-header {
   padding: 0px;
-  margin-bottom: 5px
+  margin-bottom: 5px;
 }
 
 .el-main {

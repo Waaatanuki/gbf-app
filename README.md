@@ -1,4 +1,6 @@
 # 碧蓝幻想小工具 2.0
 摸鱼做的些gbf小工具
+
 ### 更新记录
-2022/6/14 使用Vue3+element-plus+vite重构原有项目
+2022/12/27 从js升级为ts
+2022/06/14 使用Vue3+element-plus+vite重构原有项目
