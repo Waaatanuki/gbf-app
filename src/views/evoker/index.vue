@@ -9,7 +9,7 @@
           <EvokerInfo :evokerInfo="evokerInfo" />
         </el-main>
         <el-footer>
-          <MaterialResult class="showResult" :result="evokerPageResult" />
+          <MaterialResult :result="evokerPageResult" />
         </el-footer>
       </el-container>
     </el-container>
@@ -17,7 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import MaterialInfo from './components/MaterialInfo.vue'
 import EvokerInfo from './components//EvokerInfo.vue'
 import MaterialResult from './components/MaterialResult.vue'

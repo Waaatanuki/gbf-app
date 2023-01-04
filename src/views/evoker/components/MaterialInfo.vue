@@ -1,10 +1,10 @@
 <template>
   <div class="itemBox">
-    <div class="item-row" v-for="(l, index) in itemSrc" :key="index">
-      <div class="item-col" v-for="(i, index) in l" :key="index" v-show="i">
+    <div class="item-row" v-for="row in itemSrc">
+      <div class="item-col" v-for="item in row" v-show="item.id">
         <div class="item">
-          <img style="height: 100%; width: 100%" :src="i" />
-          <input class="itemNum" v-model.number.lazy="materialInfo[i]" onfocus="this.select()" />
+          <img style="height: 100%; width: 100%" :src="item.img" />
+          <input class="itemNum" v-model.number="materialInfo[item.id]" />
         </div>
       </div>
     </div>
@@ -27,7 +27,17 @@ const itemList = [
 ]
 
 const itemSrc = itemList.map(m =>
-  m.map(n => (n ? new URL(`/src/assets/images/item/${n}.jpg`, import.meta.url).href : ''))
+  m.map(n =>
+    n
+      ? {
+          id: n,
+          img: new URL(`/src/assets/images/item/${n}.jpg`, import.meta.url).href,
+        }
+      : {
+          id: n,
+          img: '',
+        }
+  )
 )
 </script>
 
