@@ -12,6 +12,7 @@
     </el-sub-menu>
     <el-menu-item index="/tools">NGA工具</el-menu-item>
     <el-menu-item index="/playground">实验广场</el-menu-item>
+    <!-- <el-menu-item index="/evokerDataMaker">贤者素材编辑</el-menu-item> -->
   </el-menu>
 </template>
 

@@ -47,6 +47,10 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/playground',
     component: () => import('@/views/playground/index.vue'),
   },
+  {
+    path: '/evokerDataMaker',
+    component: () => import('@/views/evokerDataMaker/index.vue'),
+  },
 ]
 
 // 创建路由
