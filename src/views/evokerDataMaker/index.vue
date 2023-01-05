@@ -38,7 +38,7 @@
             <div class="item">
               <img
                 style="height: 100%; width: 100%"
-                :src="`/src/assets/images/item/${item}.jpg`"
+                :src="getAssetsImgFile(`item/${item}.jpg`)"
                 @click="handleItem(item)"
               />
             </div>
@@ -51,7 +51,7 @@
             <div class="item">
               <img
                 style="height: 100%; width: 100%"
-                :src="`/src/assets/images/item/${id}.jpg`"
+                :src="getAssetsImgFile(`item/${id}.jpg`)"
                 @click="handleItem(id)"
               />
               <input class="itemNum" v-model.number="cell[id]" style="width: 40px" />
@@ -63,7 +63,7 @@
             <div class="item">
               <img
                 style="width: 50px"
-                :src="`/src/assets/images/item/${item.id}.jpg`"
+                :src="getAssetsImgFile(`item/${item.id}.jpg`)"
                 @click="needItemList.splice(index, 1)"
               />
               <input class="itemNum" v-model.number="item.count" style="width: 40px" />
@@ -83,6 +83,7 @@
 import uncapData from '@/assets/data/uncapData.json'
 import { downloadJSON } from '@/utils/file'
 import { cloneDeep } from 'lodash'
+
 const itemList = [
   [0, 0, 0, 25000, 25001],
   [25002, 25003, 25004, 25005, 25006],
@@ -108,6 +109,10 @@ const state = reactive({
 })
 
 const { tableData, dialog, needItemList, currentCell } = toRefs(state)
+
+function getAssetsImgFile(url: string) {
+  return new URL(`/src/assets/images/${url}`, import.meta.url).href
+}
 
 function handleCellClick(row: any, column: any) {
   dialog.value.visible = true
