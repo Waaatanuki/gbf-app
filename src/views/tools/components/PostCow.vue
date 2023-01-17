@@ -26,7 +26,11 @@
         <el-input v-model="formData.ring3" />
       </el-form-item>
       <el-form-item label="备注" prop="comment">
-        <el-input v-model="formData.comment" type="textarea" :autosize="{ minRows: 5 }" />
+        <el-input
+          v-model="formData.comment"
+          type="textarea"
+          :autosize="{ minRows: 5 }"
+        />
       </el-form-item>
     </el-form>
     <div class="footer">
@@ -53,7 +57,8 @@ const formData = reactive({
 const { copy } = useClipboard()
 
 async function copyForm() {
-  const { title, team, weapon, summon, trial, ring1, ring2, ring3, comment } = formData
+  const { title, team, weapon, summon, trial, ring1, ring2, ring3, comment } =
+    formData
   const content = `
 [size=150%][b]${title}[/b][/size]   
 [list]
@@ -90,7 +95,7 @@ function reset() {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .box-card {
   width: 600px;
 }

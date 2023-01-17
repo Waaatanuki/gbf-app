@@ -67,12 +67,24 @@ export const setOptions = [
   },
   {
     title: '本战第三天',
-    selectOptions: ['HELL Lv90', 'HELL Lv95', 'HELL Lv100', 'HELL Lv150', 'HELL Lv200'],
+    selectOptions: [
+      'HELL Lv90',
+      'HELL Lv95',
+      'HELL Lv100',
+      'HELL Lv150',
+      'HELL Lv200',
+    ],
     max: 200,
   },
   {
     title: '本战第四天',
-    selectOptions: ['HELL Lv90', 'HELL Lv95', 'HELL Lv100', 'HELL Lv150', 'HELL Lv200'],
+    selectOptions: [
+      'HELL Lv90',
+      'HELL Lv95',
+      'HELL Lv100',
+      'HELL Lv150',
+      'HELL Lv200',
+    ],
     max: 200,
   },
 ]

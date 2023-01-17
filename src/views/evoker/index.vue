@@ -1,18 +1,20 @@
 <template>
-  <div class="evoker-page">
-    <el-container>
-      <el-aside>
-        <MaterialInfo :materialInfo="materialInfo" />
-      </el-aside>
+  <div class="app-container">
+    <div class="evoker-page">
       <el-container>
-        <el-main>
-          <EvokerInfo :evokerInfo="evokerInfo" />
-        </el-main>
-        <el-footer>
-          <MaterialResult :result="evokerPageResult" />
-        </el-footer>
+        <el-aside>
+          <MaterialInfo :materialInfo="materialInfo" />
+        </el-aside>
+        <el-container>
+          <el-main>
+            <EvokerInfo :evokerInfo="evokerInfo" />
+          </el-main>
+          <el-footer>
+            <MaterialResult :result="evokerPageResult" />
+          </el-footer>
+        </el-container>
       </el-container>
-    </el-container>
+    </div>
   </div>
 </template>
 
@@ -105,11 +107,6 @@ const evokerInfoDefault: any = [
   },
 ]
 
-evokerInfoDefault.forEach(
-  (info: any) =>
-    (info.img = new URL(`/src/assets/images/npc/304016${info.no}000_01.jpg`, import.meta.url).href)
-)
-
 const getEvokerPageResult = function (e: any, v: any) {
   const result: any = {}
   const loopGroup = ['tarotUncap', 'evokerUncap', 'weaponUncap', 'domainUncap']
@@ -140,8 +137,16 @@ const getEvokerPageResult = function (e: any, v: any) {
 
       // 塔罗、贤者、贤武、领域素材计算
       for (let m = 0; m < 4; m++) {
-        const type = loopGroup[m] as 'tarotUncap' | 'evokerUncap' | 'weaponUncap' | 'domainUncap'
-        for (let j = currentLevel[m]; j < evokerData[currentNo][type].length; j++) {
+        const type = loopGroup[m] as
+          | 'tarotUncap'
+          | 'evokerUncap'
+          | 'weaponUncap'
+          | 'domainUncap'
+        for (
+          let j = currentLevel[m];
+          j < evokerData[currentNo][type].length;
+          j++
+        ) {
           const uncapData = evokerData[currentNo][type][j]
           for (const k in uncapData) {
             if (isNaN(result[k])) {
@@ -177,7 +182,9 @@ const getEvokerPageResult = function (e: any, v: any) {
 
 const materialInfo = useStorage('materialInfo', {})
 const evokerInfo = useStorage('evokerInfo', evokerInfoDefault)
-const evokerPageResult = computed(() => getEvokerPageResult(evokerInfo.value, materialInfo.value))
+const evokerPageResult = computed(() =>
+  getEvokerPageResult(evokerInfo.value, materialInfo.value)
+)
 </script>
 
 <style lang="scss" scoped>
@@ -200,6 +207,6 @@ const evokerPageResult = computed(() => getEvokerPageResult(evokerInfo.value, ma
 }
 
 .el-aside {
-  width: 280px;
+  width: 260px;
 }
 </style>

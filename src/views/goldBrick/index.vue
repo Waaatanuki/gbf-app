@@ -1,53 +1,64 @@
 <template>
-  <el-table :data="baseInfo" @row-click="showChart">
-    <el-table-column width="150">
-      <template #default="{ row }">
-        <img :src="row.img" style="width: 100%" />
-      </template>
-    </el-table-column>
-    <el-table-column align="center" prop="whiteRing" label="白戒指" />
-    <el-table-column align="center" prop="blackRing" label="黑戒指" />
-    <el-table-column align="center" prop="redRing" label="红戒指" />
-    <el-table-column align="center" prop="blueChestFFJ" label="蓝箱金" />
-    <el-table-column align="center" prop="blueChestCount" label="蓝箱次数" />
-    <el-table-column align="center" prop="count" label="总次数" />
-    <el-table-column align="center" prop="blueChestCount" label="蓝箱率">
-      <template #default="{ row }">
-        {{ ((row.blueChestCount / row.count || 0) * 100).toFixed(2) }}%
-      </template>
-    </el-table-column>
-    <el-table-column align="center" prop="blueChestCount" label="蓝箱金率">
-      <template #default="{ row }">
-        {{ ((row.blueChestFFJ / row.blueChestCount || 0) * 100).toFixed(2) }}%
-      </template>
-    </el-table-column>
-  </el-table>
-  <div class="result">蓝箱FFJ总计：{{ totalBlueChestFFJ }}</div>
-  <div class="uploader">
-    <el-popconfirm title="清空操作无法恢复，确认清空吗?" :onConfirm="clearData">
-      <template #reference>
-        <el-button type="danger">清空数据</el-button>
-      </template>
-    </el-popconfirm>
-    <el-button type="info" @click="handleExport">导出</el-button>
-    <el-upload
-      :on-change="handleUploadChange"
-      v-model:file-list="filesList"
-      :show-file-list="false"
-      :limit="1"
-      :auto-upload="false"
-      accept=".json"
-    >
-      <template #trigger>
-        <el-button type="primary" @click="filesList = []" :loading="uploadBtnLoading"
-          >上传</el-button
-        >
-      </template>
-    </el-upload>
+  <div class="app-container">
+    <el-table :data="baseInfo" @row-click="showChart">
+      <el-table-column width="150">
+        <template #default="{ row }">
+          <img
+            :src="`/images/raid/img-quest-thumb/${row.questId}.png`"
+            style="width: 100%"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column align="center" prop="whiteRing" label="白戒指" />
+      <el-table-column align="center" prop="blackRing" label="黑戒指" />
+      <el-table-column align="center" prop="redRing" label="红戒指" />
+      <el-table-column align="center" prop="blueChestFFJ" label="蓝箱金" />
+      <el-table-column align="center" prop="blueChestCount" label="蓝箱次数" />
+      <el-table-column align="center" prop="count" label="总次数" />
+      <el-table-column align="center" prop="blueChestCount" label="蓝箱率">
+        <template #default="{ row }">
+          {{ ((row.blueChestCount / row.count || 0) * 100).toFixed(2) }}%
+        </template>
+      </el-table-column>
+      <el-table-column align="center" prop="blueChestCount" label="蓝箱金率">
+        <template #default="{ row }">
+          {{ ((row.blueChestFFJ / row.blueChestCount || 0) * 100).toFixed(2) }}%
+        </template>
+      </el-table-column>
+    </el-table>
+    <div class="result">蓝箱FFJ总计：{{ totalBlueChestFFJ }}</div>
+    <div class="uploader">
+      <el-popconfirm
+        title="清空操作无法恢复，确认清空吗?"
+        :onConfirm="clearData"
+      >
+        <template #reference>
+          <el-button type="danger">清空数据</el-button>
+        </template>
+      </el-popconfirm>
+      <el-button type="info" @click="handleExport">导出</el-button>
+      <el-upload
+        :on-change="handleUploadChange"
+        v-model:file-list="filesList"
+        :show-file-list="false"
+        :limit="1"
+        :auto-upload="false"
+        accept=".json"
+      >
+        <template #trigger>
+          <el-button
+            type="primary"
+            @click="filesList = []"
+            :loading="uploadBtnLoading"
+            >上传</el-button
+          >
+        </template>
+      </el-upload>
+    </div>
+    <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600">
+      <ChartDrawer :id="drawer.key" :data="drawer.dataSet" />
+    </el-drawer>
   </div>
-  <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600">
-    <ChartDrawer :id="drawer.key" :data="drawer.dataSet" />
-  </el-drawer>
 </template>
 
 <script setup lang="ts">
@@ -63,10 +74,9 @@ const state = reactive({
   baseInfo: [] as any[],
   totalBlueChestFFJ: 0,
   drawer: { title: '', visible: false, key: '', dataSet: [] as any[] },
-  tableData: [],
 })
 
-const { totalBlueChestFFJ, filesList, baseInfo, uploadBtnLoading, drawer, tableData } =
+const { totalBlueChestFFJ, filesList, baseInfo, uploadBtnLoading, drawer } =
   toRefs(state)
 
 function showChart(raid: any) {
@@ -84,25 +94,30 @@ function showChart(raid: any) {
 async function init() {
   state.dataSet = []
   const entries = await db.entries()
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     state.dataSet.push({
       [entry[0] as string]: entry[1],
     })
   })
   state.baseInfo = formatData(state.dataSet)
-  state.totalBlueChestFFJ = state.baseInfo.reduce((total, kv) => total + kv.blueChestFFJ, 0)
+  state.totalBlueChestFFJ = state.baseInfo.reduce(
+    (total, kv) => total + kv.blueChestFFJ,
+    0
+  )
 }
 
 function formatData(dataSet: any) {
   const baseInfo: any[] = []
 
-  GoldBrickQuest.forEach(quest => {
+  GoldBrickQuest.forEach((quest) => {
     baseInfo.push({
       key: quest.key,
       alias: quest.alias,
       questId: quest.questId,
-      img: new URL(`/src/assets/images/raid/img-quest-thumb/${quest.questId}.png`, import.meta.url)
-        .href,
+      img: new URL(
+        `/src/assets/images/raid/img-quest-thumb/${quest.questId}.png`,
+        import.meta.url
+      ).href,
       count: 0,
       blueChestCount: 0,
       redChestFFJ: 0,
@@ -121,7 +136,9 @@ function formatData(dataSet: any) {
     try {
       const raidId = Object.keys(record)[0]
       const raidInfo = record[raidId]
-      const targetQuestInfo = baseInfo.find(quest => quest.key == raidInfo.raidName)
+      const targetQuestInfo = baseInfo.find(
+        (quest) => quest.key == raidInfo.raidName
+      )
       if (!targetQuestInfo) return
       targetQuestInfo.count++
 
@@ -131,11 +148,15 @@ function formatData(dataSet: any) {
       raidInfo.goldBrick == '3' && targetQuestInfo.normalChestFFJ++
 
       targetQuestInfo.totalFFJ =
-        targetQuestInfo.redChestFFJ + targetQuestInfo.blueChestFFJ + targetQuestInfo.normalChestFFJ
+        targetQuestInfo.redChestFFJ +
+        targetQuestInfo.blueChestFFJ +
+        targetQuestInfo.normalChestFFJ
       raidInfo.blueChests == '73_1' && targetQuestInfo.whiteRing++
       raidInfo.blueChests == '73_2' && targetQuestInfo.blackRing++
       raidInfo.blueChests == '73_3' && targetQuestInfo.redRing++
-      targetQuestInfo.lastCount = raidInfo.goldBrick ? 0 : targetQuestInfo.lastCount + 1
+      targetQuestInfo.lastCount = raidInfo.goldBrick
+        ? 0
+        : targetQuestInfo.lastCount + 1
       targetQuestInfo.lastBlueChestCount =
         raidInfo.blueChests == '17_20004'
           ? 0

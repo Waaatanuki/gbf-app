@@ -1,53 +1,10 @@
-<script setup lang="ts">
-import Header from '@/layout/Header/index.vue'
-</script>
-
 <template>
-  <div id="animation_bg"></div>
-  <div class="site">
-    <el-header>
-      <Header></Header>
-    </el-header>
-    <el-main>
-      <router-view />
-    </el-main>
-  </div>
+  <el-config-provider :locale="zhCn">
+    <router-view />
+  </el-config-provider>
 </template>
 
-<style lang="scss" scoped>
-* {
-  padding: 0px;
-  margin: 0px;
-  --el-menu-hover-bg-color: #fff;
-}
-
-html,
-body,
-#app {
-  padding: 0px;
-  margin: 0px;
-  width: 100%;
-  height: 100%;
-}
-
-#animation_bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(@/assets/images/bg/common_bg.png) no-repeat center center;
-  background-size: cover;
-  z-index: -1;
-}
-
-.el-header {
-  padding: 0px;
-  margin-bottom: 5px;
-}
-
-.el-main {
-  padding: 0px;
-  margin: 0px;
-}
-</style>
+<script setup lang="ts">
+import { ElConfigProvider } from 'element-plus'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+</script>

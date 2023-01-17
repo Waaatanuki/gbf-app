@@ -1,24 +1,31 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "esnext",
     "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "esnext",
+    "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
+    "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "suppressImplicitAnyIndexErrors": true,
     "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
+    "lib": ["esnext", "dom"],
     "baseUrl": ".",
-    "skipLibCheck": true,
-    "noEmit": true,
-    "types": ["element-plus/global","node"],
+    "allowJs": true,
     "paths": {
       "@/*": ["src/*"]
     },
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+    "allowSyntheticDefaultImports": true /* 允许默认导入 */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "suppressImplicitAnyIndexErrors": true,
+    "types": ["element-plus/global","node","vite/client"],
+    "typeRoots": [
+      "./node_modules/@types/",
+      "./types"
+    ] /* 指定多个文件夹，这些文件夹的作用类似于 './node_modules/@types'. */
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue","types/**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "**/*.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

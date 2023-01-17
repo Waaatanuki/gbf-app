@@ -1,108 +1,129 @@
 <template>
-  <div class="container">
-    <div>
-      <el-card class="gacha-calc-card">
-        <template #header>
-          <div class="card-header">
-            <span>攒井计算器</span>
-            <label>
+  <div class="app-container">
+    <div class="container">
+      <div>
+        <el-card class="gacha-calc-card">
+          <template #header>
+            <div class="card-header">
+              <span>攒井计算器</span>
+              <label>
+                {{
+                  Math.floor(totalStone / 90000) +
+                  '井' +
+                  Math.floor((totalStone % 90000) / 300) +
+                  '抽'
+                }}</label
+              >
+            </div>
+          </template>
+          <div class="card-body">
+            <el-form :model="formData" label-width="70px">
+              <el-form-item label="10连券">
+                <el-input v-model.number="formData.legendticket10" />
+              </el-form-item>
+              <el-form-item label="单抽券">
+                <el-input v-model.number="formData.legendticket" />
+              </el-form-item>
+              <el-form-item label="宝晶石">
+                <el-input v-model.number="formData.stone" />
+              </el-form-item>
+              <el-form-item label="已抽">
+                <el-input v-model.number="formData.drawn" />
+              </el-form-item>
+              <el-form-item label="剩余点数">
+                <el-input v-model.number="formData.mobacoin" />
+              </el-form-item>
+            </el-form>
+            <el-divider />
+            <el-form label-width="70px">
+              <el-form-item label="点数价格">
+                <el-input v-model.number="formData.price" />
+              </el-form-item>
+              <el-form-item label="对应点数">
+                <el-input v-model.number="formData.point" />
+              </el-form-item>
+            </el-form>
+            <div style="text-align: center">
               {{
-                Math.floor(totalStone / 90000) +
-                '井' +
-                Math.floor((totalStone % 90000) / 300) +
-                '抽'
-              }}</label
-            >
+                '下一井需要补' +
+                Math.floor(
+                  (formData.price * (90000 - (totalStone % 90000))) /
+                    formData.point
+                ) +
+                '元'
+              }}
+            </div>
           </div>
-        </template>
-        <div class="card-body">
-          <el-form :model="formData" label-width="70px">
-            <el-form-item label="10连券">
-              <el-input v-model.number="formData.legendticket10" />
-            </el-form-item>
-            <el-form-item label="单抽券">
-              <el-input v-model.number="formData.legendticket" />
-            </el-form-item>
-            <el-form-item label="宝晶石">
-              <el-input v-model.number="formData.stone" />
-            </el-form-item>
-            <el-form-item label="已抽">
-              <el-input v-model.number="formData.drawn" />
-            </el-form-item>
-            <el-form-item label="剩余点数">
-              <el-input v-model.number="formData.mobacoin" />
-            </el-form-item>
-          </el-form>
-          <el-divider />
-          <el-form label-width="70px">
-            <el-form-item label="点数价格">
-              <el-input v-model.number="formData.price" />
-            </el-form-item>
-            <el-form-item label="对应点数">
-              <el-input v-model.number="formData.point" />
-            </el-form-item>
-          </el-form>
-          <div style="text-align: center">
-            {{
-              '下一井需要补' +
-              Math.floor((formData.price * (90000 - (totalStone % 90000))) / formData.point) +
-              '元'
-            }}
+        </el-card>
+      </div>
+      <div style="width: 100%">
+        <el-card class="gacha-simulate-card">
+          <template #header>
+            <div class="card-header">
+              <span>抽卡模拟</span>
+              <span
+                >当前总抽数：{{ count }} , SSR个数：{{ ssrCount }} , SSR率：{{
+                  ((ssrCount / count) * 100).toFixed(2)
+                }}%</span
+              >
+              <div>
+                <el-button type="warning" @click="reset">重置</el-button>
+              </div>
+            </div>
+          </template>
+          <div class="card-body">
+            <div class="gacha-bg">
+              <div>
+                <el-image
+                  v-for="item in result.slice(0, 3)"
+                  :src="`/images/gacha/${item.cat}/${item.id}.jpg`"
+                />
+              </div>
+
+              <div>
+                <el-image
+                  v-for="item in result.slice(3, 7)"
+                  :src="`/images/gacha/${item.cat}/${item.id}.jpg`"
+                />
+              </div>
+              <div>
+                <el-image
+                  v-for="item in result.slice(7, 10)"
+                  :src="`/images/gacha/${item.cat}/${item.id}.jpg`"
+                />
+              </div>
+            </div>
+            <div class="btn-gacha-box">
+              <div class="btn-gacha" @click="draw(1)">
+                <img
+                  src="/images/gacha/text_legend10.png"
+                  alt="text_legend10"
+                />
+              </div>
+              <div class="btn-gacha" @click="draw(30)">
+                <img
+                  src="/images/gacha/text_legend300.png"
+                  alt="text_legend300"
+                />
+              </div>
+            </div>
+            <div class="show-ssr-box">
+              <el-scrollbar height="200px">
+                <el-image
+                  v-for="item in ssrList"
+                  :class="{ target: item.incidence == '1' }"
+                  :src="`/images/gacha/${item.cat}/${item.id}.jpg`"
+                />
+              </el-scrollbar>
+            </div>
           </div>
-        </div>
-      </el-card>
+          <span class="tip">{{ gachaLineup }}</span>
+        </el-card>
+      </div>
     </div>
-    <div style="width: 100%">
-      <el-card class="gacha-simulate-card">
-        <template #header>
-          <div class="card-header">
-            <span>抽卡模拟</span>
-            <span
-              >当前总抽数：{{ count }} , SSR个数：{{ ssrCount }} , SSR率：{{
-                ((ssrCount / count) * 100).toFixed(2)
-              }}%</span
-            >
-            <div>
-              <el-button type="warning" @click="reset">重置</el-button>
-            </div>
-          </div>
-        </template>
-        <div class="card-body">
-          <div class="gacha-bg">
-            <div>
-              <el-image v-for="item in result.slice(0, 3)" :src="item.img" />
-            </div>
-            <div>
-              <el-image v-for="item in result.slice(3, 7)" :src="item.img" />
-            </div>
-            <div>
-              <el-image v-for="item in result.slice(7, 10)" :src="item.img" />
-            </div>
-          </div>
-          <div class="btn-gacha-box">
-            <div class="btn-gacha" @click="draw(1)">
-              <img :src="gachaButtonText10" alt="text_legend10" />
-            </div>
-            <div class="btn-gacha" @click="draw(30)">
-              <img :src="gachaButtonText300" alt="text_legend300" />
-            </div>
-          </div>
-          <div class="show-ssr-box">
-            <el-scrollbar height="200px">
-              <el-image
-                v-for="item in ssrList"
-                :class="{ target: item.incidence == '1' }"
-                :src="item.img"
-              />
-            </el-scrollbar>
-          </div>
-        </div>
-        <span class="tip">{{ gachaLineup }}</span>
-      </el-card>
+    <div class="animation" v-if="animationVisible" @click="closeAnimation">
+      <GachaAnimation :resultList="animationResult" @close="closeAnimation" />
     </div>
-  </div>
-  <div class="animation" v-if="animationVisible" @click="closeAnimation">
-    <GachaAnimation :resultList="animationResult" @close="closeAnimation" />
   </div>
 </template>
 
@@ -137,8 +158,6 @@ const state = reactive({
     '—' +
     gachaInfo.legend.lineup[0].service_end +
     ' 彩框为卡池UP',
-  gachaButtonText10: new URL(`/src/assets/images/gacha/text_legend10.png`, import.meta.url).href,
-  gachaButtonText300: new URL(`/src/assets/images/gacha/text_legend300.png`, import.meta.url).href,
 })
 
 const {
@@ -151,8 +170,6 @@ const {
   ssrList,
   animationVisible,
   animationResult,
-  gachaButtonText10,
-  gachaButtonText300,
 } = toRefs(state)
 
 watchEffect(() => {
@@ -165,11 +182,7 @@ watchEffect(() => {
 })
 
 const cardType = ['weapon', 'weapon', 'summon']
-const rarityType = {
-  2: 'r',
-  3: 'sr',
-  4: 'ssr',
-}
+const rarityType = ['', '', 'r', 'sr', 'ssr']
 
 function getRate(raw: any) {
   const data = raw.appear
@@ -184,8 +197,6 @@ function getRate(raw: any) {
         cat: cat,
         type,
         incidence: obj.incidence,
-        img: new URL(`/src/assets/images/gacha/${cat}/${obj.reward_id}.jpg`, import.meta.url).href,
-        typeImg: new URL(`/src/assets/images/gacha/${type}.png`, import.meta.url).href,
       })
     })
   })
@@ -300,7 +311,7 @@ function closeAnimation() {
       align-items: center;
 
       .btn-gacha {
-        background: url(@/assets/images/gacha/parts_common.png) no-repeat 0 -232px;
+        background: url('/images/gacha/parts_common.png') no-repeat 0 -232px;
         background-size: 320px 5559px;
         width: 148px;
         height: 65px;
@@ -317,7 +328,7 @@ function closeAnimation() {
       }
 
       .btn-gacha:active {
-        background: url(@/assets/images/gacha/parts_common.png) no-repeat 0 -776px;
+        background: url('/images/gacha/parts_common.png') no-repeat 0 -776px;
         background-size: 320px 5559px;
         transform: scale(0.9);
       }
@@ -330,7 +341,7 @@ function closeAnimation() {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: url(@/assets/images/bg/gacha_result_bg.jpg) 50% 50% no-repeat;
+      background: url('/images/bg/gacha_result_bg.jpg') 50% 50% no-repeat;
     }
 
     .el-image {
@@ -339,9 +350,9 @@ function closeAnimation() {
     }
 
     .target {
-      box-shadow: rgb(85, 91, 255) 0px 0px 0px 2px, rgb(31, 193, 27) 0px 0px 0px 4px,
-        rgb(255, 217, 19) 0px 0px 0px 6px, rgb(255, 156, 85) 0px 0px 0px 8px,
-        rgb(255, 85, 85) 0px 0px 0px 10px;
+      box-shadow: rgb(85, 91, 255) 0px 0px 0px 2px,
+        rgb(31, 193, 27) 0px 0px 0px 4px, rgb(255, 217, 19) 0px 0px 0px 6px,
+        rgb(255, 156, 85) 0px 0px 0px 8px, rgb(255, 85, 85) 0px 0px 0px 10px;
     }
 
     .show-ssr-box {

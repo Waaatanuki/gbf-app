@@ -1,5 +1,5 @@
 <template>
-  <div class="plan">
+  <div class="app-container">
     <el-card class="box-card" header="战货计算">
       <el-form :model="form" label-width="120px">
         <el-form-item label="类型">
@@ -25,7 +25,9 @@
           目前一共【{{ form.totalBox }}】箱,目标已达成！
         </h3>
         <h3 v-show="form.targetBox - form.totalBox > 0">
-          目前一共【{{ form.totalBox }}】箱,距离目标还差【{{ form.needToken }}】战货
+          目前一共【{{ form.totalBox }}】箱,距离目标还差【{{
+            form.needToken
+          }}】战货
         </h3>
       </div>
     </el-card>
@@ -33,7 +35,12 @@
 </template>
 
 <script setup lang="ts">
-const form: any = reactive({ type: 0, currentToken: '', drawnBox: '', targetBox: '' })
+const form: any = reactive({
+  type: 0,
+  currentToken: '',
+  drawnBox: '',
+  targetBox: '',
+})
 const data = [
   [
     { 440800: { perToken: 15000, drawnBox: 80 } },
@@ -75,7 +82,9 @@ form.totalBox = computed(() => {
     const key = Object.keys(data[form.type][i])[0]
     const value = data[form.type][i][key]
     if (form.totalToken >= key) {
-      total = value.drawnBox + Math.floor((form.totalToken - parseInt(key)) / value.perToken)
+      total =
+        value.drawnBox +
+        Math.floor((form.totalToken - parseInt(key)) / value.perToken)
       break
     }
   }
@@ -96,23 +105,21 @@ form.needToken = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.plan {
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .box-card {
-    margin: auto;
-    max-width: 500px;
-    position: relative;
-  }
+.box-card {
+  margin: auto;
+  max-width: 500px;
+  position: relative;
+}
 
-  .result {
-    h3 {
-      text-align: center;
-    }
+.result {
+  h3 {
+    text-align: center;
   }
 }
 </style>

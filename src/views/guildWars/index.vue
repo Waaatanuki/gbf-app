@@ -1,5 +1,5 @@
 <template>
-  <div class="plan">
+  <div class="app-container">
     <el-card class="box-card">
       <template #header>
         <div class="card-header">
@@ -11,12 +11,20 @@
         </div>
       </template>
       <div>
-        <div class="slider-block" v-for="(opt, index) in setOptions" :key="index">
+        <div
+          class="slider-block"
+          v-for="(opt, index) in setOptions"
+          :key="index"
+        >
           <span class="demonstration">{{ opt.title }}</span>
           <el-select v-model="hellPlan[index]" class="select" size="small">
             <el-option v-for="item in opt.selectOptions" :value="item" />
           </el-select>
-          <el-slider v-model="honorPlan[index]" :max="opt.max" :format-tooltip="formatTooltip" />
+          <el-slider
+            v-model="honorPlan[index]"
+            :max="opt.max"
+            :format-tooltip="formatTooltip"
+          />
         </div>
       </div>
       <div>
@@ -25,7 +33,11 @@
             <el-table :data="tableData" style="width: 100%">
               <el-table-column prop="type" label="难易度" min-width="25" />
               <el-table-column prop="honor" label="贡献度" min-width="25" />
-              <el-table-column prop="meat" label="获取/消耗肉量" min-width="25" />
+              <el-table-column
+                prop="meat"
+                label="获取/消耗肉量"
+                min-width="25"
+              />
               <el-table-column prop="token" label="战货" min-width="25" />
             </el-table>
           </el-collapse-item>
@@ -45,14 +57,22 @@
             align="center"
             v-for="(opt, index) in setOptions"
           >
-            {{ `需要打${result[index][0]}只 ${hellPlan[index]} 消耗 ${result[index][1]} 肉` }}
+            {{
+              `需要打${result[index][0]}只 ${hellPlan[index]} 消耗 ${result[index][1]} 肉`
+            }}
           </el-descriptions-item>
           <el-descriptions-item label="总战货" align="center">
-            <el-tooltip effect="dark" content="只计算了副本战货以及个排奖励战货" placement="top">
+            <el-tooltip
+              effect="dark"
+              content="只计算了副本战货以及个排奖励战货"
+              placement="top"
+            >
               {{ totalToken }}
             </el-tooltip>
           </el-descriptions-item>
-          <el-descriptions-item label="箱数" align="center"> {{ totalBox }} </el-descriptions-item>
+          <el-descriptions-item label="箱数" align="center">
+            {{ totalBox }}
+          </el-descriptions-item>
           <el-descriptions-item label="消耗半红" :span="2" align="center">
             {{ totalHalfElixir }}
           </el-descriptions-item>
@@ -64,17 +84,28 @@
 </template>
 
 <script setup lang="ts">
-import { tokenData, tableData, setOptions, apPerHalfElixir } from '@/settings/guildWars.setting'
+import {
+  tokenData,
+  tableData,
+  setOptions,
+  apPerHalfElixir,
+} from '@/settings/guildWars.setting'
 
 const honorPlan = ref([0, 10, 30, 50, 50])
-const hellPlan = ref(['HELL Lv90', 'HELL Lv95', 'HELL Lv150', 'HELL Lv200', 'HELL Lv200'])
+const hellPlan = ref([
+  'HELL Lv90',
+  'HELL Lv95',
+  'HELL Lv150',
+  'HELL Lv200',
+  'HELL Lv200',
+])
 
 const totalMeat = computed(() => {
   let res = 0
   for (let i = 0; i < honorPlan.value.length; i++) {
     const honor = honorPlan.value[i]
     const hell = hellPlan.value[i]
-    const hellInfo = tableData.find(data => data.type === hell)
+    const hellInfo = tableData.find((data) => data.type === hell)
     res += ((honor * 10000000) / hellInfo!.honorNumber) * hellInfo!.meat
   }
   return Math.ceil(res)
@@ -82,7 +113,9 @@ const totalMeat = computed(() => {
 
 const totalHonor = computed(() => {
   const hellHonor = honorPlan.value.reduce((pre, cur) => pre + cur, 0) / 10
-  const meatHonor = ((totalMeat.value / tableData[0].meat) * tableData[0].honorNumber) / 100000000
+  const meatHonor =
+    ((totalMeat.value / tableData[0].meat) * tableData[0].honorNumber) /
+    100000000
   return (hellHonor + meatHonor).toFixed(2)
 })
 
@@ -91,7 +124,7 @@ const result = computed(() => {
   for (let i = 0; i < honorPlan.value.length; i++) {
     const honor = honorPlan.value[i]
     const hell = hellPlan.value[i]
-    const hellInfo = tableData.find(data => data.type === hell)
+    const hellInfo = tableData.find((data) => data.type === hell)
     const count = Math.ceil((honor * 10000000) / hellInfo!.honorNumber)
     const meat = count * hellInfo!.meat
     res.push([count, meat])
@@ -105,7 +138,7 @@ const totalToken = computed(() => {
   const bonusToken = parseFloat(totalHonor.value) * 6000
   for (let i = 0; i < hellPlan.value.length; i++) {
     const hell = hellPlan.value[i]
-    const hellInfo = tableData.find(data => data.type === hell)
+    const hellInfo = tableData.find((data) => data.type === hell)
     res += hellInfo!.token * result.value[i][0]
   }
   res += meatToken + bonusToken
@@ -115,7 +148,10 @@ const totalToken = computed(() => {
 const totalBox = computed(() => {
   for (const item of tokenData) {
     if (totalToken.value >= item.line) {
-      return item.drawnBox + Math.floor((totalToken.value - item.line) / item.perToken)
+      return (
+        item.drawnBox +
+        Math.floor((totalToken.value - item.line) / item.perToken)
+      )
     }
   }
 })
@@ -125,7 +161,7 @@ const totalHalfElixir = computed(() => {
 
   for (let i = 0; i < hellPlan.value.length; i++) {
     const hell = hellPlan.value[i]
-    const hellInfo = tableData.find(data => data.type === hell)
+    const hellInfo = tableData.find((data) => data.type === hell)
     resAp += hellInfo!.ap * result.value[i][0]
   }
   resAp += meatAp
@@ -146,49 +182,47 @@ const changeMeat = () => {
       localStorage.setItem('meatPerCow', value)
       location.reload()
     })
-    .catch(error => {})
+    .catch((error) => {})
 }
 </script>
 
 <style lang="scss" scoped>
-.plan {
-  .card-header {
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-card {
+  margin: auto;
+  max-width: 700px;
+  position: relative;
+
+  .slider-block {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-  }
 
-  .box-card {
-    margin: auto;
-    max-width: 700px;
-    position: relative;
+    .select {
+      margin-right: 20px;
+    }
 
-    .slider-block {
-      display: flex;
-      align-items: center;
-
-      .select {
-        margin-right: 20px;
-      }
-
-      .demonstration {
-        font-size: 14px;
-        color: var(--el-text-color-secondary);
-        width: 120px;
-        text-align: center;
-      }
+    .demonstration {
+      font-size: 14px;
+      color: var(--el-text-color-secondary);
+      width: 120px;
+      text-align: center;
     }
   }
+}
 
-  .result {
-    margin-bottom: 10px;
+.result {
+  margin-bottom: 10px;
 
-    .tip {
-      position: absolute;
-      bottom: 2px;
-      right: 2px;
-      font-size: 13px;
-    }
+  .tip {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 13px;
   }
 }
 </style>

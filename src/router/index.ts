@@ -1,7 +1,20 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
+export const Layout = () => import('@/layout/index.vue')
+
 // 静态路由
 export const constantRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/redirect',
+    component: Layout,
+    meta: { hidden: true },
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index.vue'),
+      },
+    ],
+  },
   {
     path: '/:catchAll(.*)',
     component: () => import('@/views/error-page/404.vue'),
@@ -9,48 +22,112 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   },
   {
     path: '/',
-    redirect: '/home',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: '/dashboard',
+        component: () => import('@/views/dashboard/index.vue'),
+        name: 'Dashboard',
+        meta: { title: '首页', icon: 'homepage' },
+      },
+      {
+        path: '401',
+        component: () => import('@/views/error-page/401.vue'),
+        meta: { hidden: true },
+      },
+    ],
   },
   {
-    path: '/home',
-    component: () => import('@/views/home/index.vue'),
+    path: '',
+    component: Layout,
+    children: [
+      {
+        path: '/evoker',
+        component: () => import('@/views/evoker/index.vue'),
+        name: 'Evoker',
+        meta: { title: '贤者素材', icon: 'homepage' },
+      },
+    ],
   },
   {
-    path: '/evoker',
-    component: () => import('@/views/evoker/index.vue'),
+    path: '',
+    component: Layout,
+    children: [
+      {
+        path: '/guildwars',
+        component: () => import('@/views/guildWars/index.vue'),
+        name: 'GuildWars',
+        meta: { title: '团战规划', icon: 'homepage' },
+      },
+    ],
   },
   {
-    path: '/guildwars',
-    component: () => import('@/views/guildWars/index.vue'),
+    path: '',
+    component: Layout,
+    children: [
+      {
+        path: '/goldbrick',
+        component: () => import('@/views/goldBrick/index.vue'),
+        name: 'GoldBrick',
+        meta: { title: '猎金统计', icon: 'homepage' },
+      },
+    ],
   },
   {
-    path: '/goldbrick',
-    component: () => import('@/views/goldBrick/index.vue'),
+    path: '/calculator',
+    component: Layout,
+    redirect: '/calculator/crit',
+    meta: {
+      title: '计算器',
+      icon: 'homepage',
+      alwaysShow: true,
+    },
+    children: [
+      {
+        path: '/calculator/gacha',
+        component: () => import('@/views/calculator/gacha/index.vue'),
+        name: 'GachaCalc',
+        meta: { title: '攒井计算器', icon: 'homepage' },
+      },
+      {
+        path: '/calculator/token',
+        component: () => import('@/views/calculator/token/index.vue'),
+        name: 'TokenCalc',
+        meta: { title: '战货计算器', icon: 'homepage' },
+      },
+      {
+        path: '/calculator/crit',
+        component: () => import('@/views/calculator/crit/index.vue'),
+        name: 'CritCalc',
+        meta: { title: '暴击计算器', icon: 'homepage' },
+      },
+    ],
   },
   {
-    path: '/critCalc',
-    component: () => import('@/views/calculator/crit/index.vue'),
+    path: '',
+    component: Layout,
+    meta: { hidden: true },
+    children: [
+      {
+        path: '/evokerDataMaker',
+        component: () => import('@/views/evokerDataMaker/index.vue'),
+        name: 'EvokerDataMaker',
+        meta: { title: '素材编辑', icon: 'homepage' },
+      },
+    ],
   },
-  {
-    path: '/gachaCalc',
-    component: () => import('@/views/calculator/gacha/index.vue'),
-  },
-  {
-    path: '/tokenCalc',
-    component: () => import('@/views/calculator/token/index.vue'),
-  },
-  {
-    path: '/tools',
-    component: () => import('@/views/tools/index.vue'),
-  },
-  {
-    path: '/playground',
-    component: () => import('@/views/playground/index.vue'),
-  },
-  {
-    path: '/evokerDataMaker',
-    component: () => import('@/views/evokerDataMaker/index.vue'),
-  },
+  //     path: '/tools',
+  //     component: () => import('@/views/tools/index.vue'),
+  //   },
+  //   {
+  //     path: '/playground',
+  //     component: () => import('@/views/playground/index.vue'),
+  //   },
+  //   {
+  //     path: '/evokerDataMaker',
+  //     component: () => import('@/views/evokerDataMaker/index.vue'),
+  //   },
 ]
 
 // 创建路由

@@ -1,10 +1,13 @@
 <template>
   <div class="itemBox">
-    <div class="item-row" v-for="row in itemSrc">
-      <div class="item-col" v-for="item in row" v-show="item.id">
+    <div class="item-row" v-for="row in itemList">
+      <div class="item-col" v-for="item in row" v-show="item">
         <div class="item">
-          <img style="height: 100%; width: 100%" :src="item.img" />
-          <input class="itemNum" v-model.number="materialInfo[item.id]" />
+          <img
+            style="height: 100%; width: 100%"
+            :src="`/images/item/${item}.jpg`"
+          />
+          <input class="itemNum" v-model.number="materialInfo[item]" />
         </div>
       </div>
     </div>
@@ -25,23 +28,9 @@ const itemList = [
   [25052, 25053, 25054, 25055, 25056],
   [25070, 25071, 25072, 25073, 25074],
 ]
-
-const itemSrc = itemList.map(m =>
-  m.map(n =>
-    n
-      ? {
-          id: n,
-          img: new URL(`/src/assets/images/item/${n}.jpg`, import.meta.url).href,
-        }
-      : {
-          id: n,
-          img: '',
-        }
-  )
-)
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .itemBox {
   // background-color: #337ecc;
   padding-top: 5px;

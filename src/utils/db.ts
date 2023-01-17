@@ -11,42 +11,42 @@ import {
   keys as _keys,
   values as _values,
   createStore,
-} from 'idb-keyval'
+} from 'idb-keyval';
 
-const customStore = createStore('gbfApp', 'GoldBrick')
+const customStore = createStore('gbfApp', 'GoldBrick');
 
 export default {
   get(key: IDBValidKey) {
-    return _get(key, customStore)
+    return _get(key, customStore);
   },
   getMany(keys: IDBValidKey[]) {
-    return _getMany(keys, customStore)
+    return _getMany(keys, customStore);
   },
   set(key: IDBValidKey, val: any) {
-    return _set(key, val, customStore)
+    return _set(key, val, customStore);
   },
   setMany(entries: [IDBValidKey, any][]) {
-    return _setMany(entries, customStore)
+    return _setMany(entries, customStore);
   },
   update(key: IDBValidKey, updater: (oldValue: any) => any) {
-    return _update(key, updater, customStore)
+    return _update(key, updater, customStore);
   },
   del(key: IDBValidKey) {
-    return _del(key, customStore)
+    return _del(key, customStore);
   },
   delMany(keys: IDBValidKey[]) {
-    return _delMany(keys, customStore)
+    return _delMany(keys, customStore);
   },
   clear() {
-    return _clear(customStore)
+    return _clear(customStore);
   },
   entries() {
-    return _entries(customStore)
+    return _entries(customStore);
   },
   keys() {
-    return _keys(customStore)
+    return _keys(customStore);
   },
   values() {
-    return _values(customStore)
+    return _values(customStore);
   },
-}
+};

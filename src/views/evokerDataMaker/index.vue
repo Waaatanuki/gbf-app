@@ -1,82 +1,123 @@
 <template>
-  <el-table :data="tableData" :max-height="670" @cell-dblclick="handleCellClick">
-    <el-table-column prop="name" label="阶段" align="center" width="100" />
-    <el-table-column prop="tarotUncapStr" label="塔罗牌突破" align="center">
-      <template #default="{ row }">
-        <el-input v-model="row.tarotUncapStr" type="textarea" :autosize="{ maxRows: 10 }" />
-      </template>
-    </el-table-column>
-    <el-table-column prop="tarotCardStr" label="塔罗牌交换" align="center">
-      <template #default="{ row }">
-        <el-input v-model="row.tarotCardStr" type="textarea" :autosize="{ maxRows: 10 }" />
-      </template>
-    </el-table-column>
-    <el-table-column prop="evokerUncapStr" label="贤者突破" align="center">
-      <template #default="{ row }">
-        <el-input v-model="row.evokerUncapStr" type="textarea" :autosize="{ maxRows: 10 }" />
-      </template>
-    </el-table-column>
-    <el-table-column prop="weaponUncapStr" label="武器突破" align="center">
-      <template #default="{ row }">
-        <el-input v-model="row.weaponUncapStr" type="textarea" :autosize="{ maxRows: 10 }" />
-      </template>
-    </el-table-column>
-    <el-table-column prop="domainUncapStr" label="领域突破" align="center">
-      <template #default="{ row }">
-        <el-input v-model="row.domainUncapStr" type="textarea" :autosize="{ maxRows: 10 }" />
-      </template>
-    </el-table-column>
-  </el-table>
+  <div class="app-container">
+    <el-table
+      :data="tableData"
+      :max-height="670"
+      @cell-dblclick="handleCellClick"
+    >
+      <el-table-column prop="name" label="阶段" align="center" width="100" />
+      <el-table-column prop="tarotUncapStr" label="塔罗牌突破" align="center">
+        <template #default="{ row }">
+          <el-input
+            v-model="row.tarotUncapStr"
+            type="textarea"
+            :autosize="{ maxRows: 10 }"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column prop="tarotCardStr" label="塔罗牌交换" align="center">
+        <template #default="{ row }">
+          <el-input
+            v-model="row.tarotCardStr"
+            type="textarea"
+            :autosize="{ maxRows: 10 }"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column prop="evokerUncapStr" label="贤者突破" align="center">
+        <template #default="{ row }">
+          <el-input
+            v-model="row.evokerUncapStr"
+            type="textarea"
+            :autosize="{ maxRows: 10 }"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column prop="weaponUncapStr" label="武器突破" align="center">
+        <template #default="{ row }">
+          <el-input
+            v-model="row.weaponUncapStr"
+            type="textarea"
+            :autosize="{ maxRows: 10 }"
+          />
+        </template>
+      </el-table-column>
+      <el-table-column prop="domainUncapStr" label="领域突破" align="center">
+        <template #default="{ row }">
+          <el-input
+            v-model="row.domainUncapStr"
+            type="textarea"
+            :autosize="{ maxRows: 10 }"
+          />
+        </template>
+      </el-table-column>
+    </el-table>
 
-  <el-button class="export-btn" type="primary" @click="handleExport">导出</el-button>
+    <el-button class="export-btn" type="primary" @click="handleExport"
+      >导出</el-button
+    >
 
-  <el-dialog :title="dialog.title" v-model="dialog.visible" width="800px" top="5vh">
-    <div style="display: flex">
-      <div class="itemBox">
-        <div class="item-row" v-for="row in itemList">
-          <div class="item-col" v-for="item in row" v-show="item">
-            <div class="item">
-              <img
-                style="height: 100%; width: 100%"
-                :src="getAssetsImgFile(`item/${item}.jpg`)"
-                @click="handleItem(item)"
-              />
+    <el-dialog
+      :title="dialog.title"
+      v-model="dialog.visible"
+      width="800px"
+      top="5vh"
+    >
+      <div style="display: flex">
+        <div class="itemBox">
+          <div class="item-row" v-for="row in itemList">
+            <div class="item-col" v-for="item in row" v-show="item">
+              <div class="item">
+                <img
+                  style="height: 100%; width: 100%"
+                  :src="`/images/item/${item}.jpg`"
+                  @click="handleItem(item)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="resultBox">
+          <div class="item-row" v-for="cell in currentCell">
+            <div class="item-col" v-for="id in Object.keys(cell)">
+              <div class="item">
+                <img
+                  style="height: 100%; width: 100%"
+                  :src="`/images/item/${id}.jpg`"
+                  @click="handleItem(id)"
+                />
+                <input
+                  class="itemNum"
+                  v-model.number="cell[id]"
+                  style="width: 40px"
+                />
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: row">
+            <div v-for="(item, index) in needItemList">
+              <div class="item">
+                <img
+                  style="width: 50px"
+                  :src="`/images/item/${item.id}.jpg`"
+                  @click="needItemList.splice(index, 1)"
+                />
+                <input
+                  class="itemNum"
+                  v-model.number="item.count"
+                  style="width: 40px"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="resultBox">
-        <div class="item-row" v-for="cell in currentCell">
-          <div class="item-col" v-for="id in Object.keys(cell)">
-            <div class="item">
-              <img
-                style="height: 100%; width: 100%"
-                :src="getAssetsImgFile(`item/${id}.jpg`)"
-                @click="handleItem(id)"
-              />
-              <input class="itemNum" v-model.number="cell[id]" style="width: 40px" />
-            </div>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: row">
-          <div v-for="(item, index) in needItemList">
-            <div class="item">
-              <img
-                style="width: 50px"
-                :src="getAssetsImgFile(`item/${item.id}.jpg`)"
-                @click="needItemList.splice(index, 1)"
-              />
-              <input class="itemNum" v-model.number="item.count" style="width: 40px" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <template #footer>
-      <el-button type="primary" @click="handleSubmit">确认</el-button>
-      <el-button @click="dialog.visible = false">取消</el-button>
-    </template>
-  </el-dialog>
+      <template #footer>
+        <el-button type="primary" @click="handleSubmit">确认</el-button>
+        <el-button @click="dialog.visible = false">取消</el-button>
+      </template>
+    </el-dialog>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -110,10 +151,6 @@ const state = reactive({
 
 const { tableData, dialog, needItemList, currentCell } = toRefs(state)
 
-function getAssetsImgFile(url: string) {
-  return new URL(`/src/assets/images/${url}`, import.meta.url).href
-}
-
 function handleCellClick(row: any, column: any) {
   dialog.value.visible = true
   state.targetRow = row
@@ -123,7 +160,7 @@ function handleCellClick(row: any, column: any) {
 }
 
 function handleItem(item: any) {
-  if (!state.needItemList.some(value => value.id == item))
+  if (!state.needItemList.some((value) => value.id == item))
     state.needItemList.push({ id: item, count: 0 })
 }
 
@@ -157,7 +194,7 @@ function handleExport() {
 }
 onMounted(() => {
   state.tableData = uncapData
-  state.tableData.forEach(data => {
+  state.tableData.forEach((data) => {
     data.tarotUncapStr = JSON.stringify(data.tarotUncap, null, 2)
     data.tarotCardStr = JSON.stringify(data.tarotCard, null, 2)
     data.evokerUncapStr = JSON.stringify(data.evokerUncap, null, 2)
@@ -218,7 +255,7 @@ onMounted(() => {
 }
 .export-btn {
   position: fixed;
-  left: 10px;
+  right: 10px;
   bottom: 10px;
   z-index: 999;
 }

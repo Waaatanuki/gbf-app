@@ -7,8 +7,10 @@
           :class="`result${index}`"
           v-for="(result, index) in resultList"
           :key="index"
-          :src="result.typeImg"
-          :style="`transform:translate(-50%, -150%) rotateZ(${36 * index}deg );opacity: 0;`"
+          :src="`/images/gacha/${result.type}.png`"
+          :style="`transform:translate(-50%, -150%) rotateZ(${
+            36 * index
+          }deg );opacity: 0;`"
         />
       </div>
     </div>
@@ -69,7 +71,7 @@ onMounted(() => {
 })
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .playground {
   margin: auto;
   display: flex;
@@ -77,6 +79,7 @@ onMounted(() => {
   align-items: center;
   user-select: none;
   background: black;
+  z-index: 99999;
 
   position: fixed;
   top: 0;
@@ -88,7 +91,7 @@ onMounted(() => {
     position: relative;
     width: 500px;
     height: 750px;
-    background: url(@/assets/images/gacha/gacha_bg.jpg) no-repeat center;
+    background: url('/images/gacha/gacha_bg.jpg') no-repeat center;
     // border: 1px solid black;
     overflow: hidden;
 

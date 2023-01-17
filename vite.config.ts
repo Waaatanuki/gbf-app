@@ -3,17 +3,22 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
 
 const pathSrc = path.resolve(__dirname, 'src')
 
-// https://vitejs.dev/config/
 export default defineConfig({
   base: '/gbf-app/',
   plugins: [
     vue(),
+    createSvgIconsPlugin({
+      // 指定需要缓存的图标文件夹
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      // 指定symbolId格式
+      symbolId: 'icon-[dir]-[name]',
+    }),
     AutoImport({
       // Auto import functions from Vue, e.g. ref, reactive, toRef...
       // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
@@ -32,9 +37,8 @@ export default defineConfig({
         }),
       ],
       vueTemplate: true,
-      dts: path.resolve(pathSrc, 'typings', 'auto-imports.d.ts'),
+      dts: path.resolve('types', 'auto-imports.d.ts'),
     }),
-
     Components({
       resolvers: [
         // Auto register icon components
@@ -47,10 +51,7 @@ export default defineConfig({
         ElementPlusResolver(),
       ],
 
-      dts: path.resolve(pathSrc, 'typings', 'components.d.ts'),
-    }),
-    Icons({
-      autoInstall: true,
+      dts: path.resolve('types', 'components.d.ts'),
     }),
   ],
   server: {

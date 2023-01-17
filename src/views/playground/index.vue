@@ -8,7 +8,7 @@
 import AudioVisualizers from './components/AudioVisualizers.vue'
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .playground {
   margin: auto;
   display: flex;

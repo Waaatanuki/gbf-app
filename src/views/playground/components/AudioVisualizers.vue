@@ -94,7 +94,7 @@ function drawVisualiser(bufferLength: any, dataArray: any) {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 canvas {
   // border: 1px solid black;
   margin: 10px;

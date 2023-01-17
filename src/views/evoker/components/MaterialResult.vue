@@ -3,7 +3,7 @@
     <div class="showBox">
       <div class="item" v-for="item in result" :key="item.id">
         <el-tooltip :content="`总需${item.total}`" placement="top">
-          <img style="width: 100%" :src="item.img" />
+          <img style="width: 100%" :src="`/images/item/${item.id}.jpg`" />
         </el-tooltip>
 
         <label class="itemNum">{{ item.need }}</label>
@@ -16,7 +16,7 @@
 defineProps(['result'])
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .showBox {
   display: flex;
   flex-wrap: wrap;

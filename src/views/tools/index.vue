@@ -8,7 +8,7 @@
 import PostCow from './components/PostCow.vue'
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .tool-list {
   display: flex;
   justify-content: center;
