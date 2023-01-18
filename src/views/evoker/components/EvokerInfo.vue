@@ -7,7 +7,7 @@
           :body-style="{ padding: '0px' }"
           shadow="hover"
         >
-          <img :src="`/images/npc/304016${k.no}000_01.jpg`" class="image" />
+          <img :src="`./images/npc/304016${k.no}000_01.jpg`" class="image" />
           <div style="padding: 10px 10px 0px 10px" class="item-select">
             <select
               v-model="k.tarotLevel"

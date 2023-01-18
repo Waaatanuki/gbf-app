@@ -19,7 +19,7 @@ import ToDoList from './components/ToDoList.vue'
 
 <style lang="scss" scoped>
 .ffj-img {
-  height: 400px;
+  height: 350px;
   position: fixed;
   right: 15px;
   bottom: 15px;

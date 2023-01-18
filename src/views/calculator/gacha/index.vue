@@ -76,20 +76,20 @@
               <div>
                 <el-image
                   v-for="item in result.slice(0, 3)"
-                  :src="`/images/gacha/${item.cat}/${item.id}.jpg`"
+                  :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
                 />
               </div>
 
               <div>
                 <el-image
                   v-for="item in result.slice(3, 7)"
-                  :src="`/images/gacha/${item.cat}/${item.id}.jpg`"
+                  :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
                 />
               </div>
               <div>
                 <el-image
                   v-for="item in result.slice(7, 10)"
-                  :src="`/images/gacha/${item.cat}/${item.id}.jpg`"
+                  :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
                 />
               </div>
             </div>
@@ -112,7 +112,7 @@
                 <el-image
                   v-for="item in ssrList"
                   :class="{ target: item.incidence == '1' }"
-                  :src="`/images/gacha/${item.cat}/${item.id}.jpg`"
+                  :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
                 />
               </el-scrollbar>
             </div>

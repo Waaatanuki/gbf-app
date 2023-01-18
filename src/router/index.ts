@@ -23,10 +23,9 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
     children: [
       {
-        path: '/dashboard',
+        path: 'dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         name: 'Dashboard',
         meta: { title: '首页', icon: 'homepage' },
@@ -41,6 +40,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '',
     component: Layout,
+    redirect: '/dashboard',
     children: [
       {
         path: '/evoker',
@@ -77,7 +77,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/calculator',
     component: Layout,
-    redirect: '/calculator/crit',
+    redirect: '/calculator/gacha',
     meta: {
       title: '计算器',
       icon: 'homepage',
@@ -88,19 +88,19 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         path: '/calculator/gacha',
         component: () => import('@/views/calculator/gacha/index.vue'),
         name: 'GachaCalc',
-        meta: { title: '攒井计算器', icon: 'homepage' },
+        meta: { title: '攒井计算器', icon: 'menu' },
       },
       {
         path: '/calculator/token',
         component: () => import('@/views/calculator/token/index.vue'),
         name: 'TokenCalc',
-        meta: { title: '战货计算器', icon: 'homepage' },
+        meta: { title: '战货计算器', icon: 'menu' },
       },
       {
         path: '/calculator/crit',
         component: () => import('@/views/calculator/crit/index.vue'),
         name: 'CritCalc',
-        meta: { title: '暴击计算器', icon: 'homepage' },
+        meta: { title: '暴击计算器', icon: 'menu' },
       },
     ],
   },

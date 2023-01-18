@@ -7,7 +7,7 @@
           :class="`result${index}`"
           v-for="(result, index) in resultList"
           :key="index"
-          :src="`/images/gacha/${result.type}.png`"
+          :src="`./images/gacha/${result.type}.png`"
           :style="`transform:translate(-50%, -150%) rotateZ(${
             36 * index
           }deg );opacity: 0;`"

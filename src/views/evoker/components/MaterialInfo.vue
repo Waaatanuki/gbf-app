@@ -5,7 +5,7 @@
         <div class="item">
           <img
             style="height: 100%; width: 100%"
-            :src="`/images/item/${item}.jpg`"
+            :src="`./images/item/${item}.jpg`"
           />
           <input class="itemNum" v-model.number="materialInfo[item]" />
         </div>

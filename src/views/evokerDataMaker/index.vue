@@ -70,7 +70,7 @@
               <div class="item">
                 <img
                   style="height: 100%; width: 100%"
-                  :src="`/images/item/${item}.jpg`"
+                  :src="`./images/item/${item}.jpg`"
                   @click="handleItem(item)"
                 />
               </div>
@@ -83,7 +83,7 @@
               <div class="item">
                 <img
                   style="height: 100%; width: 100%"
-                  :src="`/images/item/${id}.jpg`"
+                  :src="`./images/item/${id}.jpg`"
                   @click="handleItem(id)"
                 />
                 <input
@@ -99,7 +99,7 @@
               <div class="item">
                 <img
                   style="width: 50px"
-                  :src="`/images/item/${item.id}.jpg`"
+                  :src="`./images/item/${item.id}.jpg`"
                   @click="needItemList.splice(index, 1)"
                 />
                 <input

@@ -4,7 +4,7 @@
       <el-table-column width="150">
         <template #default="{ row }">
           <img
-            :src="`/images/raid/img-quest-thumb/${row.questId}.png`"
+            :src="`./images/raid/img-quest-thumb/${row.questId}.png`"
             style="width: 100%"
           />
         </template>
