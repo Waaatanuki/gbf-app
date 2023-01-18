@@ -50,6 +50,12 @@
 
 <script setup lang="ts">
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.tz.setDefault('Asia/Shanghai')
 
 const InputRef = ref()
 const state = reactive({
@@ -61,7 +67,7 @@ const state = reactive({
     { done: false, content: '沙盒' },
     { done: false, content: '抽卢比' },
   ]),
-  lastUpdateTodo: useStorage('lastUpdateTodo', dayjs().unix()),
+  lastUpdateTodo: useStorage('lastUpdateTodo', dayjs().tz().unix()),
   inputValue: '',
   inputVisible: false,
   delBtnVisible: false,
@@ -72,7 +78,7 @@ const { taskList, inputValue, inputVisible, delBtnVisible } = toRefs(state)
 watch(
   () => state.taskList,
   () => {
-    state.lastUpdateTodo = dayjs().unix()
+    state.lastUpdateTodo = dayjs().tz().unix()
   }
 )
 
@@ -99,12 +105,13 @@ function handleInputConfirm() {
 
 onMounted(() => {
   if (
-    dayjs().isAfter(dayjs().hour(4).minute(0).second(0)) &&
+    dayjs().tz().isAfter(dayjs().tz().hour(4).minute(0).second(0)) &&
     dayjs
       .unix(state.lastUpdateTodo)
-      .isBefore(dayjs().hour(4).minute(0).second(0))
+      .tz()
+      .isBefore(dayjs().tz().hour(4).minute(0).second(0))
   ) {
-    state.lastUpdateTodo = dayjs().unix()
+    state.lastUpdateTodo = dayjs().tz().unix()
     state.taskList.forEach((task) => (task.done = false))
   }
 })
