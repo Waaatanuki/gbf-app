@@ -1,10 +1,8 @@
 <template>
-  <div class="app-container">
-    <div style="display: flex">
-      <Schedule />
-      <ToDoList />
-      <img class="ffj-img" src="/images/bg/ffj.jpeg" />
-    </div>
+  <div style="display: flex; flex-wrap: wrap">
+    <Schedule />
+    <ToDoList />
+    <img class="ffj-img" src="/images/bg/ffj.jpeg" />
   </div>
 </template>
 

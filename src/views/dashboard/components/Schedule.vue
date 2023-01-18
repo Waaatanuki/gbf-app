@@ -64,7 +64,8 @@ const handleColor = function (start: any, end: any) {
 
 <style lang="scss" scoped>
 .box-card {
-  width: 350px;
+  min-width: 300px;
+  margin: 15px;
   z-index: 10;
   .card-header {
     display: flex;

@@ -119,9 +119,9 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .list-card {
-  margin-left: 10px;
   height: 100%;
-  min-width: 250px;
+  min-width: 300px;
+  margin: 15px;
   z-index: 10;
   .header {
     display: flex;
