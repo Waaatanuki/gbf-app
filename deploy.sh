@@ -16,6 +16,8 @@ echo > .nojekyll
 # echo 'www.example.com' > CNAME
 
 git init
+git config --local user.name Waaatanuki
+git config --local user.email watanukipublic@gmail.com
 git checkout -B master
 git add -A
 git commit -m 'deploy'
