@@ -93,7 +93,7 @@
 </template>
 
 <script setup lang="ts">
-import { critData } from '@/assets/data/toolData'
+import { critData } from '@/settings/calculator.setting'
 import { reactive, computed } from 'vue'
 
 const form = reactive({ main: 300, sub: 20 })
@@ -115,8 +115,8 @@ function btnClass(item: any) {
     : 'xlRate'
 }
 
-let calcItems: any = reactive([])
-let itemsList = { ...critData }
+const calcItems: any = reactive([])
+const itemsList = { ...critData }
 
 const res = computed(() => {
   let sum = 0

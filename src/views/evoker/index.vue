@@ -23,89 +23,7 @@ import MaterialInfo from './components/MaterialInfo.vue'
 import EvokerInfo from './components//EvokerInfo.vue'
 import MaterialResult from './components/MaterialResult.vue'
 import evokerData from '@/assets/data/uncapData.json'
-
-const evokerInfoDefault: any = [
-  {
-    no: 7,
-    name: '教皇',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 0,
-    name: '女帝',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 4,
-    name: '愚者',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 6,
-    name: '皇帝',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 2,
-    name: '战车',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 1,
-    name: '芙劳',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 8,
-    name: '女教皇',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 5,
-    name: '魔术师',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 3,
-    name: '节制',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-  {
-    no: 9,
-    name: '尼亚',
-    target: true,
-    tarotLevel: 7,
-    getCard: true,
-    evokerLevel: 4,
-  },
-]
+import { evokerInfoDefault } from '@/settings/evoker.setting'
 
 const getEvokerPageResult = function (e: any, v: any) {
   const result: any = {}
@@ -174,7 +92,6 @@ const getEvokerPageResult = function (e: any, v: any) {
       id: k,
       total: total[k],
       need: result[k],
-      img: new URL(`/src/assets/images/item/${k}.jpg`, import.meta.url).href,
     })
   }
   return arr
