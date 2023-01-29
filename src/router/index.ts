@@ -105,6 +105,30 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     ],
   },
   {
+    path: '/nga',
+    component: Layout,
+    redirect: '/nga/team',
+    meta: {
+      title: 'NGA模版',
+      icon: 'homepage',
+      alwaysShow: true,
+    },
+    children: [
+      {
+        path: '/nga/teamShare',
+        component: () => import('@/views/nga/teamShare/index.vue'),
+        name: 'TeamShare',
+        meta: { title: '打牛', icon: 'menu' },
+      },
+      {
+        path: '/nga/newCharacter',
+        component: () => import('@/views/nga/newCharacter/index.vue'),
+        name: 'NewCharacter',
+        meta: { title: '新角色', icon: 'menu' },
+      },
+    ],
+  },
+  {
     path: '',
     component: Layout,
     meta: { hidden: true },
