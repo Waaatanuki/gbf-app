@@ -126,6 +126,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'NewCharacter',
         meta: { title: '新角色', icon: 'menu' },
       },
+      {
+        path: '/nga/schedule',
+        component: () => import('@/views/nga/schedule/index.vue'),
+        name: 'Schedule',
+        meta: { title: '日程', icon: 'menu' },
+      },
     ],
   },
   {
