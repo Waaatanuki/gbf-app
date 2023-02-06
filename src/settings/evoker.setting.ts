@@ -92,3 +92,37 @@ export const materialList = [
   [25052, 25053, 25054, 25055, 25056],
   [25070, 25071, 25072, 25073, 25074],
 ]
+
+export const tarotList = [
+  { label: '未入手', value: 0 },
+  { label: '塔罗牌0凸', value: 1 },
+  { label: '塔罗牌1凸', value: 2 },
+  { label: '塔罗牌2凸', value: 3 },
+  { label: '塔罗牌3凸', value: 4 },
+  { label: '塔罗牌SSR化', value: 5 },
+  { label: '塔罗牌4凸', value: 6 },
+  { label: '塔罗牌5凸', value: 7 },
+]
+export const evokerList = [
+  { label: '贤者0凸', value: 0 },
+  { label: '贤者1凸', value: 1 },
+  { label: '贤者2凸', value: 2 },
+  { label: '贤者3凸', value: 3 },
+  { label: '贤者4凸', value: 4 },
+]
+export const weaponList = [
+  { label: '未入手', value: 0 },
+  { label: '贤武0凸', value: 1 },
+  { label: '贤武1凸', value: 2 },
+  { label: '贤武2凸', value: 3 },
+  { label: '贤武3凸', value: 4 },
+  { label: '贤武4凸', value: 5 },
+  { label: '贤武5凸', value: 6 },
+]
+export const domainList = [
+  { label: '未解放', value: 0 },
+  { label: '解放一格', value: 1 },
+  { label: '解放两格', value: 2 },
+  { label: '解放三格', value: 3 },
+  { label: '全部解放', value: 4 },
+]
