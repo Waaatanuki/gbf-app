@@ -2,7 +2,9 @@
 @import './mixin.scss';
 @import 'src/styles/element-plus';
 @import './sidebar.scss';
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
   padding: 0;
