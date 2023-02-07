@@ -1,5 +1,6 @@
 {
   "name": "gbf-app-ts",
+  "homepage": "https://waaatanuki.github.io/gbf-app",
   "private": true,
   "version": "1.0.0",
   "type": "module",
