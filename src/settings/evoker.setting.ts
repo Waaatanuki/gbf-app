@@ -4,7 +4,6 @@ export const evokerInfoDefault = [
     name: '教皇',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -12,7 +11,6 @@ export const evokerInfoDefault = [
     name: '女帝',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -20,7 +18,6 @@ export const evokerInfoDefault = [
     name: '愚者',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -28,7 +25,6 @@ export const evokerInfoDefault = [
     name: '皇帝',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -36,7 +32,6 @@ export const evokerInfoDefault = [
     name: '战车',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -44,7 +39,6 @@ export const evokerInfoDefault = [
     name: '芙劳',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -52,7 +46,6 @@ export const evokerInfoDefault = [
     name: '女教皇',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -60,7 +53,6 @@ export const evokerInfoDefault = [
     name: '魔术师',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -68,7 +60,6 @@ export const evokerInfoDefault = [
     name: '节制',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
   {
@@ -76,7 +67,6 @@ export const evokerInfoDefault = [
     name: '尼亚',
     target: true,
     tarotLevel: 7,
-    getCard: true,
     evokerLevel: 4,
   },
 ]
@@ -104,11 +94,12 @@ export const tarotList = [
   { label: '塔罗牌5凸', value: 7 },
 ]
 export const evokerList = [
-  { label: '贤者0凸', value: 0 },
-  { label: '贤者1凸', value: 1 },
-  { label: '贤者2凸', value: 2 },
-  { label: '贤者3凸', value: 3 },
-  { label: '贤者4凸', value: 4 },
+  { label: '未入手', value: 0 },
+  { label: '贤者0凸', value: 1 },
+  { label: '贤者1凸', value: 2 },
+  { label: '贤者2凸', value: 3 },
+  { label: '贤者3凸', value: 4 },
+  { label: '贤者4凸', value: 5 },
 ]
 export const weaponList = [
   { label: '未入手', value: 0 },

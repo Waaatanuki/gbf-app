@@ -42,17 +42,6 @@ const getEvokerPageResult = function (e: any, v: any) {
         currentDomainLevel,
       ]
 
-      // 塔罗卡片交换
-      if (!e[i].getCard) {
-        let tarotCardData: any = evokerData[currentNo].tarotCard
-        for (const k in tarotCardData) {
-          if (isNaN(result[k])) {
-            result[k] = 0
-          }
-          result[k] += tarotCardData[k]
-        }
-      }
-
       // 塔罗、贤者、贤武、领域素材计算
       for (let m = 0; m < 4; m++) {
         const type = loopGroup[m] as

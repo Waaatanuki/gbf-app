@@ -21,14 +21,6 @@
         />
       </el-select>
 
-      <div>
-        <el-checkbox
-          v-model="evokerInfo.getCard"
-          label="交换贤者卡牌"
-          size="small"
-        />
-      </div>
-
       <el-select
         v-model="evokerInfo.evokerLevel"
         class="w-24"
