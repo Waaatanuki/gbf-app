@@ -94,13 +94,19 @@
               </div>
             </div>
             <div class="btn-gacha-box">
-              <div class="btn-gacha" @click="draw(1)">
+              <div
+                class="btn-gacha flex justify-center items-center"
+                @click="draw(1)"
+              >
                 <img
                   src="/images/gacha/text_legend10.png"
                   alt="text_legend10"
                 />
               </div>
-              <div class="btn-gacha" @click="draw(30)">
+              <div
+                class="btn-gacha flex justify-center items-center"
+                @click="draw(30)"
+              >
                 <img
                   src="/images/gacha/text_legend300.png"
                   alt="text_legend300"
@@ -315,11 +321,6 @@ function closeAnimation() {
         background-size: 320px 5559px;
         width: 148px;
         height: 65px;
-        box-sizing: border-box;
-        display: inline-block;
-        text-align: center;
-        position: relative;
-        padding-top: 11px;
 
         img {
           width: 112px;

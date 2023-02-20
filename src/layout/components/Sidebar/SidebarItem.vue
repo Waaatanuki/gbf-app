@@ -23,7 +23,7 @@
       </app-link>
     </template>
 
-    <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu v-else :index="resolvePath(item.path)">
       <!-- popper-append-to-body -->
       <template #title>
         <svg-icon

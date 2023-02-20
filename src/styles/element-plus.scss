@@ -57,3 +57,13 @@
 .el-menu--inline {
   background-color: #5482ee !important;
 }
+
+// 解决el-form的label标签有时候是div有时候是label 导致有时label字体不会变粗的情况
+.el-form-item__label {
+  font-weight: 900;
+}
+
+// 隐藏日期时间选择插件下方的【此刻】按钮
+.el-picker-panel__footer > button:first-child {
+  display: none;
+}

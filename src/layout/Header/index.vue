@@ -8,6 +8,7 @@
       <template #title>计算器</template>
       <el-menu-item index="/critCalc">暴击计算器</el-menu-item>
       <el-menu-item index="/gachaCalc">攒井计算器</el-menu-item>
+      <el-menu-item index="/bulletCalc">子弹计算器</el-menu-item>
       <el-menu-item index="/tokenCalc">战货计算器</el-menu-item>
     </el-sub-menu>
     <el-menu-item index="/tools">NGA工具</el-menu-item>

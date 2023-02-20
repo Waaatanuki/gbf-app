@@ -97,6 +97,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         meta: { title: '战货计算器', icon: 'menu' },
       },
       {
+        path: '/calculator/bullet',
+        component: () => import('@/views/calculator/bullet/index.vue'),
+        name: 'BulletCalc',
+        meta: { title: '子弹计算器', icon: 'menu' },
+      },
+      {
         path: '/calculator/crit',
         component: () => import('@/views/calculator/crit/index.vue'),
         name: 'CritCalc',
