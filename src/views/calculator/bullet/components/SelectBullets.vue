@@ -99,8 +99,10 @@ function selectDefaultBullet(config: { name: string; list: string[] }) {
   })
 }
 
-function handleSelect(bullet: any) {
-  const index = bulletList.value.findIndex((bullet: any) => bullet.length == 0)
+function handleSelect(bullet: Bullet) {
+  const index = bulletList.value.findIndex(
+    (bullet: Bullet[]) => bullet.length == 0
+  )
 
   if (index !== -1) {
     bulletList.value[index] = getArticle([bullet])

@@ -2,7 +2,15 @@
   <div>
     <div class="flex items-center justify-center h-28 bg-slate-300" relative>
       <div v-for="bullet in bulletList">
-        <img class="w-16 h-16 m-3" :src="getImgSrc(bullet[0])" />
+        <div class="flex flex-col items-center justify-center relative">
+          <div
+            v-if="bullet[0] && bullet[0].done"
+            class="absolute w-full h-full bg-black/40 flex justify-center items-center"
+          >
+            <el-icon :size="50" color="#409EFC"><CircleCheck /></el-icon>
+          </div>
+          <img class="w-16 h-16 m-3" :src="getImgSrc(bullet[0])" />
+        </div>
       </div>
       <el-button
         class="absolute top-5 right-5"
@@ -14,7 +22,10 @@
 
     <el-scrollbar :max-height="height">
       <div class="waterfall">
-        <div v-for="list in bulletList" class="water p-2">
+        <div
+          v-for="list in bulletList.filter((item:Bullet[])=>item.length!=0 && item[0].done!=true)"
+          class="water p-2 m-auto"
+        >
           <el-table :data="list">
             <el-table-column
               prop="目标"
@@ -48,8 +59,12 @@
                   >
                     <div
                       v-if="item.done"
-                      class="absolute w-full h-full bg-black/40"
-                    ></div>
+                      class="absolute w-full h-full bg-black/40 flex justify-center items-center"
+                    >
+                      <el-icon :size="50" color="#409EFC"
+                        ><CircleCheck
+                      /></el-icon>
+                    </div>
                     <img class="w-16 h-16 m-3" :src="getImgSrc(item)" />
                     <span>{{ item.number }}</span>
                   </div>
@@ -65,6 +80,7 @@
 
 <script setup lang="ts">
 import { Article, Bullet } from '..'
+import { CircleCheck } from '@element-plus/icons-vue'
 
 const props = defineProps(['selectedBullet'])
 const emit = defineEmits(['change', 'update:selectedBullet'])
