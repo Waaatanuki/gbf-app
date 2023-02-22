@@ -1,8 +1,12 @@
 <template>
-  <div style="display: flex; flex-wrap: wrap">
+  <div class="flex flex-wrap relative">
     <Schedule />
     <ToDoList />
-    <img class="ffj-img" src="/images/bg/ffj.jpeg" />
+    <Contact class="absolute right-[15px] top-[15px]" />
+    <img
+      class="absolute h-[350px] right-[15px] bottom-[15px]"
+      src="/images/bg/ffj.jpeg"
+    />
   </div>
 </template>
 
@@ -13,14 +17,7 @@ export default { name: 'Dashboard' }
 <script setup lang="ts">
 import Schedule from './components/Schedule.vue'
 import ToDoList from './components/ToDoList.vue'
+import Contact from './components/Contact.vue'
 </script>
 
-<style lang="scss" scoped>
-.ffj-img {
-  height: 350px;
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  z-index: 2;
-}
-</style>
+<style lang="scss" scoped></style>
