@@ -67,3 +67,11 @@
 .el-picker-panel__footer > button:first-child {
   display: none;
 }
+
+.el-check-tag {
+  border-radius: 0.5rem !important;
+}
+.el-check-tag.is-checked {
+  background-color: rgb(100 116 139) !important;
+  color: #fff !important;
+}

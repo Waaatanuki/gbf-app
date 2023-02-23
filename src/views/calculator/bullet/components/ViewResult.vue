@@ -1,72 +1,84 @@
 <template>
   <div>
-    <div class="flex items-center justify-center h-28 bg-slate-300" relative>
-      <div v-for="bullet in bulletList">
-        <div class="flex flex-col items-center justify-center relative">
-          <div
-            v-if="bullet[0] && bullet[0].done"
-            class="absolute w-full h-full bg-black/40 flex justify-center items-center"
-          >
-            <el-icon :size="50" color="#409EFC"><CircleCheck /></el-icon>
-          </div>
-          <img class="w-16 h-16 m-3" :src="getImgSrc(bullet[0])" />
+    <div class="flex items-center justify-center h-28 bg-slate-300 relative">
+      <div
+        v-for="bullet in bulletList"
+        class="flex flex-col items-center justify-center relative"
+      >
+        <div
+          v-if="bullet.at(-1) && bullet.at(-1).done"
+          class="absolute w-full h-full bg-black/40 flex justify-center items-center"
+        >
+          <el-icon :size="45" color="#409EFC"><CircleCheck /></el-icon>
         </div>
+        <img class="w-16 h-16 m-3" :src="getImgSrc(bullet.at(-1))" />
       </div>
       <el-button
-        class="absolute top-5 right-5"
+        class="absolute top-3 left-3"
         type="primary"
         @click="viewChange"
         >选择子弹</el-button
       >
     </div>
 
-    <el-scrollbar :max-height="height">
+    <el-scrollbar :max-height="height2">
       <div class="waterfall">
         <div
-          v-for="list in bulletList.filter((item:Bullet[])=>item.length!=0 && item[0].done!=true)"
+          v-for="list in bulletList.filter((item:Bullet[])=>item.length!=0 && item[item.length-1].done!=true)"
           class="water p-2 m-auto"
         >
           <el-table :data="list">
             <el-table-column
-              prop="目标"
+              prop="seq_id"
               label="目标"
-              width="100"
+              width="80"
               align="center"
             >
               <template #default="{ row }">
-                <div class="flex flex-col items-center justify-center relative">
+                <div
+                  class="flex flex-col items-center justify-center relative select-none"
+                >
                   <div
                     v-if="row.done"
                     class="absolute w-full h-full bg-black/40"
                   ></div>
-                  <img class="w-16 h-16 m-3" :src="getImgSrc(row)" />
+                  <img class="w-12 h-12 m-1" :src="getImgSrc(row)" />
                   <span>{{ row.number ? row.number : '1' }}</span>
                 </div>
               </template>
             </el-table-column>
+
             <el-table-column
-              prop="材料"
+              prop="article"
               label="材料"
-              width="400"
+              width="260"
               align="center"
             >
               <template #default="{ row, $index }">
                 <div class="flex items-center justify-center">
                   <div
+                    v-if="row.article.find((item:Article)=>item.kind=='54' && item.done!=true)"
+                    class="absolute w-full h-full bg-black/80 z-10"
+                  ></div>
+                  <div
                     v-for="item in row.article"
-                    class="flex flex-col items-center justify-center relative"
-                    @click="handleCheck(list, row, item, $index)"
+                    class="relative cursor-pointer"
+                    @click.prevent="handleCheck(list, row, item, $index)"
                   >
                     <div
                       v-if="item.done"
                       class="absolute w-full h-full bg-black/40 flex justify-center items-center"
                     >
-                      <el-icon :size="50" color="#409EFC"
+                      <el-icon :size="45" color="#409EFC"
                         ><CircleCheck
                       /></el-icon>
                     </div>
-                    <img class="w-16 h-16 m-3" :src="getImgSrc(item)" />
-                    <span>{{ item.number }}</span>
+                    <div
+                      class="flex flex-col items-center justify-center select-none"
+                    >
+                      <img class="w-12 h-12 m-1" :src="getImgSrc(item)" />
+                      <span>{{ item.number }}</span>
+                    </div>
                   </div>
                 </div>
               </template>
@@ -92,7 +104,7 @@ const bulletList = computed({
   },
 })
 
-const height = computed(() => document.documentElement.offsetHeight - 162)
+const height2 = computed(() => document.documentElement.offsetHeight - 162)
 
 function handleCheck(
   list: Bullet[],
@@ -100,21 +112,22 @@ function handleCheck(
   item: Article,
   index: number
 ) {
-  item.done = !item.done
+  if (item.kind != '54') item.done = !item.done
   if (!row.article.find((item: Article) => !item.done)) {
     row.done = true
-    if (index > 0) list.splice(index, 1)
+    if (index < list.length - 1) list.splice(index, 1)
+
     let i = index
 
-    while (i > 0) {
-      const hit = list[i - 1].article.find(
+    while (i < list.length) {
+      const hit = list[i].article.find(
         (item: Article) => item.item_id == row.seq_id
       )
       if (hit) {
         hit.done = true
         break
       }
-      i--
+      i++
     }
   }
 }
@@ -143,26 +156,26 @@ function getImgSrc(item: any) {
 }
 </script>
 
-<style scoped>
+<style>
 .waterfall {
   column-count: 1;
 }
 .water {
-  width: 516px;
+  width: 356px;
   break-inside: avoid;
 }
 
-@media (min-width: 520px) {
+@media (min-width: 400px) {
   .waterfall {
     column-count: 1;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 800px) {
   .waterfall {
     column-count: 2;
   }
 }
-@media (min-width: 1800px) {
+@media (min-width: 1200px) {
   .waterfall {
     column-count: 3;
   }

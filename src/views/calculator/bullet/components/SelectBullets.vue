@@ -1,58 +1,80 @@
 <template>
   <div>
-    <el-scrollbar :max-height="height">
-      <el-descriptions :column="1" border>
-        <el-descriptions-item v-for="(type, index) in bulletType" :label="type">
-          <template #default>
-            <el-row>
-              <el-tooltip
-                v-for="bullet in DATA.filter((item) =>
-                  item.seq_id.startsWith((index + 1).toString())
-                )"
-                :content="bullet.comment"
-                placement="left"
-                raw-content
+    <div class="flex flex-wrap justify-center items-center">
+      <el-check-tag
+        class="m-1"
+        v-for="bulletType in checkBulletGroup"
+        :checked="bulletType.checked"
+        @change="bulletType.checked = !bulletType.checked"
+      >
+        <template #default>
+          <div class="flex flex-col justify-center items-center w-[140px]">
+            <span> {{ bulletType.name }}</span>
+            <img
+              class="h-5 mt-2"
+              :src="`./images/bullet/${bulletType.slotType}.png`"
+            />
+          </div>
+        </template>
+      </el-check-tag>
+    </div>
+
+    <el-scrollbar :max-height="height" class="p-[5px] relative">
+      <el-card
+        class="m-2 w-auto"
+        v-for="bulletType in checkBulletGroup.filter(
+          (item) => item.checked == true
+        )"
+        :header="bulletType.name"
+        :body-style="bulletCardStyle"
+      >
+        <div
+          v-for="bullet in DATA.filter((item) =>
+            item.seq_id.startsWith(bulletType.slotType.toString())
+          )"
+          class="w-[330px] border-solid border-2 border-sky-500 m-1 p-1 flex justify-start items-center cursor-pointer"
+          @click="() => handleSelect(bullet)"
+        >
+          <div class="w-[48px] h-[48px] mr-2 flex-shrink-0">
+            <img
+              :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/bullet/s/${bullet.seq_id}.jpg`"
+            />
+          </div>
+          <div class="flex flex-col text-xs">
+            <span class="font-black"> {{ bullet.name }}</span>
+            <span v-html="bullet.comment"></span>
+          </div>
+        </div>
+      </el-card>
+
+      <div class="absolute bottom-3 right-3">
+        <el-dropdown size="small" @command="handleCommand">
+          <el-button type="success" plain> 预设配置 </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item
+                v-for="config in DefaultBulletConfig"
+                :command="config.list"
+                >{{ config.name }}</el-dropdown-item
               >
-                <div
-                  class="border-solid border-2 border-sky-500 m-3 p-2 flex justify-center items-center"
-                  @click="() => handleSelect(bullet)"
-                >
-                  <img
-                    class="w-12 h-12"
-                    :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/bullet/s/${bullet.seq_id}.jpg`"
-                  />
-                  <span> {{ bullet.name }}</span>
-                </div>
-              </el-tooltip>
-            </el-row>
+            </el-dropdown-menu>
           </template>
-        </el-descriptions-item>
-      </el-descriptions>
+        </el-dropdown>
+      </div>
     </el-scrollbar>
 
-    <div class="flex items-center justify-center h-28 bg-slate-300 relative">
-      <div class="absolute top-2 left-2">
-        <span class="text-base">预设配置</span>
-        <ul>
-          <li v-for="config in DefaultBulletConfig">
-            <el-button
-              type="primary"
-              link
-              class="text-sm"
-              @click="selectDefaultBullet(config)"
-              >{{ config.name }}</el-button
-            >
-          </li>
-        </ul>
-      </div>
+    <div
+      class="flex items-center justify-center h-[100px] bg-slate-300 relative"
+    >
       <div
         v-for="(bullet, index) in bulletList"
         @click="() => handleDelete(index)"
+        class="flex items-center justify-center cursor-pointer"
       >
-        <img class="w-16 h-16 m-3" :src="getImgSrc(bullet[0])" />
+        <img class="w-16 h-16 m-3" :src="getImgSrc(bullet.at(-1))" />
       </div>
       <el-button
-        class="absolute bottom-5 right-5"
+        class="absolute bottom-3 right-3"
         type="primary"
         @click="viewChange"
         >查看进度</el-button
@@ -65,6 +87,7 @@
 import DATA from '@/assets/data/bullet/data.json'
 import type { Bullet, Article } from '../index'
 import { cloneDeep } from 'lodash'
+import { CSSProperties } from 'vue'
 
 const props = defineProps(['selectedBullet'])
 const emit = defineEmits(['change', 'update:selectedBullet'])
@@ -75,15 +98,28 @@ const bulletList = computed({
     emit('update:selectedBullet', value)
   },
 })
+const checkBulletGroup = ref([
+  { name: 'パラベラム弾', checked: true, slotType: 1 },
+  { name: 'ライフル弾', checked: true, slotType: 2 },
+  { name: 'カートリッジ', checked: true, slotType: 3 },
+  { name: 'エーテリアル弾', checked: true, slotType: 4 },
+])
+const bulletCardStyle: CSSProperties = {
+  padding: '0px',
+  display: 'flex',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+}
+const { width } = useWindowSize()
+const height = ref()
 
-const bulletType = [
-  'パラベラム弾',
-  'ライフル弾',
-  'カートリッジ',
-  'エーテリアル弾',
-]
-
-const height = computed(() => document.documentElement.offsetHeight - 162)
+watchEffect(() => {
+  if (width.value < 712) {
+    height.value = document.documentElement.offsetHeight - 150 - 138
+  } else {
+    height.value = document.documentElement.offsetHeight - 150 - 74
+  }
+})
 
 const DefaultBulletConfig = [
   {
@@ -92,10 +128,10 @@ const DefaultBulletConfig = [
   },
 ]
 
-function selectDefaultBullet(config: { name: string; list: string[] }) {
-  config.list.forEach((id, i) => {
+function handleCommand(command: string[]) {
+  command.forEach((id, i) => {
     const hit = DATA.find((bullet) => bullet.seq_id == id) as Bullet
-    bulletList.value[i] = getArticle([hit])
+    bulletList.value[i] = getArticle([hit]).reverse()
   })
 }
 
@@ -105,7 +141,7 @@ function handleSelect(bullet: Bullet) {
   )
 
   if (index !== -1) {
-    bulletList.value[index] = getArticle([bullet])
+    bulletList.value[index] = getArticle([bullet]).reverse()
   } else {
     ElMessage.info('已经到达上限')
   }
