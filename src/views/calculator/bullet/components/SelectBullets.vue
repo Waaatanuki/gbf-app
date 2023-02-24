@@ -139,7 +139,6 @@ function handleSelect(bullet: Bullet) {
     const articleList = getArticle([bullet]).reverse()
     articleList.at(-1)!.total = getTotal(articleList)
     bulletList.value[index] = articleList
-    console.log(bulletList.value)
   } else {
     ElMessage.info('已经到达上限')
   }
@@ -176,11 +175,11 @@ function getTotal(bullets: Bullet[]) {
   bullets.forEach((bullet) => {
     bullet.article.forEach((article) => {
       if (article.kind !== '54') {
-        const hit = total.find((item) => item.id == article.id)
+        const hit = total.find((item) => item.item_id == article.item_id)
         if (hit) {
           hit.number = hit.number + article.number
         } else {
-          total.push(article)
+          total.push(cloneDeep(article))
         }
       }
     })

@@ -26,6 +26,12 @@
           </template>
         </el-tooltip>
       </div>
+      <div class="absolute top-1 right-1">
+        <el-tooltip placement="top">
+          <template #content> 数据或界面异常时，请重新添加子弹。 </template>
+          <el-icon color="#409EFF"><InfoFilled /></el-icon>
+        </el-tooltip>
+      </div>
     </div>
 
     <el-scrollbar :max-height="height">
@@ -99,7 +105,7 @@
 
 <script setup lang="ts">
 import type { Article, Bullet } from '../types'
-import { CircleCheck } from '@element-plus/icons-vue'
+import { CircleCheck, InfoFilled } from '@element-plus/icons-vue'
 
 const props = defineProps(['selectedBullet'])
 const emit = defineEmits(['change', 'update:selectedBullet'])
@@ -148,10 +154,10 @@ function getImgSrc(item: any) {
     return `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/bullet/s/${item.seq_id}.jpg`
   }
   if (item.kind == '10') {
-    return `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item.image}.jpg`
+    return `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item.item_id}.jpg`
   }
   if (item.kind == '17') {
-    return `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/evolution/s/${item.image}.jpg`
+    return `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/evolution/s/${item.item_id}.jpg`
   }
   if (item.kind == '54') {
     return `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/bullet/s/${item.item_id}.jpg`
