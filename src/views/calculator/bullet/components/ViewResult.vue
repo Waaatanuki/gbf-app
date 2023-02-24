@@ -11,7 +11,20 @@
         >
           <el-icon :size="45" color="#409EFC"><CircleCheck /></el-icon>
         </div>
-        <img class="w-14 h-14 m-2" :src="getImgSrc(bullet.at(-1))" />
+        <el-tooltip effect="dark" placement="bottom">
+          <img class="w-14 h-14 m-2" :src="getImgSrc(bullet.at(-1))" />
+          <template #content>
+            <div class="flex flex-wrap items-center justify-center w-44">
+              <div
+                class="flex flex-col items-center justify-center select-none"
+                v-for="article in bullet.at(-1).total"
+              >
+                <img class="w-12 h-12 m-1" :src="getImgSrc(article)" />
+                <span>{{ article.number }}</span>
+              </div>
+            </div>
+          </template>
+        </el-tooltip>
       </div>
     </div>
 
@@ -85,7 +98,7 @@
 </template>
 
 <script setup lang="ts">
-import { Article, Bullet } from '..'
+import type { Article, Bullet } from '../types'
 import { CircleCheck } from '@element-plus/icons-vue'
 
 const props = defineProps(['selectedBullet'])

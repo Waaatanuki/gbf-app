@@ -33,4 +33,5 @@ export interface Bullet {
   article: Article[]
   number?: number
   done?: boolean
+  total?: Article[]
 }

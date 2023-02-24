@@ -77,7 +77,7 @@
 
 <script setup lang="ts">
 import DATA from '@/assets/data/bullet/data.json'
-import type { Bullet, Article } from '../index'
+import type { Bullet, Article } from '../types'
 import { cloneDeep } from 'lodash'
 import { CSSProperties } from 'vue'
 
@@ -123,7 +123,10 @@ const DefaultBulletConfig = [
 function handleCommand(command: string[]) {
   command.forEach((id, i) => {
     const hit = DATA.find((bullet) => bullet.seq_id == id) as Bullet
-    bulletList.value[i] = getArticle([hit]).reverse()
+
+    const articleList = getArticle([hit]).reverse()
+    articleList.at(-1)!.total = getTotal(articleList)
+    bulletList.value[i] = articleList
   })
 }
 
@@ -133,7 +136,10 @@ function handleSelect(bullet: Bullet) {
   )
 
   if (index !== -1) {
-    bulletList.value[index] = getArticle([bullet]).reverse()
+    const articleList = getArticle([bullet]).reverse()
+    articleList.at(-1)!.total = getTotal(articleList)
+    bulletList.value[index] = articleList
+    console.log(bulletList.value)
   } else {
     ElMessage.info('已经到达上限')
   }
@@ -163,6 +169,24 @@ function getArticle(bullet: Bullet[]) {
     })
   }
   return bullet
+}
+
+function getTotal(bullets: Bullet[]) {
+  const total: Article[] = []
+  bullets.forEach((bullet) => {
+    bullet.article.forEach((article) => {
+      if (article.kind !== '54') {
+        const hit = total.find((item) => item.id == article.id)
+        if (hit) {
+          hit.number = hit.number + article.number
+        } else {
+          total.push(article)
+        }
+      }
+    })
+  })
+
+  return total
 }
 
 function getImgSrc(bullet: any) {
