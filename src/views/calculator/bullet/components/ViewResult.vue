@@ -3,7 +3,7 @@
     <div class="flex items-center justify-center h-28 bg-slate-300 relative">
       <div
         v-for="bullet in bulletList"
-        class="flex flex-col items-center justify-center relative"
+        class="flex items-center justify-center relative"
       >
         <div
           v-if="bullet.at(-1) && bullet.at(-1).done"
@@ -11,17 +11,11 @@
         >
           <el-icon :size="45" color="#409EFC"><CircleCheck /></el-icon>
         </div>
-        <img class="w-16 h-16 m-3" :src="getImgSrc(bullet.at(-1))" />
+        <img class="w-14 h-14 m-2" :src="getImgSrc(bullet.at(-1))" />
       </div>
-      <el-button
-        class="absolute top-3 left-3"
-        type="primary"
-        @click="viewChange"
-        >选择子弹</el-button
-      >
     </div>
 
-    <el-scrollbar :max-height="height2">
+    <el-scrollbar :max-height="height">
       <div class="waterfall">
         <div
           v-for="list in bulletList.filter((item:Bullet[])=>item.length!=0 && item[item.length-1].done!=true)"
@@ -104,7 +98,7 @@ const bulletList = computed({
   },
 })
 
-const height2 = computed(() => document.documentElement.offsetHeight - 162)
+const height = computed(() => document.documentElement.offsetHeight - 162)
 
 function handleCheck(
   list: Bullet[],
@@ -130,10 +124,6 @@ function handleCheck(
       i++
     }
   }
-}
-
-function viewChange() {
-  emit('change', 'select')
 }
 
 function getImgSrc(item: any) {

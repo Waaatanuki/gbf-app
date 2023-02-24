@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex flex-wrap justify-center items-center">
+    <div class="flex flex-wrap justify-center items-center mt-2">
       <el-check-tag
         class="m-1"
         v-for="bulletType in checkBulletGroup"
@@ -63,22 +63,14 @@
       </div>
     </el-scrollbar>
 
-    <div
-      class="flex items-center justify-center h-[100px] bg-slate-300 relative"
-    >
+    <div class="flex items-center justify-center h-28 bg-slate-300 relative">
       <div
         v-for="(bullet, index) in bulletList"
         @click="() => handleDelete(index)"
         class="flex items-center justify-center cursor-pointer"
       >
-        <img class="w-16 h-16 m-3" :src="getImgSrc(bullet.at(-1))" />
+        <img class="w-14 h-14 m-2" :src="getImgSrc(bullet.at(-1))" />
       </div>
-      <el-button
-        class="absolute bottom-3 right-3"
-        type="primary"
-        @click="viewChange"
-        >查看进度</el-button
-      >
     </div>
   </div>
 </template>
@@ -90,7 +82,7 @@ import { cloneDeep } from 'lodash'
 import { CSSProperties } from 'vue'
 
 const props = defineProps(['selectedBullet'])
-const emit = defineEmits(['change', 'update:selectedBullet'])
+const emit = defineEmits(['update:selectedBullet'])
 
 const bulletList = computed({
   get: () => props.selectedBullet,
@@ -115,9 +107,9 @@ const height = ref()
 
 watchEffect(() => {
   if (width.value < 712) {
-    height.value = document.documentElement.offsetHeight - 150 - 138
+    height.value = document.documentElement.offsetHeight - 150 - 158
   } else {
-    height.value = document.documentElement.offsetHeight - 150 - 74
+    height.value = document.documentElement.offsetHeight - 150 - 94
   }
 })
 
@@ -149,10 +141,6 @@ function handleSelect(bullet: Bullet) {
 
 function handleDelete(index: number) {
   bulletList.value.splice(index, 1, [])
-}
-
-function viewChange() {
-  emit('change', 'result')
 }
 
 function getArticle(bullet: Bullet[]) {
