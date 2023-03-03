@@ -2,7 +2,11 @@
   <div class="detailPage">
     <div>
       <el-select v-model="range" placeholder="Select" size="small">
-        <el-option v-for="item in rangeOptions" :label="item.label" :value="item.value" />
+        <el-option
+          v-for="item in rangeOptions"
+          :label="item.label"
+          :value="item.value"
+        />
       </el-select>
     </div>
     <div class="chart-list">

@@ -28,7 +28,9 @@
       </div>
       <div class="absolute top-1 right-1">
         <el-tooltip placement="top">
-          <template #content> 数据或界面异常时，请重新添加子弹。 </template>
+          <template #content>
+            数据或界面异常时，请先尝试重新添加子弹。
+          </template>
           <el-icon color="#409EFF"><InfoFilled /></el-icon>
         </el-tooltip>
       </div>

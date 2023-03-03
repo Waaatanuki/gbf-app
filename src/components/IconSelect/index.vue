@@ -27,43 +27,41 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import SvgIcon from '@/components/SvgIcon/index.vue';
+import { ref } from 'vue'
+import SvgIcon from '@/components/SvgIcon/index.vue'
 
-const icons = [] as string[];
-const modules = import.meta.glob('../../assets/icons/*.svg');
+const icons = [] as string[]
+const modules = import.meta.glob('../../assets/icons/*.svg')
 for (const path in modules) {
-  const p = path.split('assets/icons/')[1].split('.svg')[0];
-  icons.push(p);
+  const p = path.split('assets/icons/')[1].split('.svg')[0]
+  icons.push(p)
 }
-const iconList = ref(icons);
+const iconList = ref(icons)
 
-const iconName = ref('');
+const iconName = ref('')
 
-const emit = defineEmits(['selected']);
+const emit = defineEmits(['selected'])
 
 function filterIcons() {
-  iconList.value = icons;
+  iconList.value = icons
   if (iconName.value) {
-    iconList.value = icons.filter(
-      (item) => item.indexOf(iconName.value) !== -1
-    );
+    iconList.value = icons.filter((item) => item.indexOf(iconName.value) !== -1)
   }
 }
 
 function selectedIcon(name: string) {
-  emit('selected', name);
-  document.body.click();
+  emit('selected', name)
+  document.body.click()
 }
 
 function reset() {
-  iconName.value = '';
-  iconList.value = icons;
+  iconName.value = ''
+  iconList.value = icons
 }
 
 defineExpose({
   reset,
-});
+})
 </script>
 
 <style lang="scss" scoped>

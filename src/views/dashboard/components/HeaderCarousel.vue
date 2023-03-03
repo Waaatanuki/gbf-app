@@ -16,7 +16,8 @@ import gachaInfo from '@/assets/data/gachaData/gachaInfo.json'
 const imgSrc = ref([] as string[])
 for (const img of gachaInfo.header_images) {
   imgSrc.value.push(
-    new URL(`/src/assets/images/homepage/carousel/${img}.png`, import.meta.url).href
+    new URL(`/src/assets/images/homepage/carousel/${img}.png`, import.meta.url)
+      .href
   )
 }
 </script>

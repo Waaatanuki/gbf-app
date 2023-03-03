@@ -1,131 +1,119 @@
 <template>
   <div class="app-container">
-    <div class="container">
-      <div>
-        <el-card class="gacha-calc-card">
-          <template #header>
-            <div class="card-header">
-              <span>攒井计算器</span>
-              <label>
-                {{
-                  Math.floor(totalStone / 90000) +
-                  '井' +
-                  Math.floor((totalStone % 90000) / 300) +
-                  '抽'
-                }}</label
-              >
-            </div>
-          </template>
-          <div class="card-body">
-            <el-form :model="formData" label-width="70px">
-              <el-form-item label="10连券">
-                <el-input v-model.number="formData.legendticket10" />
-              </el-form-item>
-              <el-form-item label="单抽券">
-                <el-input v-model.number="formData.legendticket" />
-              </el-form-item>
-              <el-form-item label="宝晶石">
-                <el-input v-model.number="formData.stone" />
-              </el-form-item>
-              <el-form-item label="已抽">
-                <el-input v-model.number="formData.drawn" />
-              </el-form-item>
-              <el-form-item label="剩余点数">
-                <el-input v-model.number="formData.mobacoin" />
-              </el-form-item>
-            </el-form>
-            <el-divider />
-            <el-form label-width="70px">
-              <el-form-item label="点数价格">
-                <el-input v-model.number="formData.price" />
-              </el-form-item>
-              <el-form-item label="对应点数">
-                <el-input v-model.number="formData.point" />
-              </el-form-item>
-            </el-form>
-            <div style="text-align: center">
-              {{
-                '下一井需要补' +
-                Math.floor(
-                  (formData.price * (90000 - (totalStone % 90000))) /
-                    formData.point
-                ) +
-                '元'
-              }}
-            </div>
-          </div>
-        </el-card>
-      </div>
-      <div style="width: 100%">
-        <el-card class="gacha-simulate-card">
-          <template #header>
-            <div class="card-header">
-              <span>抽卡模拟</span>
-              <span
-                >当前总抽数：{{ count }} , SSR个数：{{ ssrCount }} , SSR率：{{
-                  ((ssrCount / count) * 100).toFixed(2)
-                }}%</span
-              >
-              <div>
-                <el-button type="warning" @click="reset">重置</el-button>
-              </div>
-            </div>
-          </template>
-          <div class="card-body">
-            <div class="gacha-bg">
-              <div>
-                <el-image
-                  v-for="item in result.slice(0, 3)"
-                  :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
-                />
-              </div>
+    <div class="flex flex-wrap justify-center items-start">
+      <el-card class="m-2 w-[250px] h-[500px]">
+        <template #header>
+          <p class="text-center font-bold">
+            {{
+              Math.floor(totalStone / 90000) +
+              '井' +
+              Math.floor((totalStone % 90000) / 300) +
+              '抽'
+            }}
+          </p>
+        </template>
+        <el-form :model="formData" label-width="70px">
+          <el-form-item label="10连券">
+            <el-input v-model.number="formData.legendticket10" />
+          </el-form-item>
+          <el-form-item label="单抽券">
+            <el-input v-model.number="formData.legendticket" />
+          </el-form-item>
+          <el-form-item label="宝晶石">
+            <el-input v-model.number="formData.stone" />
+          </el-form-item>
+          <el-form-item label="已抽">
+            <el-input v-model.number="formData.drawn" />
+          </el-form-item>
+          <el-form-item label="剩余点数">
+            <el-input v-model.number="formData.mobacoin" />
+          </el-form-item>
+          <el-divider />
+          <el-form-item label="点数价格">
+            <el-input v-model.number="formData.price" />
+          </el-form-item>
+          <el-form-item label="对应点数">
+            <el-input v-model.number="formData.point" />
+          </el-form-item>
+        </el-form>
+        <p class="text-center">
+          {{
+            '下一井需要补' +
+            Math.floor(
+              (formData.price * (90000 - (totalStone % 90000))) / formData.point
+            ) +
+            '元'
+          }}
+        </p>
+      </el-card>
 
-              <div>
-                <el-image
-                  v-for="item in result.slice(3, 7)"
-                  :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
-                />
-              </div>
-              <div>
-                <el-image
-                  v-for="item in result.slice(7, 10)"
-                  :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
-                />
-              </div>
+      <el-card class="m-2 w-[500px] h-[500px]" body-style="padding:5px">
+        <template #header>
+          <div class="h-full flex justify-between items-center">
+            <p>
+              当前总抽数：{{ count }} , SSR个数：{{ ssrCount }} , SSR率：{{
+                ((ssrCount / count) * 100).toFixed(2)
+              }}%
+            </p>
+            <el-button type="warning" @click="reset">重置</el-button>
+          </div>
+        </template>
+        <div class="relative">
+          <div
+            class="gacha-bg flex flex-col justify-center items-center p-[2px] min-h-[139px]"
+          >
+            <div class="flex">
+              <img
+                class="m-[3px]"
+                v-for="item in result.slice(0, 3)"
+                :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
+              />
             </div>
-            <div class="btn-gacha-box">
-              <div
-                class="btn-gacha flex justify-center items-center"
-                @click="draw(1)"
-              >
-                <img
-                  src="/images/gacha/text_legend10.png"
-                  alt="text_legend10"
-                />
-              </div>
-              <div
-                class="btn-gacha flex justify-center items-center"
-                @click="draw(30)"
-              >
-                <img
-                  src="/images/gacha/text_legend300.png"
-                  alt="text_legend300"
-                />
-              </div>
+            <div class="flex">
+              <img
+                class="m-[3px]"
+                v-for="item in result.slice(3, 7)"
+                :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
+              />
             </div>
-            <div class="show-ssr-box">
-              <el-scrollbar height="200px">
-                <el-image
-                  v-for="item in ssrList"
-                  :class="{ target: item.incidence == '1' }"
-                  :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
-                />
-              </el-scrollbar>
+            <div class="flex">
+              <img
+                class="m-[3px]"
+                v-for="item in result.slice(7, 10)"
+                :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
+              />
             </div>
           </div>
-          <span class="tip">{{ gachaLineup }}</span>
-        </el-card>
-      </div>
+          <div class="flex justify-center items-center">
+            <div
+              class="btn-gacha flex justify-center items-center"
+              @click="draw(1)"
+            >
+              <img src="/images/gacha/text_legend10.png" alt="text_legend10" />
+            </div>
+            <div
+              class="btn-gacha flex justify-center items-center"
+              @click="draw(30)"
+            >
+              <img
+                src="/images/gacha/text_legend300.png"
+                alt="text_legend300"
+              />
+            </div>
+          </div>
+          <el-scrollbar height="200px">
+            <div class="flex flex-wrap justify-center">
+              <img
+                class="h-10 m-[4px]"
+                v-for="item in ssrList"
+                :class="{ target: item.incidence == '1' }"
+                :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
+              />
+            </div>
+          </el-scrollbar>
+          <p class="text-xs text-right">{{ gachaLineup }}</p>
+        </div>
+      </el-card>
     </div>
     <div class="animation" v-if="animationVisible" @click="closeAnimation">
       <GachaAnimation :resultList="animationResult" @close="closeAnimation" />
@@ -162,8 +150,7 @@ const state = reactive({
     '*当前卡池时间：' +
     gachaInfo.legend.lineup[0].service_start +
     '—' +
-    gachaInfo.legend.lineup[0].service_end +
-    ' 彩框为卡池UP',
+    gachaInfo.legend.lineup[0].service_end,
 })
 
 const {
@@ -274,106 +261,31 @@ function closeAnimation() {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  display: flex;
+img {
+  height: 40px;
 }
 
-.gacha-calc-card {
-  margin-right: 5px;
-  height: 550px;
-  width: 250px;
+.target {
+  box-shadow: 0 0 3px 3px rgba(255, 0, 0, 0.8);
+}
+.gacha-bg {
+  background: url('/images/bg/gacha_result_bg.jpg') 50% 50% no-repeat;
+}
+.btn-gacha {
+  background: url('/images/gacha/parts_common.png') no-repeat 0 -232px;
+  background-size: 320px 5559px;
+  width: 148px;
+  height: 65px;
 
-  .input-form {
-    display: flex;
-    justify-content: center;
-  }
-
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  img {
+    width: 112px;
+    height: 38px;
   }
 }
 
-.gacha-simulate-card {
-  height: 550px;
-  margin-right: 2px;
-  position: relative;
-
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 21px;
-  }
-
-  .card-body {
-    display: flex;
-    flex-direction: column;
-
-    .btn-gacha-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .btn-gacha {
-        background: url('/images/gacha/parts_common.png') no-repeat 0 -232px;
-        background-size: 320px 5559px;
-        width: 148px;
-        height: 65px;
-
-        img {
-          width: 112px;
-          height: 38px;
-        }
-      }
-
-      .btn-gacha:active {
-        background: url('/images/gacha/parts_common.png') no-repeat 0 -776px;
-        background-size: 320px 5559px;
-        transform: scale(0.9);
-      }
-    }
-
-    .gacha-bg {
-      height: 166px;
-      padding-top: 4px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: url('/images/bg/gacha_result_bg.jpg') 50% 50% no-repeat;
-    }
-
-    .el-image {
-      height: 50px;
-      margin: 0px 2px;
-    }
-
-    .target {
-      box-shadow: rgb(85, 91, 255) 0px 0px 0px 2px,
-        rgb(31, 193, 27) 0px 0px 0px 4px, rgb(255, 217, 19) 0px 0px 0px 6px,
-        rgb(255, 156, 85) 0px 0px 0px 8px, rgb(255, 85, 85) 0px 0px 0px 10px;
-    }
-
-    .show-ssr-box {
-      margin-top: 10px;
-      display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      width: 100%;
-
-      .el-image {
-        margin: 12px;
-      }
-    }
-  }
-
-  .tip {
-    position: absolute;
-    bottom: 1px;
-    right: 1px;
-    font-size: 13px;
-  }
+.btn-gacha:active {
+  background: url('/images/gacha/parts_common.png') no-repeat 0 -776px;
+  background-size: 320px 5559px;
+  transform: scale(0.9);
 }
 </style>
