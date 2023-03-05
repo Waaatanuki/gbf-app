@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-table
       :data="tableData"
-      :max-height="670"
+      :max-height="height"
       @cell-dblclick="handleCellClick"
     >
       <el-table-column prop="name" label="阶段" align="center" width="100" />
@@ -10,15 +10,6 @@
         <template #default="{ row }">
           <el-input
             v-model="row.tarotUncapStr"
-            type="textarea"
-            :autosize="{ maxRows: 10 }"
-          />
-        </template>
-      </el-table-column>
-      <el-table-column prop="tarotCardStr" label="塔罗牌交换" align="center">
-        <template #default="{ row }">
-          <el-input
-            v-model="row.tarotCardStr"
             type="textarea"
             :autosize="{ maxRows: 10 }"
           />
@@ -125,6 +116,8 @@ import uncapData from '@/assets/data/uncapData.json'
 import { downloadJSON } from '@/utils/file'
 import { cloneDeep } from 'lodash'
 
+const height = document.documentElement.offsetHeight - 80
+
 const itemList = [
   [0, 0, 0, 25000, 25001],
   [25002, 25003, 25004, 25005, 25006],
@@ -178,13 +171,11 @@ function handleExport() {
 
   tempData.forEach((data: any) => {
     data.tarotUncap = JSON.parse(data.tarotUncapStr)
-    data.tarotCard = JSON.parse(data.tarotCardStr)
     data.evokerUncap = JSON.parse(data.evokerUncapStr)
     data.weaponUncap = JSON.parse(data.weaponUncapStr)
     data.domainUncap = JSON.parse(data.domainUncapStr)
 
     delete data.tarotUncapStr
-    delete data.tarotCardStr
     delete data.evokerUncapStr
     delete data.weaponUncapStr
     delete data.domainUncapStr
@@ -196,7 +187,6 @@ onMounted(() => {
   state.tableData = uncapData
   state.tableData.forEach((data) => {
     data.tarotUncapStr = JSON.stringify(data.tarotUncap, null, 2)
-    data.tarotCardStr = JSON.stringify(data.tarotCard, null, 2)
     data.evokerUncapStr = JSON.stringify(data.evokerUncap, null, 2)
     data.weaponUncapStr = JSON.stringify(data.weaponUncap, null, 2)
     data.domainUncapStr = JSON.stringify(data.domainUncap, null, 2)
