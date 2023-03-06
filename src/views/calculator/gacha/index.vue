@@ -1,16 +1,28 @@
 <template>
   <div class="app-container">
     <div class="flex flex-wrap justify-center items-start">
-      <el-card class="m-2 w-[250px] h-[500px]">
+      <el-card class="m-2 w-[250px] h-[500px]" v-if="formVisible">
         <template #header>
-          <p class="text-center font-bold">
-            {{
-              Math.floor(totalStone / 90000) +
-              '井' +
-              Math.floor((totalStone % 90000) / 300) +
-              '抽'
-            }}
-          </p>
+          <div relative>
+            <p class="text-center font-bold">
+              {{
+                Math.floor(totalStone / 90000) +
+                '井' +
+                Math.floor((totalStone % 90000) / 300) +
+                '抽'
+              }}
+            </p>
+            <div
+              cursor-pointer
+              absolute
+              top-0
+              bottom-0
+              right-2
+              m-auto
+              i-carbon:checkbox-indeterminate
+              @click="formVisible = !formVisible"
+            ></div>
+          </div>
         </template>
         <el-form :model="formData" label-width="70px">
           <el-form-item label="10连券">
@@ -46,7 +58,33 @@
           }}
         </p>
       </el-card>
-
+      <div
+        m-2
+        w-250px
+        bg-white
+        relative
+        style="box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12)"
+        v-else
+      >
+        <p text-center font-bold p-2>
+          {{
+            Math.floor(totalStone / 90000) +
+            '井' +
+            Math.floor((totalStone % 90000) / 300) +
+            '抽'
+          }}
+        </p>
+        <div
+          cursor-pointer
+          absolute
+          top-0
+          bottom-0
+          right-2
+          m-auto
+          i-carbon:checkbox-checked
+          @click="formVisible = !formVisible"
+        ></div>
+      </div>
       <el-card class="m-2 w-[500px] h-[500px]" body-style="padding:5px">
         <template #header>
           <div class="h-full flex justify-between items-center">
@@ -127,6 +165,8 @@ import gachaNormalRatio from '@/assets/data/gachaData/gachaNormalRatio.json'
 import gachaSrRatio from '@/assets/data/gachaData/gachaSrRatio.json'
 import gachaInfo from '@/assets/data/gachaData/gachaInfo.json'
 
+const { width } = useWindowSize()
+
 const state = reactive({
   formData: {
     legendticket10: 0,
@@ -137,6 +177,7 @@ const state = reactive({
     price: 160,
     point: 3000,
   },
+  formVisible: width.value < 800 ? false : true,
   totalStone: 0,
   count: 0,
   ssrCount: 0,
@@ -155,6 +196,7 @@ const state = reactive({
 
 const {
   formData,
+  formVisible,
   totalStone,
   count,
   ssrCount,
