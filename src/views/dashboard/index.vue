@@ -4,7 +4,8 @@
     <ToDoList />
     <Contact class="absolute right-[15px] top-[15px]" />
     <img
-      class="absolute h-[350px] right-[15px] bottom-[15px]"
+      h-350px
+      class="absolute right-15px bottom-15px"
       src="/images/bg/ffj.jpeg"
     />
   </div>

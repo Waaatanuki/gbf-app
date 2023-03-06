@@ -6,7 +6,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import IconsResolver from 'unplugin-icons/resolver'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
-
+import Unocss from 'unocss/vite'
 const pathSrc = path.resolve(__dirname, 'src')
 
 export default defineConfig({
@@ -53,6 +53,7 @@ export default defineConfig({
 
       dts: path.resolve('types', 'components.d.ts'),
     }),
+    Unocss(),
   ],
   server: {
     host: '0.0.0.0',
