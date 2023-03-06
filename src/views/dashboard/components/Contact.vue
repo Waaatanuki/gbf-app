@@ -1,27 +1,22 @@
 <template>
   <div class="flex flex-col">
-    <el-link
-      :underline="false"
+    <a
+      m-2
+      i-carbon:debug
+      hover:text-amber
+      rel="noreferrer"
       href="https://bbs.nga.cn/read.php?tid=30999435"
       target="_blank"
-    >
-      <template #icon>
-        <svg-icon icon-class="bug" size="15px" class="m-2" />
-      </template>
-    </el-link>
-
-    <el-link
-      :underline="false"
+      title="报Bug"
+    />
+    <a
+      m-2
+      i-carbon:logo-github
+      hover:text-amber
+      rel="noreferrer"
       href="https://github.com/Waaatanuki/gbf-app"
       target="_blank"
-    >
-      <template #icon>
-        <svg-icon icon-class="github" size="15px" class="m-2" />
-      </template>
-    </el-link>
+      title="GitHub"
+    />
   </div>
 </template>
-
-<script setup lang="ts">
-import SvgIcon from '@/components/SvgIcon/index.vue'
-</script>
