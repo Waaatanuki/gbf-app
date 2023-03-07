@@ -5,7 +5,7 @@
       class="drawer-bg"
       @click="handleClickOutside"
     />
-    <Sidebar class="sidebar-container" />
+    <Sidebar class="sidebar-container bg-white dark:bg-#1d1e1f" />
 
     <div class="main-container">
       <div>
@@ -77,22 +77,5 @@ function handleClickOutside() {
   height: 100%;
   position: absolute;
   z-index: 999;
-}
-
-.fixed-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 9;
-  width: calc(100% - #{$sideBarWidth});
-  transition: width 0.28s;
-}
-
-.hideSidebar .fixed-header {
-  width: calc(100% - 54px);
-}
-
-.mobile .fixed-header {
-  width: 100%;
 }
 </style>

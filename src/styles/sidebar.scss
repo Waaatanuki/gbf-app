@@ -9,7 +9,6 @@
   .sidebar-container {
     transition: width 0.28s;
     width: $sideBarWidth !important;
-    background-color: $menuBg;
     height: 100%;
     position: fixed;
     font-size: 0px;
@@ -67,28 +66,6 @@
       border: none;
       height: 100%;
       width: 100% !important;
-    }
-
-    // menu hover
-    .submenu-title-noDropdown,
-    .el-sub-menu__title {
-      &:hover {
-        background-color: $menuHover;
-      }
-    }
-
-    & .nest-menu .el-sub-menu > .el-sub-menu__title,
-    & .el-sub-menu .el-menu-item {
-      min-width: $sideBarWidth !important;
-      &:hover {
-        background-color: $subMenuHover;
-      }
-    }
-    & .el-menu--inline {
-      background-color: $subMenuBg !important;
-    }
-    .el-menu .el-menu--inline {
-      background-color: $subMenuBg !important;
     }
   }
 
@@ -197,14 +174,6 @@
     .sub-el-icon {
       margin-right: 12px;
       margin-left: -2px;
-    }
-  }
-
-  .nest-menu .el-sub-menu > .el-sub-menu__title,
-  .el-menu-item {
-    &:hover {
-      // you can use $subMenuHover
-      background-color: $menuHover;
     }
   }
 

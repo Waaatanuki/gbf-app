@@ -22,7 +22,9 @@
   background: url('/images/bg/common_bg.png') no-repeat;
   background-size: cover;
 }
-
+.dark .app-main {
+  background: url('/images/bg/common_bg_dark.png') no-repeat;
+}
 .fixed-header + .app-main {
   padding-top: 50px;
 }

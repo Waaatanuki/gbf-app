@@ -26,7 +26,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <div class="result">蓝箱FFJ总计：{{ totalBlueChestFFJ }}</div>
+    <div class="result" rounded>蓝箱FFJ总计：{{ totalBlueChestFFJ }}</div>
     <div class="uploader">
       <el-popconfirm
         title="清空操作无法恢复，确认清空吗?"
@@ -250,7 +250,7 @@ onMounted(() => {
   height: 50px;
   margin: 10px auto;
   border: 1px solid;
-  background-color: rgb(255, 217, 0);
+  background-color: rgba(255, 217, 0, 0.5);
   line-height: 50px;
   font-size: 25px;
   font-weight: bold;

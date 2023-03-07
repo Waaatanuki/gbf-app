@@ -1,16 +1,22 @@
 <template>
   <transition>
     <router-link v-if="collapse" key="collapse" to="/">
-      <div class="h-[50px] flex items-center justify-center border-b-2">
+      <div
+        class="h-[50px] flex items-center justify-center border-b-2 border-#dcdfe6 dark:border-#4C4D4F"
+      >
         <img v-if="logo" :src="logo" class="w-8 h-8" />
         <h1 v-else>{{ title }}</h1>
       </div>
     </router-link>
 
     <router-link v-else key="expand" to="/">
-      <div class="h-[50px] flex items-center justify-center border-b-2">
+      <div
+        class="h-[50px] flex items-center justify-center border-b-2 border-#dcdfe6 dark:border-#4C4D4F"
+      >
         <img v-if="logo" :src="logo" class="w-8 h-8" />
-        <span class="ml-3 text-black text-sm font-bold">{{ title }}</span>
+        <span class="ml-3 text-slate-900 dark:text-white text-sm font-bold">{{
+          title
+        }}</span>
       </div>
     </router-link>
   </transition>

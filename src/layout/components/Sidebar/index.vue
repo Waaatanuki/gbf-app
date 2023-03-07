@@ -5,8 +5,6 @@
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-        :background-color="variables.menuBg"
-        :active-text-color="variables.menuActiveText"
         :unique-opened="false"
         :collapse-transition="false"
         mode="vertical"
@@ -29,7 +27,6 @@ import { useRoute } from 'vue-router'
 
 import SidebarItem from './SidebarItem.vue'
 import Logo from './Logo.vue'
-import variables from '@/styles/variables.module.scss'
 import useStore from '@/store'
 import { constantRoutes } from '@/router'
 

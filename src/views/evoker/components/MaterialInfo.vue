@@ -1,14 +1,23 @@
 <template>
-  <div class="itemBox">
-    <div class="item-row" v-for="row in itemList">
-      <div class="item-col" v-for="item in row" v-show="item">
-        <div class="item">
-          <img
-            style="height: 100%; width: 100%"
-            :src="`./images/item/${item}.jpg`"
-          />
-          <input class="itemNum" v-model.number="materialInfo[item]" />
-        </div>
+  <div>
+    <div w-250px flex justify-end v-for="row in itemList">
+      <div
+        w-50px
+        flex
+        flex-col
+        justify-center
+        items-center
+        p-5px
+        v-for="item in row"
+        v-show="item"
+      >
+        <img :src="`./images/item/${item}.jpg`" />
+        <input
+          w-40px
+          text-12px
+          text-right
+          v-model.number="materialInfo[item]"
+        />
       </div>
     </div>
   </div>
@@ -29,30 +38,3 @@ const itemList = [
   [25070, 25071, 25072, 25073, 25074],
 ]
 </script>
-
-<style lang="scss" scoped>
-.itemBox {
-  // background-color: #337ecc;
-  padding-top: 5px;
-
-  .item-row {
-    display: flex;
-    justify-content: flex-end;
-
-    .item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      padding-right: 5px;
-      padding-bottom: 5px;
-      width: 50px;
-
-      .itemNum {
-        width: 40px;
-      }
-    }
-  }
-}
-</style>

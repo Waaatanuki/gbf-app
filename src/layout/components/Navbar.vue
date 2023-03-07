@@ -8,6 +8,10 @@
     />
 
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+
+    <button absolute right-20px top-0 bottom-0 icon-btn @click="toggleDark()">
+      <div dark:i-carbon-moon i-carbon-sun />
+    </button>
   </div>
 </template>
 <script setup lang="ts">
@@ -34,7 +38,6 @@ ul {
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .hamburger-container {

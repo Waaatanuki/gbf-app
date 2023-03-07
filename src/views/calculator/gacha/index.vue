@@ -88,7 +88,7 @@
       <el-card class="m-2 w-[500px] h-[500px]" body-style="padding:5px">
         <template #header>
           <div class="h-full flex justify-between items-center">
-            <p>
+            <p class="gachaText">
               当前总抽数：{{ count }} , SSR个数：{{ ssrCount }} , SSR率：{{
                 ((ssrCount / count) * 100).toFixed(2)
               }}%
@@ -329,5 +329,11 @@ img {
   background: url('/images/gacha/parts_common.png') no-repeat 0 -776px;
   background-size: 320px 5559px;
   transform: scale(0.9);
+}
+
+@media (max-width: 600px) {
+  .gachaText {
+    font-size: 12px;
+  }
 }
 </style>
