@@ -59,9 +59,9 @@
         </p>
       </el-card>
       <div
+        class="bg-white dark:bg-#1d1e1f"
         m-2
         w-250px
-        bg-white
         relative
         style="box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12)"
         v-else

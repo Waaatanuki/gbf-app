@@ -1,19 +1,18 @@
 <template>
   <div class="app-container">
-    <div class="evoker-page">
-      <el-container>
-        <el-aside>
-          <MaterialInfo :materialInfo="materialInfo" />
-        </el-aside>
-        <el-container>
-          <el-main>
-            <EvokerInfo :evokerInfo="evokerInfo" />
-          </el-main>
-          <el-footer>
-            <MaterialResult :result="evokerPageResult" />
-          </el-footer>
-        </el-container>
-      </el-container>
+    <div
+      class="evoker-page"
+      rounded-5px
+      flex
+      flex-wrap
+      justify-evenly
+      items-center
+    >
+      <MaterialInfo :materialInfo="materialInfo" />
+      <div flex flex-col max-w-700px>
+        <EvokerInfo :evokerInfo="evokerInfo" />
+        <MaterialResult :result="evokerPageResult" />
+      </div>
     </div>
   </div>
 </template>
@@ -95,24 +94,8 @@ const evokerPageResult = computed(() =>
 
 <style lang="scss" scoped>
 .evoker-page {
-  padding-top: 0px;
-  border-radius: 10px;
   background: #3e5151;
   background: -webkit-linear-gradient(to top, #decba4, #3e5151);
   background: linear-gradient(to top, #decba4, #3e5151);
-}
-
-.el-main {
-  flex-grow: 0;
-  padding: 0px;
-}
-
-.el-footer {
-  flex-grow: 1;
-  padding: 0px;
-}
-
-.el-aside {
-  width: 260px;
 }
 </style>

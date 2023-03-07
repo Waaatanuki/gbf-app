@@ -16,6 +16,7 @@
           w-40px
           text-12px
           text-right
+          pr-2px
           v-model.number="materialInfo[item]"
         />
       </div>

@@ -1,6 +1,6 @@
 <template>
   <el-card
-    class="evoker-card w-32"
+    class="evoker-card w-32 m-5px"
     :body-style="{ padding: '0px' }"
     shadow="hover"
   >
