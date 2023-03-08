@@ -1,21 +1,23 @@
 <template>
-  <div flex flex-wrap justify-center>
-    <div
-      w-50px
-      p-2px
-      flex
-      flex-col
-      justify-center
-      items-center
-      v-for="item in result"
-      :key="item.id"
-    >
-      <el-tooltip :content="`总需${item.total}`" placement="top">
-        <img :src="`./images/item/${item.id}.jpg`" />
-      </el-tooltip>
-      <label>{{ item.need }}</label>
+  <el-scrollbar max-height="148">
+    <div flex flex-wrap justify-center>
+      <div
+        w-50px
+        p-2px
+        flex
+        flex-col
+        justify-center
+        items-center
+        v-for="item in result"
+        :key="item.id"
+      >
+        <el-tooltip :content="`总需${item.total}`" placement="top">
+          <img :src="`./images/item/${item.id}.jpg`" />
+        </el-tooltip>
+        <label>{{ item.need }}</label>
+      </div>
     </div>
-  </div>
+  </el-scrollbar>
 </template>
 
 <script setup lang="ts">
