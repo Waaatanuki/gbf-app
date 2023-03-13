@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-table :data="baseInfo" @row-click="showChart">
-      <el-table-column width="150">
+      <el-table-column width="150" align="center">
         <template #default="{ row }">
           <img
             :src="`./images/raid/img-quest-thumb/${row.questId}.png`"
@@ -26,11 +26,51 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-popover width="200">
+      <template #reference>
+        <img
+          w-126px
+          absolute
+          bottom-5
+          left-5
+          :src="`./images/raid/img-quest-thumb/303141.png`"
+        />
+      </template>
+      <template #default>
+        <el-descriptions :column="2" direction="vertical" border>
+          <el-descriptions-item label="总次数" align="center">{{
+            cbInfo.count
+          }}</el-descriptions-item>
+          <el-descriptions-item label="自发金" align="center">{{
+            cbInfo.redChestFFJ
+          }}</el-descriptions-item>
+          <el-descriptions-item label="金箱金" align="center">{{
+            cbInfo.normalChestFFJ
+          }}</el-descriptions-item>
+          <el-descriptions-item label="掉金率" align="center">
+            {{
+              (
+                ((cbInfo.redChestFFJ + cbInfo.normalChestFFJ) / cbInfo.count ||
+                  0) * 100
+              ).toFixed(2)
+            }}%
+          </el-descriptions-item>
+          <el-descriptions-item
+            label="上次出金"
+            align="center"
+            :span="2"
+            v-if="cbInfo.lastFFJTime"
+            >{{ dayjs().diff(dayjs(cbInfo.lastFFJTime), 'day') }}天之前
+          </el-descriptions-item>
+        </el-descriptions>
+      </template>
+    </el-popover>
     <div class="result" rounded>蓝箱FFJ总计：{{ totalBlueChestFFJ }}</div>
     <div class="uploader">
       <el-popconfirm
         title="清空操作无法恢复，确认清空吗?"
         :onConfirm="clearData"
+        width="200"
       >
         <template #reference>
           <el-button type="danger">清空数据</el-button>
@@ -66,18 +106,25 @@ import ChartDrawer from './components/Drawer.vue'
 import { downloadJSON } from '@/utils/file'
 import db from '@/utils/db'
 import GoldBrickQuest from '@/assets/data/GoldBrickQuest.json'
-
+import dayjs from 'dayjs'
 const state = reactive({
   dataSet: [] as any[],
   filesList: [],
   uploadBtnLoading: false,
   baseInfo: [] as any[],
+  cbInfo: {} as any,
   totalBlueChestFFJ: 0,
   drawer: { title: '', visible: false, key: '', dataSet: [] as any[] },
 })
 
-const { totalBlueChestFFJ, filesList, baseInfo, uploadBtnLoading, drawer } =
-  toRefs(state)
+const {
+  totalBlueChestFFJ,
+  filesList,
+  baseInfo,
+  cbInfo,
+  uploadBtnLoading,
+  drawer,
+} = toRefs(state)
 
 function showChart(raid: any) {
   if (raid.key == 'cb') return ElMessage.warning('超巴没有详细图表')
@@ -108,6 +155,12 @@ async function init() {
 
 function formatData(dataSet: any) {
   const baseInfo: any[] = []
+  cbInfo.value = {
+    count: 0,
+    redChestFFJ: 0,
+    normalChestFFJ: 0,
+    lastFFJTime: null,
+  }
 
   GoldBrickQuest.forEach((quest) => {
     baseInfo.push({
@@ -139,6 +192,17 @@ function formatData(dataSet: any) {
       const targetQuestInfo = baseInfo.find(
         (quest) => quest.key == raidInfo.raidName
       )
+
+      if (raidInfo.raidName == 'cb') {
+        cbInfo.value.count++
+        raidInfo.goldBrick == '4' && cbInfo.value.redChestFFJ++
+        raidInfo.goldBrick == '3' && cbInfo.value.normalChestFFJ++
+
+        cbInfo.value.lastFFJTime = raidInfo.goldBrick
+          ? raidInfo.timestamp
+          : cbInfo.value.lastFFJTime ?? raidInfo.timestamp
+      }
+
       if (!targetQuestInfo) return
       targetQuestInfo.count++
 
@@ -215,36 +279,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.box-card {
-  min-height: 340px;
-  // min-width: 440px;
-  margin-bottom: 20px;
-  font-size: 14px;
-
-  .image {
-    width: 100%;
-    display: block;
-  }
-
-  .card-table {
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 124px;
-
-    .card-row {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10px;
-
-      .item {
-        margin-right: 20px;
-      }
-    }
-  }
-}
-
 .result {
   width: 300px;
   height: 50px;
@@ -264,15 +298,5 @@ onMounted(() => {
   button {
     margin: 10px;
   }
-}
-
-.box-card:hover {
-  -webkit-transform: translateY(-10px);
-  -ms-transform: translateY(-10px);
-  transform: translateY(-10px);
-  -webkit-box-shadow: 0 0 6px #999;
-  box-shadow: 0 0 6px #999;
-  -webkit-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
 }
 </style>
