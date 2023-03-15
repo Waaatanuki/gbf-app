@@ -41,7 +41,7 @@
           />
         </el-form-item>
       </el-form>
-      <div class="footer">
+      <div fc>
         <el-button type="primary" @click="copyForm">生成</el-button>
         <el-button type="primary" @click="reset">重置</el-button>
       </div>
@@ -108,9 +108,5 @@ function reset() {
 .box-card {
   width: 600px;
   margin: auto;
-}
-.footer {
-  display: flex;
-  justify-content: center;
 }
 </style>

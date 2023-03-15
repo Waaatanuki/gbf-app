@@ -16,6 +16,7 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "dayjs": "^1.11.7",
     "element-plus": "^2.3.0",
+    "html2canvas": "^1.4.1",
     "idb-keyval": "^6.2.0",
     "lodash": "^4.17.21",
     "nprogress": "^0.2.0",
@@ -24,6 +25,7 @@
     "pinia": "^2.0.33",
     "unocss": "^0.50.4",
     "vue": "^3.2.47",
+    "vue-cropper": "^1.0.7",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

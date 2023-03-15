@@ -64,6 +64,7 @@ div:focus {
 // main-container global css
 .app-container {
   padding: 15px;
+  overflow: auto;
   // margin: 15px;
   // box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
 }

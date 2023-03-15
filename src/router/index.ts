@@ -138,6 +138,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'Schedule',
         meta: { title: '日程', icon: 'menu' },
       },
+      {
+        path: '/nga/composeBuild',
+        component: () => import('@/views/nga/composeBuild/index.vue'),
+        name: 'ComposeBuild',
+        meta: { title: '生成配置', icon: 'menu' },
+      },
     ],
   },
   {
@@ -153,13 +159,18 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  //     path: '/tools',
-  //     component: () => import('@/views/tools/index.vue'),
-  //   },
-  //   {
-  //     path: '/playground',
-  //     component: () => import('@/views/playground/index.vue'),
-  //   },
+  // {
+  //   path: '',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: '/playground',
+  //       component: () => import('@/views/playground/index.vue'),
+  //       name: 'Playground',
+  //       meta: { title: 'Playground', icon: 'homepage' },
+  //     },
+  //   ],
+  // },
   //   {
   //     path: '/evokerDataMaker',
   //     component: () => import('@/views/evokerDataMaker/index.vue'),

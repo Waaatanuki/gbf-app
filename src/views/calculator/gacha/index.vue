@@ -97,9 +97,7 @@
           </div>
         </template>
         <div class="relative">
-          <div
-            class="gacha-bg flex flex-col justify-center items-center p-[2px] min-h-[139px]"
-          >
+          <div class="gacha-bg fc flex-col p-[2px] min-h-[139px]">
             <div class="flex">
               <img
                 class="m-[3px]"
@@ -122,24 +120,18 @@
               />
             </div>
           </div>
-          <div class="flex justify-center items-center">
-            <div
-              class="btn-gacha flex justify-center items-center"
-              @click="draw(1)"
-            >
+          <div fc>
+            <div class="btn-gacha fc" @click="draw(1)">
               <img src="/images/gacha/text_legend10.png" alt="text_legend10" />
             </div>
-            <div
-              class="btn-gacha flex justify-center items-center"
-              @click="draw(30)"
-            >
+            <div class="btn-gacha fc" @click="draw(30)">
               <img
                 src="/images/gacha/text_legend300.png"
                 alt="text_legend300"
               />
             </div>
           </div>
-          <el-scrollbar height="200px">
+          <el-scrollbar height="195px">
             <div class="flex flex-wrap justify-center">
               <img
                 class="h-10 m-[4px]"
