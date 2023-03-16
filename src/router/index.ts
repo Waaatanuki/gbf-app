@@ -142,7 +142,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         path: '/nga/composeBuild',
         component: () => import('@/views/nga/composeBuild/index.vue'),
         name: 'ComposeBuild',
-        meta: { title: '生成配置', icon: 'menu' },
+        meta: { title: '生成配置图', icon: 'menu' },
       },
     ],
   },

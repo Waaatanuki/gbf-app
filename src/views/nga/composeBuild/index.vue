@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <div fc m-1>
+    <div fc m-1 flex-wrap>
       <el-upload
         m-1
         ref="uploadRef"
@@ -16,6 +16,7 @@
       </el-upload>
 
       <el-button m-1 @click="handleCompose" type="primary">生成</el-button>
+      <el-button m-1 @click="handleEdit" type="info">自定义尺寸</el-button>
     </div>
 
     <div
@@ -102,7 +103,38 @@
       top="5vh"
       destroy-on-close
     >
-      <ImgCropper :cropperOption="cropperOption" @cropperCb="cropperCb" />
+      <el-form
+        :model="formData"
+        label-width="50px"
+        ref="formEl"
+        v-if="dialog.type == 'edit'"
+      >
+        <template v-for="item in uploaderInit">
+          <el-form-item
+            ><span ml-18>{{ item.label }}</span>
+          </el-form-item>
+          <el-row>
+            <el-col :span="12">
+              <el-form-item label="宽">
+                <el-input v-model.number="item.cropWidth" /> </el-form-item
+            ></el-col>
+            <el-col :span="12">
+              <el-form-item label="高">
+                <el-input v-model.number="item.cropHeight" /> </el-form-item
+            ></el-col>
+          </el-row>
+        </template>
+        <el-form-item>
+          <el-button @click="uploaderInit = defaultUploader" type="primary"
+            >重置</el-button
+          >
+        </el-form-item>
+      </el-form>
+      <ImgCropper
+        v-if="dialog.type == 'cropper'"
+        :cropperOption="cropperOption"
+        @cropperCb="cropperCb"
+      />
     </el-dialog>
   </div>
 </template>
@@ -110,48 +142,51 @@
 <script setup lang="ts">
 import html2canvas from 'html2canvas'
 import type { UploadInstance, UploadFile } from 'element-plus'
+
 const divEl = ref<HTMLElement>()
 const uploadRef = ref<UploadInstance>()
 const cropperOption = reactive<any>({})
-
+const defaultUploader = [
+  {
+    name: 'result',
+    label: '结算',
+    cropWidth: 250,
+    cropHeight: 500,
+    imgData: '',
+  },
+  {
+    name: 'team',
+    label: '队伍',
+    cropWidth: 500,
+    cropHeight: 225,
+    imgData: '',
+  },
+  {
+    name: 'weapon',
+    label: '武器盘',
+    cropWidth: 250,
+    cropHeight: 275,
+    imgData: '',
+  },
+  {
+    name: 'summon',
+    label: '召唤',
+    cropWidth: 250,
+    cropHeight: 275,
+    imgData: '',
+  },
+]
 const state = reactive({
   dialog: {
-    width: '',
+    width: 200,
     visible: false,
+    type: '',
   },
-  uploaderInit: [
-    {
-      name: 'result',
-      label: '结算',
-      cropWidth: 250,
-      cropHeight: 500,
-      imgData: '',
-    },
-    {
-      name: 'team',
-      label: '队伍',
-      cropWidth: 500,
-      cropHeight: 225,
-      imgData: '',
-    },
-    {
-      name: 'weapon',
-      label: '武器盘',
-      cropWidth: 250,
-      cropHeight: 275,
-      imgData: '',
-    },
-    {
-      name: 'summon',
-      label: '召唤',
-      cropWidth: 250,
-      cropHeight: 275,
-      imgData: '',
-    },
-  ],
+  uploaderInit: useStorage('uploaderInit', defaultUploader),
+  formData: {} as any,
 })
 
-const { uploaderInit, dialog } = toRefs(state)
+const { uploaderInit, dialog, formData } = toRefs(state)
 
 function cropperImg(uploadFile: UploadFile, item: any) {
   if (uploadFile.raw) {
@@ -161,12 +196,18 @@ function cropperImg(uploadFile: UploadFile, item: any) {
     cropperOption.name = item.name
     dialog.value.visible = true
     dialog.value.width = item.cropWidth + 100
+    dialog.value.type = 'cropper'
   }
 }
 
 function cropperCb(data: any, name: string) {
   dialog.value.visible = false
   uploaderInit.value.find((item) => item.name == name)!.imgData = data
+}
+function handleEdit() {
+  dialog.value.visible = true
+  dialog.value.width = 300
+  dialog.value.type = 'edit'
 }
 
 function handleCompose() {
