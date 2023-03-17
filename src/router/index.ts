@@ -138,14 +138,21 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'Schedule',
         meta: { title: '日程', icon: 'menu' },
       },
+    ],
+  },
+  {
+    path: '',
+    component: Layout,
+    children: [
       {
-        path: '/nga/composeBuild',
-        component: () => import('@/views/nga/composeBuild/index.vue'),
-        name: 'ComposeBuild',
-        meta: { title: '生成配置图', icon: 'menu' },
+        path: '/imageCollage',
+        component: () => import('@/views/imageCollage/index.vue'),
+        name: 'ImageCollage',
+        meta: { title: '图片拼接', icon: 'homepage' },
       },
     ],
   },
+
   {
     path: '',
     component: Layout,
