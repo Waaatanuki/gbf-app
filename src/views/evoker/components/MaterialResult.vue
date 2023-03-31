@@ -12,7 +12,9 @@
         :key="item.id"
       >
         <el-tooltip :content="`总需${item.total}`" placement="top">
-          <img :src="`./images/item/${item.id}.jpg`" />
+          <img
+            :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item.id}.jpg`"
+          />
         </el-tooltip>
         <label>{{ item.need }}</label>
       </div>

@@ -102,21 +102,21 @@
               <img
                 class="m-[3px]"
                 v-for="item in result.slice(0, 3)"
-                :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
+                :src="`http://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/assets/${item.cat}/m/${item.id}.jpg`"
               />
             </div>
             <div class="flex">
               <img
                 class="m-[3px]"
                 v-for="item in result.slice(3, 7)"
-                :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
+                :src="`http://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/assets/${item.cat}/m/${item.id}.jpg`"
               />
             </div>
             <div class="flex">
               <img
                 class="m-[3px]"
                 v-for="item in result.slice(7, 10)"
-                :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
+                :src="`http://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/assets/${item.cat}/m/${item.id}.jpg`"
               />
             </div>
           </div>
@@ -137,7 +137,7 @@
                 class="h-10 m-[4px]"
                 v-for="item in ssrList"
                 :class="{ target: item.incidence == '1' }"
-                :src="`./images/gacha/${item.cat}/${item.id}.jpg`"
+                :src="`http://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/assets/${item.cat}/m/${item.id}.jpg`"
               />
             </div>
           </el-scrollbar>

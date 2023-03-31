@@ -54,14 +54,14 @@
       width="800px"
       top="5vh"
     >
-      <div style="display: flex">
-        <div class="itemBox">
-          <div class="item-row" v-for="row in itemList">
-            <div class="item-col" v-for="item in row" v-show="item">
+      <div flex>
+        <div w-300px>
+          <div flex v-for="row in itemList">
+            <div flex v-for="item in row" v-show="item">
               <div class="item">
                 <img
                   style="height: 100%; width: 100%"
-                  :src="`./images/item/${item}.jpg`"
+                  :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item}.jpg`"
                   @click="handleItem(item)"
                 />
               </div>
@@ -74,7 +74,7 @@
               <div class="item">
                 <img
                   style="height: 100%; width: 100%"
-                  :src="`./images/item/${id}.jpg`"
+                  :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${id}.jpg`"
                   @click="handleItem(id)"
                 />
                 <input
@@ -90,7 +90,7 @@
               <div class="item">
                 <img
                   style="width: 50px"
-                  :src="`./images/item/${item.id}.jpg`"
+                  :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item.id}.jpg`"
                   @click="needItemList.splice(index, 1)"
                 />
                 <input
@@ -119,15 +119,15 @@ import { cloneDeep } from 'lodash'
 const height = document.documentElement.offsetHeight - 80
 
 const itemList = [
-  [0, 0, 0, 25000, 25001],
-  [25002, 25003, 25004, 25005, 25006],
-  [25007, 25008, 25009, 25010, 25011],
-  [25012, 25013, 25014, 25015, 25016],
-  [25020, 25021, 25033, 25034, 25035],
-  [25036, 25023, 25024, 25025, 25026],
-  [25047, 25048, 25049, 25050, 25051],
-  [25052, 25053, 25054, 25055, 25056],
-  [25070, 25071, 25072, 25073, 25074],
+  ['25000', '25001', '25002', '25003', '25004'],
+  ['25005', '25006', '25007', '25008', '25009'],
+  ['25010', '25011', '25012', '25013', '25014'],
+  ['25015', '25016', '25017', '25020', '25021'],
+  ['25033', '25034', '25035', '25036', '25023'],
+  ['25024', '25025', '25026', '25047', '25048'],
+  ['25049', '25050', '25051', '25052', '25053'],
+  ['25054', '25055', '25056', '25070', '25071'],
+  ['25072', '25073', '25074', '25087'],
 ]
 
 const state = reactive({
@@ -195,24 +195,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.itemBox {
-  width: 300px;
-  .item-row {
-    display: flex;
-    justify-content: flex-end;
-
-    .item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      padding-right: 5px;
-      padding-bottom: 5px;
-      width: 50px;
-    }
-  }
-}
 .item {
   display: flex;
   flex-direction: column;
