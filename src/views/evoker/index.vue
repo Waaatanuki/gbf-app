@@ -62,6 +62,17 @@ const getEvokerPageResult = function (e: any, v: any) {
           }
         }
       }
+
+      // 贤者四技能解锁
+      if (!e[i].isAbility4Release) {
+        let tarotCardData = evokerData[currentNo].ability4Release
+        for (const k in tarotCardData) {
+          if (isNaN(result[k])) {
+            result[k] = 0
+          }
+          result[k] += tarotCardData[k]
+        }
+      }
     }
   }
   const total = { ...result }

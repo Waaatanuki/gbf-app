@@ -56,7 +56,7 @@
     >
       <div flex>
         <div w-300px>
-          <div flex v-for="row in itemList">
+          <div flex v-for="row in materialList">
             <div flex v-for="item in row" v-show="item">
               <div class="item">
                 <img
@@ -113,23 +113,11 @@
 
 <script setup lang="ts">
 import uncapData from '@/assets/data/uncapData.json'
+import { materialList } from '@/settings/evoker.setting'
 import { downloadJSON } from '@/utils/file'
 import { cloneDeep } from 'lodash'
 
 const height = document.documentElement.offsetHeight - 80
-
-const itemList = [
-  ['25000', '25001', '25002', '25003', '25004'],
-  ['25005', '25006', '25007', '25008', '25009'],
-  ['25010', '25011', '25012', '25013', '25014'],
-  ['25015', '25016', '25017', '25020', '25021'],
-  ['25033', '25034', '25035', '25036', '25023'],
-  ['25024', '25025', '25026', '25047', '25048'],
-  ['25049', '25050', '25051', '25052', '25053'],
-  ['25054', '25055', '25056', '25070', '25071'],
-  ['25072', '25073', '25074', '25085', '25086'],
-  ['25087', '25088'],
-]
 
 const state = reactive({
   needItemList: [] as any[],
