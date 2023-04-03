@@ -1,16 +1,7 @@
 <template>
   <div>
     <div w-250px flex justify-start v-for="row in materialList">
-      <div
-        w-50px
-        flex
-        flex-col
-        justify-center
-        items-center
-        p-5px
-        v-for="item in row"
-        v-show="item"
-      >
+      <div w-50px fc flex-col p-5px v-for="item in row">
         <img
           :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item}.jpg`"
         />

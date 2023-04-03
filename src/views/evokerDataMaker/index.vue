@@ -57,47 +57,32 @@
       <div flex>
         <div w-300px>
           <div flex v-for="row in materialList">
-            <div flex v-for="item in row" v-show="item">
-              <div class="item">
-                <img
-                  style="height: 100%; width: 100%"
-                  :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item}.jpg`"
-                  @click="handleItem(item)"
-                />
-              </div>
+            <div class="item" v-for="item in row">
+              <img
+                :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item}.jpg`"
+                @click="handleItem(item)"
+              />
             </div>
           </div>
         </div>
-        <div class="resultBox">
-          <div class="item-row" v-for="cell in currentCell">
-            <div class="item-col" v-for="id in Object.keys(cell)">
-              <div class="item">
-                <img
-                  style="height: 100%; width: 100%"
-                  :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${id}.jpg`"
-                  @click="handleItem(id)"
-                />
-                <input
-                  class="itemNum"
-                  v-model.number="cell[id]"
-                  style="width: 40px"
-                />
-              </div>
+        <div>
+          <div flex v-for="cell in currentCell">
+            <div class="item" v-for="id in Object.keys(cell)">
+              <img
+                :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${id}.jpg`"
+                @click="handleItem(id)"
+              />
+              <input w-40px v-model.number="cell[id]" />
             </div>
           </div>
-          <div style="display: flex; flex-direction: row">
+          <div flex>
             <div v-for="(item, index) in needItemList">
               <div class="item">
                 <img
-                  style="width: 50px"
                   :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item.id}.jpg`"
                   @click="needItemList.splice(index, 1)"
                 />
-                <input
-                  class="itemNum"
-                  v-model.number="item.count"
-                  style="width: 40px"
-                />
+                <input w-40px v-model.number="item.count" />
               </div>
             </div>
           </div>
@@ -186,33 +171,13 @@ onMounted(() => {
 <style lang="scss" scoped>
 .item {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   padding-right: 5px;
   padding-bottom: 5px;
   width: 50px;
-}
-.resultBox {
-  display: flex;
-  flex-direction: column;
-  margin-left: 50px;
-  .item-row {
-    display: flex;
-    justify-content: flex-start;
-
-    .item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      padding-right: 5px;
-      padding-bottom: 5px;
-      width: 50px;
-    }
-  }
 }
 .export-btn {
   position: fixed;
