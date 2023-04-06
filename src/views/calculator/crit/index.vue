@@ -23,6 +23,7 @@
           </el-form-item>
           <el-form-item label="六龙SUB: ">
             <el-radio-group v-model="form.sub">
+              <el-radio :label="40">40</el-radio>
               <el-radio :label="20">20</el-radio>
               <el-radio :label="10">10</el-radio>
               <el-radio :label="0">无</el-radio>
@@ -96,7 +97,7 @@
 import { critData } from '@/settings/calculator.setting'
 import { reactive, computed } from 'vue'
 
-const form = reactive({ main: 300, sub: 20 })
+const form = reactive({ main: 300, sub: 40 })
 const boostType = {
   300: [300, 0],
   150: [150, 0],
@@ -121,8 +122,8 @@ const itemsList = { ...critData }
 const res = computed(() => {
   let sum = 0
   const boostLevel: any = [
-    boostType[form.main as keyof typeof boostType][0] + form.sub,
-    boostType[form.main as keyof typeof boostType][1],
+    boostType[form.main][0] + form.sub,
+    boostType[form.main][1],
   ]
   for (let i = 0; i < calcItems.length; i++) {
     calcItems[i].boostRate =

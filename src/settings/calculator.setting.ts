@@ -1,5 +1,5 @@
 // 计算暴击用数据
-export const critData: any = [
+export const critData: CritData[] = [
   { skillName: '技巧(小)', level: 15, rate: 3 },
   { skillName: '石油锤', level: 20, rate: 4, kamiOnly: true, sekiyu: true },
   { skillName: '技巧(中)', level: 15, rate: 6.5 },
@@ -31,3 +31,15 @@ export const critData: any = [
     boosted: false,
   },
 ]
+
+interface CritData {
+  skillName: string
+  level: number
+  rate: number
+  kamiOnly?: boolean
+  sekiyu?: boolean
+  waterOnly?: boolean
+  boosted?: boolean
+  sandboxOnly?: boolean
+  magunaOnly?: boolean
+}

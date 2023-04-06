@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex flex-wrap justify-center items-center mt-2">
+    <div class="fc flex-wrap mt-2">
       <el-check-tag
         class="m-1"
         v-for="bulletType in checkBulletGroup"
@@ -8,7 +8,7 @@
         @change="bulletType.checked = !bulletType.checked"
       >
         <template #default>
-          <div class="flex flex-col justify-center items-center w-[140px]">
+          <div class="fc flex-col w-[140px]">
             <span> {{ bulletType.name }}</span>
             <img
               class="h-5 mt-2"
@@ -63,13 +63,13 @@
       </div>
     </el-scrollbar>
 
-    <div class="flex items-center justify-center h-28 bg-slate-300 relative">
-      <div
-        v-for="(bullet, index) in bulletList"
-        @click="() => handleDelete(index)"
-        class="flex items-center justify-center cursor-pointer"
-      >
-        <img class="w-14 h-14 m-2" :src="getImgSrc(bullet.at(-1))" />
+    <div class="fc h-28 bg-white dark:bg-slate-800 mx-1 rounded-lg">
+      <div v-for="(bullet, index) in bulletList">
+        <img
+          :src="getImgSrc(bullet.at(-1))"
+          class="w-14 h-14 m-1 cursor-pointer"
+          @click="() => handleDelete(index)"
+        />
       </div>
     </div>
   </div>

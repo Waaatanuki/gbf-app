@@ -96,7 +96,11 @@
       </el-upload>
     </div>
     <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600">
-      <ChartDrawer :id="drawer.key" :data="drawer.dataSet" />
+      <ChartDrawer
+        :id="drawer.key"
+        :data="drawer.dataSet"
+        :rawTableData="drawer.rawTableData"
+      />
     </el-drawer>
   </div>
 </template>
@@ -114,7 +118,13 @@ const state = reactive({
   baseInfo: [] as any[],
   cbInfo: {} as any,
   totalBlueChestFFJ: 0,
-  drawer: { title: '', visible: false, key: '', dataSet: [] as any[] },
+  drawer: {
+    title: '',
+    visible: false,
+    key: '',
+    dataSet: [] as any[],
+    rawTableData: {} as any,
+  },
 })
 
 const {
@@ -135,6 +145,9 @@ function showChart(raid: any) {
     const raidId = Object.keys(record)[0]
     const raidInfo = record[raidId]
     return raid.key == raidInfo.raidName
+  })
+  state.drawer.rawTableData = state.baseInfo.find((item: any) => {
+    return raid.key == item.key
   })
 }
 
@@ -182,6 +195,7 @@ function formatData(dataSet: any) {
       redRing: 0,
       lastCount: 0,
       lastBlueChestCount: 0,
+      rawDetailData: {},
     })
   })
 
@@ -204,34 +218,47 @@ function formatData(dataSet: any) {
       }
 
       if (!targetQuestInfo) return
-      targetQuestInfo.count++
+      counter(targetQuestInfo, raidInfo)
 
-      raidInfo.blueChests && targetQuestInfo.blueChestCount++
-      raidInfo.goldBrick == '4' && targetQuestInfo.redChestFFJ++
-      raidInfo.goldBrick == '11' && targetQuestInfo.blueChestFFJ++
-      raidInfo.goldBrick == '3' && targetQuestInfo.normalChestFFJ++
+      const yearMonth = dayjs(raidInfo.timestamp).format('YYYY-MM')
 
-      targetQuestInfo.totalFFJ =
-        targetQuestInfo.redChestFFJ +
-        targetQuestInfo.blueChestFFJ +
-        targetQuestInfo.normalChestFFJ
-      raidInfo.blueChests == '73_1' && targetQuestInfo.whiteRing++
-      raidInfo.blueChests == '73_2' && targetQuestInfo.blackRing++
-      raidInfo.blueChests == '73_3' && targetQuestInfo.redRing++
-      targetQuestInfo.lastCount = raidInfo.goldBrick
-        ? 0
-        : targetQuestInfo.lastCount + 1
-      targetQuestInfo.lastBlueChestCount =
-        raidInfo.blueChests == '17_20004'
-          ? 0
-          : raidInfo.blueChests
-          ? targetQuestInfo.lastBlueChestCount + 1
-          : targetQuestInfo.lastBlueChestCount
+      if (targetQuestInfo.rawDetailData[yearMonth]) {
+        targetQuestInfo.rawDetailData[yearMonth].push(raidInfo)
+      } else {
+        targetQuestInfo.rawDetailData[yearMonth] = [raidInfo]
+      }
     } catch (error) {
       console.log('数据异常')
     }
   })
+
   return baseInfo
+}
+
+function counter(targetQuestInfo: any, raidInfo: any) {
+  targetQuestInfo.count++
+
+  raidInfo.blueChests && targetQuestInfo.blueChestCount++
+  raidInfo.goldBrick == '4' && targetQuestInfo.redChestFFJ++
+  raidInfo.goldBrick == '11' && targetQuestInfo.blueChestFFJ++
+  raidInfo.goldBrick == '3' && targetQuestInfo.normalChestFFJ++
+
+  targetQuestInfo.totalFFJ =
+    targetQuestInfo.redChestFFJ +
+    targetQuestInfo.blueChestFFJ +
+    targetQuestInfo.normalChestFFJ
+  raidInfo.blueChests == '73_1' && targetQuestInfo.whiteRing++
+  raidInfo.blueChests == '73_2' && targetQuestInfo.blackRing++
+  raidInfo.blueChests == '73_3' && targetQuestInfo.redRing++
+  targetQuestInfo.lastCount = raidInfo.goldBrick
+    ? 0
+    : targetQuestInfo.lastCount + 1
+  targetQuestInfo.lastBlueChestCount =
+    raidInfo.blueChests == '17_20004'
+      ? 0
+      : raidInfo.blueChests
+      ? targetQuestInfo.lastBlueChestCount + 1
+      : targetQuestInfo.lastBlueChestCount
 }
 
 function handleUploadChange(uploadFile: any) {

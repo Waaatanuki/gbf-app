@@ -1,22 +1,19 @@
 <template>
   <div>
-    <div class="flex items-center justify-center h-28 bg-slate-300 relative">
-      <div
-        v-for="bullet in bulletList"
-        class="flex items-center justify-center relative"
-      >
+    <div class="fc h-28 mx-1 rounded-lg bg-white dark:bg-slate-800 relative">
+      <div v-for="bullet in bulletList" class="fc relative">
         <div
           v-if="bullet.at(-1) && bullet.at(-1).done"
-          class="absolute w-full h-full bg-black/40 flex justify-center items-center"
+          class="absolute w-full h-full bg-black/40 fc"
         >
           <el-icon :size="45" color="#409EFC"><CircleCheck /></el-icon>
         </div>
         <el-tooltip effect="dark" placement="bottom">
           <img class="w-14 h-14 m-2" :src="getImgSrc(bullet.at(-1))" />
           <template #content>
-            <div class="flex flex-wrap items-center justify-center w-44">
+            <div class="fc flex-wrap w-44">
               <div
-                class="flex flex-col items-center justify-center select-none"
+                class="fc flex-col select-none"
                 v-for="article in bullet.at(-1).total"
               >
                 <img class="w-12 h-12 m-1" :src="getImgSrc(article)" />
@@ -50,9 +47,7 @@
               align="center"
             >
               <template #default="{ row }">
-                <div
-                  class="flex flex-col items-center justify-center relative select-none"
-                >
+                <div class="fc flex-col relative select-none">
                   <div
                     v-if="row.done"
                     class="absolute w-full h-full bg-black/40"
@@ -70,7 +65,7 @@
               align="center"
             >
               <template #default="{ row, $index }">
-                <div class="flex items-center justify-center">
+                <div class="fc">
                   <div
                     v-if="row.article.find((item:Article)=>item.kind=='54' && item.done!=true)"
                     class="absolute w-full h-full bg-black/80 z-10"
@@ -82,15 +77,13 @@
                   >
                     <div
                       v-if="item.done"
-                      class="absolute w-full h-full bg-black/40 flex justify-center items-center"
+                      class="absolute w-full h-full bg-black/40 fc"
                     >
                       <el-icon :size="45" color="#409EFC"
                         ><CircleCheck
                       /></el-icon>
                     </div>
-                    <div
-                      class="flex flex-col items-center justify-center select-none"
-                    >
+                    <div class="fc flex-col select-none">
                       <img class="w-12 h-12 m-1" :src="getImgSrc(item)" />
                       <span>{{ item.number }}</span>
                     </div>

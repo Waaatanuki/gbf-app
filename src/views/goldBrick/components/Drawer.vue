@@ -22,15 +22,17 @@
         :labels="blueChestData.labels"
         :data="blueChestData.count"
       />
+      <DetailTable mt-10 :data="rawTableData" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import BarChart from './BarChart.vue'
+import DetailTable from './DetailTable.vue'
 import dayjs from 'dayjs'
 
-const props = defineProps(['id', 'data'])
+const props = defineProps(['id', 'data', 'rawTableData'])
 
 const state = reactive({
   countData: {

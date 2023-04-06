@@ -5,7 +5,7 @@
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-        :unique-opened="false"
+        :unique-opened="true"
         :collapse-transition="false"
         mode="vertical"
       >
