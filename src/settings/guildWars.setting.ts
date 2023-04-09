@@ -58,12 +58,12 @@ export const tokenData = [
 ]
 
 export const setOptions = [
-  { title: '休息日', selectOptions: ['HELL Lv90'], max: 100 },
-  { title: '本战第一天', selectOptions: ['HELL Lv90', 'HELL Lv95'], max: 100 },
+  { title: '休息日', selectOptions: ['HELL Lv90'], max: 200 },
+  { title: '本战第一天', selectOptions: ['HELL Lv90', 'HELL Lv95'], max: 200 },
   {
     title: '本战第二天',
     selectOptions: ['HELL Lv90', 'HELL Lv95', 'HELL Lv100', 'HELL Lv150'],
-    max: 200,
+    max: 500,
   },
   {
     title: '本战第三天',
@@ -74,7 +74,7 @@ export const setOptions = [
       'HELL Lv150',
       'HELL Lv200',
     ],
-    max: 200,
+    max: 500,
   },
   {
     title: '本战第四天',
@@ -85,7 +85,7 @@ export const setOptions = [
       'HELL Lv150',
       'HELL Lv200',
     ],
-    max: 200,
+    max: 500,
   },
 ]
 

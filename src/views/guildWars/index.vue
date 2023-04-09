@@ -23,6 +23,7 @@
           <el-slider
             v-model="honorPlan[index]"
             :max="opt.max"
+            :step="2"
             :format-tooltip="formatTooltip"
           />
         </div>
