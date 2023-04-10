@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="fc h-28 mx-1 rounded-lg bg-white dark:bg-slate-800 relative">
+    <div class="fc h-24 m-2 rounded-lg bg-white dark:bg-slate-800 relative">
       <div v-for="bullet in bulletList" class="fc relative">
         <div
           v-if="bullet.at(-1) && bullet.at(-1).done"
@@ -21,14 +21,6 @@
               </div>
             </div>
           </template>
-        </el-tooltip>
-      </div>
-      <div class="absolute top-1 right-1">
-        <el-tooltip placement="top">
-          <template #content>
-            数据或界面异常时，请先尝试重新添加子弹。
-          </template>
-          <el-icon color="#409EFF"><InfoFilled /></el-icon>
         </el-tooltip>
       </div>
     </div>
@@ -100,7 +92,7 @@
 
 <script setup lang="ts">
 import type { Article, Bullet } from '../types'
-import { CircleCheck, InfoFilled } from '@element-plus/icons-vue'
+import { CircleCheck } from '@element-plus/icons-vue'
 
 const props = defineProps(['selectedBullet'])
 const emit = defineEmits(['change', 'update:selectedBullet'])
@@ -129,7 +121,8 @@ function handleCheck(
 
     while (i < list.length) {
       const hit = list[i].article.find(
-        (item: Article) => item.item_id == row.seq_id
+        (item: Article) =>
+          item.item_id == row.seq_id && item.number == row.number
       )
       if (hit) {
         hit.done = true

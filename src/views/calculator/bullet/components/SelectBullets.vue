@@ -63,7 +63,7 @@
       </div>
     </el-scrollbar>
 
-    <div class="fc h-28 bg-white dark:bg-slate-800 mx-1 rounded-lg">
+    <div class="fc h-24 bg-white dark:bg-slate-800 m-2 rounded-lg">
       <div v-for="(bullet, index) in bulletList">
         <img
           :src="getImgSrc(bullet.at(-1))"
