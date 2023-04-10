@@ -3,11 +3,11 @@
     class="box-card"
     :body-style="{
       padding: '20px 20px 0px 20px',
-      height: dynamicHeight - 62 + 'px',
+      height: dynamicHeight - 64 + 'px',
     }"
   >
     <template #header>
-      <div class="card-header">
+      <div text-center>
         <span>{{ dayjs().month() + 1 }}月日程表</span>
       </div>
     </template>
@@ -67,10 +67,5 @@ const handleColor = function (start: any, end: any) {
   min-width: 300px;
   margin: 15px;
   z-index: 10;
-  .card-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }
 </style>

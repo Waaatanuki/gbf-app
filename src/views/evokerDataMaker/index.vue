@@ -132,7 +132,7 @@ function handleItem(item: any) {
 }
 
 function handleSubmit() {
-  const newItemList = {}
+  const newItemList: any = {}
   state.needItemList.forEach((item: any) => {
     newItemList[item.id] = item.count
   })
