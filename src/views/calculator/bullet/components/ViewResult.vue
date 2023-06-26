@@ -8,7 +8,13 @@
         >
           <el-icon :size="45" color="#409EFC"><CircleCheck /></el-icon>
         </div>
-        <el-tooltip effect="dark" placement="bottom">
+
+        <img
+          class="w-14 h-14 m-2"
+          :src="getImgSrc(bullet.at(-1))"
+          v-if="bullet.length == 0"
+        />
+        <el-tooltip v-else effect="dark" placement="bottom">
           <img class="w-14 h-14 m-2" :src="getImgSrc(bullet.at(-1))" />
           <template #content>
             <div class="fc flex-wrap w-44">
@@ -23,6 +29,17 @@
           </template>
         </el-tooltip>
       </div>
+      <el-tooltip effect="dark" placement="bottom">
+        <el-icon mt-9 ml-2><InfoFilled /></el-icon>
+        <template #content>
+          <div class="fc flex-wrap w-44">
+            <div class="fc flex-col select-none" v-for="article in articleList">
+              <img class="w-12 h-12 m-1" :src="getImgSrc(article)" />
+              <span>{{ article.number }}</span>
+            </div>
+          </div>
+        </template>
+      </el-tooltip>
     </div>
 
     <el-scrollbar :max-height="height">
@@ -91,8 +108,9 @@
 </template>
 
 <script setup lang="ts">
+import { cloneDeep } from 'lodash'
 import type { Article, Bullet } from '../types'
-import { CircleCheck } from '@element-plus/icons-vue'
+import { CircleCheck, InfoFilled } from '@element-plus/icons-vue'
 
 const props = defineProps(['selectedBullet'])
 const emit = defineEmits(['change', 'update:selectedBullet'])
@@ -102,6 +120,24 @@ const bulletList = computed({
   set: (value) => {
     emit('update:selectedBullet', value)
   },
+})
+
+const articleList = computed(() => {
+  const list: Article[] = []
+  bulletList.value.forEach((bullet: Bullet[]) => {
+    if (bullet.at(-1)?.total) {
+      const articles = bullet.at(-1)!.total
+      articles?.forEach((article) => {
+        const hit = list.find((a) => a.item_id == article.item_id)
+        if (hit) {
+          hit.number += article.number
+        } else {
+          list.push(cloneDeep(article))
+        }
+      })
+    }
+  })
+  return list
 })
 
 const height = computed(() => document.documentElement.offsetHeight - 162)
