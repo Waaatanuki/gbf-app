@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.16",
+    "@plugin-web-update-notification/vite": "^1.6.4",
     "@types/node": "^20.2.0",
     "@types/nprogress": "^0.2.0",
     "@types/path-browserify": "^1.0.0",

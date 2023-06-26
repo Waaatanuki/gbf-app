@@ -7,12 +7,17 @@ import IconsResolver from 'unplugin-icons/resolver'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
 import Unocss from 'unocss/vite'
+import { webUpdateNotice } from '@plugin-web-update-notification/vite'
 const pathSrc = path.resolve(__dirname, 'src')
 
 export default defineConfig({
   base: '/gbf-app/',
   plugins: [
     vue(),
+    webUpdateNotice({
+      logVersion: true,
+      injectFileBase: '/gbf-app/',
+    }),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[dir]-[name]',
