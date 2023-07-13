@@ -43,7 +43,7 @@ export const tableData = [
     type: 'HELL Lv200',
     honor: '10,260,000',
     honorNumber: 10260000,
-    meat: 30,
+    meat: 20,
     ap: 50,
     token: 338,
   },
