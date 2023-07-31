@@ -50,18 +50,18 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  {
-    path: '',
-    component: Layout,
-    children: [
-      {
-        path: '/guildwars',
-        component: () => import('@/views/guildWars/index.vue'),
-        name: 'GuildWars',
-        meta: { title: '团战规划', icon: 'homepage' },
-      },
-    ],
-  },
+  // {
+  //   path: '',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: '/guildwars',
+  //       component: () => import('@/views/guildWars/index.vue'),
+  //       name: 'GuildWars',
+  //       meta: { title: '团战规划', icon: 'homepage' },
+  //     },
+  //   ],
+  // },
   {
     path: '',
     component: Layout,
