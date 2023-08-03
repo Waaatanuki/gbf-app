@@ -1,48 +1,38 @@
+import path from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import IconsResolver from 'unplugin-icons/resolver'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import path from 'path'
 import Unocss from 'unocss/vite'
 import { webUpdateNotice } from '@plugin-web-update-notification/vite'
-const pathSrc = path.resolve(__dirname, 'src')
 
 export default defineConfig({
   base: '/gbf-app/',
   plugins: [
-    vue(),
+    vue({
+      script: {
+        defineModel: true,
+      },
+    }),
     webUpdateNotice({
       logVersion: true,
       injectFileBase: '/gbf-app/',
     }),
     createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      iconDirs: [path.resolve('src', 'assets/icons')],
       symbolId: 'icon-[dir]-[name]',
     }),
     AutoImport({
-      imports: ['vue', '@vueuse/core'],
-      dirs: [path.resolve(pathSrc, 'composables')],
-
-      resolvers: [
-        ElementPlusResolver(),
-        IconsResolver({
-          prefix: 'Icon',
-        }),
-      ],
+      imports: ['vue', 'vue-router', '@vueuse/core'],
+      dirs: ['src/composables', 'src/stores'],
+      resolvers: [ElementPlusResolver()],
       vueTemplate: true,
       dts: path.resolve('types', 'auto-imports.d.ts'),
     }),
     Components({
-      resolvers: [
-        IconsResolver({
-          enabledCollections: ['ep'],
-        }),
-        ElementPlusResolver(),
-      ],
-
+      resolvers: [ElementPlusResolver()],
       dts: path.resolve('types', 'components.d.ts'),
     }),
     Unocss(),
@@ -54,7 +44,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve('./src'),
+      '~': path.resolve('./src'),
     },
   },
 })

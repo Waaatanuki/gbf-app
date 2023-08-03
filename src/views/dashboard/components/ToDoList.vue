@@ -1,53 +1,3 @@
-<template>
-  <el-card class="list-card">
-    <template #header>
-      <div class="header">
-        <span>ToDoList</span>
-        <div>
-          <el-button type="primary" link @click="addTask">增加</el-button>
-          <el-button
-            type="primary"
-            link
-            @click="delBtnVisible = !delBtnVisible"
-            >{{ delBtnVisible ? '确认' : '编辑' }}</el-button
-          >
-        </div>
-      </div>
-    </template>
-    <div class="body">
-      <el-checkbox
-        v-for="(task, index) in taskList"
-        v-model="task.done"
-        :label="task.content"
-      >
-        <template #default>
-          <div class="cell">
-            <div v-if="delBtnVisible">
-              <el-input
-                v-model="task.content"
-                size="small"
-                style="width: 120px; margin-right: 10px"
-              />
-              <el-button type="danger" link @click="delTask(index)"
-                >删除</el-button
-              >
-            </div>
-            <div v-else>{{ task.content }}</div>
-          </div>
-        </template>
-      </el-checkbox>
-      <el-input
-        v-if="inputVisible"
-        ref="InputRef"
-        v-model="inputValue"
-        size="small"
-        @keyup.enter="handleInputConfirm"
-        @blur="handleInputConfirm"
-      />
-    </div>
-  </el-card>
-</template>
-
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -79,7 +29,7 @@ watch(
   () => state.taskList,
   () => {
     state.lastUpdateTodo = dayjs().tz().unix()
-  }
+  },
 )
 
 function addTask() {
@@ -104,18 +54,65 @@ function handleInputConfirm() {
 }
 
 onMounted(() => {
-  if (
-    dayjs().tz().isAfter(dayjs().tz().hour(4).minute(0).second(0)) &&
-    dayjs
-      .unix(state.lastUpdateTodo)
-      .tz()
-      .isBefore(dayjs().tz().hour(4).minute(0).second(0))
-  ) {
+  if (dayjs().tz().isAfter(dayjs().tz().hour(4).minute(0).second(0)) && dayjs.unix(state.lastUpdateTodo).tz().isBefore(dayjs().tz().hour(4).minute(0).second(0))) {
     state.lastUpdateTodo = dayjs().tz().unix()
-    state.taskList.forEach((task) => (task.done = false))
+    state.taskList.forEach(task => (task.done = false))
   }
 })
 </script>
+
+<template>
+  <el-card class="list-card">
+    <template #header>
+      <div class="header">
+        <span>ToDoList</span>
+        <div>
+          <el-button type="primary" link @click="addTask">
+            增加
+          </el-button>
+          <el-button
+            type="primary" link
+            @click="delBtnVisible = !delBtnVisible"
+          >
+            {{ delBtnVisible ? '确认' : '编辑' }}
+          </el-button>
+        </div>
+      </div>
+    </template>
+    <div class="body">
+      <el-checkbox
+        v-for="(task, index) in taskList" :key="index"
+        v-model="task.done" :label="task.content"
+      >
+        <template #default>
+          <div class="cell">
+            <div v-if="delBtnVisible">
+              <el-input
+                v-model="task.content"
+                size="small"
+                style="width: 120px; margin-right: 10px"
+              />
+              <el-button type="danger" link @click="delTask(index)">
+                删除
+              </el-button>
+            </div>
+            <div v-else>
+              {{ task.content }}
+            </div>
+          </div>
+        </template>
+      </el-checkbox>
+      <el-input
+        v-if="inputVisible"
+        ref="InputRef"
+        v-model="inputValue"
+        size="small"
+        @keyup.enter="handleInputConfirm"
+        @blur="handleInputConfirm"
+      />
+    </div>
+  </el-card>
+</template>
 
 <style lang="scss" scoped>
 .list-card {

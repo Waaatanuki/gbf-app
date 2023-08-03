@@ -1,36 +1,7 @@
-<template>
-  <div class="detailPage">
-    <div>
-      <el-select v-model="range" placeholder="Select" size="small">
-        <el-option
-          v-for="item in rangeOptions"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
-    </div>
-    <div class="chart-list">
-      <BarChart
-        :id="id + 'count'"
-        title="次数统计"
-        :labels="countData.labels"
-        :data="countData.count"
-      />
-      <BarChart
-        :id="id + 'blueChest'"
-        title="出金蓝箱次数统计"
-        :labels="blueChestData.labels"
-        :data="blueChestData.count"
-      />
-      <DetailTable mt-10 :data="rawTableData" />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
+import dayjs from 'dayjs'
 import BarChart from './BarChart.vue'
 import DetailTable from './DetailTable.vue'
-import dayjs from 'dayjs'
 
 const props = defineProps(['id', 'data', 'rawTableData'])
 
@@ -67,6 +38,8 @@ function getCountData() {
     count: [],
   }
   let date: dayjs.Dayjs
+  const firstYear = 2022
+  const currentYear = dayjs().year()
 
   switch (state.range) {
     case 'month':
@@ -112,8 +85,6 @@ function getCountData() {
       }
       break
     case 'total':
-      const firstYear = 2022
-      const currentYear = dayjs().year()
       date = dayjs().year(2022)
       for (let j = 0; j < currentYear - firstYear + 1; j++) {
         const count = dataSet.filter((record: any) => {
@@ -144,11 +115,12 @@ function getBlueChestData() {
     const raidId = Object.keys(record)[0]
     const raidInfo = record[raidId]
 
-    if (raidInfo.goldBrick == 11) {
+    if (raidInfo.goldBrick === '11') {
       chartData.count[chartData.count.length - 1]++
       chartData.labels.push(chartData.labels.length + 1)
       chartData.count.push(0)
-    } else {
+    }
+    else {
       raidInfo.blueChests && chartData.count[chartData.count.length - 1]++
     }
   })
@@ -156,6 +128,35 @@ function getBlueChestData() {
   return chartData
 }
 </script>
+
+<template>
+  <div class="detailPage">
+    <div>
+      <el-select v-model="range" size="small">
+        <el-option
+          v-for="item, idx in rangeOptions" :key="idx"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
+    </div>
+    <div class="chart-list">
+      <BarChart
+        :id="`${id}count`"
+        title="次数统计"
+        :labels="countData.labels"
+        :data="countData.count"
+      />
+      <BarChart
+        :id="`${id}blueChest`"
+        title="出金蓝箱次数统计"
+        :labels="blueChestData.labels"
+        :data="blueChestData.count"
+      />
+      <DetailTable mt-10 :data="rawTableData" />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .detailPage {

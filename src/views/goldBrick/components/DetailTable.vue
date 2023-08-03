@@ -1,13 +1,3 @@
-<template>
-  <el-table :data="tableData">
-    <el-table-column align="center" prop="date" label="日期" />
-    <el-table-column align="center" prop="count" label="总次数" />
-    <el-table-column align="center" prop="blueChestCount" label="蓝箱次数" />
-    <el-table-column align="center" prop="blueChestFFJ" label="蓝箱金" />
-    <el-table-column align="center" prop="redRing" label="红戒指" />
-  </el-table>
-</template>
-
 <script setup lang="ts">
 const props = defineProps(['data'])
 const tableData = ref<any[]>([])
@@ -16,26 +6,26 @@ function counter(targetQuestInfo: any, raidInfo: any) {
   targetQuestInfo.count++
 
   raidInfo.blueChests && targetQuestInfo.blueChestCount++
-  raidInfo.goldBrick == '4' && targetQuestInfo.redChestFFJ++
-  raidInfo.goldBrick == '11' && targetQuestInfo.blueChestFFJ++
-  raidInfo.goldBrick == '3' && targetQuestInfo.normalChestFFJ++
+  raidInfo.goldBrick === '4' && targetQuestInfo.redChestFFJ++
+  raidInfo.goldBrick === '11' && targetQuestInfo.blueChestFFJ++
+  raidInfo.goldBrick === '3' && targetQuestInfo.normalChestFFJ++
 
-  targetQuestInfo.totalFFJ =
-    targetQuestInfo.redChestFFJ +
-    targetQuestInfo.blueChestFFJ +
-    targetQuestInfo.normalChestFFJ
-  raidInfo.blueChests == '73_1' && targetQuestInfo.whiteRing++
-  raidInfo.blueChests == '73_2' && targetQuestInfo.blackRing++
-  raidInfo.blueChests == '73_3' && targetQuestInfo.redRing++
+  targetQuestInfo.totalFFJ
+    = targetQuestInfo.redChestFFJ
+    + targetQuestInfo.blueChestFFJ
+    + targetQuestInfo.normalChestFFJ
+  raidInfo.blueChests === '73_1' && targetQuestInfo.whiteRing++
+  raidInfo.blueChests === '73_2' && targetQuestInfo.blackRing++
+  raidInfo.blueChests === '73_3' && targetQuestInfo.redRing++
   targetQuestInfo.lastCount = raidInfo.goldBrick
     ? 0
     : targetQuestInfo.lastCount + 1
-  targetQuestInfo.lastBlueChestCount =
-    raidInfo.blueChests == '17_20004'
+  targetQuestInfo.lastBlueChestCount
+    = raidInfo.blueChests === '17_20004'
       ? 0
       : raidInfo.blueChests
-      ? targetQuestInfo.lastBlueChestCount + 1
-      : targetQuestInfo.lastBlueChestCount
+        ? targetQuestInfo.lastBlueChestCount + 1
+        : targetQuestInfo.lastBlueChestCount
 }
 
 interface RawData {
@@ -72,4 +62,12 @@ watchEffect(() => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<template>
+  <el-table :data="tableData">
+    <el-table-column align="center" prop="date" label="日期" />
+    <el-table-column align="center" prop="count" label="总次数" />
+    <el-table-column align="center" prop="blueChestCount" label="蓝箱次数" />
+    <el-table-column align="center" prop="blueChestFFJ" label="蓝箱金" />
+    <el-table-column align="center" prop="redRing" label="红戒指" />
+  </el-table>
+</template>

@@ -1,7 +1,62 @@
+<script setup lang="ts">
+const formEl = ref()
+const formData = reactive({
+  title: '',
+  team: '',
+  weapon: '',
+  summon: '',
+  trial: '',
+  ring1: '',
+  ring2: '',
+  ring3: '',
+  comment: '',
+})
+
+const { copy } = useClipboard()
+
+async function copyForm() {
+  const { title, team, weapon, summon, trial, ring1, ring2, ring3, comment }
+    = formData
+  const content = `
+[size=150%][b]${title}[/b][/size]   
+[list]
+[*]阵容：
+${team}
+[*]武器盘：
+[collapse]
+${weapon}
+[/collapse]
+[*]召唤：
+[collapse]
+${summon}
+[/collapse]
+[*]木桩图：
+[collapse]
+${trial}
+[/collapse]
+[*]戒指及耳环情况：
+[list]
+[*]${ring1}
+[*]${ring2}
+[*]${ring3}
+[/list]
+[*]备注：
+${comment}
+[/list]
+        `
+  await copy(content)
+  ElMessage.success('已复制到剪贴板')
+}
+
+function reset() {
+  formEl.value.resetFields()
+}
+</script>
+
 <template>
   <div class="app-container">
     <el-card class="box-card" header="打牛贴生成器">
-      <el-form :model="formData" label-width="100px" ref="formEl">
+      <el-form ref="formEl" :model="formData" label-width="100px">
         <el-form-item label="标题" prop="title">
           <el-input
             v-model="formData.title"
@@ -42,67 +97,16 @@
         </el-form-item>
       </el-form>
       <div fc>
-        <el-button type="primary" @click="copyForm">生成</el-button>
-        <el-button type="primary" @click="reset">重置</el-button>
+        <el-button type="primary" @click="copyForm">
+          生成
+        </el-button>
+        <el-button type="primary" @click="reset">
+          重置
+        </el-button>
       </div>
     </el-card>
   </div>
 </template>
-
-<script setup lang="ts">
-const formEl = ref()
-const formData = reactive({
-  title: '',
-  team: '',
-  weapon: '',
-  summon: '',
-  trial: '',
-  ring1: '',
-  ring2: '',
-  ring3: '',
-  comment: '',
-})
-
-const { copy } = useClipboard()
-
-async function copyForm() {
-  const { title, team, weapon, summon, trial, ring1, ring2, ring3, comment } =
-    formData
-  const content = `
-[size=150%][b]${title}[/b][/size]   
-[list]
-[*]阵容：
-${team}
-[*]武器盘：
-[collapse]
-${weapon}
-[/collapse]
-[*]召唤：
-[collapse]
-${summon}
-[/collapse]
-[*]木桩图：
-[collapse]
-${trial}
-[/collapse]
-[*]戒指及耳环情况：
-[list]
-[*]${ring1}
-[*]${ring2}
-[*]${ring3}
-[/list]
-[*]备注：
-${comment}
-[/list]
-        `
-  await copy(content)
-  ElMessage.success('已复制到剪贴板')
-}
-
-function reset() {
-  formEl.value.resetFields()
-}
-</script>
 
 <style lang="scss" scoped>
 .box-card {

@@ -1,7 +1,3 @@
-<template>
-  <canvas :id="id"></canvas>
-</template>
-
 <script setup lang="ts">
 import Chart from 'chart.js/auto'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
@@ -62,4 +58,6 @@ onUpdated(() => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<template>
+  <canvas :id="id" />
+</template>

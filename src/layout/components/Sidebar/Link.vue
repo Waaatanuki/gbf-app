@@ -1,20 +1,10 @@
-<template>
-  <a v-if="isExternal(to)" :href="to" target="_blank" rel="noopener">
-    <slot />
-  </a>
-  <div v-else @click="push">
-    <slot />
-  </div>
-</template>
-
+<!-- eslint-disable no-console -->
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
-import { isExternal } from '@/utils/validate'
 import { useRouter } from 'vue-router'
+import { isExternal } from '~/utils/validate'
 
-import useStore from '@/store'
-
-const { app } = useStore()
+const app = useAppStore()
 
 const sidebar = computed(() => app.sidebar)
 const device = computed(() => app.device)
@@ -29,9 +19,9 @@ export default defineComponent({
   setup(props) {
     const router = useRouter()
     const push = () => {
-      if (device.value === 'mobile' && sidebar.value.opened == true) {
+      if (device.value === 'mobile' && sidebar.value.opened === true)
         app.closeSideBar(false)
-      }
+
       router.push(props.to).catch((err) => {
         console.log(err)
       })
@@ -43,3 +33,12 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <a v-if="isExternal(to)" :href="to" target="_blank" rel="noopener">
+    <slot />
+  </a>
+  <div v-else @click="push">
+    <slot />
+  </div>
+</template>

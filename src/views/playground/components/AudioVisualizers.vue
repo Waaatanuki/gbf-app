@@ -1,25 +1,6 @@
-<template>
-  <el-button type="danger" :disabled="typeof analyser == 'object'" @click="init"
-    >帕拉戴斯罗斯特</el-button
-  >
-  <canvas ref="canvas" :width="WIDTH" :height="HEIGHT"></canvas>
-  <audio ref="audio1" controls></audio>
-  <el-upload
-    ref="upload"
-    :limit="1"
-    :on-exceed="handleExceed"
-    :on-change="handleChange"
-    :show-file-list="false"
-    :auto-upload="false"
-  >
-    <template #trigger>
-      <el-button type="primary">选择本地音乐</el-button>
-    </template>
-  </el-upload>
-</template>
-
 <script setup lang="ts">
-import { ref, computed, nextTick } from 'vue'
+import { computed, nextTick, ref } from 'vue'
+
 const canvas = ref()
 const audio1 = ref()
 const ctx = computed(() => canvas.value.getContext('2d'))
@@ -27,8 +8,8 @@ const WIDTH = 350
 const HEIGHT = 350
 const upload = ref()
 const onPlay = ref(false)
-let analyser = ref()
-let baseColor = ref()
+const analyser = ref()
+const baseColor = ref()
 let bufferLength: any
 let dataArray: any
 
@@ -42,10 +23,10 @@ function init() {
   bufferLength = analyser.value.frequencyBinCount
   dataArray = new Uint8Array(bufferLength)
 
-  audio1.value.addEventListener('pause', function () {
+  audio1.value.addEventListener('pause', () => {
     onPlay.value = false
   })
-  audio1.value.addEventListener('play', function () {
+  audio1.value.addEventListener('play', () => {
     onPlay.value = true
     animation()
   })
@@ -53,7 +34,8 @@ function init() {
 }
 
 function handleChange(uploadFile?: any) {
-  if (!analyser.value) init()
+  if (!analyser.value)
+    init()
   audio1.value.src = uploadFile
     ? URL.createObjectURL(uploadFile.raw)
     : new URL('/src/assets/music/ParadiseLost.mp3', import.meta.url)
@@ -93,6 +75,28 @@ function drawVisualiser(bufferLength: any, dataArray: any) {
   }
 }
 </script>
+
+<template>
+  <el-button type="danger" :disabled="typeof analyser == 'object'" @click="init">
+    帕拉戴斯罗斯特
+  </el-button>
+  <canvas ref="canvas" :width="WIDTH" :height="HEIGHT" />
+  <audio ref="audio1" controls />
+  <el-upload
+    ref="upload"
+    :limit="1"
+    :on-exceed="handleExceed"
+    :on-change="handleChange"
+    :show-file-list="false"
+    :auto-upload="false"
+  >
+    <template #trigger>
+      <el-button type="primary">
+        选择本地音乐
+      </el-button>
+    </template>
+  </el-upload>
+</template>
 
 <style lang="scss" scoped>
 canvas {

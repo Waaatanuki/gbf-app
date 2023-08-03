@@ -1,21 +1,59 @@
+<script setup lang="ts">
+import EvokerCard from './EvokerCard.vue'
+
+const evoker = useEvokerStore()
+</script>
+
 <template>
-  <div class="flex flex-col text-sm">
-    <div class="flex flex-wrap justify-around items-center">
-      <template v-for="npc in evokerInfo.slice(0, 5)">
-        <EvokerCard :evokerInfo="npc" />
-      </template>
+  <div flex flex-col text-sm>
+    <div flex justify-around items-center my-2 gap-2>
+      <div v-for=" idx in 5" :key="idx">
+        <EvokerCard v-model="evoker.evokerInfo[idx - 1]" />
+      </div>
     </div>
-    <div class="flex flex-wrap justify-around items-center">
-      <template v-for="npc in evokerInfo.slice(5, 10)">
-        <EvokerCard :evokerInfo="npc" />
-      </template>
+    <div flex justify-around items-center my-2 gap-2>
+      <div v-for=" idx in 5" :key="idx">
+        <EvokerCard v-model="evoker.evokerInfo[idx + 4]" />
+      </div>
     </div>
+  </div>
+  <div v-if="evoker.result.length === 0">
+    <h1 style="text-align: center">
+      请先去游戏的素材界面读取素材信息
+    </h1>
+  </div>
+  <div v-else>
+    <el-scrollbar max-height="210">
+      <div class="showBox">
+        <div
+          v-for="item in evoker.result.filter(item => item.need > 0)"
+          :key="item.id"
+          class="item"
+        >
+          <el-tooltip :content="`总需${item.total}`" placement="top">
+            <img w-full :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item.id}.jpg`">
+          </el-tooltip>
+          <label>{{ item.need }}</label>
+        </div>
+      </div>
+    </el-scrollbar>
   </div>
 </template>
 
-<script setup lang="ts">
-import EvokerCard from './EvokerCard.vue'
-defineProps(['evokerInfo'])
-</script>
+<style lang="scss" scoped>
+.showBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 
-<style lang="scss" scoped></style>
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    margin: 5px;
+  }
+}
+</style>

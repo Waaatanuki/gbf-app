@@ -3,10 +3,16 @@
     "id": "71",
     "seq_id": "10901",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10901"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10901"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ヒールバレット",
     "name_en": "Healing Bullet",
     "comment": "威力:80<br>味方全体に再生効果",
@@ -165,10 +171,16 @@
     "id": "96",
     "seq_id": "11001",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["11001"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "11001"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ブレイズバレット",
     "name_en": "Blazing Bullet",
     "comment": "威力:100<br>確率で敵の火傷Lvが1上昇(最大10)",
@@ -302,10 +314,16 @@
     "id": "97",
     "seq_id": "11101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["11101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "11101"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "トキシックバレット",
     "name_en": "Toxic Bullet",
     "comment": "威力:100<br>確率で敵の劇毒Lvが1上昇(最大10)",
@@ -439,10 +457,16 @@
     "id": "98",
     "seq_id": "11201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["11201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "11201"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サンダーバレット",
     "name_en": "Thundering Bullet",
     "comment": "威力:100<br>確率で敵の感電Lvが1上昇(最大10)",
@@ -576,10 +600,16 @@
     "id": "99",
     "seq_id": "11301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["11301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "11301"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フリーズバレット",
     "name_en": "Freezing Bullet",
     "comment": "威力:100<br>確率で敵の氷結Lvが1上昇(最大10)",
@@ -713,10 +743,16 @@
     "id": "72",
     "seq_id": "20105",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20105"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20105"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フルメタルジャケットV",
     "name_en": "Full Metal Jacket V",
     "comment": "威力:150<br>確率で敵に防御DOWN(累積)",
@@ -876,10 +912,16 @@
     "id": "73",
     "seq_id": "20403",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20403"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20403"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シルバーバレットIII",
     "name_en": "Silver Bullet III",
     "comment": "威力:80<br>自分のチェインバーストダメージUP(累積)",
@@ -1039,10 +1081,16 @@
     "id": "74",
     "seq_id": "20501",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20501"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20501"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゴールドバレット",
     "name_en": "Gold Bullet",
     "comment": "威力:80<br>確率で自分の奥義ダメージUP(累積)",
@@ -1176,10 +1224,16 @@
     "id": "75",
     "seq_id": "20502",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20502"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20502"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゴールドバレットII",
     "name_en": "Gold Bullet II",
     "comment": "威力:100<br>確率で自分の奥義ダメージ性能UP(累積)",
@@ -1339,13 +1393,19 @@
     "id": "100",
     "seq_id": "20601",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20601"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20601"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンドモデル：パラダイス・ロスト",
     "name_en": "Expert Model: Paradise Lost",
-    "comment": "威力:200　ダメージ上限突破弾",
+    "comment": "威力:200  ダメージ上限突破弾",
     "comment_en": "ATK: 200<br>Surpasses DMG cap",
     "limit_comment": "",
     "max_unit": "",

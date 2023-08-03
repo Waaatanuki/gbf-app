@@ -1,39 +1,3 @@
-<template>
-  <div class="app-container">
-    <el-card class="box-card" header="战货计算">
-      <el-form :model="form" label-width="120px">
-        <el-form-item label="类型">
-          <el-radio-group v-model="form.type">
-            <el-radio :label="0">古战场</el-radio>
-            <el-radio :label="1">月末剧情</el-radio>
-            <el-radio :label="2">工会战</el-radio>
-          </el-radio-group>
-        </el-form-item>
-        <el-form-item label="当前战货数量">
-          <el-input v-model.number="form.currentToken" />
-        </el-form-item>
-        <el-form-item label="已抽箱数">
-          <el-input v-model.number="form.drawnBox" />
-        </el-form-item>
-        <el-form-item label="目标箱数">
-          <el-input v-model.number="form.targetBox" />
-        </el-form-item>
-      </el-form>
-
-      <div class="result">
-        <h3 v-show="form.targetBox - form.totalBox <= 0">
-          目前一共【{{ form.totalBox }}】箱,目标已达成！
-        </h3>
-        <h3 v-show="form.targetBox - form.totalBox > 0">
-          目前一共【{{ form.totalBox }}】箱,距离目标还差【{{
-            form.needToken
-          }}】战货
-        </h3>
-      </div>
-    </el-card>
-  </div>
-</template>
-
 <script setup lang="ts">
 const form: any = reactive({
   type: 0,
@@ -70,11 +34,11 @@ form.totalToken = computed(() => {
     const key = Object.keys(data[form.type][i])[0]
     const value = data[form.type][i][key]
     if (form.drawnBox >= value.drawnBox) {
-      total = parseInt(key) + (form.drawnBox - value.drawnBox) * value.perToken
+      total = Number.parseInt(key) + (form.drawnBox - value.drawnBox) * value.perToken
       break
     }
   }
-  return parseInt(total + form.currentToken)
+  return Number.parseInt(total + form.currentToken)
 })
 form.totalBox = computed(() => {
   let total = 0
@@ -82,9 +46,9 @@ form.totalBox = computed(() => {
     const key = Object.keys(data[form.type][i])[0]
     const value = data[form.type][i][key]
     if (form.totalToken >= key) {
-      total =
-        value.drawnBox +
-        Math.floor((form.totalToken - parseInt(key)) / value.perToken)
+      total
+        = value.drawnBox
+        + Math.floor((form.totalToken - Number.parseInt(key)) / value.perToken)
       break
     }
   }
@@ -96,7 +60,7 @@ form.needToken = computed(() => {
     const key = Object.keys(data[form.type][i])[0]
     const value = data[form.type][i][key]
     if (form.targetBox >= value.drawnBox) {
-      total = parseInt(key) + (form.targetBox - value.drawnBox) * value.perToken
+      total = Number.parseInt(key) + (form.targetBox - value.drawnBox) * value.perToken
       break
     }
   }
@@ -104,13 +68,49 @@ form.needToken = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+<template>
+  <div class="app-container">
+    <el-card class="box-card" header="战货计算">
+      <el-form :model="form" label-width="120px">
+        <el-form-item label="类型">
+          <el-radio-group v-model="form.type">
+            <el-radio :label="0">
+              古战场
+            </el-radio>
+            <el-radio :label="1">
+              月末剧情
+            </el-radio>
+            <el-radio :label="2">
+              工会战
+            </el-radio>
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="当前战货数量">
+          <el-input v-model.number="form.currentToken" />
+        </el-form-item>
+        <el-form-item label="已抽箱数">
+          <el-input v-model.number="form.drawnBox" />
+        </el-form-item>
+        <el-form-item label="目标箱数">
+          <el-input v-model.number="form.targetBox" />
+        </el-form-item>
+      </el-form>
 
+      <div class="result">
+        <h3 v-show="form.targetBox - form.totalBox <= 0">
+          目前一共【{{ form.totalBox }}】箱,目标已达成！
+        </h3>
+        <h3 v-show="form.targetBox - form.totalBox > 0">
+          目前一共【{{ form.totalBox }}】箱,距离目标还差【{{
+            form.needToken
+          }}】战货
+        </h3>
+      </div>
+    </el-card>
+  </div>
+</template>
+
+<style lang="scss" scoped>
 .box-card {
   margin: auto;
   max-width: 500px;

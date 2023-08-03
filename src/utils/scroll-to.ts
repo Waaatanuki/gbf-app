@@ -1,8 +1,8 @@
-const easeInOutQuad = (t: number, b: number, c: number, d: number) => {
+function easeInOutQuad(t: number, b: number, c: number, d: number) {
   t /= d / 2
-  if (t < 1) {
+  if (t < 1)
     return (c / 2) * t * t + b
-  }
+
   t--
   return (-c / 2) * (t * (t - 2) - 1) + b
 }
@@ -10,10 +10,10 @@ const easeInOutQuad = (t: number, b: number, c: number, d: number) => {
 // requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
 const requestAnimFrame = (function () {
   return (
-    window.requestAnimationFrame ||
-    (window as any).webkitRequestAnimationFrame ||
-    (window as any).mozRequestAnimationFrame ||
-    function (callback) {
+    window.requestAnimationFrame
+    || (window as any).webkitRequestAnimationFrame
+    || (window as any).mozRequestAnimationFrame
+    || function (callback) {
       window.setTimeout(callback, 1000 / 60)
     }
   )
@@ -23,17 +23,17 @@ const requestAnimFrame = (function () {
  * Because it's so fucking difficult to detect the scrolling element, just move them all
  * @param {number} amount
  */
-const move = (amount: number) => {
+function move(amount: number) {
   document.documentElement.scrollTop = amount
   ;(document.body.parentNode as HTMLElement).scrollTop = amount
   document.body.scrollTop = amount
 }
 
-const position = () => {
+function position() {
   return (
-    document.documentElement.scrollTop ||
-    (document.body.parentNode as HTMLElement).scrollTop ||
-    document.body.scrollTop
+    document.documentElement.scrollTop
+    || (document.body.parentNode as HTMLElement).scrollTop
+    || document.body.scrollTop
   )
 }
 
@@ -42,7 +42,7 @@ const position = () => {
  * @param {number} duration
  * @param {Function} callback
  */
-export const scrollTo = (to: number, duration: number, callback?: any) => {
+export function scrollTo(to: number, duration: number, callback?: any) {
   const start = position()
   const change = to - start
   const increment = 20
@@ -58,7 +58,8 @@ export const scrollTo = (to: number, duration: number, callback?: any) => {
     // do the animation unless its over
     if (currentTime < duration) {
       requestAnimFrame(animateScroll)
-    } else {
+    }
+    else {
       if (callback && typeof callback === 'function') {
         // the animation is done so lets callback
         callback()

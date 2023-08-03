@@ -1,10 +1,10 @@
 import {
-  ref,
   nextTick,
-  onMounted,
-  onBeforeUnmount,
   onActivated,
+  onBeforeUnmount,
   onDeactivated,
+  onMounted,
+  ref,
 } from 'vue'
 
 export default function useDynamicHeight() {
@@ -16,18 +16,17 @@ export default function useDynamicHeight() {
     const totalHeight = document.documentElement.offsetHeight
     const headHeight = 50
     const mainPadding = 15 * 2
-    const height =
-      totalHeight -
-      headHeight -
-      mainPadding -
-      (headerRef.value ? headerRef.value.offsetHeight : 0)
+    const height
+      = totalHeight
+      - headHeight
+      - mainPadding
+      - (headerRef.value ? headerRef.value.offsetHeight : 0)
     dynamicHeight.value = height > 300 ? height : 300
   }
 
   const sidebarResizeHandler = (e: TransitionEvent) => {
-    if (e.propertyName === 'width') {
+    if (e.propertyName === 'width')
       tableResizeHandler()
-    }
   }
 
   const initResizeEvent = () => {
@@ -40,7 +39,7 @@ export default function useDynamicHeight() {
 
   const initSidebarResizeEvent = () => {
     headerRef.value = document.querySelector(
-      '.app-container-header'
+      '.app-container-header',
     ) as HTMLDivElement
     sidebarElm.value = document.getElementsByClassName('sidebar-container')[0]
 
@@ -48,7 +47,7 @@ export default function useDynamicHeight() {
       sidebarElm.value.addEventListener(
         'transitionend',
         sidebarResizeHandler as EventListener,
-        { passive: true }
+        { passive: true },
       )
     }
   }
@@ -57,7 +56,7 @@ export default function useDynamicHeight() {
     if (sidebarElm.value) {
       sidebarElm.value.removeEventListener(
         'transitionend',
-        sidebarResizeHandler as EventListener
+        sidebarResizeHandler as EventListener,
       )
     }
   }

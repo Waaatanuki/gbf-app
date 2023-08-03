@@ -1,22 +1,23 @@
-import * as fs from 'fs'
+/* eslint-disable no-console */
+import * as fs from 'node:fs'
 
 // 子弹原始数据格式化处理脚本
 async function main() {
-  const bullets = await readFileData(`1.json`)
+  const bullets = await readFileData('1.json')
   const res: any = []
   bullets.forEach((bullet: any) => {
     const article = []
     for (let i = 1; i <= 4; i++) {
-      if (bullet['article' + i + '_number']) {
-        const raw = bullet['article' + i].master
+      if (bullet[`article${i}_number`]) {
+        const raw = bullet[`article${i}`].master
 
         const newArticle = {
           item_id: raw.item_id || raw.id,
           slot_type: raw.slot_type || '',
           name: raw.name,
           comment: raw.comment,
-          number: Number(bullet['article' + i + '_number']),
-          kind: bullet['article' + i + '_kind'],
+          number: Number(bullet[`article${i}_number`]),
+          kind: bullet[`article${i}_kind`],
         }
         article.push(newArticle)
       }
@@ -25,7 +26,7 @@ async function main() {
       seq_id: bullet.seq_id,
       name: bullet.name,
       comment: bullet.comment,
-      article: article,
+      article,
     }
 
     res.push(newBullet)
@@ -37,7 +38,8 @@ async function writeFileData(data: any, fileName: string) {
 
   try {
     await fs.promises.unlink(fileName)
-  } catch {
+  }
+  catch {
     console.error('文件不存在，重新创建')
   }
 

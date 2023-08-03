@@ -3,13 +3,19 @@
     "id": "101",
     "seq_id": "20701",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20701"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20701"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンドモデル：ケイオス・レギオン",
     "name_en": "Expert Model: Chaos Legion",
-    "comment": "威力:200　ダメージ上限突破弾<br>低確率で敵に穿孔効果",
+    "comment": "威力:200  ダメージ上限突破弾<br>低確率で敵に穿孔効果",
     "comment_en": "ATK: 200<br>Surpasses DMG cap / Low chance of Bore effect to foe",
     "limit_comment": "",
     "max_unit": "",
@@ -140,13 +146,19 @@
     "id": "102",
     "seq_id": "20801",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20801"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20801"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンドモデル：アナゲンネーシス",
     "name_en": "Expert Model: Anagenesis",
-    "comment": "威力:250　ダメージ上限突破弾<br>低確率で味方全体に謀略の果実効果",
+    "comment": "威力:250  ダメージ上限突破弾<br>低確率で味方全体に謀略の果実効果",
     "comment_en": "ATK: 250<br>Surpasses DMG cap / Low chance of Fruit of Treachery effect to all allies",
     "limit_comment": "",
     "max_unit": "",
@@ -277,13 +289,19 @@
     "id": "103",
     "seq_id": "20901",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20901"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20901"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンドモデル：ジェネシス・ノヴァ",
     "name_en": "Expert Model: Genesis Nova",
-    "comment": "威力:300　ダメージ上限突破弾<br>敵全体に無属性ダメージ/バレットを全て消費",
+    "comment": "威力:300  ダメージ上限突破弾<br>敵全体に無属性ダメージ/バレットを全て消費",
     "comment_en": "ATK: 300<br>Surpasses DMG cap / Plain DMG to all foes / Consume all bullets",
     "limit_comment": "",
     "max_unit": "",
@@ -436,13 +454,19 @@
     "id": "76",
     "seq_id": "30105",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30105"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30105"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレットV",
     "name_en": "Shotshell V",
-    "comment": "威力:120　全体攻撃",
+    "comment": "威力:120  全体攻撃",
     "comment_en": "ATK: 120<br>Deals DMG to all foes",
     "limit_comment": "",
     "max_unit": "",
@@ -556,7 +580,7 @@
         "image": "1",
         "name": "シェルバレットIV",
         "name_en": "Shotshell IV",
-        "comment": "威力:105　全体攻撃",
+        "comment": "威力:105  全体攻撃",
         "comment_en": "ATK: 105<br>Deals DMG to all foes",
         "attack_rate": "105",
         "damage_limit_up_rate": "",
@@ -599,13 +623,19 @@
     "id": "77",
     "seq_id": "31102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31102"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スティッキーシェルII",
     "name_en": "Sticky Shell II",
-    "comment": "威力:80　全体攻撃<br>敵全体の連続攻撃確率DOWN",
+    "comment": "威力:80  全体攻撃<br>敵全体の連続攻撃確率DOWN",
     "comment_en": "ATK: 80<br>Deals DMG to all foes / Hit to all foes' multiattack rate",
     "limit_comment": "",
     "max_unit": "",
@@ -690,7 +720,7 @@
         "image": "1",
         "name": "スティッキーシェル",
         "name_en": "Sticky Shell",
-        "comment": "威力:50　全体攻撃<br>敵全体の連続攻撃確率DOWN",
+        "comment": "威力:50  全体攻撃<br>敵全体の連続攻撃確率DOWN",
         "comment_en": "ATK: 50<br>Deals DMG to all foes / Hit to all foes' multiattack rate",
         "attack_rate": "50",
         "damage_limit_up_rate": "",
@@ -736,13 +766,19 @@
     "id": "78",
     "seq_id": "31201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31201"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "チェイスシェル",
     "name_en": "Chaser Shell",
-    "comment": "威力:60　全体攻撃<br>確率で自分に自属性追撃効果",
+    "comment": "威力:60  全体攻撃<br>確率で自分に自属性追撃効果",
     "comment_en": "ATK: 60<br>Deals DMG to all foes / Chance to grant Bonus Elemental DMG effect to MC",
     "limit_comment": "",
     "max_unit": "",
@@ -856,7 +892,7 @@
         "image": "1",
         "name": "シェルバレットV",
         "name_en": "Shotshell V",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "comment_en": "ATK: 120<br>Deals DMG to all foes",
         "attack_rate": "120",
         "damage_limit_up_rate": "",
@@ -899,13 +935,19 @@
     "id": "79",
     "seq_id": "31301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31301"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンハンスシェル",
     "name_en": "Enhancing Shell",
-    "comment": "威力:90　全体攻撃<br>確率で味方全体に与ダメージ上昇効果",
+    "comment": "威力:90  全体攻撃<br>確率で味方全体に与ダメージ上昇効果",
     "comment_en": "ATK: 90<br>Deals DMG to all foes / Chance to grant Supplemental DMG effect to all allies",
     "limit_comment": "",
     "max_unit": "",
@@ -1019,7 +1061,7 @@
         "image": "1",
         "name": "シェルバレットV",
         "name_en": "Shotshell V",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "comment_en": "ATK: 120<br>Deals DMG to all foes",
         "attack_rate": "120",
         "damage_limit_up_rate": "",
@@ -1062,13 +1104,19 @@
     "id": "104",
     "seq_id": "31401",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31401"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31401"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "カタストロフィシリンダー",
     "name_en": "Catastrophe Cylinder",
-    "comment": "威力:140　全体攻撃<br>確率で自分に奥義性能UP(1回)",
+    "comment": "威力:140  全体攻撃<br>確率で自分に奥義性能UP(1回)",
     "comment_en": "ATK: 140<br>Deals DMG to all foes / Chance to boost MC's C.A. specs (1 time)",
     "limit_comment": "",
     "max_unit": "",
@@ -1095,7 +1143,7 @@
         "image": "1",
         "name": "シェルバレットV",
         "name_en": "Shotshell V",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "comment_en": "ATK: 120<br>Deals DMG to all foes",
         "attack_rate": "120",
         "damage_limit_up_rate": "",
@@ -1173,13 +1221,19 @@
     "id": "105",
     "seq_id": "31501",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31501"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31501"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アカシックシリンダー",
     "name_en": "Akashic Cylinder",
-    "comment": "威力:140　全体攻撃<br>確率でターン進行時に経過ターンを1ターン進める",
+    "comment": "威力:140  全体攻撃<br>確率でターン進行時に経過ターンを1ターン進める",
     "comment_en": "ATK: 140<br>Deals DMG to all foes / Chance to progress battle turn by 1",
     "limit_comment": "",
     "max_unit": "",
@@ -1206,7 +1260,7 @@
         "image": "1",
         "name": "シェルバレットV",
         "name_en": "Shotshell V",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "comment_en": "ATK: 120<br>Deals DMG to all foes",
         "attack_rate": "120",
         "damage_limit_up_rate": "",
@@ -1284,13 +1338,19 @@
     "id": "106",
     "seq_id": "31601",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31601"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31601"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コスモスシリンダー",
     "name_en": "Cosmos Cylinder",
-    "comment": "威力:140　全体攻撃<br>確率で自分に調停の翼効果(特殊強化(攻防UP)/吸収効果)",
+    "comment": "威力:140  全体攻撃<br>確率で自分に調停の翼効果(特殊強化(攻防UP)/吸収効果)",
     "comment_en": "ATK: 140<br>Deals DMG to all foes / Chance of Peacemaker's Wings to MC (Special buffs [ATK and DEF] / Drain effect)",
     "limit_comment": "",
     "max_unit": "",
@@ -1317,7 +1377,7 @@
         "image": "1",
         "name": "シェルバレットV",
         "name_en": "Shotshell V",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "comment_en": "ATK: 120<br>Deals DMG to all foes",
         "attack_rate": "120",
         "damage_limit_up_rate": "",

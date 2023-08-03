@@ -10,8 +10,6 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
-
 <style lang="scss" scoped>
 .app-main {
   /* 50= navbar  50  */

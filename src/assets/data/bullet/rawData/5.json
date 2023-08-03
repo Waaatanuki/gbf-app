@@ -3,13 +3,19 @@
     "id": "40",
     "seq_id": "30801",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30801"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30801"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ダークシリンダー",
     "name_en": "Dark Cylinder",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
     "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' dark DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -138,13 +144,19 @@
     "id": "41",
     "seq_id": "30802",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30802"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30802"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ダークシリンダーII",
     "name_en": "Dark Cylinder II",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
     "comment_en": "ATK: 90<br>Deals DMG to all foes / Chance to lower all foes' dark DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -258,7 +270,7 @@
         "image": "1",
         "name": "ダークシリンダー",
         "name_en": "Dark Cylinder",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
         "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' dark DEF (Stackable)",
         "attack_rate": "50",
         "damage_limit_up_rate": "",
@@ -299,13 +311,19 @@
     "id": "42",
     "seq_id": "30901",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30901"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30901"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーブレイカー",
     "name_en": "Guard Breaker",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の防御DOWN(累積)",
     "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -460,13 +478,19 @@
     "id": "43",
     "seq_id": "30902",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30902"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30902"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーブレイカーII",
     "name_en": "Guard Breaker II",
-    "comment": "威力:75　全体攻撃<br>確率で敵全体の防御DOWN(累積)",
+    "comment": "威力:75  全体攻撃<br>確率で敵全体の防御DOWN(累積)",
     "comment_en": "ATK: 75<br>Deals DMG to all foes / Chance to lower all foes' DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -551,7 +575,7 @@
         "image": "1",
         "name": "アーマーブレイカー",
         "name_en": "Guard Breaker",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の防御DOWN(累積)",
         "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' DEF (Stackable)",
         "attack_rate": "50",
         "damage_limit_up_rate": "",
@@ -595,10 +619,16 @@
     "id": "44",
     "seq_id": "31001",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31001"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31001"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スラッグショット",
     "name_en": "Slug Shot",
     "comment": "威力:200<br>自分のダブルアタック確率DOWN/防御DOWN(累積)",
@@ -756,10 +786,16 @@
     "id": "45",
     "seq_id": "31002",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31002"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31002"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スラッグショットII",
     "name_en": "Slug Shot II",
     "comment": "威力:300<br>自分のダブルアタック確率DOWN/防御DOWN(累積)",
@@ -891,13 +927,19 @@
     "id": "66",
     "seq_id": "31101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31101"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スティッキーシェル",
     "name_en": "Sticky Shell",
-    "comment": "威力:50　全体攻撃<br>敵全体の連続攻撃確率DOWN",
+    "comment": "威力:50  全体攻撃<br>敵全体の連続攻撃確率DOWN",
     "comment_en": "ATK: 50<br>Deals DMG to all foes / Hit to all foes' multiattack rate",
     "limit_comment": "",
     "max_unit": "",
@@ -1052,10 +1094,16 @@
     "id": "46",
     "seq_id": "40101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40101"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "イフリートポイント",
     "name_en": "Ifrit Point",
     "comment": "威力:80<br>確率で自分の火属性攻撃UP(累積)",
@@ -1213,10 +1261,16 @@
     "id": "47",
     "seq_id": "40102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40102"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "イフリートポイントII",
     "name_en": "Ifrit Point II",
     "comment": "威力:100<br>確率で自分の火属性攻撃UP(累積)",
@@ -1374,10 +1428,16 @@
     "id": "48",
     "seq_id": "40201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40201"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コキュートスポイント",
     "name_en": "Cocytus Point",
     "comment": "威力:80<br>確率で自分の水属性攻撃UP(累積)",

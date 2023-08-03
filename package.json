@@ -1,12 +1,12 @@
 {
   "name": "gbf-app-ts",
-  "homepage": "https://waaatanuki.github.io/gbf-app",
-  "version": "1.0.0",
   "type": "module",
+  "version": "1.0.0",
+  "homepage": "https://waaatanuki.github.io/gbf-app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prettier": "prettier --write ."
+    "lint": "eslint ."
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
@@ -28,14 +28,19 @@
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.40.0",
     "@iconify-json/carbon": "^1.1.18",
     "@plugin-web-update-notification/vite": "^1.6.4",
+    "@types/lodash": "^4.14.196",
     "@types/node": "^20.4.5",
     "@types/nprogress": "^0.2.0",
     "@types/path-browserify": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
     "@unocss/reset": "^0.54.1",
     "@vitejs/plugin-vue": "^4.2.3",
-    "prettier": "^3.0.0",
+    "eslint": "^8.46.0",
+    "pnpm": "^8.6.11",
     "sass": "^1.64.2",
     "typescript": "^5.1.6",
     "unplugin-auto-import": "^0.16.6",

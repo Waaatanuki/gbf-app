@@ -1,20 +1,21 @@
-<template>
-  <div class="copyright">
-    <el-link :href="copyrightWebsite" :underline="false" target="_blank">{{
-      ' Powered by ' + copyrightCompany
-    }}</el-link>
-  </div>
-</template>
-
 <script setup lang="ts">
 const state = reactive({
-  copyrightDates: new Date().getFullYear(),
   copyrightCompany: 'Waaatanuki',
   copyrightWebsite: 'https://bbs.nga.cn/read.php?tid=30999435',
 })
 
-const { copyrightDates, copyrightCompany, copyrightWebsite } = toRefs(state)
+const { copyrightCompany, copyrightWebsite } = toRefs(state)
 </script>
+
+<template>
+  <div class="copyright">
+    <el-link :href="copyrightWebsite" :underline="false" target="_blank">
+      {{
+        ` Powered by ${copyrightCompany}`
+      }}
+    </el-link>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .copyright {

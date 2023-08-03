@@ -1,23 +1,19 @@
+<script setup lang="ts">
+import { materialList } from '~/constants/evoker'
+
+const evoker = useEvokerStore()
+</script>
+
 <template>
   <div>
-    <div w-250px flex justify-start v-for="row in materialList">
-      <div w-50px fc flex-col p-5px v-for="item in row">
-        <img
-          :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item}.jpg`"
-        />
+    <div v-for="row, y in materialList" :key="y" w-250px flex justify-start>
+      <div v-for="item, x in row" :key="x" w-50px fc flex-col p-5px>
+        <img :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/item/article/s/${item}.jpg`">
         <input
-          w-40px
-          text-12px
-          text-right
-          pr-2px
-          v-model.number="materialInfo[item]"
-        />
+          v-model.number="evoker.materialInfo[item]"
+          w-40px text-12px text-right pr-2px
+        >
       </div>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { materialList } from '@/settings/evoker.setting'
-defineProps(['materialInfo'])
-</script>

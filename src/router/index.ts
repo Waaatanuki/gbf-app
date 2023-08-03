@@ -1,6 +1,7 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-export const Layout = () => import('@/layout/index.vue')
+export const Layout = () => import('~/layout/index.vue')
 
 // 静态路由
 export const constantRoutes: Array<RouteRecordRaw> = [
@@ -11,13 +12,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index.vue'),
+        component: () => import('~/views/redirect/index.vue'),
       },
     ],
   },
   {
     path: '/:catchAll(.*)',
-    component: () => import('@/views/error-page/404.vue'),
+    component: () => import('~/views/error-page/404.vue'),
     meta: { hidden: true },
   },
   {
@@ -26,13 +27,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/dashboard/index.vue'),
+        component: () => import('~/views/dashboard/index.vue'),
         name: 'Dashboard',
         meta: { title: '首页', icon: 'homepage' },
       },
       {
         path: '401',
-        component: () => import('@/views/error-page/401.vue'),
+        component: () => import('~/views/error-page/401.vue'),
         meta: { hidden: true },
       },
     ],
@@ -44,31 +45,19 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/evoker',
-        component: () => import('@/views/evoker/index.vue'),
+        component: () => import('~/views/evoker/index.vue'),
         name: 'Evoker',
         meta: { title: '贤者素材', icon: 'homepage' },
       },
     ],
   },
-  // {
-  //   path: '',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: '/guildwars',
-  //       component: () => import('@/views/guildWars/index.vue'),
-  //       name: 'GuildWars',
-  //       meta: { title: '团战规划', icon: 'homepage' },
-  //     },
-  //   ],
-  // },
   {
     path: '',
     component: Layout,
     children: [
       {
         path: '/goldbrick',
-        component: () => import('@/views/goldBrick/index.vue'),
+        component: () => import('~/views/goldBrick/index.vue'),
         name: 'GoldBrick',
         meta: { title: '猎金统计', icon: 'homepage' },
       },
@@ -86,28 +75,28 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/calculator/gacha',
-        component: () => import('@/views/calculator/gacha/index.vue'),
+        component: () => import('~/views/calculator/gacha/index.vue'),
         name: 'GachaCalc',
         meta: { title: '攒井计算器', icon: 'menu' },
       },
       {
         path: '/calculator/token',
-        component: () => import('@/views/calculator/token/index.vue'),
+        component: () => import('~/views/calculator/token/index.vue'),
         name: 'TokenCalc',
         meta: { title: '战货计算器', icon: 'menu' },
       },
       {
         path: '/calculator/bullet',
-        component: () => import('@/views/calculator/bullet/index.vue'),
+        component: () => import('~/views/calculator/bullet/index.vue'),
         name: 'BulletCalc',
         meta: { title: '子弹计算器', icon: 'menu' },
       },
-      {
-        path: '/calculator/crit',
-        component: () => import('@/views/calculator/crit/index.vue'),
-        name: 'CritCalc',
-        meta: { title: '暴击计算器', icon: 'menu' },
-      },
+      // {
+      //   path: '/calculator/crit',
+      //   component: () => import('~/views/calculator/crit/index.vue'),
+      //   name: 'CritCalc',
+      //   meta: { title: '暴击计算器', icon: 'menu' },
+      // },
     ],
   },
   {
@@ -122,19 +111,19 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/nga/teamShare',
-        component: () => import('@/views/nga/teamShare/index.vue'),
+        component: () => import('~/views/nga/teamShare/index.vue'),
         name: 'TeamShare',
         meta: { title: '打牛', icon: 'menu' },
       },
       {
         path: '/nga/newCharacter',
-        component: () => import('@/views/nga/newCharacter/index.vue'),
+        component: () => import('~/views/nga/newCharacter/index.vue'),
         name: 'NewCharacter',
         meta: { title: '新角色', icon: 'menu' },
       },
       {
         path: '/nga/schedule',
-        component: () => import('@/views/nga/schedule/index.vue'),
+        component: () => import('~/views/nga/schedule/index.vue'),
         name: 'Schedule',
         meta: { title: '日程', icon: 'menu' },
       },
@@ -146,7 +135,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/imageCollage',
-        component: () => import('@/views/imageCollage/index.vue'),
+        component: () => import('~/views/imageCollage/index.vue'),
         name: 'ImageCollage',
         meta: { title: '图片拼接', icon: 'homepage' },
       },
@@ -160,7 +149,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/evokerDataMaker',
-        component: () => import('@/views/evokerDataMaker/index.vue'),
+        component: () => import('~/views/evokerDataMaker/index.vue'),
         name: 'EvokerDataMaker',
         meta: { title: '素材编辑', icon: 'homepage' },
       },
@@ -172,7 +161,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   //   children: [
   //     {
   //       path: '/playground',
-  //       component: () => import('@/views/playground/index.vue'),
+  //       component: () => import('~/views/playground/index.vue'),
   //       name: 'Playground',
   //       meta: { title: 'Playground', icon: 'homepage' },
   //     },
@@ -180,7 +169,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   // },
   //   {
   //     path: '/evokerDataMaker',
-  //     component: () => import('@/views/evokerDataMaker/index.vue'),
+  //     component: () => import('~/views/evokerDataMaker/index.vue'),
   //   },
 ]
 

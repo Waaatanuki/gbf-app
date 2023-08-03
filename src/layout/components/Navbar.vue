@@ -1,32 +1,31 @@
-<template>
-  <div class="navbar">
-    <hamburger
-      id="hamburger-container"
-      :is-active="sidebar.opened"
-      class="hamburger-container"
-      @toggleClick="toggleSideBar"
-    />
-
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
-
-    <button absolute right-20px top-0 bottom-0 icon-btn @click="toggleDark()">
-      <div dark:i-carbon-moon i-carbon-sun />
-    </button>
-  </div>
-</template>
 <script setup lang="ts">
-import useStore from '@/store'
-import Breadcrumb from '@/components/Breadcrumb/index.vue'
-import Hamburger from '@/components/Hamburger/index.vue'
+import Breadcrumb from '~/components/Breadcrumb/index.vue'
+import Hamburger from '~/components/Hamburger/index.vue'
 
-const { app } = useStore()
-
+const app = useAppStore()
 const sidebar = computed(() => app.sidebar)
 
 function toggleSideBar() {
   app.toggleSidebar()
 }
 </script>
+
+<template>
+  <div class="navbar">
+    <Hamburger
+      id="hamburger-container"
+      :is-active="sidebar.opened"
+      class="hamburger-container"
+      @toggle-click="toggleSideBar"
+    />
+
+    <Breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+
+    <button absolute right-20px top-0 bottom-0 icon-btn @click="toggleDark()">
+      <div dark:i-carbon-moon i-carbon-sun />
+    </button>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 ul {

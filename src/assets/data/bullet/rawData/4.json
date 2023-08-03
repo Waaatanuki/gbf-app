@@ -3,13 +3,19 @@
     "id": "30",
     "seq_id": "30301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30301"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ヒートシリンダー",
     "name_en": "Fire Cylinder",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
     "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' fire DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -138,13 +144,19 @@
     "id": "31",
     "seq_id": "30302",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30302"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30302"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ヒートシリンダーII",
     "name_en": "Fire Cylinder II",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
     "comment_en": "ATK: 90<br>Deals DMG to all foes / Chance to lower all foes' fire DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -258,7 +270,7 @@
         "image": "1",
         "name": "ヒートシリンダー",
         "name_en": "Fire Cylinder",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
         "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' fire DEF (Stackable)",
         "attack_rate": "50",
         "damage_limit_up_rate": "",
@@ -299,13 +311,19 @@
     "id": "32",
     "seq_id": "30401",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30401"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30401"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コールドシリンダー",
     "name_en": "Water Cylinder",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
     "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' water DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -434,13 +452,19 @@
     "id": "33",
     "seq_id": "30402",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30402"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30402"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コールドシリンダーII",
     "name_en": "Water Cylinder II",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
     "comment_en": "ATK: 90<br>Deals DMG to all foes / Chance to lower all foes' water DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -554,7 +578,7 @@
         "image": "1",
         "name": "コールドシリンダー",
         "name_en": "Water Cylinder",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
         "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' water DEF (Stackable)",
         "attack_rate": "50",
         "damage_limit_up_rate": "",
@@ -595,13 +619,19 @@
     "id": "34",
     "seq_id": "30501",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30501"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30501"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アースシリンダー",
     "name_en": "Earth Cylinder",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
     "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' earth DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -730,13 +760,19 @@
     "id": "35",
     "seq_id": "30502",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30502"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30502"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アースシリンダーII",
     "name_en": "Earth Cylinder II",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
     "comment_en": "ATK: 90<br>Deals DMG to all foes / Chance to lower all foes' earth DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -850,7 +886,7 @@
         "image": "1",
         "name": "アースシリンダー",
         "name_en": "Earth Cylinder",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
         "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' earth DEF (Stackable)",
         "attack_rate": "50",
         "damage_limit_up_rate": "",
@@ -891,13 +927,19 @@
     "id": "36",
     "seq_id": "30601",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30601"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30601"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゲイルシリンダー",
     "name_en": "Wind Cylinder",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
     "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' wind DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -1026,13 +1068,19 @@
     "id": "37",
     "seq_id": "30602",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30602"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30602"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゲイルシリンダーII",
     "name_en": "Wind Cylinder II",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
     "comment_en": "ATK: 90<br>Deals DMG to all foes / Chance to lower all foes' wind DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -1146,7 +1194,7 @@
         "image": "1",
         "name": "ゲイルシリンダー",
         "name_en": "Wind Cylinder",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
         "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' wind DEF (Stackable)",
         "attack_rate": "50",
         "damage_limit_up_rate": "",
@@ -1187,13 +1235,19 @@
     "id": "38",
     "seq_id": "30701",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30701"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30701"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サンダーシリンダー",
     "name_en": "Light Cylinder",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
     "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' light DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -1322,13 +1376,19 @@
     "id": "39",
     "seq_id": "30702",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30702"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30702"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サンダーシリンダーII",
     "name_en": "Light Cylinder II",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
     "comment_en": "ATK: 90<br>Deals DMG to all foes / Chance to lower all foes' light DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -1442,7 +1502,7 @@
         "image": "1",
         "name": "サンダーシリンダー",
         "name_en": "Light Cylinder",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
         "comment_en": "ATK: 50<br>Deals DMG to all foes / Chance to lower all foes' light DEF (Stackable)",
         "attack_rate": "50",
         "damage_limit_up_rate": "",

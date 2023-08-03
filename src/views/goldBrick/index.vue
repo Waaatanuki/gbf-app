@@ -1,116 +1,11 @@
-<template>
-  <div class="app-container">
-    <el-table :data="baseInfo" @row-click="showChart">
-      <el-table-column width="150" align="center">
-        <template #default="{ row }">
-          <img
-            :src="`./images/raid/img-quest-thumb/${row.questId}.png`"
-            style="width: 100%"
-          />
-        </template>
-      </el-table-column>
-      <el-table-column align="center" prop="whiteRing" label="白戒指" />
-      <el-table-column align="center" prop="blackRing" label="黑戒指" />
-      <el-table-column align="center" prop="redRing" label="红戒指" />
-      <el-table-column align="center" prop="blueChestFFJ" label="蓝箱金" />
-      <el-table-column align="center" prop="blueChestCount" label="蓝箱次数" />
-      <el-table-column align="center" prop="count" label="总次数" />
-      <el-table-column align="center" prop="blueChestCount" label="蓝箱率">
-        <template #default="{ row }">
-          {{ ((row.blueChestCount / row.count || 0) * 100).toFixed(2) }}%
-        </template>
-      </el-table-column>
-      <el-table-column align="center" prop="blueChestCount" label="蓝箱金率">
-        <template #default="{ row }">
-          {{ ((row.blueChestFFJ / row.blueChestCount || 0) * 100).toFixed(2) }}%
-        </template>
-      </el-table-column>
-    </el-table>
-    <el-popover width="200">
-      <template #reference>
-        <img
-          w-126px
-          absolute
-          bottom-5
-          left-5
-          :src="`./images/raid/img-quest-thumb/303141.png`"
-        />
-      </template>
-      <template #default>
-        <el-descriptions :column="2" direction="vertical" border>
-          <el-descriptions-item label="总次数" align="center">{{
-            cbInfo.count
-          }}</el-descriptions-item>
-          <el-descriptions-item label="自发金" align="center">{{
-            cbInfo.redChestFFJ
-          }}</el-descriptions-item>
-          <el-descriptions-item label="金箱金" align="center">{{
-            cbInfo.normalChestFFJ
-          }}</el-descriptions-item>
-          <el-descriptions-item label="掉金率" align="center">
-            {{
-              (
-                ((cbInfo.redChestFFJ + cbInfo.normalChestFFJ) / cbInfo.count ||
-                  0) * 100
-              ).toFixed(2)
-            }}%
-          </el-descriptions-item>
-          <el-descriptions-item
-            label="上次出金"
-            align="center"
-            :span="2"
-            v-if="cbInfo.lastFFJTime"
-            >{{ dayjs().diff(dayjs(cbInfo.lastFFJTime), 'day') }}天之前
-          </el-descriptions-item>
-        </el-descriptions>
-      </template>
-    </el-popover>
-    <div class="result" rounded>蓝箱FFJ总计：{{ totalBlueChestFFJ }}</div>
-    <div class="uploader">
-      <el-popconfirm
-        title="清空操作无法恢复，确认清空吗?"
-        :onConfirm="clearData"
-        width="200"
-      >
-        <template #reference>
-          <el-button type="danger">清空数据</el-button>
-        </template>
-      </el-popconfirm>
-      <el-button type="info" @click="handleExport">导出</el-button>
-      <el-upload
-        :on-change="handleUploadChange"
-        v-model:file-list="filesList"
-        :show-file-list="false"
-        :limit="1"
-        :auto-upload="false"
-        accept=".json"
-      >
-        <template #trigger>
-          <el-button
-            type="primary"
-            @click="filesList = []"
-            :loading="uploadBtnLoading"
-            >上传</el-button
-          >
-        </template>
-      </el-upload>
-    </div>
-    <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600">
-      <ChartDrawer
-        :id="drawer.key"
-        :data="drawer.dataSet"
-        :rawTableData="drawer.rawTableData"
-      />
-    </el-drawer>
-  </div>
-</template>
-
+<!-- eslint-disable no-console -->
 <script setup lang="ts">
-import ChartDrawer from './components/Drawer.vue'
-import { downloadJSON } from '@/utils/file'
-import db from '@/utils/db'
-import GoldBrickQuest from '@/assets/data/GoldBrickQuest.json'
 import dayjs from 'dayjs'
+import ChartDrawer from './components/Drawer.vue'
+import { downloadJSON } from '~/utils/file'
+import db from '~/utils/db'
+import GoldBrickQuest from '~/assets/data/GoldBrickQuest.json'
+
 const state = reactive({
   dataSet: [] as any[],
   filesList: [],
@@ -137,18 +32,19 @@ const {
 } = toRefs(state)
 
 function showChart(raid: any) {
-  if (raid.key == 'cb') return ElMessage.warning('超巴没有详细图表')
+  if (raid.key === 'cb')
+    return ElMessage.warning('超巴没有详细图表')
   state.drawer.visible = true
-  state.drawer.title = raid.alias + '详细图表'
+  state.drawer.title = `${raid.alias}详细图表`
   state.drawer.key = raid.key
   state.drawer.dataSet = state.dataSet.filter((record: any) => {
     const raidId = Object.keys(record)[0]
     const raidInfo = record[raidId]
-    return raid.key == raidInfo.raidName
+    return raid.key === raidInfo.raidName
   })
-  state.drawer.rawTableData = state.baseInfo.find((item: any) => {
-    return raid.key == item.key
-  })
+  state.drawer.rawTableData = state.baseInfo.find((item: any) =>
+    raid.key === item.key,
+  )
 }
 
 async function init() {
@@ -162,7 +58,7 @@ async function init() {
   state.baseInfo = formatData(state.dataSet)
   state.totalBlueChestFFJ = state.baseInfo.reduce(
     (total, kv) => total + kv.blueChestFFJ,
-    0
+    0,
   )
 }
 
@@ -182,7 +78,7 @@ function formatData(dataSet: any) {
       questId: quest.questId,
       img: new URL(
         `/src/assets/images/raid/img-quest-thumb/${quest.questId}.png`,
-        import.meta.url
+        import.meta.url,
       ).href,
       count: 0,
       blueChestCount: 0,
@@ -203,31 +99,30 @@ function formatData(dataSet: any) {
     try {
       const raidId = Object.keys(record)[0]
       const raidInfo = record[raidId]
-      const targetQuestInfo = baseInfo.find(
-        (quest) => quest.key == raidInfo.raidName
-      )
+      const targetQuestInfo = baseInfo.find(quest => quest.key === raidInfo.raidName)
 
-      if (raidInfo.raidName == 'cb') {
+      if (raidInfo.raidName === 'cb') {
         cbInfo.value.count++
-        raidInfo.goldBrick == '4' && cbInfo.value.redChestFFJ++
-        raidInfo.goldBrick == '3' && cbInfo.value.normalChestFFJ++
+        raidInfo.goldBrick === '4' && cbInfo.value.redChestFFJ++
+        raidInfo.goldBrick === '3' && cbInfo.value.normalChestFFJ++
 
         cbInfo.value.lastFFJTime = raidInfo.goldBrick
           ? raidInfo.timestamp
           : cbInfo.value.lastFFJTime ?? raidInfo.timestamp
       }
 
-      if (!targetQuestInfo) return
+      if (!targetQuestInfo)
+        return
       counter(targetQuestInfo, raidInfo)
 
       const yearMonth = dayjs(raidInfo.timestamp).format('YYYY-MM')
 
-      if (targetQuestInfo.rawDetailData[yearMonth]) {
+      if (targetQuestInfo.rawDetailData[yearMonth])
         targetQuestInfo.rawDetailData[yearMonth].push(raidInfo)
-      } else {
+      else
         targetQuestInfo.rawDetailData[yearMonth] = [raidInfo]
-      }
-    } catch (error) {
+    }
+    catch (error) {
       console.log('数据异常')
     }
   })
@@ -239,34 +134,29 @@ function counter(targetQuestInfo: any, raidInfo: any) {
   targetQuestInfo.count++
 
   raidInfo.blueChests && targetQuestInfo.blueChestCount++
-  raidInfo.goldBrick == '4' && targetQuestInfo.redChestFFJ++
-  raidInfo.goldBrick == '11' && targetQuestInfo.blueChestFFJ++
-  raidInfo.goldBrick == '3' && targetQuestInfo.normalChestFFJ++
+  raidInfo.goldBrick === '4' && targetQuestInfo.redChestFFJ++
+  raidInfo.goldBrick === '11' && targetQuestInfo.blueChestFFJ++
+  raidInfo.goldBrick === '3' && targetQuestInfo.normalChestFFJ++
 
-  targetQuestInfo.totalFFJ =
-    targetQuestInfo.redChestFFJ +
-    targetQuestInfo.blueChestFFJ +
-    targetQuestInfo.normalChestFFJ
-  raidInfo.blueChests == '73_1' && targetQuestInfo.whiteRing++
-  raidInfo.blueChests == '73_2' && targetQuestInfo.blackRing++
-  raidInfo.blueChests == '73_3' && targetQuestInfo.redRing++
-  targetQuestInfo.lastCount = raidInfo.goldBrick
-    ? 0
-    : targetQuestInfo.lastCount + 1
-  targetQuestInfo.lastBlueChestCount =
-    raidInfo.blueChests == '17_20004'
+  targetQuestInfo.totalFFJ = targetQuestInfo.redChestFFJ + targetQuestInfo.blueChestFFJ + targetQuestInfo.normalChestFFJ
+  raidInfo.blueChests === '73_1' && targetQuestInfo.whiteRing++
+  raidInfo.blueChests === '73_2' && targetQuestInfo.blackRing++
+  raidInfo.blueChests === '73_3' && targetQuestInfo.redRing++
+  targetQuestInfo.lastCount = raidInfo.goldBrick ? 0 : targetQuestInfo.lastCount + 1
+  targetQuestInfo.lastBlueChestCount
+    = raidInfo.blueChests === '17_20004'
       ? 0
       : raidInfo.blueChests
-      ? targetQuestInfo.lastBlueChestCount + 1
-      : targetQuestInfo.lastBlueChestCount
+        ? targetQuestInfo.lastBlueChestCount + 1
+        : targetQuestInfo.lastBlueChestCount
 }
 
 function handleUploadChange(uploadFile: any) {
   const selectedFile = uploadFile.raw
 
-  if (selectedFile.type !== 'application/json') {
+  if (selectedFile.type !== 'application/json')
     return ElMessage.error('文件格式不对')
-  }
+
   const reader = new FileReader()
   reader.readAsText(selectedFile)
   reader.onload = function () {
@@ -289,9 +179,10 @@ function handleUploadChange(uploadFile: any) {
 }
 
 function handleExport() {
-  if (state.dataSet.length === 0) return ElMessage.info('没有数据可以导出')
+  if (state.dataSet.length === 0)
+    return ElMessage.info('没有数据可以导出')
   const event = new Date()
-  const filename = '金本数据 ' + event.toLocaleDateString()
+  const filename = `金本数据 ${event.toLocaleDateString()}`
   downloadJSON(JSON.stringify(state.dataSet), filename)
 }
 
@@ -304,6 +195,105 @@ onMounted(() => {
   init()
 })
 </script>
+
+<template>
+  <div class="app-container">
+    <el-table :data="baseInfo" @row-click="showChart">
+      <el-table-column width="150" align="center">
+        <template #default="{ row }">
+          <img :src="getImageSrc(row.questId, 'raid/img-quest-thumb')" w-full>
+        </template>
+      </el-table-column>
+      <el-table-column align="center" prop="whiteRing" label="白戒指" />
+      <el-table-column align="center" prop="blackRing" label="黑戒指" />
+      <el-table-column align="center" prop="redRing" label="红戒指" />
+      <el-table-column align="center" prop="blueChestFFJ" label="蓝箱金" />
+      <el-table-column align="center" prop="blueChestCount" label="蓝箱次数" />
+      <el-table-column align="center" prop="count" label="总次数" />
+      <el-table-column align="center" prop="blueChestCount" label="蓝箱率">
+        <template #default="{ row }">
+          {{ ((row.blueChestCount / row.count || 0) * 100).toFixed(2) }}%
+        </template>
+      </el-table-column>
+      <el-table-column align="center" prop="blueChestCount" label="蓝箱金率">
+        <template #default="{ row }">
+          {{ ((row.blueChestFFJ / row.blueChestCount || 0) * 100).toFixed(2) }}%
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-popover width="200">
+      <template #reference>
+        <img
+          w-126px absolute bottom-5 left-5
+          :src="getImageSrc('303141', 'raid/img-quest-thumb')"
+        >
+      </template>
+      <template #default>
+        <el-descriptions :column="2" direction="vertical" border>
+          <el-descriptions-item label="总次数" align="center">
+            {{ cbInfo.count }}
+          </el-descriptions-item>
+          <el-descriptions-item label="自发金" align="center">
+            {{ cbInfo.redChestFFJ }}
+          </el-descriptions-item>
+          <el-descriptions-item label="金箱金" align="center">
+            {{ cbInfo.normalChestFFJ }}
+          </el-descriptions-item>
+          <el-descriptions-item label="掉金率" align="center">
+            {{ (((cbInfo.redChestFFJ + cbInfo.normalChestFFJ) / cbInfo.count || 0) * 100).toFixed(2) }}%
+          </el-descriptions-item>
+          <el-descriptions-item v-if="cbInfo.lastFFJTime" label="上次出金" align="center" :span="2">
+            {{ dayjs().diff(dayjs(cbInfo.lastFFJTime), 'day') }}天之前
+          </el-descriptions-item>
+        </el-descriptions>
+      </template>
+    </el-popover>
+    <div class="result" rounded>
+      蓝箱FFJ总计：{{ totalBlueChestFFJ }}
+    </div>
+    <div class="uploader">
+      <el-popconfirm
+        title="清空操作无法恢复，确认清空吗?"
+        :on-confirm="clearData"
+        width="200"
+      >
+        <template #reference>
+          <el-button type="danger">
+            清空数据
+          </el-button>
+        </template>
+      </el-popconfirm>
+      <el-button type="info" @click="handleExport">
+        导出
+      </el-button>
+      <el-upload
+        v-model:file-list="filesList"
+        :on-change="handleUploadChange"
+        :show-file-list="false"
+        :limit="1"
+        :auto-upload="false"
+        accept=".json"
+      >
+        <template #trigger>
+          <el-button
+            type="primary"
+            :loading="uploadBtnLoading"
+            @click="filesList = []"
+          >
+            上传
+          </el-button>
+        </template>
+      </el-upload>
+    </div>
+    <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600">
+      <ChartDrawer
+        :id="drawer.key"
+        :data="drawer.dataSet"
+        :raw-table-data="drawer.rawTableData"
+      />
+    </el-drawer>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .result {

@@ -13,13 +13,14 @@ export function downloadExcel(response: any) {
     const href = window.URL.createObjectURL(blob) // 下载的链接
     a.href = href
     a.download = decodeURI(
-      response.headers['content-disposition'].split(';')[1].split('=')[1]
+      response.headers['content-disposition'].split(';')[1].split('=')[1],
     ) // 获取后台设置的文件名称
     document.body.appendChild(a)
     a.click() // 点击导出
     document.body.removeChild(a) // 下载完成移除元素
     window.URL.revokeObjectURL(href) // 释放掉blob对象
-  } catch (error) {
+  }
+  catch (error) {
     ElMessage.error('系统错误')
   }
 }

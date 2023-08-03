@@ -1,18 +1,17 @@
 import { ref } from 'vue'
+
 export default function () {
   const chart = ref<any>()
   const sidebarElm = ref<Element>()
 
   const chartResizeHandler = () => {
-    if (chart.value) {
+    if (chart.value)
       chart.value.resize()
-    }
   }
 
   const sidebarResizeHandler = (e: TransitionEvent) => {
-    if (e.propertyName === 'width') {
+    if (e.propertyName === 'width')
       chartResizeHandler()
-    }
   }
 
   const initResizeEvent = () => {
@@ -28,7 +27,7 @@ export default function () {
     if (sidebarElm.value) {
       sidebarElm.value.addEventListener(
         'transitionend',
-        sidebarResizeHandler as EventListener
+        sidebarResizeHandler as EventListener,
       )
     }
   }
@@ -37,7 +36,7 @@ export default function () {
     if (sidebarElm.value) {
       sidebarElm.value.removeEventListener(
         'transitionend',
-        sidebarResizeHandler as EventListener
+        sidebarResizeHandler as EventListener,
       )
     }
   }

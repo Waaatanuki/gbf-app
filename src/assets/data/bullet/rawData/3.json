@@ -3,10 +3,16 @@
     "id": "20",
     "seq_id": "20302",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20302"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20302"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーピアシングII",
     "name_en": "Piercer II",
     "comment": "威力:70<br>確率で自分のクリティカル確率UP/ダブルアタック確率DOWN(累積)",
@@ -164,10 +170,16 @@
     "id": "21",
     "seq_id": "20303",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20303"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20303"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーピアシングIII",
     "name_en": "Piercer III",
     "comment": "威力:70<br>確率で自分のクリティカル確率UP/ダブルアタック確率DOWN(累積)",
@@ -325,10 +337,16 @@
     "id": "22",
     "seq_id": "20401",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20401"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20401"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シルバーバレット",
     "name_en": "Silver Bullet",
     "comment": "威力:30<br>確率でチェインバーストダメージUP(累積)",
@@ -486,10 +504,16 @@
     "id": "23",
     "seq_id": "20402",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20402"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20402"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シルバーバレットII",
     "name_en": "Silver Bullet II",
     "comment": "威力:50<br>確率でチェインバーストダメージUP(累積)",
@@ -647,13 +671,19 @@
     "id": "24",
     "seq_id": "30101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30101"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレット",
     "name_en": "Shotshell",
-    "comment": "威力:35　全体攻撃",
+    "comment": "威力:35  全体攻撃",
     "comment_en": "ATK: 35<br>Deals DMG to all foes",
     "limit_comment": "",
     "max_unit": "",
@@ -782,13 +812,19 @@
     "id": "25",
     "seq_id": "30102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30102"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレットII",
     "name_en": "Shotshell II",
-    "comment": "威力:50　全体攻撃",
+    "comment": "威力:50  全体攻撃",
     "comment_en": "ATK: 50<br>Deals DMG to all foes",
     "limit_comment": "",
     "max_unit": "",
@@ -902,7 +938,7 @@
         "image": "1",
         "name": "シェルバレット",
         "name_en": "Shotshell",
-        "comment": "威力:35　全体攻撃",
+        "comment": "威力:35  全体攻撃",
         "comment_en": "ATK: 35<br>Deals DMG to all foes",
         "attack_rate": "35",
         "damage_limit_up_rate": "",
@@ -943,13 +979,19 @@
     "id": "26",
     "seq_id": "30103",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30103"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30103"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレットIII",
     "name_en": "Shotshell III",
-    "comment": "威力:70　全体攻撃",
+    "comment": "威力:70  全体攻撃",
     "comment_en": "ATK: 70<br>Deals DMG to all foes",
     "limit_comment": "",
     "max_unit": "",
@@ -1063,7 +1105,7 @@
         "image": "1",
         "name": "シェルバレットII",
         "name_en": "Shotshell II",
-        "comment": "威力:50　全体攻撃",
+        "comment": "威力:50  全体攻撃",
         "comment_en": "ATK: 50<br>Deals DMG to all foes",
         "attack_rate": "50",
         "damage_limit_up_rate": "",
@@ -1104,13 +1146,19 @@
     "id": "27",
     "seq_id": "30104",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30104"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30104"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレットIV",
     "name_en": "Shotshell IV",
-    "comment": "威力:105　全体攻撃",
+    "comment": "威力:105  全体攻撃",
     "comment_en": "ATK: 105<br>Deals DMG to all foes",
     "limit_comment": "",
     "max_unit": "",
@@ -1224,7 +1272,7 @@
         "image": "1",
         "name": "シェルバレットIII",
         "name_en": "Shotshell III",
-        "comment": "威力:70　全体攻撃",
+        "comment": "威力:70  全体攻撃",
         "comment_en": "ATK: 70<br>Deals DMG to all foes",
         "attack_rate": "70",
         "damage_limit_up_rate": "",
@@ -1265,13 +1313,19 @@
     "id": "28",
     "seq_id": "30201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30201"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アサルトシェル",
     "name_en": "Strike Shell",
-    "comment": "威力:90　全体攻撃<br>自分の防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>自分の防御DOWN(累積)",
     "comment_en": "ATK: 90<br>Deals DMG to all foes / Hit to MC's DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -1400,13 +1454,19 @@
     "id": "29",
     "seq_id": "30202",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30202"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30202"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アサルトシェルII",
     "name_en": "Strike Shell II",
-    "comment": "威力:135　全体攻撃<br>自分の防御DOWN(累積)",
+    "comment": "威力:135  全体攻撃<br>自分の防御DOWN(累積)",
     "comment_en": "ATK: 135<br>Deals DMG to all foes / Hit to MC's DEF (Stackable)",
     "limit_comment": "",
     "max_unit": "",
@@ -1520,7 +1580,7 @@
         "image": "1",
         "name": "アサルトシェル",
         "name_en": "Strike Shell",
-        "comment": "威力:90　全体攻撃<br>自分の防御DOWN(累積)",
+        "comment": "威力:90  全体攻撃<br>自分の防御DOWN(累積)",
         "comment_en": "ATK: 90<br>Deals DMG to all foes / Hit to MC's DEF (Stackable)",
         "attack_rate": "90",
         "damage_limit_up_rate": "",

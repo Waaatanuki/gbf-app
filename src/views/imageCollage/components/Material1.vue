@@ -1,96 +1,6 @@
-<template>
-  <div fc m-1 flex-wrap>
-    <el-upload
-      m-1
-      ref="uploadRef"
-      accept="image/*"
-      v-for="item in uploaderConfig"
-      :auto-upload="false"
-      :show-file-list="false"
-      :on-change="(uploadFile) => cropperImg(uploadFile, item)"
-    >
-      <template #trigger>
-        <el-button>{{ item.label }}</el-button>
-      </template>
-    </el-upload>
-
-    <el-button m-1 @click="handleCompose" type="primary">生成</el-button>
-    <el-button m-1 @click="handleEdit" type="info">自定义尺寸</el-button>
-  </div>
-
-  <div
-    ref="divEl"
-    :style="{
-      width: uploaderConfig[0].cropWidth + 'px',
-      height:
-        uploaderConfig[0].cropHeight +
-        uploaderConfig[1].cropHeight +
-        uploaderConfig[2].cropHeight +
-        'px',
-    }"
-    flex
-    flex-col
-    m-auto
-    bg-slate
-  >
-    <div
-      v-for="item in uploaderConfig"
-      :style="{
-        width: item.cropWidth + 'px',
-        height: item.cropHeight + 'px',
-      }"
-      hover:bg-slate-600
-      fc
-    >
-      <img v-if="item.imgData" :src="item.imgData" />
-      <div v-else>{{ item.label }}</div>
-    </div>
-  </div>
-
-  <el-dialog
-    v-model="dialog.visible"
-    :width="dialog.width"
-    top="5vh"
-    destroy-on-close
-  >
-    <el-form
-      :model="formData"
-      label-width="50px"
-      ref="formEl"
-      v-if="dialog.type == 'edit'"
-    >
-      <template v-for="item in uploaderConfig">
-        <el-form-item
-          ><span ml-18>{{ item.label }}</span>
-        </el-form-item>
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="宽">
-              <el-input v-model.number="item.cropWidth" /> </el-form-item
-          ></el-col>
-          <el-col :span="12">
-            <el-form-item label="高">
-              <el-input v-model.number="item.cropHeight" /> </el-form-item
-          ></el-col>
-        </el-row>
-      </template>
-      <el-form-item>
-        <el-button @click="uploaderConfig = defaultUploader" type="primary"
-          >重置</el-button
-        >
-      </el-form-item>
-    </el-form>
-    <ImgCropper
-      v-if="dialog.type == 'cropper'"
-      :cropperOption="cropperOption"
-      @cropperCb="cropperCb"
-    />
-  </el-dialog>
-</template>
-
 <script setup lang="ts">
 import html2canvas from 'html2canvas'
-import type { UploadInstance, UploadFile } from 'element-plus'
+import type { UploadFile, UploadInstance } from 'element-plus'
 
 const divEl = ref<HTMLElement>()
 const uploadRef = ref<UploadInstance>()
@@ -144,7 +54,7 @@ function cropperImg(uploadFile: UploadFile, item: any) {
 
 function cropperCb(data: any, name: string) {
   dialog.value.visible = false
-  uploaderConfig.value.find((item) => item.name == name)!.imgData = data
+  uploaderConfig.value.find(item => item.name === name)!.imgData = data
 }
 function handleEdit() {
   dialog.value.visible = true
@@ -171,3 +81,100 @@ onMounted(() => {
   })
 })
 </script>
+
+<template>
+  <div fc m-1 flex-wrap>
+    <el-upload
+      v-for="item, idx in uploaderConfig" :key="idx"
+      ref="uploadRef"
+      m-1
+      accept="image/*"
+      :auto-upload="false"
+      :show-file-list="false"
+      :on-change="(uploadFile) => cropperImg(uploadFile, item)"
+    >
+      <template #trigger>
+        <el-button>{{ item.label }}</el-button>
+      </template>
+    </el-upload>
+
+    <el-button m-1 type="primary" @click="handleCompose">
+      生成
+    </el-button>
+    <el-button m-1 type="info" @click="handleEdit">
+      自定义尺寸
+    </el-button>
+  </div>
+
+  <div
+    ref="divEl"
+    :style="{
+      width: `${uploaderConfig[0].cropWidth}px`,
+      height:
+        `${uploaderConfig[0].cropHeight
+          + uploaderConfig[1].cropHeight
+          + uploaderConfig[2].cropHeight
+        }px`,
+    }"
+    flex
+    flex-col
+    m-auto
+    bg-slate
+  >
+    <div
+      v-for="item, idx in uploaderConfig" :key="idx"
+      :style="{
+        width: `${item.cropWidth}px`,
+        height: `${item.cropHeight}px`,
+      }"
+      hover:bg-slate-600
+      fc
+    >
+      <img v-if="item.imgData" :src="item.imgData">
+      <div v-else>
+        {{ item.label }}
+      </div>
+    </div>
+  </div>
+
+  <el-dialog
+    v-model="dialog.visible"
+    :width="dialog.width"
+    top="5vh"
+    destroy-on-close
+  >
+    <el-form
+      v-if="dialog.type === 'edit'"
+      :model="formData"
+      label-width="50px"
+    >
+      <div v-for="item, idx in uploaderConfig" :key="idx">
+        <el-form-item>
+          <span ml-18>{{ item.label }}</span>
+        </el-form-item>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="宽">
+              <el-input v-model.number="item.cropWidth" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="高">
+              <el-input v-model.number="item.cropHeight" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </div>
+      <el-form-item>
+        <el-button type="primary" @click="uploaderConfig = defaultUploader">
+          重置
+        </el-button>
+      </el-form-item>
+    </el-form>
+    <ImgCropper
+      v-if="dialog.type === 'cropper'"
+      :cropper-option="cropperOption"
+      @cropper-cb="cropperCb"
+    />
+  </el-dialog>
+</template>

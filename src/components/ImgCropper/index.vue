@@ -1,31 +1,3 @@
-<template>
-  <div class="cropper-box">
-    <div
-      class="cropper"
-      :style="{
-        width: cropperOption.cropWidth + 100 + 'px',
-        height: cropperOption.cropHeight + 100 + 'px',
-      }"
-    >
-      <VueCropper
-        ref="cropper"
-        :img="option.img"
-        :outputSize="option.size"
-        :outputType="option.outputType"
-        :auto-crop="option.autoCrop"
-        :autoCropWidth="option.autoCropWidth"
-        :autoCropHeight="option.autoCropHeight"
-        :fixedNumber="option.fixedNumber"
-        fixed
-        fixedBox
-      />
-    </div>
-    <div class="footer-btn">
-      <el-button type="primary" @click="submit">确认 </el-button>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import 'vue-cropper/dist/index.css'
 import { VueCropper } from 'vue-cropper'
@@ -33,12 +5,10 @@ import { VueCropper } from 'vue-cropper'
 const props = defineProps({
   cropperOption: Object,
 })
+const emits = defineEmits(['cropperCb'])
+
 const cropper = ref(null)
 
-onMounted(() => {
-  option.img = props.cropperOption.url
-})
-const emits = defineEmits(['cropperCb'])
 const option = reactive({
   img: '',
   size: 1,
@@ -54,7 +24,40 @@ const submit = function () {
     emits('cropperCb', data, props.cropperOption.name)
   })
 }
+onMounted(() => {
+  option.img = props.cropperOption.url
+})
 </script>
+
+<template>
+  <div class="cropper-box">
+    <div
+      class="cropper"
+      :style="{
+        width: `${cropperOption.cropWidth + 100}px`,
+        height: `${cropperOption.cropHeight + 100}px`,
+      }"
+    >
+      <VueCropper
+        ref="cropper"
+        :img="option.img"
+        :output-size="option.size"
+        :output-type="option.outputType"
+        :auto-crop="option.autoCrop"
+        :auto-crop-width="option.autoCropWidth"
+        :auto-crop-height="option.autoCropHeight"
+        :fixed-number="option.fixedNumber"
+        fixed
+        fixed-box
+      />
+    </div>
+    <div class="footer-btn">
+      <el-button type="primary" @click="submit">
+        确认
+      </el-button>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .cropper-box {

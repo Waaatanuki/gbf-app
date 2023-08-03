@@ -5,10 +5,10 @@
  * @return {string}
  */
 function pluralize(time: number, label: string) {
-  if (time === 1) {
+  if (time === 1)
     return time + label
-  }
-  return time + label + 's'
+
+  return `${time + label}s`
 }
 
 /**
@@ -16,13 +16,14 @@ function pluralize(time: number, label: string) {
  */
 export function timeAgo(time: number) {
   const between = Date.now() / 1000 - Number(time)
-  if (between < 3600) {
+  if (between < 3600)
     return pluralize(~~(between / 60), ' minute')
-  } else if (between < 86400) {
+
+  else if (between < 86400)
     return pluralize(~~(between / 3600), ' hour')
-  } else {
+
+  else
     return pluralize(~~(between / 86400), ' day')
-  }
 }
 
 /**
@@ -59,7 +60,7 @@ export function numberFormatter(num: number, digits: number) {
 export function toThousandFilter(num: number) {
   return (+num || 0)
     .toString()
-    .replace(/^-?\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
+    .replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
 }
 
 /**
@@ -68,13 +69,4 @@ export function toThousandFilter(num: number) {
  */
 export function uppercaseFirst(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
-}
-
-/**
- * 金额转换（分->元）
- * 100 => 1
- * @param {number} num
- */
-export function moneyFormatter(num: number) {
-  return '¥' + (isNaN(num) ? 0.0 : parseFloat((num / 100).toFixed(2)))
 }

@@ -1,33 +1,13 @@
-<template>
-  <div :class="classObj" class="app-wrapper">
-    <div
-      v-if="device === 'mobile' && sidebar.opened"
-      class="drawer-bg"
-      @click="handleClickOutside"
-    />
-    <Sidebar class="sidebar-container bg-white dark:bg-#1d1e1f" />
-
-    <div class="main-container">
-      <div>
-        <navbar />
-      </div>
-      <app-main />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, watchEffect } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { AppMain, Navbar } from './components/index'
 import Sidebar from './components/Sidebar/index.vue'
 
-import useStore from '@/store'
-
 const { width } = useWindowSize()
 const WIDTH = 992
 
-const { app } = useStore()
+const app = useAppStore()
 
 const sidebar = computed(() => app.sidebar)
 const device = computed(() => app.device)
@@ -43,7 +23,8 @@ watchEffect(() => {
   if (width.value < WIDTH) {
     app.toggleDevice('mobile')
     app.closeSideBar(true)
-  } else {
+  }
+  else {
     app.toggleDevice('desktop')
   }
 })
@@ -53,9 +34,27 @@ function handleClickOutside() {
 }
 </script>
 
+<template>
+  <div :class="classObj" class="app-wrapper">
+    <div
+      v-if="device === 'mobile' && sidebar.opened"
+      class="drawer-bg"
+      @click="handleClickOutside"
+    />
+    <Sidebar class="sidebar-container bg-white dark:bg-#1d1e1f" />
+
+    <div class="main-container">
+      <div>
+        <Navbar />
+      </div>
+      <AppMain />
+    </div>
+  </div>
+</template>
+
 <style lang="scss" scoped>
-@import '@/styles/mixin.scss';
-@import '@/styles/variables.module.scss';
+@import '~/styles/mixin.scss';
+@import '~/styles/variables.module.scss';
 
 .app-wrapper {
   @include clearfix;

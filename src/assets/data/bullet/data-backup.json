@@ -3,10 +3,16 @@
     "id": "1",
     "seq_id": "10101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10101"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アイアンバレット",
     "comment": "威力:90",
     "kind": "40",
@@ -49,10 +55,16 @@
     "id": "2",
     "seq_id": "10102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10102"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アイアンバレットII",
     "comment": "威力:100",
     "kind": "40",
@@ -110,10 +122,16 @@
     "id": "3",
     "seq_id": "10103",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10103"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10103"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アイアンバレットIII",
     "comment": "威力:110",
     "kind": "40",
@@ -181,10 +199,16 @@
     "id": "4",
     "seq_id": "10104",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10104"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10104"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アイアンバレットIV",
     "comment": "威力:130",
     "kind": "40",
@@ -252,10 +276,16 @@
     "id": "5",
     "seq_id": "10201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10201"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ライトバレット",
     "comment": "威力:60<br>確率で自分のダブルアタック確率UP(累積)",
     "kind": "40",
@@ -308,10 +338,16 @@
     "id": "6",
     "seq_id": "10202",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10202"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10202"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ライトバレットII",
     "comment": "威力:80<br>確率で自分のダブルアタック確率UP(累積)",
     "kind": "40",
@@ -379,10 +415,16 @@
     "id": "7",
     "seq_id": "10203",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10203"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10203"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ライトバレットIII",
     "comment": "威力:80<br>確率で自分のダブル/トリプルアタック確率UP(累積)",
     "kind": "40",
@@ -450,10 +492,16 @@
     "id": "8",
     "seq_id": "10301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10301"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フレイムバレット",
     "comment": "威力:90<br>確率で敵に灼熱効果",
     "kind": "40",
@@ -521,10 +569,16 @@
     "id": "9",
     "seq_id": "10401",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10401"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10401"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ポイズンバレット",
     "comment": "威力:90<br>確率で敵に毒効果",
     "kind": "40",
@@ -592,10 +646,16 @@
     "id": "10",
     "seq_id": "10501",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10501"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10501"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スリープバレット",
     "comment": "威力:70<br>確率で敵に睡眠効果",
     "kind": "40",
@@ -663,10 +723,16 @@
     "id": "11",
     "seq_id": "10601",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10601"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10601"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "バリアシード",
     "comment": "威力:50<br>確率で自分にバリア効果",
     "kind": "40",
@@ -734,10 +800,16 @@
     "id": "67",
     "seq_id": "10701",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10701"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10701"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "チャームバレット",
     "comment": "威力:70<br>確率で敵に魅了効果",
     "kind": "40",
@@ -805,10 +877,16 @@
     "id": "12",
     "seq_id": "20101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20101"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フルメタルジャケット",
     "comment": "威力:60<br>確率で敵に防御DOWN(累積)",
     "kind": "40",
@@ -871,10 +949,16 @@
     "id": "13",
     "seq_id": "20102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20102"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フルメタルジャケットII",
     "comment": "威力:80<br>確率で敵に防御DOWN(累積)",
     "kind": "40",
@@ -942,10 +1026,16 @@
     "id": "14",
     "seq_id": "20103",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20103"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20103"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フルメタルジャケットIII",
     "comment": "威力:100<br>確率で敵に防御DOWN(累積)",
     "kind": "40",
@@ -1013,10 +1103,16 @@
     "id": "15",
     "seq_id": "20104",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20104"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20104"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フルメタルジャケットIV",
     "comment": "威力:130<br>確率で敵に防御DOWN(累積)",
     "kind": "40",
@@ -1084,10 +1180,16 @@
     "id": "16",
     "seq_id": "20201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20201"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エクスプローダー",
     "comment": "威力:50<br>確率で敵に防御DOWN/自分の攻撃UP(累積)",
     "kind": "40",
@@ -1155,10 +1257,16 @@
     "id": "17",
     "seq_id": "20202",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20202"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20202"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エクスプローダーII",
     "comment": "威力:75<br>確率で敵に防御DOWN/自分の攻撃UP(累積)",
     "kind": "40",
@@ -1226,10 +1334,16 @@
     "id": "18",
     "seq_id": "20203",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20203"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20203"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エクスプローダーIII",
     "comment": "威力:105<br>確率で敵に防御DOWN/自分の攻撃UP(累積)",
     "kind": "40",
@@ -1297,10 +1411,16 @@
     "id": "19",
     "seq_id": "20301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20301"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーピアシング",
     "comment": "威力:50<br>確率で自分のクリティカル確率UP/ダブルアタック確率DOWN(累積)",
     "kind": "40",
@@ -1368,10 +1488,16 @@
     "id": "20",
     "seq_id": "20302",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20302"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20302"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーピアシングII",
     "comment": "威力:70<br>確率で自分のクリティカル確率UP/ダブルアタック確率DOWN(累積)",
     "kind": "40",
@@ -1439,10 +1565,16 @@
     "id": "21",
     "seq_id": "20303",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20303"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20303"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーピアシングIII",
     "comment": "威力:70<br>確率で自分のクリティカル確率UP/ダブルアタック確率DOWN(累積)",
     "kind": "40",
@@ -1510,10 +1642,16 @@
     "id": "22",
     "seq_id": "20401",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20401"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20401"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シルバーバレット",
     "comment": "威力:30<br>確率でチェインバーストダメージUP(累積)",
     "kind": "40",
@@ -1581,10 +1719,16 @@
     "id": "23",
     "seq_id": "20402",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20402"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20402"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シルバーバレットII",
     "comment": "威力:50<br>確率でチェインバーストダメージUP(累積)",
     "kind": "40",
@@ -1652,12 +1796,18 @@
     "id": "24",
     "seq_id": "30101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30101"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレット",
-    "comment": "威力:35　全体攻撃",
+    "comment": "威力:35  全体攻撃",
     "kind": "40",
     "type": "1",
     "image_path": "30101",
@@ -1708,12 +1858,18 @@
     "id": "25",
     "seq_id": "30102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30102"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレットII",
-    "comment": "威力:50　全体攻撃",
+    "comment": "威力:50  全体攻撃",
     "kind": "40",
     "type": "1",
     "image_path": "30102",
@@ -1762,7 +1918,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレット",
-        "comment": "威力:35　全体攻撃",
+        "comment": "威力:35  全体攻撃",
         "attack_rate": "35",
         "action_id_1": "",
         "action_id_2": "",
@@ -1779,12 +1935,18 @@
     "id": "26",
     "seq_id": "30103",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30103"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30103"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレットIII",
-    "comment": "威力:70　全体攻撃",
+    "comment": "威力:70  全体攻撃",
     "kind": "40",
     "type": "1",
     "image_path": "30103",
@@ -1833,7 +1995,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレットII",
-        "comment": "威力:50　全体攻撃",
+        "comment": "威力:50  全体攻撃",
         "attack_rate": "50",
         "action_id_1": "",
         "action_id_2": "",
@@ -1850,12 +2012,18 @@
     "id": "27",
     "seq_id": "30104",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30104"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30104"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレットIV",
-    "comment": "威力:105　全体攻撃",
+    "comment": "威力:105  全体攻撃",
     "kind": "40",
     "type": "1",
     "image_path": "30104",
@@ -1904,7 +2072,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレットIII",
-        "comment": "威力:70　全体攻撃",
+        "comment": "威力:70  全体攻撃",
         "attack_rate": "70",
         "action_id_1": "",
         "action_id_2": "",
@@ -1921,12 +2089,18 @@
     "id": "28",
     "seq_id": "30201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30201"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アサルトシェル",
-    "comment": "威力:90　全体攻撃<br>自分の防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>自分の防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30201",
@@ -1977,12 +2151,18 @@
     "id": "29",
     "seq_id": "30202",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30202"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30202"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アサルトシェルII",
-    "comment": "威力:135　全体攻撃<br>自分の防御DOWN(累積)",
+    "comment": "威力:135  全体攻撃<br>自分の防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30202",
@@ -2031,7 +2211,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "アサルトシェル",
-        "comment": "威力:90　全体攻撃<br>自分の防御DOWN(累積)",
+        "comment": "威力:90  全体攻撃<br>自分の防御DOWN(累積)",
         "attack_rate": "90",
         "action_id_1": "26039",
         "action_id_2": "",
@@ -2048,12 +2228,18 @@
     "id": "30",
     "seq_id": "30301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30301"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ヒートシリンダー",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30301",
@@ -2104,12 +2290,18 @@
     "id": "31",
     "seq_id": "30302",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30302"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30302"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ヒートシリンダーII",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30302",
@@ -2158,7 +2350,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "ヒートシリンダー",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の火属性防御DOWN(累積)",
         "attack_rate": "50",
         "action_id_1": "26050",
         "action_id_2": "",
@@ -2175,12 +2367,18 @@
     "id": "32",
     "seq_id": "30401",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30401"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30401"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コールドシリンダー",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30401",
@@ -2231,12 +2429,18 @@
     "id": "33",
     "seq_id": "30402",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30402"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30402"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コールドシリンダーII",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30402",
@@ -2285,7 +2489,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "コールドシリンダー",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の水属性防御DOWN(累積)",
         "attack_rate": "50",
         "action_id_1": "26052",
         "action_id_2": "",
@@ -2302,12 +2506,18 @@
     "id": "34",
     "seq_id": "30501",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30501"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30501"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アースシリンダー",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30501",
@@ -2358,12 +2568,18 @@
     "id": "35",
     "seq_id": "30502",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30502"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30502"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アースシリンダーII",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30502",
@@ -2412,7 +2628,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "アースシリンダー",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の土属性防御DOWN(累積)",
         "attack_rate": "50",
         "action_id_1": "26054",
         "action_id_2": "",
@@ -2429,12 +2645,18 @@
     "id": "36",
     "seq_id": "30601",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30601"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30601"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゲイルシリンダー",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30601",
@@ -2485,12 +2707,18 @@
     "id": "37",
     "seq_id": "30602",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30602"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30602"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゲイルシリンダーII",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30602",
@@ -2539,7 +2767,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "ゲイルシリンダー",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の風属性防御DOWN(累積)",
         "attack_rate": "50",
         "action_id_1": "26056",
         "action_id_2": "",
@@ -2556,12 +2784,18 @@
     "id": "38",
     "seq_id": "30701",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30701"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30701"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サンダーシリンダー",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30701",
@@ -2612,12 +2846,18 @@
     "id": "39",
     "seq_id": "30702",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30702"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30702"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サンダーシリンダーII",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30702",
@@ -2666,7 +2906,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "サンダーシリンダー",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の光属性防御DOWN(累積)",
         "attack_rate": "50",
         "action_id_1": "26058",
         "action_id_2": "",
@@ -2683,12 +2923,18 @@
     "id": "40",
     "seq_id": "30801",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30801"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30801"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ダークシリンダー",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30801",
@@ -2739,12 +2985,18 @@
     "id": "41",
     "seq_id": "30802",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30802"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30802"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ダークシリンダーII",
-    "comment": "威力:90　全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
+    "comment": "威力:90  全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30802",
@@ -2793,7 +3045,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "ダークシリンダー",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の闇属性防御DOWN(累積)",
         "attack_rate": "50",
         "action_id_1": "26060",
         "action_id_2": "",
@@ -2810,12 +3062,18 @@
     "id": "42",
     "seq_id": "30901",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30901"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30901"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーブレイカー",
-    "comment": "威力:50　全体攻撃<br>確率で敵全体の防御DOWN(累積)",
+    "comment": "威力:50  全体攻撃<br>確率で敵全体の防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30901",
@@ -2886,12 +3144,18 @@
     "id": "43",
     "seq_id": "30902",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30902"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30902"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アーマーブレイカーII",
-    "comment": "威力:75　全体攻撃<br>確率で敵全体の防御DOWN(累積)",
+    "comment": "威力:75  全体攻撃<br>確率で敵全体の防御DOWN(累積)",
     "kind": "40",
     "type": "1",
     "image_path": "30902",
@@ -2927,7 +3191,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "アーマーブレイカー",
-        "comment": "威力:50　全体攻撃<br>確率で敵全体の防御DOWN(累積)",
+        "comment": "威力:50  全体攻撃<br>確率で敵全体の防御DOWN(累積)",
         "attack_rate": "50",
         "action_id_1": "26062",
         "action_id_2": "",
@@ -2947,10 +3211,16 @@
     "id": "44",
     "seq_id": "31001",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31001"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31001"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スラッグショット",
     "comment": "威力:200<br>自分のダブルアタック確率DOWN/防御DOWN(累積)",
     "kind": "40",
@@ -3023,10 +3293,16 @@
     "id": "45",
     "seq_id": "31002",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31002"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31002"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スラッグショットII",
     "comment": "威力:300<br>自分のダブルアタック確率DOWN/防御DOWN(累積)",
     "kind": "40",
@@ -3084,12 +3360,18 @@
     "id": "66",
     "seq_id": "31101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31101"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スティッキーシェル",
-    "comment": "威力:50　全体攻撃<br>敵全体の連続攻撃確率DOWN",
+    "comment": "威力:50  全体攻撃<br>敵全体の連続攻撃確率DOWN",
     "kind": "40",
     "type": "1",
     "image_path": "31101",
@@ -3160,10 +3442,16 @@
     "id": "46",
     "seq_id": "40101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40101"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "イフリートポイント",
     "comment": "威力:80<br>確率で自分の火属性攻撃UP(累積)",
     "kind": "40",
@@ -3226,10 +3514,16 @@
     "id": "47",
     "seq_id": "40102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40102"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "イフリートポイントII",
     "comment": "威力:100<br>確率で自分の火属性攻撃UP(累積)",
     "kind": "40",
@@ -3297,10 +3591,16 @@
     "id": "48",
     "seq_id": "40201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40201"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コキュートスポイント",
     "comment": "威力:80<br>確率で自分の水属性攻撃UP(累積)",
     "kind": "40",
@@ -3363,10 +3663,16 @@
     "id": "49",
     "seq_id": "40202",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40202"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40202"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コキュートスポイントII",
     "comment": "威力:100<br>確率で自分の水属性攻撃UP(累積)",
     "kind": "40",
@@ -3434,10 +3740,16 @@
     "id": "50",
     "seq_id": "40301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40301"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ウォフマナフポイント",
     "comment": "威力:80<br>確率で自分の土属性攻撃UP(累積)",
     "kind": "40",
@@ -3500,10 +3812,16 @@
     "id": "51",
     "seq_id": "40302",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40302"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40302"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ウォフマナフポイントII",
     "comment": "威力:100<br>確率で自分の土属性攻撃UP(累積)",
     "kind": "40",
@@ -3571,10 +3889,16 @@
     "id": "52",
     "seq_id": "40401",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40401"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40401"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サジタリウスポイント",
     "comment": "威力:80<br>確率で自分の風属性攻撃UP(累積)",
     "kind": "40",
@@ -3637,10 +3961,16 @@
     "id": "53",
     "seq_id": "40402",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40402"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40402"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サジタリウスポイントII",
     "comment": "威力:100<br>確率で自分の風属性攻撃UP(累積)",
     "kind": "40",
@@ -3708,10 +4038,16 @@
     "id": "54",
     "seq_id": "40501",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40501"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40501"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コロゥポイント",
     "comment": "威力:80<br>確率で自分の光属性攻撃UP(累積)",
     "kind": "40",
@@ -3774,10 +4110,16 @@
     "id": "55",
     "seq_id": "40502",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40502"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40502"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コロゥポイントII",
     "comment": "威力:100<br>確率で自分の光属性攻撃UP(累積)",
     "kind": "40",
@@ -3845,10 +4187,16 @@
     "id": "56",
     "seq_id": "40601",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40601"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40601"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ディアボロスポイント",
     "comment": "威力:80<br>確率で自分の闇属性攻撃UP(累積)",
     "kind": "40",
@@ -3911,10 +4259,16 @@
     "id": "57",
     "seq_id": "40602",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40602"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40602"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ディアボロスポイントII",
     "comment": "威力:100<br>確率で自分の闇属性攻撃UP(累積)",
     "kind": "40",
@@ -3982,10 +4336,16 @@
     "id": "58",
     "seq_id": "40701",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40701"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40701"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アグニスポイント",
     "comment": "威力:65<br>確率で味方全体の火属性攻撃UP(累積)",
     "kind": "40",
@@ -4043,10 +4403,16 @@
     "id": "59",
     "seq_id": "40702",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40702"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40702"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アグニスポイントII",
     "comment": "威力:100<br>確率で味方全体の火属性攻撃UP(累積)",
     "kind": "40",
@@ -4114,10 +4480,16 @@
     "id": "60",
     "seq_id": "40801",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40801"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40801"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ネプチューンポイント",
     "comment": "威力:65<br>確率で味方全体の水属性攻撃UP(累積)",
     "kind": "40",
@@ -4175,10 +4547,16 @@
     "id": "61",
     "seq_id": "40802",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40802"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40802"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ネプチューンポイントII",
     "comment": "威力:100<br>確率で味方全体の水属性攻撃UP(累積)",
     "kind": "40",
@@ -4246,10 +4624,16 @@
     "id": "62",
     "seq_id": "40901",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40901"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40901"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ティターンポイント",
     "comment": "威力:65<br>確率で味方全体の土属性攻撃UP(累積)",
     "kind": "40",
@@ -4307,10 +4691,16 @@
     "id": "63",
     "seq_id": "40902",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40902"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40902"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ティターンポイントII",
     "comment": "威力:100<br>確率で味方全体の土属性攻撃UP(累積)",
     "kind": "40",
@@ -4378,10 +4768,16 @@
     "id": "64",
     "seq_id": "41001",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41001"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41001"
+    ],
     "quality": "",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゼピュロスポイント",
     "comment": "威力:65<br>確率で味方全体の風属性攻撃UP(累積)",
     "kind": "40",
@@ -4439,10 +4835,16 @@
     "id": "65",
     "seq_id": "41002",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41002"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41002"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゼピュロスポイントII",
     "comment": "威力:100<br>確率で味方全体の風属性攻撃UP(累積)",
     "kind": "40",
@@ -4510,10 +4912,16 @@
     "id": "68",
     "seq_id": "10105",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10105"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10105"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アイアンバレットV",
     "comment": "威力:150",
     "kind": "40",
@@ -4586,10 +4994,16 @@
     "id": "69",
     "seq_id": "10204",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10204"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10204"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ライトバレットIV",
     "comment": "威力:80<br>確率で自分のダブル/トリプルアタック確率UP(累積)",
     "kind": "40",
@@ -4657,10 +5071,16 @@
     "id": "70",
     "seq_id": "10801",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10801"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10801"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "パラライズバレット",
     "comment": "威力:80<br>確率で敵に麻痺効果",
     "kind": "40",
@@ -4733,10 +5153,16 @@
     "id": "71",
     "seq_id": "10901",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["10901"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "10901"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ヒールバレット",
     "comment": "威力:80<br>味方全体に再生効果",
     "kind": "40",
@@ -4809,10 +5235,16 @@
     "id": "96",
     "seq_id": "11001",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["11001"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "11001"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ブレイズバレット",
     "comment": "威力:100<br>確率で敵の火傷Lvが1上昇(最大10)",
     "kind": "40",
@@ -4870,10 +5302,16 @@
     "id": "97",
     "seq_id": "11101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["11101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "11101"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "トキシックバレット",
     "comment": "威力:100<br>確率で敵の劇毒Lvが1上昇(最大10)",
     "kind": "40",
@@ -4931,10 +5369,16 @@
     "id": "98",
     "seq_id": "11201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["11201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "11201"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サンダーバレット",
     "comment": "威力:100<br>確率で敵の感電Lvが1上昇(最大10)",
     "kind": "40",
@@ -4992,10 +5436,16 @@
     "id": "99",
     "seq_id": "11301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["11301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "11301"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フリーズバレット",
     "comment": "威力:100<br>確率で敵の氷結Lvが1上昇(最大10)",
     "kind": "40",
@@ -5053,10 +5503,16 @@
     "id": "72",
     "seq_id": "20105",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20105"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20105"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "フルメタルジャケットV",
     "comment": "威力:150<br>確率で敵に防御DOWN(累積)",
     "kind": "40",
@@ -5124,10 +5580,16 @@
     "id": "73",
     "seq_id": "20403",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20403"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20403"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シルバーバレットIII",
     "comment": "威力:80<br>自分のチェインバーストダメージUP(累積)",
     "kind": "40",
@@ -5195,10 +5657,16 @@
     "id": "74",
     "seq_id": "20501",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20501"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20501"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゴールドバレット",
     "comment": "威力:80<br>確率で自分の奥義ダメージUP(累積)",
     "kind": "40",
@@ -5261,10 +5729,16 @@
     "id": "75",
     "seq_id": "20502",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20502"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20502"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゴールドバレットII",
     "comment": "威力:100<br>確率で自分の奥義ダメージ性能UP(累積)",
     "kind": "40",
@@ -5332,12 +5806,18 @@
     "id": "100",
     "seq_id": "20601",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20601"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20601"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンドモデル：パラダイス・ロスト",
-    "comment": "威力:200　ダメージ上限突破弾",
+    "comment": "威力:200  ダメージ上限突破弾",
     "kind": "40",
     "type": "1",
     "image_path": "20601",
@@ -5393,12 +5873,18 @@
     "id": "101",
     "seq_id": "20701",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20701"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20701"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンドモデル：ケイオス・レギオン",
-    "comment": "威力:200　ダメージ上限突破弾<br>低確率で敵に穿孔効果",
+    "comment": "威力:200  ダメージ上限突破弾<br>低確率で敵に穿孔効果",
     "kind": "40",
     "type": "1",
     "image_path": "20701",
@@ -5454,12 +5940,18 @@
     "id": "102",
     "seq_id": "20801",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20801"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20801"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンドモデル：アナゲンネーシス",
-    "comment": "威力:250　ダメージ上限突破弾<br>低確率で味方全体に謀略の果実効果",
+    "comment": "威力:250  ダメージ上限突破弾<br>低確率で味方全体に謀略の果実効果",
     "kind": "40",
     "type": "1",
     "image_path": "20801",
@@ -5515,12 +6007,18 @@
     "id": "103",
     "seq_id": "20901",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["20901"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "20901"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンドモデル：ジェネシス・ノヴァ",
-    "comment": "威力:300　ダメージ上限突破弾<br>敵全体に無属性ダメージ/バレットを全て消費",
+    "comment": "威力:300  ダメージ上限突破弾<br>敵全体に無属性ダメージ/バレットを全て消費",
     "kind": "40",
     "type": "1",
     "image_path": "20901",
@@ -5592,12 +6090,18 @@
     "id": "76",
     "seq_id": "30105",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["30105"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "30105"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "シェルバレットV",
-    "comment": "威力:120　全体攻撃",
+    "comment": "威力:120  全体攻撃",
     "kind": "40",
     "type": "1",
     "image_path": "30105",
@@ -5646,7 +6150,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレットIV",
-        "comment": "威力:105　全体攻撃",
+        "comment": "威力:105  全体攻撃",
         "attack_rate": "105",
         "action_id_1": "",
         "action_id_2": "",
@@ -5663,12 +6167,18 @@
     "id": "77",
     "seq_id": "31102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31102"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "スティッキーシェルII",
-    "comment": "威力:80　全体攻撃<br>敵全体の連続攻撃確率DOWN",
+    "comment": "威力:80  全体攻撃<br>敵全体の連続攻撃確率DOWN",
     "kind": "40",
     "type": "1",
     "image_path": "31102",
@@ -5704,7 +6214,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "スティッキーシェル",
-        "comment": "威力:50　全体攻撃<br>敵全体の連続攻撃確率DOWN",
+        "comment": "威力:50  全体攻撃<br>敵全体の連続攻撃確率DOWN",
         "attack_rate": "50",
         "action_id_1": "26064",
         "action_id_2": "26066",
@@ -5724,12 +6234,18 @@
     "id": "78",
     "seq_id": "31201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31201"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "チェイスシェル",
-    "comment": "威力:60　全体攻撃<br>確率で自分に自属性追撃効果",
+    "comment": "威力:60  全体攻撃<br>確率で自分に自属性追撃効果",
     "kind": "40",
     "type": "1",
     "image_path": "31201",
@@ -5778,7 +6294,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレットV",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "attack_rate": "120",
         "action_id_1": "",
         "action_id_2": "",
@@ -5795,12 +6311,18 @@
     "id": "79",
     "seq_id": "31301",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31301"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31301"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "エンハンスシェル",
-    "comment": "威力:90　全体攻撃<br>確率で味方全体に与ダメージ上昇効果",
+    "comment": "威力:90  全体攻撃<br>確率で味方全体に与ダメージ上昇効果",
     "kind": "40",
     "type": "1",
     "image_path": "31301",
@@ -5849,7 +6371,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレットV",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "attack_rate": "120",
         "action_id_1": "",
         "action_id_2": "",
@@ -5866,12 +6388,18 @@
     "id": "104",
     "seq_id": "31401",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31401"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31401"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "カタストロフィシリンダー",
-    "comment": "威力:140　全体攻撃<br>確率で自分に奥義性能UP(1回)",
+    "comment": "威力:140  全体攻撃<br>確率で自分に奥義性能UP(1回)",
     "kind": "40",
     "type": "1",
     "image_path": "31401",
@@ -5881,7 +6409,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレットV",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "attack_rate": "120",
         "action_id_1": "",
         "action_id_2": "",
@@ -5917,12 +6445,18 @@
     "id": "105",
     "seq_id": "31501",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31501"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31501"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アカシックシリンダー",
-    "comment": "威力:140　全体攻撃<br>確率でターン進行時に経過ターンを1ターン進める",
+    "comment": "威力:140  全体攻撃<br>確率でターン進行時に経過ターンを1ターン進める",
     "kind": "40",
     "type": "1",
     "image_path": "31501",
@@ -5932,7 +6466,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレットV",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "attack_rate": "120",
         "action_id_1": "",
         "action_id_2": "",
@@ -5968,12 +6502,18 @@
     "id": "106",
     "seq_id": "31601",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["31601"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "31601"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コスモスシリンダー",
-    "comment": "威力:140　全体攻撃<br>確率で自分に調停の翼効果(特殊強化(攻防UP)/吸収効果)",
+    "comment": "威力:140  全体攻撃<br>確率で自分に調停の翼効果(特殊強化(攻防UP)/吸収効果)",
     "kind": "40",
     "type": "1",
     "image_path": "31601",
@@ -5983,7 +6523,7 @@
         "slot_type": "3",
         "image": "1",
         "name": "シェルバレットV",
-        "comment": "威力:120　全体攻撃",
+        "comment": "威力:120  全体攻撃",
         "attack_rate": "120",
         "action_id_1": "",
         "action_id_2": "",
@@ -6019,10 +6559,16 @@
     "id": "80",
     "seq_id": "40103",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40103"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40103"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "イフリートポイントIII",
     "comment": "威力:120<br>自分の火属性攻撃UP(累積)",
     "kind": "40",
@@ -6090,10 +6636,16 @@
     "id": "81",
     "seq_id": "40203",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40203"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40203"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コキュートスポイントIII",
     "comment": "威力:120<br>自分の水属性攻撃UP(累積)",
     "kind": "40",
@@ -6161,10 +6713,16 @@
     "id": "82",
     "seq_id": "40303",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40303"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40303"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ウォフマナフポイントIII",
     "comment": "威力:120<br>自分の土属性攻撃UP(累積)",
     "kind": "40",
@@ -6232,10 +6790,16 @@
     "id": "83",
     "seq_id": "40403",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40403"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40403"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "サジタリウスポイントIII",
     "comment": "威力:120<br>自分の風属性攻撃UP(累積)",
     "kind": "40",
@@ -6303,10 +6867,16 @@
     "id": "84",
     "seq_id": "40503",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40503"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40503"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "コロゥポイントIII",
     "comment": "威力:120<br>自分の光属性攻撃UP(累積)",
     "kind": "40",
@@ -6374,10 +6944,16 @@
     "id": "85",
     "seq_id": "40603",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40603"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40603"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ディアボロスポイントIII",
     "comment": "威力:120<br>自分の闇属性攻撃UP(累積)",
     "kind": "40",
@@ -6445,10 +7021,16 @@
     "id": "86",
     "seq_id": "40703",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40703"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40703"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アグニスポイントIII",
     "comment": "威力:120<br>味方全体の火属性攻撃UP(累積)",
     "kind": "40",
@@ -6516,10 +7098,16 @@
     "id": "107",
     "seq_id": "40704",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40704"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40704"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "アグニスポイントIV",
     "comment": "威力:120<br>有利属性の敵に与ダメージUP",
     "kind": "40",
@@ -6587,10 +7175,16 @@
     "id": "87",
     "seq_id": "40803",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40803"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40803"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ネプチューンポイントIII",
     "comment": "威力:120<br>味方全体の水属性攻撃UP(累積)",
     "kind": "40",
@@ -6658,10 +7252,16 @@
     "id": "108",
     "seq_id": "40804",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40804"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40804"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ネプチューンポイントIV",
     "comment": "威力:120<br>有利属性の敵に与ダメージUP",
     "kind": "40",
@@ -6729,10 +7329,16 @@
     "id": "88",
     "seq_id": "40903",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40903"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40903"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ティターンポイントIII",
     "comment": "威力:120<br>味方全体の土属性攻撃UP(累積)",
     "kind": "40",
@@ -6800,10 +7406,16 @@
     "id": "109",
     "seq_id": "40904",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["40904"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "40904"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ティターンポイントIV",
     "comment": "威力:120<br>有利属性の敵に与ダメージUP",
     "kind": "40",
@@ -6871,10 +7483,16 @@
     "id": "89",
     "seq_id": "41003",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41003"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41003"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゼピュロスポイントIII",
     "comment": "威力:120<br>味方全体の風属性攻撃UP(累積)",
     "kind": "40",
@@ -6942,10 +7560,16 @@
     "id": "110",
     "seq_id": "41004",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41004"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41004"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゼピュロスポイントIV",
     "comment": "威力:120<br>有利属性の敵に与ダメージUP",
     "kind": "40",
@@ -7013,10 +7637,16 @@
     "id": "90",
     "seq_id": "41101",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41101"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41101"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゼウスポイント",
     "comment": "威力:65<br>確率で味方全体の光属性攻撃UP(累積)",
     "kind": "40",
@@ -7084,10 +7714,16 @@
     "id": "91",
     "seq_id": "41102",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41102"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41102"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゼウスポイントII",
     "comment": "威力:100<br>確率で味方全体の光属性攻撃UP(累積)",
     "kind": "40",
@@ -7155,10 +7791,16 @@
     "id": "92",
     "seq_id": "41103",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41103"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41103"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゼウスポイントIII",
     "comment": "威力:120<br>味方全体の光属性攻撃UP(累積)",
     "kind": "40",
@@ -7226,10 +7868,16 @@
     "id": "111",
     "seq_id": "41104",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41104"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41104"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ゼウスポイントIV",
     "comment": "威力:120<br>有利属性の敵に与ダメージUP",
     "kind": "40",
@@ -7297,10 +7945,16 @@
     "id": "93",
     "seq_id": "41201",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41201"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41201"
+    ],
     "quality": "1",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ハデスポイント",
     "comment": "威力:65<br>確率で味方全体の闇属性攻撃UP(累積)",
     "kind": "40",
@@ -7368,10 +8022,16 @@
     "id": "94",
     "seq_id": "41202",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41202"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41202"
+    ],
     "quality": "2",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ハデスポイントII",
     "comment": "威力:100<br>確率で味方全体の闇属性攻撃UP(累積)",
     "kind": "40",
@@ -7439,10 +8099,16 @@
     "id": "95",
     "seq_id": "41203",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41203"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41203"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ハデスポイントIII",
     "comment": "威力:120<br>味方全体の闇属性攻撃UP(累積)",
     "kind": "40",
@@ -7510,10 +8176,16 @@
     "id": "112",
     "seq_id": "41204",
     "area_id": "20001",
-    "item_kind": ["54"],
-    "item_ids": ["41204"],
+    "item_kind": [
+      "54"
+    ],
+    "item_ids": [
+      "41204"
+    ],
     "quality": "3",
-    "numbers": ["1"],
+    "numbers": [
+      "1"
+    ],
     "name": "ハデスポイントIV",
     "comment": "威力:120<br>有利属性の敵に与ダメージUP",
     "kind": "40",
