@@ -6,7 +6,7 @@ specifiers:
   '@iconify-json/carbon': ^1.1.18
   '@plugin-web-update-notification/vite': ^1.6.4
   '@types/lodash': ^4.14.196
-  '@types/node': ^20.4.5
+  '@types/node': ^20.4.6
   '@types/nprogress': ^0.2.0
   '@types/path-browserify': ^1.0.0
   '@typescript-eslint/eslint-plugin': ^6.2.1
@@ -14,7 +14,7 @@ specifiers:
   '@unocss/reset': ^0.54.1
   '@vitejs/plugin-vue': ^4.2.3
   '@vueuse/core': ^10.3.0
-  chart.js: ^4.3.2
+  chart.js: ^4.3.3
   chartjs-plugin-datalabels: ^2.2.0
   dayjs: ^1.11.9
   element-plus: ^2.3.8
@@ -42,8 +42,8 @@ specifiers:
 dependencies:
   '@element-plus/icons-vue': 2.1.0_vue@3.3.4
   '@vueuse/core': 10.3.0_vue@3.3.4
-  chart.js: 4.3.2
-  chartjs-plugin-datalabels: 2.2.0_chart.js@4.3.2
+  chart.js: 4.3.3
+  chartjs-plugin-datalabels: 2.2.0_chart.js@4.3.3
   dayjs: 1.11.9
   element-plus: 2.3.8_vue@3.3.4
   html2canvas: 1.4.1
@@ -63,7 +63,7 @@ devDependencies:
   '@iconify-json/carbon': 1.1.18
   '@plugin-web-update-notification/vite': 1.6.4_vite@4.4.8
   '@types/lodash': 4.14.196
-  '@types/node': 20.4.5
+  '@types/node': 20.4.6
   '@types/nprogress': 0.2.0
   '@types/path-browserify': 1.0.0
   '@typescript-eslint/eslint-plugin': 6.2.1_j6xx3z2bnxhrxzjhzeomjwp6aa
@@ -77,7 +77,7 @@ devDependencies:
   unplugin-auto-import: 0.16.6_@vueuse+core@10.3.0
   unplugin-icons: 0.16.5
   unplugin-vue-components: 0.25.1_vue@3.3.4
-  vite: 4.4.8_ik33kfm6mxnnunr5dpteflfnty
+  vite: 4.4.8_4ooeoywhv72modcyok5ojth4bq
   vite-plugin-svg-icons: 2.0.1_vite@4.4.8
 
 packages:
@@ -588,7 +588,7 @@ packages:
       vite: '>4.0.0 || ^3.0.0 || ^2.0.0'
     dependencies:
       '@plugin-web-update-notification/core': 1.6.4
-      vite: 4.4.8_ik33kfm6mxnnunr5dpteflfnty
+      vite: 4.4.8_4ooeoywhv72modcyok5ojth4bq
     dev: true
 
   /@polka/url/1.0.0-next.21:
@@ -639,8 +639,8 @@ packages:
       '@types/unist': 2.0.7
     dev: true
 
-  /@types/node/20.4.5:
-    resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
+  /@types/node/20.4.6:
+    resolution: {integrity: sha512-q0RkvNgMweWWIvSMDiXhflGUKMdIxBo2M2tYM/0kEGDueQByFzK4KZAgu5YHGFNxziTlppNpTIBcqHQAxlfHdA==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -661,7 +661,7 @@ packages:
   /@types/svgo/2.6.4:
     resolution: {integrity: sha512-l4cmyPEckf8moNYHdJ+4wkHvFxjyW6ulm9l4YGaOxeyBWPhBOT0gvni1InpFPdzx1dKf/2s62qGITwxNWnPQng==}
     dependencies:
-      '@types/node': 20.4.5
+      '@types/node': 20.4.6
     dev: true
 
   /@types/unist/2.0.7:
@@ -1050,7 +1050,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.1
       magic-string: 0.30.2
-      vite: 4.4.8_ik33kfm6mxnnunr5dpteflfnty
+      vite: 4.4.8_4ooeoywhv72modcyok5ojth4bq
     transitivePeerDependencies:
       - rollup
     dev: false
@@ -1062,7 +1062,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.4.8_ik33kfm6mxnnunr5dpteflfnty
+      vite: 4.4.8_4ooeoywhv72modcyok5ojth4bq
       vue: 3.3.4
     dev: true
 
@@ -1443,19 +1443,19 @@ packages:
     resolution: {integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==}
     dev: true
 
-  /chart.js/4.3.2:
-    resolution: {integrity: sha512-pvQNyFOY1QmbmIr8oDORL16/FFivfxj8V26VFpFilMo4cNvkV5WXLJetDio365pd9gKUHGdirUTbqJfw8tr+Dg==}
+  /chart.js/4.3.3:
+    resolution: {integrity: sha512-aTk7pBw+x6sQYhon/NR3ikfUJuym/LdgpTlgZRe2PaEhjUMKBKyNaFCMVRAyTEWYFNO7qRu7iQVqOw/OqzxZxQ==}
     engines: {pnpm: '>=7'}
     dependencies:
       '@kurkle/color': 0.3.2
     dev: false
 
-  /chartjs-plugin-datalabels/2.2.0_chart.js@4.3.2:
+  /chartjs-plugin-datalabels/2.2.0_chart.js@4.3.3:
     resolution: {integrity: sha512-14ZU30lH7n89oq+A4bWaJPnAG8a7ZTk7dKf48YAzMvJjQtjrgg5Dpk9f+LbjCF6bpx3RAGTeL13IXpKQYyRvlw==}
     peerDependencies:
       chart.js: '>=3.0.0'
     dependencies:
-      chart.js: 4.3.2
+      chart.js: 4.3.3
     dev: false
 
   /chokidar/3.5.3:
@@ -4272,12 +4272,12 @@ packages:
       pathe: 0.2.0
       svg-baker: 1.7.0
       svgo: 2.8.0
-      vite: 4.4.8_ik33kfm6mxnnunr5dpteflfnty
+      vite: 4.4.8_4ooeoywhv72modcyok5ojth4bq
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite/4.4.8_ik33kfm6mxnnunr5dpteflfnty:
+  /vite/4.4.8_4ooeoywhv72modcyok5ojth4bq:
     resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -4305,7 +4305,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.4.5
+      '@types/node': 20.4.6
       esbuild: 0.18.17
       postcss: 8.4.27
       rollup: 3.27.0
