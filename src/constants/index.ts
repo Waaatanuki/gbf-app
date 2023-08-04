@@ -1,5 +1,4 @@
 import { Raid_EternitySand, Raid_GoldBrick } from './raid'
-import type { GoldBrickTableData, RaidInfo } from '~/logic/types'
 
 export const defaultTodoList = [
   { done: false, content: '巡岛' },
@@ -40,3 +39,35 @@ export const defaultGoldBrickTableData = Raid_GoldBrick.reduce((pre, cur) => {
   pre.push(data)
   return pre
 }, [] as GoldBrickTableData[])
+
+export interface GoldBrickTableData {
+  quest_id: string
+  total: number
+  blueChest: number
+  goldBrick: number
+  ring1: number
+  ring2: number
+  ring3: number
+  lastBlueChestCount: number
+}
+
+export interface RaidInfo {
+  quest_id: string
+  level: string
+  element: string
+  tweet_name_en: string
+  tweet_name_jp: string
+  quest_name_en: string
+  quest_name_jp: string
+  impossible: number
+  difficulty: string
+  stage_id: string
+  thumbnail_image: string
+  is_blue_treasure: boolean
+  visiable?: boolean
+  is_blue_eternitySand?: boolean
+  total?: number
+  blueChest?: number
+  eternitySand?: number
+  lastDropCount?: number
+}

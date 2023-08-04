@@ -12,7 +12,6 @@ const state = reactive({
   uploadBtnLoading: false,
   baseInfo: [] as any[],
   cbInfo: {} as any,
-  totalBlueChestFFJ: 0,
   drawer: {
     title: '',
     visible: false,
@@ -23,7 +22,6 @@ const state = reactive({
 })
 
 const {
-  totalBlueChestFFJ,
   filesList,
   baseInfo,
   cbInfo,
@@ -51,15 +49,9 @@ async function init() {
   state.dataSet = []
   const entries = await db.entries()
   entries.forEach((entry) => {
-    state.dataSet.push({
-      [entry[0] as string]: entry[1],
-    })
+    state.dataSet.push({ [entry[0] as string]: entry[1] })
   })
   state.baseInfo = formatData(state.dataSet)
-  state.totalBlueChestFFJ = state.baseInfo.reduce(
-    (total, kv) => total + kv.blueChestFFJ,
-    0,
-  )
 }
 
 function formatData(dataSet: any) {
@@ -76,10 +68,6 @@ function formatData(dataSet: any) {
       key: quest.key,
       alias: quest.alias,
       questId: quest.questId,
-      img: new URL(
-        `/src/assets/images/raid/img-quest-thumb/${quest.questId}.png`,
-        import.meta.url,
-      ).href,
       count: 0,
       blueChestCount: 0,
       redChestFFJ: 0,
@@ -105,10 +93,7 @@ function formatData(dataSet: any) {
         cbInfo.value.count++
         raidInfo.goldBrick === '4' && cbInfo.value.redChestFFJ++
         raidInfo.goldBrick === '3' && cbInfo.value.normalChestFFJ++
-
-        cbInfo.value.lastFFJTime = raidInfo.goldBrick
-          ? raidInfo.timestamp
-          : cbInfo.value.lastFFJTime ?? raidInfo.timestamp
+        cbInfo.value.lastFFJTime = raidInfo.goldBrick ? raidInfo.timestamp : cbInfo.value.lastFFJTime ?? raidInfo.timestamp
       }
 
       if (!targetQuestInfo)
@@ -191,6 +176,12 @@ async function clearData() {
   init()
 }
 
+function getRatio(a = 0, b = 0) {
+  if (b === 0)
+    return 0
+  return ((a / b) * 100).toFixed(2)
+}
+
 onMounted(() => {
   init()
 })
@@ -198,59 +189,78 @@ onMounted(() => {
 
 <template>
   <div class="app-container">
-    <el-table :data="baseInfo" @row-click="showChart">
-      <el-table-column width="150" align="center">
-        <template #default="{ row }">
-          <img :src="getImageSrc(row.questId, 'raid/img-quest-thumb')" w-full>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" prop="whiteRing" label="白戒指" />
-      <el-table-column align="center" prop="blackRing" label="黑戒指" />
-      <el-table-column align="center" prop="redRing" label="红戒指" />
-      <el-table-column align="center" prop="blueChestFFJ" label="蓝箱金" />
-      <el-table-column align="center" prop="blueChestCount" label="蓝箱次数" />
-      <el-table-column align="center" prop="count" label="总次数" />
-      <el-table-column align="center" prop="blueChestCount" label="蓝箱率">
-        <template #default="{ row }">
-          {{ ((row.blueChestCount / row.count || 0) * 100).toFixed(2) }}%
-        </template>
-      </el-table-column>
-      <el-table-column align="center" prop="blueChestCount" label="蓝箱金率">
-        <template #default="{ row }">
-          {{ ((row.blueChestFFJ / row.blueChestCount || 0) * 100).toFixed(2) }}%
-        </template>
-      </el-table-column>
-    </el-table>
-    <el-popover width="200">
-      <template #reference>
-        <img
-          w-126px absolute bottom-5 left-5
-          :src="getImageSrc('303141', 'raid/img-quest-thumb')"
-        >
-      </template>
-      <template #default>
-        <el-descriptions :column="2" direction="vertical" border>
-          <el-descriptions-item label="总次数" align="center">
-            {{ cbInfo.count }}
-          </el-descriptions-item>
-          <el-descriptions-item label="自发金" align="center">
-            {{ cbInfo.redChestFFJ }}
-          </el-descriptions-item>
-          <el-descriptions-item label="金箱金" align="center">
-            {{ cbInfo.normalChestFFJ }}
-          </el-descriptions-item>
-          <el-descriptions-item label="掉金率" align="center">
-            {{ (((cbInfo.redChestFFJ + cbInfo.normalChestFFJ) / cbInfo.count || 0) * 100).toFixed(2) }}%
-          </el-descriptions-item>
-          <el-descriptions-item v-if="cbInfo.lastFFJTime" label="上次出金" align="center" :span="2">
-            {{ dayjs().diff(dayjs(cbInfo.lastFFJTime), 'day') }}天之前
-          </el-descriptions-item>
-        </el-descriptions>
-      </template>
-    </el-popover>
-    <div class="result" rounded>
-      蓝箱FFJ总计：{{ totalBlueChestFFJ }}
-    </div>
+    <el-card v-for="item in baseInfo" :key="item.quest_id" cursor-pointer mb-2 shadow="hover" @click="showChart(item)">
+      <div flex justify-evenly gap-5>
+        <div w-180px fc>
+          <img w-full :src="getImageSrc(item.questId, 'raid/img-quest-thumb')">
+        </div>
+        <div fc flex-col gap-4>
+          <div flex justify-between gap-10 flex-wrap>
+            <div w-100px>
+              <el-statistic :value="item.count" title="总次数" />
+            </div>
+            <div w-120px>
+              <el-statistic :value="item.blueChestCount" title="蓝箱" />
+              <div>
+                <el-text size="small">
+                  蓝箱率： {{ getRatio(item.blueChestCount, item.count) }}%
+                </el-text>
+              </div>
+            </div>
+            <div w-100px>
+              <el-statistic :value="item.blueChestFFJ" title="菲菲金" />
+              <div>
+                <el-text size="small">
+                  蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChestCount) }}%
+                </el-text>
+              </div>
+            </div>
+            <div w-100px>
+              <el-statistic :value="item.redRing" title="红戒指" />
+            </div>
+            <div w-100px>
+              <el-statistic :value="item.blackRing" title="黑戒指" />
+            </div>
+            <div w-100px>
+              <el-statistic :value="item.whiteRing" title="白戒指" />
+            </div>
+          </div>
+          <el-text v-if="item.blueChestFFJ === 0" type="warning">
+            还未出过金
+          </el-text>
+          <el-text v-else type="info">
+            距离上次出金已经打了{{ item.lastBlueChestCount }}个蓝箱
+          </el-text>
+        </div>
+      </div>
+    </el-card>
+    <el-card shadow="hover">
+      <div flex justify-evenly gap-5>
+        <div w-180px fc>
+          <img w-full :src="getImageSrc('303141', 'raid/img-quest-thumb')">
+        </div>
+        <div fc flex-col gap-4>
+          <div flex justify-between gap-10 flex-wrap>
+            <div w-100px>
+              <el-statistic :value="cbInfo.count" title="总次数" />
+            </div>
+            <div w-120px>
+              <el-statistic :value="cbInfo.redChestFFJ" title="菲菲金" />
+              <el-text size="small">
+                自发金率： {{ getRatio(cbInfo.redChestFFJ, cbInfo.count) }}%
+              </el-text>
+            </div>
+          </div>
+          <el-text v-if="cbInfo.redChestFFJ === 0" type="warning">
+            还未出过金
+          </el-text>
+          <el-text v-else type="info">
+            距离上次出金已经过去了{{ dayjs().diff(dayjs(cbInfo.lastFFJTime), 'day') }}天
+          </el-text>
+        </div>
+      </div>
+    </el-card>
+
     <div class="uploader">
       <el-popconfirm
         title="清空操作无法恢复，确认清空吗?"
@@ -296,18 +306,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.result {
-  width: 300px;
-  height: 50px;
-  margin: 10px auto;
-  border: 1px solid;
-  background-color: rgba(255, 217, 0, 0.5);
-  line-height: 50px;
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .uploader {
   display: flex;
   justify-content: center;

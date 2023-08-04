@@ -224,9 +224,7 @@ function closeAnimation() {
         <template #header>
           <div class="h-full flex justify-between items-center">
             <p class="gachaText">
-              当前总抽数：{{ count }} , SSR个数：{{ ssrCount }} , SSR率：{{
-                ((ssrCount / count) * 100).toFixed(2)
-              }}%
+              当前总抽数：{{ count }} , SSR个数：{{ ssrCount }} , SSR率：{{ ((ssrCount / count) * 100).toFixed(2) }}%
             </p>
             <el-button type="warning" @click="reset">
               重置
