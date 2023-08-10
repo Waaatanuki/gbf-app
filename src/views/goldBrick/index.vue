@@ -21,13 +21,7 @@ const state = reactive({
   },
 })
 
-const {
-  filesList,
-  baseInfo,
-  cbInfo,
-  uploadBtnLoading,
-  drawer,
-} = toRefs(state)
+const { filesList, baseInfo, cbInfo, uploadBtnLoading, drawer } = toRefs(state)
 
 function showChart(raid: any) {
   if (raid.key === 'cb')
@@ -40,9 +34,7 @@ function showChart(raid: any) {
     const raidInfo = record[raidId]
     return raid.key === raidInfo.raidName
   })
-  state.drawer.rawTableData = state.baseInfo.find((item: any) =>
-    raid.key === item.key,
-  )
+  state.drawer.rawTableData = state.baseInfo.find((item: any) => raid.key === item.key)
 }
 
 async function init() {
@@ -104,8 +96,7 @@ function formatData(dataSet: any) {
 
       if (targetQuestInfo.rawDetailData[yearMonth])
         targetQuestInfo.rawDetailData[yearMonth].push(raidInfo)
-      else
-        targetQuestInfo.rawDetailData[yearMonth] = [raidInfo]
+      else targetQuestInfo.rawDetailData[yearMonth] = [raidInfo]
     }
     catch (error) {
       console.log('数据异常')
@@ -128,12 +119,7 @@ function counter(targetQuestInfo: any, raidInfo: any) {
   raidInfo.blueChests === '73_2' && targetQuestInfo.blackRing++
   raidInfo.blueChests === '73_3' && targetQuestInfo.redRing++
   targetQuestInfo.lastCount = raidInfo.goldBrick ? 0 : targetQuestInfo.lastCount + 1
-  targetQuestInfo.lastBlueChestCount
-    = raidInfo.blueChests === '17_20004'
-      ? 0
-      : raidInfo.blueChests
-        ? targetQuestInfo.lastBlueChestCount + 1
-        : targetQuestInfo.lastBlueChestCount
+  targetQuestInfo.lastBlueChestCount = raidInfo.blueChests === '17_20004' ? 0 : raidInfo.blueChests ? targetQuestInfo.lastBlueChestCount + 1 : targetQuestInfo.lastBlueChestCount
 }
 
 function handleUploadChange(uploadFile: any) {
@@ -190,11 +176,11 @@ onMounted(() => {
 <template>
   <div class="app-container">
     <el-card v-for="item in baseInfo" :key="item.quest_id" cursor-pointer mb-2 shadow="hover" @click="showChart(item)">
-      <div flex justify-evenly gap-5>
-        <div w-180px fc>
+      <div flex gap-5>
+        <div w-180px fc shrink-0>
           <img w-full :src="getImageSrc(item.questId, 'raid/img-quest-thumb')">
         </div>
-        <div fc flex-col gap-4>
+        <div w-full fc flex-col gap-4>
           <div flex justify-between gap-10 flex-wrap>
             <div w-100px>
               <el-statistic :value="item.count" title="总次数" />
@@ -235,11 +221,11 @@ onMounted(() => {
       </div>
     </el-card>
     <el-card shadow="hover">
-      <div flex justify-evenly gap-5>
-        <div w-180px fc>
+      <div flex gap-5>
+        <div w-180px fc shrink-0>
           <img w-full :src="getImageSrc('303141', 'raid/img-quest-thumb')">
         </div>
-        <div fc flex-col gap-4>
+        <div w-full fc flex-col gap-4>
           <div flex justify-between gap-10 flex-wrap>
             <div w-100px>
               <el-statistic :value="cbInfo.count" title="总次数" />
@@ -262,11 +248,7 @@ onMounted(() => {
     </el-card>
 
     <div class="uploader">
-      <el-popconfirm
-        title="清空操作无法恢复，确认清空吗?"
-        :on-confirm="clearData"
-        width="200"
-      >
+      <el-popconfirm title="清空操作无法恢复，确认清空吗?" width="300" @confirm="clearData">
         <template #reference>
           <el-button type="danger">
             清空数据
@@ -276,31 +258,16 @@ onMounted(() => {
       <el-button type="info" @click="handleExport">
         导出
       </el-button>
-      <el-upload
-        v-model:file-list="filesList"
-        :on-change="handleUploadChange"
-        :show-file-list="false"
-        :limit="1"
-        :auto-upload="false"
-        accept=".json"
-      >
+      <el-upload v-model:file-list="filesList" :on-change="handleUploadChange" :show-file-list="false" :limit="1" :auto-upload="false" accept=".json">
         <template #trigger>
-          <el-button
-            type="primary"
-            :loading="uploadBtnLoading"
-            @click="filesList = []"
-          >
+          <el-button type="primary" :loading="uploadBtnLoading" @click="filesList = []">
             上传
           </el-button>
         </template>
       </el-upload>
     </div>
     <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600">
-      <ChartDrawer
-        :id="drawer.key"
-        :data="drawer.dataSet"
-        :raw-table-data="drawer.rawTableData"
-      />
+      <ChartDrawer :id="drawer.key" :data="drawer.dataSet" :raw-table-data="drawer.rawTableData" />
     </el-drawer>
   </div>
 </template>
