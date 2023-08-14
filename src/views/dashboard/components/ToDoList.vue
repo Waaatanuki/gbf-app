@@ -2,6 +2,7 @@
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
+import { defaultTodoList } from '~/constants'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -9,14 +10,7 @@ dayjs.tz.setDefault('Asia/Shanghai')
 
 const InputRef = ref()
 const state = reactive({
-  taskList: useStorage('todoList', [
-    { done: false, content: '巡岛' },
-    { done: false, content: '大巴' },
-    { done: false, content: '超巴' },
-    { done: false, content: '活动日常' },
-    { done: false, content: '沙盒' },
-    { done: false, content: '抽卢比' },
-  ]),
+  taskList: useStorage('todoList', defaultTodoList),
   lastUpdateTodo: useStorage('lastUpdateTodo', dayjs().tz().unix()),
   inputValue: '',
   inputVisible: false,

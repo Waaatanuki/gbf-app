@@ -4,37 +4,36 @@ import dayjs from 'dayjs'
 import ChartDrawer from './components/Drawer.vue'
 import { downloadJSON } from '~/utils/file'
 import db from '~/utils/db'
-import GoldBrickQuest from '~/assets/data/GoldBrickQuest.json'
+import type { AppGoldBrickTableData, Record } from '~/constants'
+import { defaultAppGoldBrickTableData } from '~/constants'
 
 const state = reactive({
-  dataSet: [] as any[],
+  dataSet: [] as Record[],
   filesList: [],
   uploadBtnLoading: false,
-  baseInfo: [] as any[],
-  cbInfo: {} as any,
+  baseInfo: [] as AppGoldBrickTableData[],
   drawer: {
     title: '',
     visible: false,
     key: '',
-    dataSet: [] as any[],
-    rawTableData: {} as any,
+    dataSet: [] as Record[],
+    rawTableData: {} as AppGoldBrickTableData,
   },
 })
 
-const { filesList, baseInfo, cbInfo, uploadBtnLoading, drawer } = toRefs(state)
+const { filesList, baseInfo, uploadBtnLoading, drawer } = toRefs(state)
 
-function showChart(raid: any) {
-  if (raid.key === 'cb')
+function showChart(raid: AppGoldBrickTableData) {
+  if (raid.raidName === 'cb')
     return ElMessage.warning('超巴没有详细图表')
   state.drawer.visible = true
-  state.drawer.title = `${raid.alias}详细图表`
-  state.drawer.key = raid.key
-  state.drawer.dataSet = state.dataSet.filter((record: any) => {
-    const raidId = Object.keys(record)[0]
-    const raidInfo = record[raidId]
-    return raid.key === raidInfo.raidName
+  state.drawer.title = `${raid.quest_name_jp} 详细图表`
+  state.drawer.key = raid.quest_id
+  state.drawer.dataSet = state.dataSet.filter((record) => {
+    const raidInfo = Object.values(record)[0]
+    return raid.raidName === raidInfo.raidName
   })
-  state.drawer.rawTableData = state.baseInfo.find((item: any) => raid.key === item.key)
+  state.drawer.rawTableData = state.baseInfo.find(item => raid.quest_id === item.quest_id)!
 }
 
 async function init() {
@@ -46,80 +45,44 @@ async function init() {
   state.baseInfo = formatData(state.dataSet)
 }
 
-function formatData(dataSet: any) {
-  const baseInfo: any[] = []
-  cbInfo.value = {
-    count: 0,
-    redChestFFJ: 0,
-    normalChestFFJ: 0,
-    lastFFJTime: null,
-  }
+function formatData(dataSet: Record[]) {
+  const baseInfo = defaultAppGoldBrickTableData.map(data => ({ ...data }))
 
-  GoldBrickQuest.forEach((quest) => {
-    baseInfo.push({
-      key: quest.key,
-      alias: quest.alias,
-      questId: quest.questId,
-      count: 0,
-      blueChestCount: 0,
-      redChestFFJ: 0,
-      blueChestFFJ: 0,
-      normalChestFFJ: 0,
-      totalFFJ: 0,
-      whiteRing: 0,
-      blackRing: 0,
-      redRing: 0,
-      lastCount: 0,
-      lastBlueChestCount: 0,
-      rawDetailData: {},
-    })
-  })
+  dataSet.forEach((record) => {
+    const raidInfo = Object.values(record)[0]
+    const targetRaidInfo = baseInfo.find(quest => quest.raidName === raidInfo.raidName)
 
-  dataSet.forEach((record: any) => {
-    try {
-      const raidId = Object.keys(record)[0]
-      const raidInfo = record[raidId]
-      const targetQuestInfo = baseInfo.find(quest => quest.key === raidInfo.raidName)
+    if (!targetRaidInfo)
+      return
 
-      if (raidInfo.raidName === 'cb') {
-        cbInfo.value.count++
-        raidInfo.goldBrick === '4' && cbInfo.value.redChestFFJ++
-        raidInfo.goldBrick === '3' && cbInfo.value.normalChestFFJ++
-        cbInfo.value.lastFFJTime = raidInfo.goldBrick ? raidInfo.timestamp : cbInfo.value.lastFFJTime ?? raidInfo.timestamp
-      }
+    targetRaidInfo.total++
 
-      if (!targetQuestInfo)
-        return
-      counter(targetQuestInfo, raidInfo)
-
-      const yearMonth = dayjs(raidInfo.timestamp).format('YYYY-MM')
-
-      if (targetQuestInfo.rawDetailData[yearMonth])
-        targetQuestInfo.rawDetailData[yearMonth].push(raidInfo)
-      else targetQuestInfo.rawDetailData[yearMonth] = [raidInfo]
+    if (raidInfo.goldBrick) {
+      raidInfo.goldBrick === '3' && targetRaidInfo.normalChestFFJ++
+      raidInfo.goldBrick === '4' && targetRaidInfo.redChestFFJ++
+      raidInfo.goldBrick === '11' && targetRaidInfo.blueChestFFJ++
+      targetRaidInfo.lastFFJTime = raidInfo.timestamp
     }
-    catch (error) {
-      console.log('数据异常')
+
+    if (raidInfo.blueChests) {
+      targetRaidInfo.blueChest++
+      targetRaidInfo.lastBlueChestCount++
+      raidInfo.blueChests === '73_1' && targetRaidInfo.ring1++
+      raidInfo.blueChests === '73_2' && targetRaidInfo.ring2++
+      raidInfo.blueChests === '73_3' && targetRaidInfo.ring3++
+      if (raidInfo.blueChests === '17_20004')
+        targetRaidInfo.lastBlueChestCount = 0
     }
+
+    const yearMonth = dayjs(raidInfo.timestamp).format('YYYY-MM')
+
+    if (targetRaidInfo.rawDetailData[yearMonth])
+      targetRaidInfo.rawDetailData[yearMonth].push(raidInfo)
+    else
+      targetRaidInfo.rawDetailData[yearMonth] = [raidInfo]
   })
 
   return baseInfo
-}
-
-function counter(targetQuestInfo: any, raidInfo: any) {
-  targetQuestInfo.count++
-
-  raidInfo.blueChests && targetQuestInfo.blueChestCount++
-  raidInfo.goldBrick === '4' && targetQuestInfo.redChestFFJ++
-  raidInfo.goldBrick === '11' && targetQuestInfo.blueChestFFJ++
-  raidInfo.goldBrick === '3' && targetQuestInfo.normalChestFFJ++
-
-  targetQuestInfo.totalFFJ = targetQuestInfo.redChestFFJ + targetQuestInfo.blueChestFFJ + targetQuestInfo.normalChestFFJ
-  raidInfo.blueChests === '73_1' && targetQuestInfo.whiteRing++
-  raidInfo.blueChests === '73_2' && targetQuestInfo.blackRing++
-  raidInfo.blueChests === '73_3' && targetQuestInfo.redRing++
-  targetQuestInfo.lastCount = raidInfo.goldBrick ? 0 : targetQuestInfo.lastCount + 1
-  targetQuestInfo.lastBlueChestCount = raidInfo.blueChests === '17_20004' ? 0 : raidInfo.blueChests ? targetQuestInfo.lastBlueChestCount + 1 : targetQuestInfo.lastBlueChestCount
 }
 
 function handleUploadChange(uploadFile: any) {
@@ -178,75 +141,86 @@ onMounted(() => {
     <el-card v-for="item in baseInfo" :key="item.quest_id" cursor-pointer mb-2 shadow="hover" @click="showChart(item)">
       <div flex gap-5>
         <div w-180px fc shrink-0>
-          <img w-full :src="getImageSrc(item.questId, 'raid/img-quest-thumb')">
+          <img w-full :src="getImageSrc(item.quest_id, 'raid/img-quest-thumb')">
         </div>
         <div w-full fc flex-col gap-4>
           <div flex justify-between gap-10 flex-wrap>
             <div w-100px>
-              <el-statistic :value="item.count" title="总次数" />
+              <el-statistic :value="item.total" title="总次数" />
             </div>
-            <div w-120px>
-              <el-statistic :value="item.blueChestCount" title="蓝箱" />
-              <div>
-                <el-text size="small">
-                  蓝箱率： {{ getRatio(item.blueChestCount, item.count) }}%
-                </el-text>
+            <template v-if="item.is_blue_treasure">
+              <div w-120px>
+                <el-statistic :value="item.blueChest" title="蓝箱" />
+                <div>
+                  <el-text size="small">
+                    蓝箱率： {{ getRatio(item.blueChest, item.total) }}%
+                  </el-text>
+                </div>
               </div>
-            </div>
-            <div w-100px>
-              <el-statistic :value="item.blueChestFFJ" title="菲菲金" />
-              <div>
-                <el-text size="small">
-                  蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChestCount) }}%
-                </el-text>
+              <template v-if="item.quest_id === '301061'">
+                <el-tooltip content="蓝箱金+自发金">
+                  <div w-100px>
+                    <el-statistic :value="item.blueChestFFJ" title="菲菲金" :suffix="`+ ${item.redChestFFJ}`" />
+                    <div>
+                      <el-text size="small">
+                        蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChest) }}%
+                      </el-text>
+                    </div>
+                  </div>
+                </el-tooltip>
+              </template>
+              <template v-else>
+                <div w-100px>
+                  <el-statistic :value="item.blueChestFFJ" title="菲菲金" />
+                  <div>
+                    <el-text size="small">
+                      蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChest) }}%
+                    </el-text>
+                  </div>
+                </div>
+              </template>
+              <div w-100px>
+                <el-statistic :value="item.ring3" title="红戒指" />
               </div>
-            </div>
-            <div w-100px>
-              <el-statistic :value="item.redRing" title="红戒指" />
-            </div>
-            <div w-100px>
-              <el-statistic :value="item.blackRing" title="黑戒指" />
-            </div>
-            <div w-100px>
-              <el-statistic :value="item.whiteRing" title="白戒指" />
-            </div>
+              <div w-100px>
+                <el-statistic :value="item.ring2" title="黑戒指" />
+              </div>
+              <div w-100px>
+                <el-statistic :value="item.ring1" title="白戒指" />
+              </div>
+            </template>
+            <template v-else>
+              <el-tooltip content="自发金+金箱金">
+                <div w-100px>
+                  <el-statistic :value="item.redChestFFJ" title="菲菲金" :suffix="`+ ${item.normalChestFFJ}`" />
+                  <!-- <div>
+                    <el-text size="small">
+                      自发金率： {{ getRatio(item.redChestFFJ, item.total) }}%
+                    </el-text>
+                  </div> -->
+                </div>
+              </el-tooltip>
+            </template>
           </div>
-          <el-text v-if="item.blueChestFFJ === 0" type="warning">
-            还未出过金
-          </el-text>
-          <el-text v-else type="info">
-            距离上次出金已经打了{{ item.lastBlueChestCount }}个蓝箱
-          </el-text>
+          <template v-if="item.is_blue_treasure">
+            <el-text v-if="item.blueChestFFJ === 0" type="warning">
+              还未出过金
+            </el-text>
+            <el-text v-else type="info">
+              距离上次出金已经打了{{ item.lastBlueChestCount }}个蓝箱
+            </el-text>
+          </template>
+          <template v-else>
+            <el-text v-if="item.redChestFFJ === 0" type="warning">
+              还未出过金
+            </el-text>
+            <el-text v-else type="info">
+              距离上次出金已经过去了{{ dayjs().diff(dayjs(item.lastFFJTime), 'day') }}天
+            </el-text>
+          </template>
         </div>
       </div>
     </el-card>
-    <el-card shadow="hover">
-      <div flex gap-5>
-        <div w-180px fc shrink-0>
-          <img w-full :src="getImageSrc('303141', 'raid/img-quest-thumb')">
-        </div>
-        <div w-full fc flex-col gap-4>
-          <div flex justify-between gap-10 flex-wrap>
-            <div w-100px>
-              <el-statistic :value="cbInfo.count" title="总次数" />
-            </div>
-            <div w-120px>
-              <el-statistic :value="cbInfo.redChestFFJ" title="菲菲金" />
-              <el-text size="small">
-                自发金率： {{ getRatio(cbInfo.redChestFFJ, cbInfo.count) }}%
-              </el-text>
-            </div>
-          </div>
-          <el-text v-if="cbInfo.redChestFFJ === 0" type="warning">
-            还未出过金
-          </el-text>
-          <el-text v-else type="info">
-            距离上次出金已经过去了{{ dayjs().diff(dayjs(cbInfo.lastFFJTime), 'day') }}天
-          </el-text>
-        </div>
-      </div>
-    </el-card>
-
     <div class="uploader">
       <el-popconfirm title="清空操作无法恢复，确认清空吗?" width="300" @confirm="clearData">
         <template #reference>
@@ -266,7 +240,7 @@ onMounted(() => {
         </template>
       </el-upload>
     </div>
-    <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600">
+    <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600" destroy-on-close>
       <ChartDrawer :id="drawer.key" :data="drawer.dataSet" :raw-table-data="drawer.rawTableData" />
     </el-drawer>
   </div>

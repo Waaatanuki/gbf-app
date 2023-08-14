@@ -2,18 +2,28 @@
 import dayjs from 'dayjs'
 import BarChart from './BarChart.vue'
 import DetailTable from './DetailTable.vue'
+import type { AppGoldBrickTableData, Record } from '~/constants'
 
-const props = defineProps(['id', 'data', 'rawTableData'])
+interface ChartData {
+  labels: string[]
+  count: number[]
+}
+
+const props = defineProps<{
+  id: string
+  data: Record[]
+  rawTableData: AppGoldBrickTableData
+}>()
 
 const state = reactive({
   countData: {
     labels: [],
     count: [],
-  },
+  } as ChartData,
   blueChestData: {
     labels: [],
     count: [],
-  },
+  } as ChartData,
   range: 'month',
 })
 
@@ -33,7 +43,7 @@ watchEffect(() => {
 
 function getCountData() {
   const dataSet = props.data
-  const chartData: any = {
+  const chartData: ChartData = {
     labels: [],
     count: [],
   }
@@ -45,9 +55,8 @@ function getCountData() {
     case 'month':
       date = dayjs().subtract(29, 'day')
       for (let j = 0; j < 30; j++) {
-        const count = dataSet.filter((record: any) => {
-          const raidId = Object.keys(record)[0]
-          const raidInfo = record[raidId]
+        const count = dataSet.filter((record) => {
+          const raidInfo = Object.values(record)[0]
           return date.isSame(dayjs(raidInfo.timestamp), 'day')
         }).length
 
@@ -59,9 +68,8 @@ function getCountData() {
     case 'halfYear':
       date = dayjs().subtract(5, 'month')
       for (let j = 0; j < 6; j++) {
-        const count = dataSet.filter((record: any) => {
-          const raidId = Object.keys(record)[0]
-          const raidInfo = record[raidId]
+        const count = dataSet.filter((record) => {
+          const raidInfo = Object.values(record)[0]
           return date.isSame(dayjs(raidInfo.timestamp), 'month')
         }).length
 
@@ -73,9 +81,8 @@ function getCountData() {
     case 'year':
       date = dayjs().subtract(11, 'month')
       for (let j = 0; j < 12; j++) {
-        const count = dataSet.filter((record: any) => {
-          const raidId = Object.keys(record)[0]
-          const raidInfo = record[raidId]
+        const count = dataSet.filter((record) => {
+          const raidInfo = Object.values(record)[0]
           return date.isSame(dayjs(raidInfo.timestamp), 'month')
         }).length
 
@@ -87,9 +94,8 @@ function getCountData() {
     case 'total':
       date = dayjs().year(2022)
       for (let j = 0; j < currentYear - firstYear + 1; j++) {
-        const count = dataSet.filter((record: any) => {
-          const raidId = Object.keys(record)[0]
-          const raidInfo = record[raidId]
+        const count = dataSet.filter((record) => {
+          const raidInfo = Object.values(record)[0]
           return date.isSame(dayjs(raidInfo.timestamp), 'year')
         }).length
 
@@ -104,20 +110,20 @@ function getCountData() {
 
 function getBlueChestData() {
   const dataSet = props.data
-  const chartData: any = {
-    labels: [1],
+  const chartData: ChartData = {
+    labels: ['1'],
     count: [0],
   }
   // 导入db时会自动降序排列
   // dataSet.sort((a: any, b: any) => Number(Object.keys(a)[0]) - Number(Object.keys(b)[0]))
 
-  dataSet.forEach((record: any) => {
+  dataSet.forEach((record) => {
     const raidId = Object.keys(record)[0]
     const raidInfo = record[raidId]
 
     if (raidInfo.goldBrick === '11') {
       chartData.count[chartData.count.length - 1]++
-      chartData.labels.push(chartData.labels.length + 1)
+      chartData.labels.push(String(chartData.labels.length + 1))
       chartData.count.push(0)
     }
     else {
@@ -130,7 +136,7 @@ function getBlueChestData() {
 </script>
 
 <template>
-  <div class="detailPage">
+  <div fc flex-col>
     <div>
       <el-select v-model="range" size="small">
         <el-option
@@ -140,7 +146,7 @@ function getBlueChestData() {
         />
       </el-select>
     </div>
-    <div class="chart-list">
+    <div fc flex-col w-500px>
       <BarChart
         :id="`${id}count`"
         title="次数统计"
@@ -157,19 +163,3 @@ function getBlueChestData() {
     </div>
   </div>
 </template>
-
-<style scoped>
-.detailPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.chart-list {
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-</style>

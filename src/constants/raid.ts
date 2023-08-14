@@ -438,7 +438,4 @@ export const Raid_GoldBrick = [
   },
 ]
 
-export const targetRaid = [
-  ...Raid_EternitySand,
-  ...Raid_GoldBrick,
-]
+export const targetRaid = [...Raid_EternitySand, ...Raid_GoldBrick]

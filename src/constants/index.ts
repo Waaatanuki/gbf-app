@@ -1,4 +1,4 @@
-import { Raid_EternitySand, Raid_GoldBrick } from './raid'
+import { Raid_GoldBrick } from './raid'
 
 export const defaultTodoList = [
   { done: false, content: '巡岛' },
@@ -9,50 +9,27 @@ export const defaultTodoList = [
   { done: false, content: '抽卢比' },
 ]
 
-export const noticeItem = [
-  { key: '10_215', comment: '沙漏' },
-  { key: '17_20004', comment: 'ffj' },
-]
-
-export const defaultEternitySandData = Raid_EternitySand.reduce((pre, cur) => {
-  const data: RaidInfo = { ...cur }
-  data.visiable = true
-  data.total = 0
-  data.blueChest = 0
-  data.eternitySand = 0
-  data.lastDropCount = 0
-  pre.push(data)
-  return pre
-}, [] as RaidInfo[])
-
-export const defaultGoldBrickTableData = Raid_GoldBrick.reduce((pre, cur) => {
-  const data: GoldBrickTableData = {
-    quest_id: cur.quest_id,
+export const defaultAppGoldBrickTableData = Raid_GoldBrick.reduce<AppGoldBrickTableData[]>((pre, cur) => {
+  pre.push({
+    ...cur,
     total: 0,
     blueChest: 0,
-    goldBrick: 0,
+    redChestFFJ: 0,
+    blueChestFFJ: 0,
+    normalChestFFJ: 0,
     ring1: 0,
     ring2: 0,
     ring3: 0,
     lastBlueChestCount: 0,
-  }
-  pre.push(data)
+    rawDetailData: {},
+    lastFFJTime: 0,
+  })
   return pre
-}, [] as GoldBrickTableData[])
+}, [])
 
-export interface GoldBrickTableData {
+export interface AppGoldBrickTableData {
   quest_id: string
-  total: number
-  blueChest: number
-  goldBrick: number
-  ring1: number
-  ring2: number
-  ring3: number
-  lastBlueChestCount: number
-}
-
-export interface RaidInfo {
-  quest_id: string
+  raidName: string
   level: string
   element: string
   tweet_name_en: string
@@ -64,10 +41,31 @@ export interface RaidInfo {
   stage_id: string
   thumbnail_image: string
   is_blue_treasure: boolean
-  visiable?: boolean
-  is_blue_eternitySand?: boolean
-  total?: number
-  blueChest?: number
-  eternitySand?: number
-  lastDropCount?: number
+  total: number
+  blueChest: number
+  redChestFFJ: number
+  blueChestFFJ: number
+  normalChestFFJ: number
+  ring1: number
+  ring2: number
+  ring3: number
+  lastBlueChestCount: number
+  lastFFJTime: number
+  rawDetailData: {
+    [key: string]: {
+      raidName: string
+      timestamp: number
+      goldBrick?: string
+      blueChests?: string
+    }[]
+  }
+}
+
+export interface Record {
+  [key: string]: {
+    raidName: string
+    timestamp: number
+    goldBrick?: string
+    blueChests?: string
+  }
 }
