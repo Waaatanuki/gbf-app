@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
-import schedule from '~/assets/data/schedule.json'
+import { schedule } from '~/constants'
 import useDynamicHeight from '~/composables/useDynamicHeight'
 
 const { dynamicHeight } = useDynamicHeight()

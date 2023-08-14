@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { cloneDeep } from 'lodash'
-import uncapData from '~/assets/data/uncapData.json'
-import { materialList } from '~/constants/evoker'
+import { evokerUncapData, materialList } from '~/constants/evoker'
 import { downloadJSON } from '~/utils/file'
 
 const height = document.documentElement.offsetHeight - 80
@@ -60,7 +59,7 @@ function handleExport() {
   downloadJSON(JSON.stringify(tempData, null, 2), 'uncapData')
 }
 onMounted(() => {
-  state.tableData = uncapData
+  state.tableData = evokerUncapData
   state.tableData.forEach((data) => {
     data.tarotUncapStr = JSON.stringify(data.tarotUncap, null, 2)
     data.evokerUncapStr = JSON.stringify(data.evokerUncap, null, 2)

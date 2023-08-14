@@ -1,5 +1,38 @@
 import { Raid_GoldBrick } from './raid'
 
+export const schedule = [
+  {
+    title: '月末战货',
+    comment: '',
+    start: '2023-07-29 17:00',
+    end: '2023-08-06 20:59',
+  },
+  {
+    title: '咒术回战联动',
+    comment: '',
+    start: '2023-08-05 17:00',
+    end: '2023-08-18 20:59',
+  },
+  {
+    title: '转世外传',
+    comment: '',
+    start: '2023-08-16 17:00',
+    end: '2023-08-22 16:59',
+  },
+  {
+    title: '剧情复刻',
+    comment: '',
+    start: '2023-08-22 17:00',
+    end: '2023-08-29 18:59',
+  },
+  {
+    title: '月末战货',
+    comment: '',
+    start: '2023-08-29 19:00',
+    end: '2023-09-06 20:59',
+  },
+]
+
 export const defaultTodoList = [
   { done: false, content: '巡岛' },
   { done: false, content: '大巴' },

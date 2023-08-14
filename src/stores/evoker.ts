@@ -1,6 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { defaultEvokerInfo } from '~/constants/evoker'
-import evokerData from '~/assets/data/uncapData.json'
+import { defaultEvokerInfo, evokerUncapData } from '~/constants/evoker'
 
 export const useEvokerStore = defineStore('evoker', () => {
   const materialInfo = useStorage('materialInfo', {} as { [key: string]: number })
@@ -21,8 +20,8 @@ export const useEvokerStore = defineStore('evoker', () => {
         // 塔罗、贤者、贤武、领域素材计算
         for (let m = 0; m < 4; m++) {
           const type = loopGroup[m] as 'tarotUncap' | 'evokerUncap' | 'weaponUncap' | 'domainUncap'
-          for (let j = currentLevel[m]; j < evokerData[currentNo][type].length; j++) {
-            const uncapData = evokerData[currentNo][type][j]
+          for (let j = currentLevel[m]; j < evokerUncapData[currentNo][type].length; j++) {
+            const uncapData = evokerUncapData[currentNo][type][j]
             for (const [key, value] of Object.entries(uncapData)) {
               if (!(key in result))
                 result[key] = 0
@@ -33,7 +32,7 @@ export const useEvokerStore = defineStore('evoker', () => {
 
         // 贤者四技能解锁
         if (!evokerInfo.value[i].isAbility4Release) {
-          const releaseData = evokerData[currentNo].ability4Release
+          const releaseData = evokerUncapData[currentNo].ability4Release
           for (const [key, value] of Object.entries(releaseData)) {
             if (!(key in result))
               result[key] = 0
