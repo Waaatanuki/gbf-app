@@ -2,7 +2,7 @@
 import dayjs from 'dayjs'
 import BarChart from './BarChart.vue'
 import DetailTable from './DetailTable.vue'
-import type { AppGoldBrickTableData, Record } from '~/constants'
+import type { MonthlyTableData, Record } from '~/constants'
 
 interface ChartData {
   labels: string[]
@@ -12,22 +12,10 @@ interface ChartData {
 const props = defineProps<{
   id: string
   data: Record[]
-  rawTableData: AppGoldBrickTableData
+  tableData: MonthlyTableData[]
 }>()
 
-const state = reactive({
-  countData: {
-    labels: [],
-    count: [],
-  } as ChartData,
-  blueChestData: {
-    labels: [],
-    count: [],
-  } as ChartData,
-  range: 'month',
-})
-
-const { countData, blueChestData, range } = toRefs(state)
+const range = ref('month')
 
 const rangeOptions = [
   { label: '最近30天', value: 'month' },
@@ -36,12 +24,14 @@ const rangeOptions = [
   { label: '总体', value: 'total' },
 ]
 
-watchEffect(() => {
-  state.countData = getCountData()
-  state.blueChestData = getBlueChestData()
-})
+function getCount(dataSet: Record[], date: dayjs.Dayjs, range: dayjs.OpUnitType) {
+  return dataSet.filter((record) => {
+    const raidInfo = Object.values(record)[0]
+    return date.isSame(dayjs(raidInfo.timestamp), range)
+  }).length
+}
 
-function getCountData() {
+const countData = computed<ChartData>(() => {
   const dataSet = props.data
   const chartData: ChartData = {
     labels: [],
@@ -51,16 +41,12 @@ function getCountData() {
   const firstYear = 2022
   const currentYear = dayjs().year()
 
-  switch (state.range) {
+  switch (range.value) {
     case 'month':
       date = dayjs().subtract(29, 'day')
       for (let j = 0; j < 30; j++) {
-        const count = dataSet.filter((record) => {
-          const raidInfo = Object.values(record)[0]
-          return date.isSame(dayjs(raidInfo.timestamp), 'day')
-        }).length
-
-        chartData.labels.push(`${date.month() + 1}-${date.date()}`)
+        const count = getCount(dataSet, date, 'day')
+        chartData.labels.push(date.format('M-D'))
         chartData.count.push(count)
         date = dayjs(date).add(1, 'day')
       }
@@ -68,12 +54,8 @@ function getCountData() {
     case 'halfYear':
       date = dayjs().subtract(5, 'month')
       for (let j = 0; j < 6; j++) {
-        const count = dataSet.filter((record) => {
-          const raidInfo = Object.values(record)[0]
-          return date.isSame(dayjs(raidInfo.timestamp), 'month')
-        }).length
-
-        chartData.labels.push(`${date.month() + 1}`)
+        const count = getCount(dataSet, date, 'month')
+        chartData.labels.push(date.format('M'))
         chartData.count.push(count)
         date = dayjs(date).add(1, 'month')
       }
@@ -81,12 +63,8 @@ function getCountData() {
     case 'year':
       date = dayjs().subtract(11, 'month')
       for (let j = 0; j < 12; j++) {
-        const count = dataSet.filter((record) => {
-          const raidInfo = Object.values(record)[0]
-          return date.isSame(dayjs(raidInfo.timestamp), 'month')
-        }).length
-
-        chartData.labels.push(`${date.month() + 1}`)
+        const count = getCount(dataSet, date, 'month')
+        chartData.labels.push(date.format('M'))
         chartData.count.push(count)
         date = dayjs(date).add(1, 'month')
       }
@@ -94,22 +72,17 @@ function getCountData() {
     case 'total':
       date = dayjs().year(2022)
       for (let j = 0; j < currentYear - firstYear + 1; j++) {
-        const count = dataSet.filter((record) => {
-          const raidInfo = Object.values(record)[0]
-          return date.isSame(dayjs(raidInfo.timestamp), 'year')
-        }).length
-
-        chartData.labels.push(`${date.year()}`)
+        const count = getCount(dataSet, date, 'year')
+        chartData.labels.push(date.format('YYYY'))
         chartData.count.push(count)
         date = dayjs(date).add(1, 'year')
       }
       break
   }
   return chartData
-}
+})
 
-function getBlueChestData() {
-  const dataSet = props.data
+const blueChestData = computed<ChartData>(() => {
   const chartData: ChartData = {
     labels: ['1'],
     count: [0],
@@ -117,9 +90,8 @@ function getBlueChestData() {
   // 导入db时会自动降序排列
   // dataSet.sort((a: any, b: any) => Number(Object.keys(a)[0]) - Number(Object.keys(b)[0]))
 
-  dataSet.forEach((record) => {
-    const raidId = Object.keys(record)[0]
-    const raidInfo = record[raidId]
+  props.data.forEach((record) => {
+    const raidInfo = Object.values(record)[0]
 
     if (raidInfo.goldBrick === '11') {
       chartData.count[chartData.count.length - 1]++
@@ -132,7 +104,7 @@ function getBlueChestData() {
   })
 
   return chartData
-}
+})
 </script>
 
 <template>
@@ -159,7 +131,7 @@ function getBlueChestData() {
         :labels="blueChestData.labels"
         :data="blueChestData.count"
       />
-      <DetailTable mt-10 :data="rawTableData" />
+      <DetailTable mt-10 :data="tableData" />
     </div>
   </div>
 </template>

@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 import ChartDrawer from './components/Drawer.vue'
 import { downloadJSON } from '~/utils/file'
 import db from '~/utils/db'
-import type { AppGoldBrickTableData, Record } from '~/constants'
+import type { AppGoldBrickTableData, MonthlyTableData, Record } from '~/constants'
 import { defaultAppGoldBrickTableData } from '~/constants'
 
 const state = reactive({
@@ -17,7 +17,7 @@ const state = reactive({
     visible: false,
     key: '',
     dataSet: [] as Record[],
-    rawTableData: {} as AppGoldBrickTableData,
+    tableData: [] as MonthlyTableData[],
   },
 })
 
@@ -33,7 +33,7 @@ function showChart(raid: AppGoldBrickTableData) {
     const raidInfo = Object.values(record)[0]
     return raid.raidName === raidInfo.raidName
   })
-  state.drawer.rawTableData = state.baseInfo.find(item => raid.quest_id === item.quest_id)!
+  state.drawer.tableData = state.baseInfo.find(item => raid.quest_id === item.quest_id)!.monthlyTableData
 }
 
 async function init() {
@@ -55,31 +55,40 @@ function formatData(dataSet: Record[]) {
     if (!targetRaidInfo)
       return
 
+    const yearMonth = dayjs(raidInfo.timestamp).format('YYYY-MM')
+    let hitRow = targetRaidInfo.monthlyTableData.find(row => row.date === yearMonth)
+    if (!hitRow) {
+      hitRow = {
+        date: yearMonth,
+        total: 0,
+        blueChest: 0,
+        blueChestFFJ: 0,
+        ring3: 0,
+      }
+      targetRaidInfo.monthlyTableData.unshift(hitRow)
+    }
     targetRaidInfo.total++
+    hitRow.total++
 
     if (raidInfo.goldBrick) {
       raidInfo.goldBrick === '3' && targetRaidInfo.normalChestFFJ++
       raidInfo.goldBrick === '4' && targetRaidInfo.redChestFFJ++
       raidInfo.goldBrick === '11' && targetRaidInfo.blueChestFFJ++
+      raidInfo.goldBrick === '11' && hitRow.blueChestFFJ++
       targetRaidInfo.lastFFJTime = raidInfo.timestamp
     }
 
     if (raidInfo.blueChests) {
       targetRaidInfo.blueChest++
       targetRaidInfo.lastBlueChestCount++
+      hitRow.blueChest++
       raidInfo.blueChests === '73_1' && targetRaidInfo.ring1++
       raidInfo.blueChests === '73_2' && targetRaidInfo.ring2++
       raidInfo.blueChests === '73_3' && targetRaidInfo.ring3++
+      raidInfo.blueChests === '73_3' && hitRow.ring3++
       if (raidInfo.blueChests === '17_20004')
         targetRaidInfo.lastBlueChestCount = 0
     }
-
-    const yearMonth = dayjs(raidInfo.timestamp).format('YYYY-MM')
-
-    if (targetRaidInfo.rawDetailData[yearMonth])
-      targetRaidInfo.rawDetailData[yearMonth].push(raidInfo)
-    else
-      targetRaidInfo.rawDetailData[yearMonth] = [raidInfo]
   })
 
   return baseInfo
@@ -144,7 +153,7 @@ onMounted(() => {
           <img w-full :src="getImageSrc(item.quest_id, 'raid/img-quest-thumb')">
         </div>
         <div w-full fc flex-col gap-4>
-          <div flex justify-between gap-10 flex-wrap>
+          <div flex justify-evenly gap-10 flex-wrap>
             <div w-100px>
               <el-statistic :value="item.total" title="总次数" />
             </div>
@@ -241,7 +250,7 @@ onMounted(() => {
       </el-upload>
     </div>
     <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600" destroy-on-close>
-      <ChartDrawer :id="drawer.key" :data="drawer.dataSet" :raw-table-data="drawer.rawTableData" />
+      <ChartDrawer :id="drawer.key" :data="drawer.dataSet" :table-data="drawer.tableData" />
     </el-drawer>
   </div>
 </template>

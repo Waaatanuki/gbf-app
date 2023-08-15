@@ -54,7 +54,7 @@ export const defaultAppGoldBrickTableData = Raid_GoldBrick.reduce<AppGoldBrickTa
     ring2: 0,
     ring3: 0,
     lastBlueChestCount: 0,
-    rawDetailData: {},
+    monthlyTableData: [],
     lastFFJTime: 0,
   })
   return pre
@@ -84,14 +84,15 @@ export interface AppGoldBrickTableData {
   ring3: number
   lastBlueChestCount: number
   lastFFJTime: number
-  rawDetailData: {
-    [key: string]: {
-      raidName: string
-      timestamp: number
-      goldBrick?: string
-      blueChests?: string
-    }[]
-  }
+  monthlyTableData: MonthlyTableData[]
+}
+
+export interface MonthlyTableData {
+  date: string
+  total: number
+  blueChest: number
+  blueChestFFJ: number
+  ring3: number
 }
 
 export interface Record {
