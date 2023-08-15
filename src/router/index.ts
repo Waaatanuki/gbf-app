@@ -1,5 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 export const Layout = () => import('~/layout/index.vue')
 
@@ -179,6 +181,16 @@ const router = createRouter({
   routes: constantRoutes as RouteRecordRaw[],
   // 刷新时，滚动条位置还原
   scrollBehavior: () => ({ left: 0, top: 0 }),
+})
+
+NProgress.configure({ showSpinner: false }) // 进度环显示/隐藏
+
+router.beforeEach(() => {
+  NProgress.start()
+})
+
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router
