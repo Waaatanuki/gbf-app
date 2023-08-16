@@ -5,13 +5,14 @@ import Contact from './components/Contact.vue'
 </script>
 
 <template>
-  <div class="flex flex-wrap relative">
-    <Schedule />
-    <ToDoList />
-    <Contact class="absolute right-15px top-15px" />
+  <div class="app-container" relative>
+    <div flex flex-wrap gap-4>
+      <Schedule z-10 />
+      <ToDoList z-10 />
+    </div>
+    <Contact absolute right-4 top-4 />
     <img
-      h-350px
-      class="absolute right-15px bottom-15px"
+      h-300px absolute right-4 bottom-4
       src="/images/bg/ffj.jpeg"
     >
   </div>

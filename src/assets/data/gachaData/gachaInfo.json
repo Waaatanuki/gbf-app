@@ -29,11 +29,12 @@
       "treasure_type": "10"
     }
   },
-  "stone_num": "72965",
+  "stone_num": "103700",
   "gachaticket_popup": [],
   "enable_beginner_free_legend_10": false,
   "enable_free_legend_10": false,
-  "enable_term_free_legend": false,
+  "enable_term_free_legend": "346",
+  "term_free_legend_campaign_id": "346",
   "enable_term_free_legend_10": false,
   "enable_term_free_legend_roulette": false,
   "enable_term_free_legend_10_item": false,
@@ -41,47 +42,7 @@
   "legend": {
     "lineup": [
       {
-        "id": "293200",
-        "name": "スターレジェンドガチャセット",
-        "class_name": "prt-title-starlegend",
-        "bg_image1": "gacha_bg1",
-        "bg_image2": "gacha_bg2",
-        "discount": {
-          "enable": false
-        },
-        "campaign_id": "341",
-        "campaign_news_id": null,
-        "start": "7月31日 12:00",
-        "end": "8月3日 18:59",
-        "choice_data": {
-          "is_fixed_lineup": false
-        },
-        "image_path": "gacha/2z85dako/info/banner_293200_2z85dako",
-        "text_btn_image": "text_starlegend10",
-        "text_btn_image_stone": "text_stone10",
-        "description": "Sレア以上1回確定10連続ガチャ,SSレア確定ガチャ,<br>ボーナスアイテム1種類,【蒼光の御印】11個のセット!<br>SSレア確定ガチャでは設定したキャラ解放武器を必ず1つゲット!<br>購入は7/31 12:00～8/3 18:59中1回限定!",
-        "attention": "",
-        "unit_price": "3000",
-        "enable_stone": true,
-        "stone_flg": false,
-        "legend_gacha_ticket_list": null,
-        "campaign_gacha_ids": [
-          {
-            "id": "293200",
-            "name": "スターレジェンドガチャセット",
-            "text_btn_image": "text_starlegend10",
-            "payment_image": "gacha/info/icon_gacha_mbga_star10ssr",
-            "provision_ratio_type": 0,
-            "is_purchased": false
-          }
-        ],
-        "times": "10",
-        "service_start": "2023/7/31 12:00",
-        "service_end": "2023/8/3 18:59",
-        "disp_service_end": "8/3 18:59"
-      },
-      {
-        "id": "206820",
+        "id": "206880",
         "name": "レジェンド10連ガチャ",
         "class_name": "prt-title-legend10",
         "bg_image1": "gacha_bg1",
@@ -91,8 +52,8 @@
         },
         "campaign_id": null,
         "campaign_news_id": null,
-        "start": "7月31日 12:00",
-        "end": "12月31日 23:59",
+        "start": "8月16日 19:00",
+        "end": "8月19日 18:59",
         "image_path": "",
         "text_btn_image": "text_legend10",
         "text_btn_image_stone": "text_stone10",
@@ -105,7 +66,7 @@
           {
             "ticket_id": 20010,
             "ticket_name": "レジェンド10連ガチャチケット",
-            "ticket_num": 1,
+            "ticket_num": 2,
             "ticket_end_at": null,
             "text_btn_image_ticket": "text_legendticket10",
             "type": null,
@@ -115,12 +76,12 @@
           }
         ],
         "times": "10",
-        "service_start": "2023/7/31 12:00",
-        "service_end": "2023/8/3 18:59",
-        "disp_service_end": "8/3 18:59"
+        "service_start": "2023/8/16 19:00",
+        "service_end": "2023/8/19 18:59",
+        "disp_service_end": "8/19 18:59"
       },
       {
-        "id": "206821",
+        "id": "206881",
         "name": "レジェンドガチャ",
         "class_name": "prt-title-legend1",
         "bg_image1": "gacha_bg1",
@@ -133,8 +94,8 @@
         },
         "campaign_id": null,
         "campaign_news_id": null,
-        "start": "7月31日 12:00",
-        "end": "12月31日 23:59",
+        "start": "8月16日 19:00",
+        "end": "8月19日 18:59",
         "image_path": "",
         "text_btn_image": "text_legend",
         "text_btn_image_stone": "text_stone",
@@ -145,9 +106,20 @@
         "stone_flg": true,
         "legend_gacha_ticket_list": [
           {
+            "ticket_id": 20021,
+            "ticket_name": "サマーレジェンドガチャチケット",
+            "ticket_num": 40,
+            "ticket_end_at": "2023/8/19 18:59",
+            "text_btn_image_ticket": "text_summercpn2023",
+            "type": "summer",
+            "band_color": "#f2eee2",
+            "band_shadow": "#6a431e",
+            "is_single_ticket": true
+          },
+          {
             "ticket_id": 20011,
             "ticket_name": "レジェンドガチャチケット",
-            "ticket_num": 52,
+            "ticket_num": 57,
             "ticket_end_at": null,
             "text_btn_image_ticket": "text_legendticket",
             "type": null,
@@ -157,23 +129,23 @@
           }
         ],
         "times": "1",
-        "service_start": "2023/7/31 12:00",
-        "service_end": "2023/8/3 18:59",
-        "disp_service_end": "8/3 18:59"
+        "service_start": "2023/8/16 19:00",
+        "service_end": "2023/8/19 18:59",
+        "disp_service_end": "8/19 18:59"
       }
     ],
-    "random_key": "2z85dako"
+    "random_key": "8nkt9t7y"
   },
   "event_info": [],
-  "appearance_gacha_id": "206821",
+  "appearance_gacha_id": "206881",
   "user_info": {
     "reward_to": 1,
     "weapon_max": null,
     "weapon_count": null,
     "summon_max": null,
     "summon_count": null,
-    "money": "20373338",
-    "user_money": "72965",
+    "money": "21660345",
+    "user_money": "103700",
     "requirement_money": 100,
     "available_times": 100,
     "limit_count": 100,
@@ -189,11 +161,11 @@
     {
       "ticket_id": "10021",
       "type": "legendticket",
-      "gacha_id": "206820",
+      "gacha_id": "206880",
       "campaign_id": "",
       "title": "Sレア以上確定ガチャチケット",
       "description": "Sレア以上が必ず当たる、特別なガチャチケットです。",
-      "count": "11",
+      "count": "12",
       "expired": false,
       "times": "1",
       "is_before_available": false,
@@ -311,6 +283,20 @@
       "is_before_available": false,
       "available_date": "",
       "is_choice_lineup": false
+    },
+    {
+      "ticket_id": "110061",
+      "type": "ticketonly",
+      "gacha_id": "110061",
+      "campaign_id": "",
+      "title": "2023年7月イベントSSレア確定ガチャ",
+      "description": "2023/7/16までに登場したSSレアが出現します。",
+      "count": "1",
+      "expired": false,
+      "times": "1",
+      "is_before_available": false,
+      "available_date": "",
+      "is_choice_lineup": false
     }
   ],
   "auto_recycling_weapon": {
@@ -330,11 +316,11 @@
   "ceiling": {
     "name": "蒼光の御印",
     "is_available": true,
-    "start": "2023/7/31 12:00",
-    "end": "2023/8/3 18:59",
-    "disp_end": "8/3 18:59",
+    "start": "2023/8/16 19:00",
+    "end": "2023/8/19 18:59",
+    "disp_end": "8/19 18:59",
     "can_exchange": false,
-    "use_count": 0
+    "use_count": "20"
   },
   "ceiling_redceiling": {
     "name": "銀朱の御印",
@@ -348,49 +334,64 @@
   "ceiling_bonus_item": {
     "next": {
       "play_count": "50",
-      "items": ["至極の指輪×1"],
+      "items": [
+        "至極の指輪×1"
+      ],
       "info_image": "step_1.png"
     },
     "list": [
       {
         "play_count": "50",
-        "items": ["至極の指輪×1"],
+        "items": [
+          "至極の指輪×1"
+        ],
         "info_image": "step_1.png"
       },
       {
         "play_count": "100",
-        "items": ["ゴールドムーン×1"],
+        "items": [
+          "ゴールドムーン×1"
+        ],
         "info_image": "step_2.png"
       },
       {
         "play_count": "150",
-        "items": ["シルバームーン×10", "○○の耳飾り×1(ランダム1種)"],
+        "items": [
+          "シルバームーン×10",
+          "○○の耳飾り×1(ランダム1種)"
+        ],
         "info_image": "step_3.png"
       },
       {
         "play_count": "200",
-        "items": ["ガチャ特典SSレア武器確定チケット×1"],
+        "items": [
+          "ガチャ特典SSレア武器確定チケット×1"
+        ],
         "info_image": "step_4.png"
       },
       {
         "play_count": "250",
-        "items": ["エリクシールハーフ×100", "ソウルシード×100"],
+        "items": [
+          "エリクシールハーフ×100",
+          "ソウルシード×100"
+        ],
         "info_image": "step_5.png"
       },
       {
         "play_count": "300",
-        "items": ["対象装備が交換可能！"],
+        "items": [
+          "対象装備が交換可能！"
+        ],
         "info_image": "step_6.png"
       }
     ]
   },
   "draw_starlegend_gacha_id": 0,
   "header_images": [
-    "1040815800",
-    "1040024700",
-    "1040516200",
-    "1040218600",
-    "2040420000"
+    "1040422000",
+    "1040915400",
+    "1040024800",
+    "2040423000"
   ],
   "logo_image": "logo",
   "beginner300_remind_popup": null

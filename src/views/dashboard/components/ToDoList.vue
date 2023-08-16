@@ -8,7 +8,7 @@ dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Shanghai')
 
-const InputRef = ref()
+const inputRef = ref()
 const state = reactive({
   taskList: useStorage('todoList', defaultTodoList),
   lastUpdateTodo: useStorage('lastUpdateTodo', dayjs().tz().unix()),
@@ -29,7 +29,7 @@ watch(
 function addTask() {
   inputVisible.value = true
   nextTick(() => {
-    InputRef.value!.input!.focus()
+    inputRef.value!.input!.focus()
   })
 }
 function delTask(index: number) {
@@ -56,49 +56,33 @@ onMounted(() => {
 </script>
 
 <template>
-  <el-card class="list-card">
+  <el-card h-full min-w-300px>
     <template #header>
-      <div class="header">
+      <div flex items-center justify-between>
         <span>ToDoList</span>
-        <div>
-          <el-button type="primary" link @click="addTask">
-            增加
-          </el-button>
-          <el-button
-            type="primary" link
-            @click="delBtnVisible = !delBtnVisible"
-          >
-            {{ delBtnVisible ? '确认' : '编辑' }}
-          </el-button>
+        <div fc gap-2>
+          <div icon-btn i-carbon:document-add @click="addTask" />
+          <div v-if="delBtnVisible" icon-btn i-carbon:settings-check @click="delBtnVisible = !delBtnVisible" />
+          <div v-else icon-btn i-carbon:settings @click="delBtnVisible = !delBtnVisible" />
         </div>
       </div>
     </template>
-    <div class="body">
+    <div flex flex-col>
       <el-checkbox
         v-for="(task, index) in taskList" :key="index"
         v-model="task.done" :label="task.content"
       >
-        <template #default>
-          <div class="cell">
-            <div v-if="delBtnVisible">
-              <el-input
-                v-model="task.content"
-                size="small"
-                style="width: 120px; margin-right: 10px"
-              />
-              <el-button type="danger" link @click="delTask(index)">
-                删除
-              </el-button>
-            </div>
-            <div v-else>
-              {{ task.content }}
-            </div>
-          </div>
-        </template>
+        <div v-if="delBtnVisible" fc>
+          <el-input v-model="task.content" size="small" />
+          <div ml-2 icon-btn i-carbon:trash-can @click="delTask(index)" />
+        </div>
+        <div v-else>
+          {{ task.content }}
+        </div>
       </el-checkbox>
       <el-input
         v-if="inputVisible"
-        ref="InputRef"
+        ref="inputRef"
         v-model="inputValue"
         size="small"
         @keyup.enter="handleInputConfirm"
@@ -107,28 +91,3 @@ onMounted(() => {
     </div>
   </el-card>
 </template>
-
-<style lang="scss" scoped>
-.list-card {
-  height: 100%;
-  min-width: 300px;
-  margin: 15px;
-  z-index: 10;
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .body {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    .cell {
-      min-width: 150px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-}
-</style>

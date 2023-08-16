@@ -19,7 +19,7 @@ const handleColor = function (start: any, end: any) {
 
 <template>
   <el-card
-    class="box-card"
+    min-w-300px
     :body-style="{ padding: '20px 20px 0px 20px', height: `${dynamicHeight - 64}px` }"
   >
     <template #header>
@@ -52,11 +52,3 @@ const handleColor = function (start: any, end: any) {
     </el-scrollbar>
   </el-card>
 </template>
-
-<style lang="scss" scoped>
-.box-card {
-  min-width: 300px;
-  margin: 15px;
-  z-index: 10;
-}
-</style>
