@@ -1,6 +1,7 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import dayjs from 'dayjs'
+import { cloneDeep } from 'lodash'
 import ChartDrawer from './components/Drawer.vue'
 import { downloadJSON } from '~/utils/file'
 import db from '~/utils/db'
@@ -46,7 +47,7 @@ async function init() {
 }
 
 function formatData(dataSet: Record[]) {
-  const baseInfo = defaultAppGoldBrickTableData.map(data => ({ ...data }))
+  const baseInfo = cloneDeep(defaultAppGoldBrickTableData)
 
   dataSet.forEach((record) => {
     const raidInfo = Object.values(record)[0]
