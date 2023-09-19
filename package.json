@@ -40,6 +40,7 @@
     "@unocss/reset": "^0.55.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "eslint": "^8.47.0",
+    "lxgw-wenkai-screen-webfont": "^1.7.0",
     "pnpm": "^8.6.12",
     "sass": "^1.65.1",
     "typescript": "^5.1.6",

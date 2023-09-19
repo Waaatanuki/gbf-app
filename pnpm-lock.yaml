@@ -22,6 +22,7 @@ specifiers:
   html2canvas: ^1.4.1
   idb-keyval: ^6.2.1
   lodash: ^4.17.21
+  lxgw-wenkai-screen-webfont: ^1.7.0
   nprogress: ^0.2.0
   path-browserify: ^1.0.1
   path-to-regexp: ^6.2.1
@@ -71,6 +72,7 @@ devDependencies:
   '@unocss/reset': 0.55.0
   '@vitejs/plugin-vue': 4.2.3_vite@4.4.9+vue@3.3.4
   eslint: 8.47.0
+  lxgw-wenkai-screen-webfont: 1.7.0
   pnpm: 8.6.12
   sass: 1.65.1
   typescript: 5.1.6
@@ -3055,6 +3057,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+    dev: true
+
+  /lxgw-wenkai-screen-webfont/1.7.0:
+    resolution: {integrity: sha512-xvfF4V26Mb335xKg3uxljz+V2nq4F5ek0ku9pmyKgT0Dzo/d2rHi7WpnqgvM9mlXAcAKOrxrcDmUZiIs/ZQ9bQ==}
     dev: true
 
   /magic-string/0.30.2:
