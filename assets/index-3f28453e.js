@@ -1,1 +1,0 @@
-import{d as r,a1 as n,ad as c,a as p,c as u}from"./index-eec80e3a.js";const l=r({__name:"index",setup(_){const e=n(),t=c(),{params:a,query:o}=e,{path:s}=a;return t.replace({path:`/${s}`,query:o}),(m,d)=>(p(),u("div"))}});export{l as default};
