@@ -5,6 +5,7 @@ const form: any = reactive({
   drawnBox: '',
   targetBox: '',
 })
+
 const data = [
   [
     { 440800: { perToken: 15000, drawnBox: 80 } },
