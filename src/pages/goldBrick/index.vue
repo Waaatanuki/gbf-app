@@ -46,7 +46,7 @@ async function init() {
 }
 
 function formatData(dataSet: Record[]) {
-  const baseInfo = JSON.parse(JSON.stringify(defaultAppGoldBrickTableData))
+  const baseInfo: AppGoldBrickTableData[] = JSON.parse(JSON.stringify(defaultAppGoldBrickTableData))
 
   dataSet.forEach((record) => {
     const raidInfo = Object.values(record)[0]
@@ -147,7 +147,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <el-card v-for="item in baseInfo" :key="item.quest_id" mb-2 cursor-pointer shadow="hover" @click="showChart(item)">
+    <el-card v-for="item in baseInfo" :key="item.quest_id" mx-auto mb-2 max-w-1100px cursor-pointer shadow="hover" @click="showChart(item)">
       <div flex gap-5>
         <div w-180px fc shrink-0>
           <img w-full :src="getQuestImg(item.quest_id)">

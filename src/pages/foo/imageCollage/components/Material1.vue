@@ -83,7 +83,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div fc m-1 flex-wrap>
+  <div m-1 fc flex-wrap>
     <el-upload
       v-for="item, idx in uploaderConfig" :key="idx"
       ref="uploadRef"
@@ -116,10 +116,8 @@ onMounted(() => {
           + uploaderConfig[2].cropHeight
         }px`,
     }"
-    flex
-    flex-col
-    m-auto
-    bg-slate
+
+    m-auto flex flex-col bg-slate
   >
     <div
       v-for="item, idx in uploaderConfig" :key="idx"
@@ -127,8 +125,8 @@ onMounted(() => {
         width: `${item.cropWidth}px`,
         height: `${item.cropHeight}px`,
       }"
-      hover:bg-slate-600
-      fc
+
+      fc hover:bg-slate-600
     >
       <img v-if="item.imgData" :src="item.imgData">
       <div v-else>

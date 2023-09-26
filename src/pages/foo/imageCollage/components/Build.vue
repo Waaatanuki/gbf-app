@@ -90,7 +90,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div fc m-1 flex-wrap>
+  <div m-1 fc flex-wrap>
     <el-upload
       v-for="item, idx in uploaderConfig" :key="idx"
       ref="uploadRef"
@@ -119,17 +119,16 @@ onMounted(() => {
       width: `${uploaderConfig[0].cropWidth + uploaderConfig[1].cropWidth}px`,
       height: `${uploaderConfig[0].cropHeight}px`,
     }"
-    bg-slate
-    flex
-    m-auto
+
+    m-auto flex bg-slate
   >
     <div
       :style="{
         width: `${uploaderConfig[0].cropWidth}px`,
         height: `${uploaderConfig[0].cropHeight}px`,
       }"
-      bg-slate-300
-      fc
+
+      fc bg-slate-300
     >
       <img v-if="uploaderConfig[0].imgData" :src="uploaderConfig[0].imgData">
       <div v-else>
@@ -148,8 +147,8 @@ onMounted(() => {
           width: `${uploaderConfig[1].cropWidth}px`,
           height: `${uploaderConfig[1].cropHeight}px`,
         }"
-        bg-slate-400
-        fc
+
+        fc bg-slate-400
       >
         <img
           v-if="uploaderConfig[1].imgData"
@@ -171,8 +170,8 @@ onMounted(() => {
             width: `${uploaderConfig[2].cropWidth}px`,
             height: `${uploaderConfig[2].cropHeight}px`,
           }"
-          bg-slate-500
-          fc
+
+          fc bg-slate-500
         >
           <img
             v-if="uploaderConfig[2].imgData"
@@ -187,8 +186,8 @@ onMounted(() => {
             width: `${uploaderConfig[3].cropWidth}px`,
             height: `${uploaderConfig[3].cropHeight}px`,
           }"
-          bg-slate-600
-          fc
+
+          fc bg-slate-600
         >
           <img
             v-if="uploaderConfig[3].imgData"
