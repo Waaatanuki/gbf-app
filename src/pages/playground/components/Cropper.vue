@@ -76,7 +76,7 @@ function handleCompose() {
 </script>
 
 <template>
-  <div fc m-2>
+  <div m-2 fc>
     <el-upload
       v-for="item, idx in uploaderInit" :key="idx"
       ref="uploadRef"
@@ -102,16 +102,16 @@ function handleCompose() {
       width: `${uploaderInit[0].cropWidth + uploaderInit[1].cropWidth}px`,
       height: `${uploaderInit[0].cropHeight}px`,
     }"
-    bg-slate
-    flex
+
+    flex bg-slate
   >
     <div
       :style="{
         width: `${uploaderInit[0].cropWidth}px`,
         height: `${uploaderInit[0].cropHeight}px`,
       }"
-      bg-slate-300
-      fc
+
+      fc bg-slate-300
     >
       <img v-if="uploaderInit[0].imgData" :src="uploaderInit[0].imgData">
       <div v-else>
@@ -130,8 +130,8 @@ function handleCompose() {
           width: `${uploaderInit[1].cropWidth}px`,
           height: `${uploaderInit[1].cropHeight}px`,
         }"
-        bg-slate-400
-        fc
+
+        fc bg-slate-400
       >
         <img v-if="uploaderInit[1].imgData" :src="uploaderInit[1].imgData">
         <div v-else>
@@ -150,8 +150,8 @@ function handleCompose() {
             width: `${uploaderInit[2].cropWidth}px`,
             height: `${uploaderInit[2].cropHeight}px`,
           }"
-          bg-slate-500
-          fc
+
+          fc bg-slate-500
         >
           <img v-if="uploaderInit[2].imgData" :src="uploaderInit[2].imgData">
           <div v-else>
@@ -163,8 +163,8 @@ function handleCompose() {
             width: `${uploaderInit[3].cropWidth}px`,
             height: `${uploaderInit[3].cropHeight}px`,
           }"
-          bg-slate-600
-          fc
+
+          fc bg-slate-600
         >
           <img v-if="uploaderInit[3].imgData" :src="uploaderInit[3].imgData">
           <div v-else>

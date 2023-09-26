@@ -1,16 +1,8 @@
 <script setup lang="ts">
-import type { Article, Bullet } from '../types'
+import type { Article, Bullet } from 'bullet'
 import DATA from '~/assets/data/bullet/data.json'
 
-const props = defineProps(['selectedBullet'])
-const emit = defineEmits(['update:selectedBullet'])
-
-const bulletList = computed({
-  get: () => props.selectedBullet,
-  set: (value) => {
-    emit('update:selectedBullet', value)
-  },
-})
+const bulletList = defineModel<Bullet[][]>({ required: true })
 
 const currentBulletType = ref(1)
 const bulletTypeList = ref([
@@ -40,9 +32,7 @@ function handleCommand(command: string[]) {
 }
 
 function handleSelect(bullet: Bullet) {
-  const index = bulletList.value.findIndex(
-    (bullet: Bullet[]) => bullet.length === 0,
-  )
+  const index = bulletList.value.findIndex(bullet => bullet.length === 0)
 
   if (index !== -1) {
     const articleList = getArticle([bullet]).reverse()
@@ -59,12 +49,10 @@ function handleDelete(index: number) {
 }
 
 function getArticle(bullet: Bullet[]) {
-  const targets = bullet
-    .at(-1)
-    ?.article.filter(item => item.kind === '54') as []
+  const targets = bullet.at(-1)?.article.filter(item => item.kind === '54')
 
-  if (targets.length > 0) {
-    targets.forEach((target: Article) => {
+  if (targets && targets.length > 0) {
+    targets.forEach((target) => {
       const id = target.item_id
       const number = target.number
       const source = DATA.find(item => item.seq_id === id) as Bullet
@@ -97,7 +85,7 @@ function getTotal(bullets: Bullet[]) {
   return total
 }
 
-function getImgSrc(bullet: any) {
+function getImgSrc(bullet: Bullet) {
   return bullet
     ? `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/bullet/s/${bullet.seq_id}.jpg`
     : 'https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/job/bullet/empty.png'
@@ -135,7 +123,7 @@ function getImgSrc(bullet: any) {
     <div relative mt-20px border-t-1 pt-20px>
       <div fc>
         <div v-for="bullet, idx in bulletList" :key="idx">
-          <img :src="getImgSrc(bullet.at(-1))" class="m-1 h-14 w-14 cursor-pointer" @click="() => handleDelete(idx)">
+          <img :src="getImgSrc(bullet.at(-1)!)" class="m-1 h-14 w-14 cursor-pointer" @click="() => handleDelete(idx)">
         </div>
       </div>
       <div absolute bottom-1 left-1>

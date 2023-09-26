@@ -1,120 +1,106 @@
-declare module 'api' {
-  export interface LineParams {
-    teamraidid: string
-    type: string
-    rank: string
+declare module 'goldBrick' {
+  interface AppGoldBrickTableData {
+    quest_id: string
+    raidName: string
+    level: string
+    element: string
+    tweet_name_en: string
+    tweet_name_jp: string
+    quest_name_en: string
+    quest_name_jp: string
+    impossible: number
+    difficulty: string
+    stage_id: string
+    thumbnail_image: string
+    is_blue_treasure: boolean
+    total: number
+    blueChest: number
+    redChestFFJ: number
+    blueChestFFJ: number
+    normalChestFFJ: number
+    ring1: number
+    ring2: number
+    ring3: number
+    lastBlueChestCount: number
+    lastFFJTime: number
+    monthlyTableData: MonthlyTableData[]
   }
 
-  export interface GuildParams {
-    guildid: string
-    guildname: string
-    teamraidid: string
+  interface MonthlyTableData {
+    date: string
+    total: number
+    blueChest: number
+    blueChestFFJ: number
+    ring3: number
   }
 
-  export interface GuildInfo {
-    guildid: number
-    name: string
-    point: string
-    rank: string | number
+  interface Record {
+    [key: string]: {
+      raidName: string
+      timestamp: number
+      goldBrick?: string
+      blueChests?: string
+    }
   }
 
-  export interface UserParams {
-    userid: string
-    username: string
-  }
-
-  export interface UserInfo {
-    userid: number
-    name: string
-    level: number
-  }
-
-  export interface PointParams {
-    teamraidid: string
-    type: string
-    id: string
-  }
-
-  export interface PointInfo {
-    point: number
-    rank: number
-    updatetime: number
+  interface ChartData {
+    labels: string[]
+    count: number[]
   }
 }
 
-declare module 'common' {
-  export enum EventStage {
-    Pre = 'pre',
-    Final1st = 'final1st',
-    Final2nd = 'final2nd',
-    Final3rd = 'final3rd',
-    Final4th = 'final4th',
+declare module 'bullet'{
+  interface Article {
+    id?: string
+    image?: string
+    seq_id?: string
+    name?: string
+    comment?: string
+    rarity?: string
+    category_type?: string
+    number: number
+    kind?: string
+    item_id?: string
+    slot_type?: string
+    attack_rate?: string
+    action_id_1?: string
+    action_id_2?: string
+    concurrent_attack?: string
+    recovery?: string
+    recovery_percent?: string
+    item_kind?: string
+    evolution_kind?: string
+    base_weapon_id?: string
+    exchange_weapon_id?: string
+    add_skill_id?: string
+    target_ids?: string
+    target_evolution_levels?: string
+    done?: boolean
   }
 
-  export enum Locale {
-    ZH_CN = 'zh-CN',
-    EN = 'en',
-    JA = 'ja',
+  interface Bullet {
+    seq_id: string
+    name: string
+    comment: string
+    article: Article[]
+    number?: number
+    done?: boolean
+    total?: Article[]
   }
+}
 
-  export interface ReportMemo {
-    point: number
-    rank: number
-    updatetime: number
-    type: string
-  }
-
-  export interface EventInfo {
-    value: string
-    label: string
-    title: string
-    date: {
-      pre: number
-      final1st: number
-      final2nd: number
-      final3rd: number
-      final4th: number
-    }
-    loading?: boolean
-    tableData?: any[]
-    chartData?: any
-    rank?: number
-  }
-
-  export interface DateSet {
-    label: string
-    pointData: (number | undefined)[]
-    borderColor: string
-    spanGaps: boolean
-    tension: number
-  }
-
-  export interface ReportData {
-    label: {
-      'zh-CN': string
-      en: string
-      ja: string
-    }
-    options: {
-      value: string
-      label: string
-      point: number
-      proportion: { value: number; type: '' | 'success' | 'danger' }
-    }[]
-  }
-  export interface LineRankTableData {
-    label: string
-    userPoint: number | null
-    linePoint: number | null
-    userSpeed: number | null
-    lineSpeed: number | null
-  }
-
-  export interface GuildBattleTableData {
-    label: string
-    guildPoint1: number | null
-    guildPoint2: number | null
-    guildSpeed1: number | null
-    guildSpeed2: number | null
+declare module 'evoker'{
+  // 旧storage数据没有npcId
+  interface EvokerInfo {
+    npcId?: number
+    no: number
+    name: string
+    target: boolean
+    tarotLevel: number
+    evokerLevel: number
+    weaponId: number
+    weaponLevel: number
+    domainLevel: number
+    isAbility4Release: boolean
   }
 }

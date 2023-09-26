@@ -61,9 +61,9 @@ onMounted(() => {
       <div flex items-center justify-between>
         <span>ToDoList</span>
         <div fc gap-2>
-          <div icon-btn i-carbon:document-add @click="addTask" />
-          <div v-if="delBtnVisible" icon-btn i-carbon:settings-check @click="delBtnVisible = !delBtnVisible" />
-          <div v-else icon-btn i-carbon:settings @click="delBtnVisible = !delBtnVisible" />
+          <div i-carbon:document-add icon-btn @click="addTask" />
+          <div v-if="delBtnVisible" i-carbon:settings-check icon-btn @click="delBtnVisible = !delBtnVisible" />
+          <div v-else i-carbon:settings icon-btn @click="delBtnVisible = !delBtnVisible" />
         </div>
       </div>
     </template>
@@ -74,7 +74,7 @@ onMounted(() => {
       >
         <div v-if="delBtnVisible" fc>
           <el-input v-model="task.content" size="small" />
-          <div ml-2 icon-btn i-carbon:trash-can @click="delTask(index)" />
+          <div i-carbon:trash-can ml-2 icon-btn @click="delTask(index)" />
         </div>
         <div v-else>
           {{ task.content }}

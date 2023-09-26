@@ -1,3 +1,4 @@
+import type { AppGoldBrickTableData } from 'goldBrick'
 import { Raid_GoldBrick } from './raid'
 
 export const schedule = [
@@ -59,47 +60,3 @@ export const defaultAppGoldBrickTableData = Raid_GoldBrick.reduce<AppGoldBrickTa
   })
   return pre
 }, [])
-
-export interface AppGoldBrickTableData {
-  quest_id: string
-  raidName: string
-  level: string
-  element: string
-  tweet_name_en: string
-  tweet_name_jp: string
-  quest_name_en: string
-  quest_name_jp: string
-  impossible: number
-  difficulty: string
-  stage_id: string
-  thumbnail_image: string
-  is_blue_treasure: boolean
-  total: number
-  blueChest: number
-  redChestFFJ: number
-  blueChestFFJ: number
-  normalChestFFJ: number
-  ring1: number
-  ring2: number
-  ring3: number
-  lastBlueChestCount: number
-  lastFFJTime: number
-  monthlyTableData: MonthlyTableData[]
-}
-
-export interface MonthlyTableData {
-  date: string
-  total: number
-  blueChest: number
-  blueChestFFJ: number
-  ring3: number
-}
-
-export interface Record {
-  [key: string]: {
-    raidName: string
-    timestamp: number
-    goldBrick?: string
-    blueChests?: string
-  }
-}

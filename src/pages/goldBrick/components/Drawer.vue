@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
+import type { ChartData, MonthlyTableData, Record } from 'goldBrick'
 import BarChart from './BarChart.vue'
 import DetailTable from './DetailTable.vue'
-import type { MonthlyTableData, Record } from '~/constants'
-
-interface ChartData {
-  labels: string[]
-  count: number[]
-}
 
 const props = defineProps<{
   id: string
@@ -118,7 +113,7 @@ const blueChestData = computed<ChartData>(() => {
         />
       </el-select>
     </div>
-    <div fc flex-col w-500px>
+    <div w-500px fc flex-col>
       <BarChart
         :id="`${id}count`"
         title="次数统计"

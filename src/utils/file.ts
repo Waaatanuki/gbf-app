@@ -2,7 +2,6 @@ import { ElMessage } from 'element-plus'
 
 /**
  * 下载excel文件
- * @param {any} response
  */
 export function downloadExcel(response: any) {
   try {
@@ -26,7 +25,6 @@ export function downloadExcel(response: any) {
 }
 /**
  * 导出JSON文件
- * @param {any} response
  */
 export function downloadJSON(dataSet: string, filename: string) {
   const blob = new Blob([dataSet], {

@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "private": true,
+  "homepage": "https://waaatanuki.github.io/gbf-app",
   "packageManager": "pnpm@8.7.6",
   "scripts": {
     "build": "vite build",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@unocss/reset": "^0.56.2",
+    "@unocss/reset": "^0.56.3",
     "@vueuse/core": "^10.4.1",
     "axios": "^1.5.0",
     "chart.js": "^4.4.0",
@@ -33,7 +33,7 @@
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/node": "^20.7.0",
     "@types/nprogress": "^0.2.1",
-    "@unocss/eslint-config": "^0.56.2",
+    "@unocss/eslint-config": "^0.56.3",
     "@vitejs/plugin-vue": "^4.3.4",
     "cross-env": "^7.0.3",
     "eslint": "^8.50.0",
@@ -45,7 +45,7 @@
     "shiki": "^0.14.4",
     "taze": "^0.11.2",
     "typescript": "^5.2.2",
-    "unocss": "^0.56.2",
+    "unocss": "^0.56.3",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-icons": "^0.17.0",
     "unplugin-vue-components": "^0.25.2",

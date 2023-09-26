@@ -143,17 +143,10 @@ onMounted(() => {
       flex-col
     >
       <div
-        :style="{
-          width: `${uploaderConfig[1].cropWidth}px`,
-          height: `${uploaderConfig[1].cropHeight}px`,
-        }"
-
+        :style="{ width: `${uploaderConfig[1].cropWidth}px`, height: `${uploaderConfig[1].cropHeight}px` }"
         fc bg-slate-400
       >
-        <img
-          v-if="uploaderConfig[1].imgData"
-          :src="uploaderConfig[1].imgData"
-        >
+        <img v-if="uploaderConfig[1].imgData" :src="uploaderConfig[1].imgData">
         <div v-else>
           {{ uploaderConfig[1].label }}
         </div>

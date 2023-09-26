@@ -1,19 +1,6 @@
 <script setup lang="ts">
+import type { EvokerInfo } from 'evoker'
 import { defaultEvokerInfo, domainList, evokerList, tarotList, weaponList } from '~/constants/evoker'
-
-// 旧storage数据没有npcId
-interface EvokerInfo {
-  npcId?: number
-  no: number
-  name: string
-  target: boolean
-  tarotLevel: number
-  evokerLevel: number
-  weaponId: number
-  weaponLevel: number
-  domainLevel: number
-  isAbility4Release: boolean
-}
 
 const evoker = defineModel<EvokerInfo>({ required: true })
 

@@ -1,10 +1,10 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import dayjs from 'dayjs'
+import type { AppGoldBrickTableData, MonthlyTableData, Record } from 'goldBrick'
 import ChartDrawer from './components/Drawer.vue'
 import { downloadJSON } from '~/utils/file'
 import db from '~/utils/db'
-import type { AppGoldBrickTableData, MonthlyTableData, Record } from '~/constants'
 import { defaultAppGoldBrickTableData } from '~/constants'
 
 const state = reactive({
@@ -146,8 +146,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <el-card v-for="item in baseInfo" :key="item.quest_id" mx-auto mb-2 max-w-1100px cursor-pointer shadow="hover" @click="showChart(item)">
+  <div mx-auto max-w-1100px>
+    <el-card v-for="item in baseInfo" :key="item.quest_id" mb-2 cursor-pointer shadow="hover" @click="showChart(item)">
       <div flex gap-5>
         <div w-180px fc shrink-0>
           <img w-full :src="getQuestImg(item.quest_id)">

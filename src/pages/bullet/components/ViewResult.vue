@@ -1,16 +1,8 @@
 <script setup lang="ts">
 import { CircleCheck, InfoFilled } from '@element-plus/icons-vue'
-import type { Article, Bullet } from '../types'
+import type { Article, Bullet } from 'bullet'
 
-const props = defineProps(['selectedBullet'])
-const emit = defineEmits(['change', 'update:selectedBullet'])
-
-const bulletList = computed<Bullet[][]>({
-  get: () => props.selectedBullet,
-  set: (value) => {
-    emit('update:selectedBullet', value)
-  },
-})
+const bulletList = defineModel<Bullet[][]>({ required: true })
 
 const articleList = computed(() => {
   const list: Article[] = []

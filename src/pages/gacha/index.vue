@@ -149,12 +149,7 @@ function closeAnimation() {
         <template #header>
           <div relative>
             <p class="text-center font-bold">
-              {{
-                `${Math.floor(totalStone / 90000)
-                }井${
-                  Math.floor((totalStone % 90000) / 300)
-                }抽`
-              }}
+              {{ `${Math.floor(totalStone / 90000)}井${Math.floor((totalStone % 90000) / 300)}抽` }}
             </p>
             <div
               i-carbon:checkbox-indeterminate absolute bottom-0 right-2 top-0 m-auto cursor-pointer
@@ -187,26 +182,18 @@ function closeAnimation() {
           </el-form-item>
         </el-form>
         <p class="text-center">
-          {{
-            `下一井需要补${
-              Math.floor(
-                (formData.price * (90000 - (totalStone % 90000))) / formData.point,
-              )
-            }元`
-          }}
+          {{ `下一井需要补${Math.floor((formData.price * (90000 - (totalStone % 90000))) / formData.point)}元` }}
         </p>
       </el-card>
       <div
         v-else
-        class="bg-white dark:bg-#1d1e1f"
-        relative m-2 w-250px
+        class="bg-white dark:bg-#1d1e1f" relative m-2 w-250px
         style="box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12)"
       >
         <p p-2 text-center font-bold>
           {{ `${Math.floor(totalStone / 90000)}井${Math.floor((totalStone % 90000) / 300)}抽` }}
         </p>
         <div
-
           i-carbon:checkbox-checked absolute bottom-0 right-2 top-0 m-auto cursor-pointer
           @click="formVisible = !formVisible"
         />
@@ -255,8 +242,7 @@ function closeAnimation() {
             <div class="flex flex-wrap justify-center">
               <img
                 v-for="item, idx in ssrList" :key="idx"
-                class="m-[4px] h-10"
-                :class="{ target: item.incidence === '1' }"
+                class="m-[4px] h-10" :class="{ target: item.incidence === '1' }"
                 :src="getGachaItemImg(item.cat, item.id)"
               >
             </div>
