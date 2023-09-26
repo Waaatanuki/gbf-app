@@ -26,7 +26,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Install and Build 🔧
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Install and Build 🔧
         run: pnpm run build

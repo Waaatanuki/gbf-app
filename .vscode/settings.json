@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "editor.formatOnSave": true,
+  "vue.codeActions.enabled": false
+}

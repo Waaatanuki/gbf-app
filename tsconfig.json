@@ -15,13 +15,16 @@
     "strictNullChecks": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["vite/client"],
+    "types": [
+      "node",
+      "vite/client",
+      "vite-plugin-pages/client",
+      "vite-plugin-vue-layouts/client",
+      "unplugin-icons/types/vue"
+    ],
     "paths": {
       "~/*": ["src/*"]
     }
-  },
-  "vueCompilerOptions": {
-    "plugins": ["@vue-macros/volar/define-models", "@vue-macros/volar/define-slots"]
   },
   "exclude": ["dist", "node_modules"]
 }

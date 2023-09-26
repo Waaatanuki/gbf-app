@@ -1,50 +1,78 @@
 import path from 'node:path'
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import AutoImport from 'unplugin-auto-import/vite'
+import Vue from '@vitejs/plugin-vue'
+import Pages from 'vite-plugin-pages'
+import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import Markdown from 'unplugin-vue-markdown/vite'
+import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
+import Shiki from 'markdown-it-shiki'
 import { webUpdateNotice } from '@plugin-web-update-notification/vite'
 
 export default defineConfig({
   base: '/gbf-app/',
-  plugins: [
-    vue({
-      script: {
-        defineModel: true,
-      },
-    }),
-    webUpdateNotice({
-      logVersion: true,
-      injectFileBase: '/gbf-app/',
-    }),
-    createSvgIconsPlugin({
-      iconDirs: [path.resolve('src', 'assets/icons')],
-      symbolId: 'icon-[dir]-[name]',
-    }),
-    AutoImport({
-      imports: ['vue', 'vue-router', '@vueuse/core'],
-      dirs: ['src/composables', 'src/stores'],
-      resolvers: [ElementPlusResolver()],
-      vueTemplate: true,
-      dts: path.resolve('types', 'auto-imports.d.ts'),
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()],
-      dts: path.resolve('types', 'components.d.ts'),
-    }),
-    Unocss(),
-  ],
-  server: {
-    host: '0.0.0.0',
-    open: true,
-    port: 6789,
-  },
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
+  plugins: [
+    Vue({
+      script: {
+        defineModel: true,
+      },
+    }),
+    webUpdateNotice({ logVersion: true }),
+    Pages({ extensions: ['vue', 'md'] }),
+    Layouts(),
+    AutoImport({
+      imports: [
+        'vue',
+        'vue-router',
+        '@vueuse/core',
+      ],
+      resolvers: [ElementPlusResolver()],
+      dts: 'src/auto-imports.d.ts',
+      dirs: [
+        'src/composables',
+        'src/stores',
+      ],
+      vueTemplate: true,
+
+    }),
+    Components({
+      resolvers: [
+        ElementPlusResolver(),
+        IconsResolver({ prefix: '' })],
+      extensions: ['vue', 'md'],
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      dts: 'src/components.d.ts',
+    }),
+    Unocss(),
+    Icons(),
+    Markdown({
+      wrapperClasses: 'prose prose-sm m-auto text-left',
+      headEnabled: true,
+      markdownItSetup(md) {
+        md.use(Shiki, {
+          theme: {
+            light: 'vitesse-light',
+            dark: 'vitesse-dark',
+          },
+        })
+        md.use(LinkAttributes, {
+          matcher: (link: string) => /^https?:\/\//.test(link),
+          attrs: {
+            target: '_blank',
+            rel: 'noopener',
+          },
+        })
+      },
+    }),
+  ],
 })
