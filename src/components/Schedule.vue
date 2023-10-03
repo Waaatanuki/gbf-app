@@ -22,15 +22,11 @@ const { height } = useWindowSize()
         <span>{{ dayjs().month() + 1 }}月日程表</span>
       </div>
     </template>
-    <el-scrollbar :height="height - 330">
-      <el-timeline
-        v-if="dayjs().isSame(dayjs(schedule[0].end), 'month')"
-        style="padding: 0 15px 0 0"
-      >
+    <el-scrollbar :max-height="height - 330">
+      <el-timeline v-if="dayjs().isSame(dayjs(schedule[0].end), 'month')" style="padding: 0 15px 0 0">
         <el-timeline-item
-          v-for="activity, idx in schedule" :key="idx"
-          placement="top"
-          :timestamp=" `${dayjs(activity.start).format('MM/DD HH:mm')} - ${dayjs(activity.end).format('MM/DD HH:mm')}` "
+          v-for="activity, idx in schedule" :key="idx" placement="top"
+          :timestamp="`${dayjs(activity.start).format('MM/DD HH:mm')} - ${dayjs(activity.end).format('MM/DD HH:mm')}`"
           :color="handleColor(activity.start, activity.end)"
         >
           <el-card :body-style="{ padding: '10px' }" shadow="hover">
@@ -43,7 +39,9 @@ const { height } = useWindowSize()
           </el-card>
         </el-timeline-item>
       </el-timeline>
-      <label v-else>暂未更新</label>
+      <div v-else h-300px>
+        暂未更新
+      </div>
     </el-scrollbar>
   </el-card>
 </template>

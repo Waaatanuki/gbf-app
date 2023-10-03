@@ -1,7 +1,7 @@
 {
   "type": "module",
-  "homepage": "https://waaatanuki.github.io/gbf-app",
   "packageManager": "pnpm@8.7.6",
+  "homepage": "https://waaatanuki.github.io/gbf-app",
   "scripts": {
     "build": "vite build",
     "dev": "vite --port 3333 --open",

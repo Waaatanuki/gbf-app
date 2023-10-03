@@ -5,9 +5,9 @@ defineOptions({
 </script>
 
 <template>
-  <div fc gap-100px>
+  <div flex items-start justify-center gap-100px>
     <Schedule />
-    <Menu self-start />
+    <Menu />
   </div>
 </template>
 
