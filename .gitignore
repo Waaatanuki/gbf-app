@@ -6,5 +6,5 @@ node_modules
 .idea/
 *.log
 
-src/components.d.ts
-src/auto-imports.d.ts
+types/components.d.ts
+types/auto-imports.d.ts
