@@ -1,1 +1,0 @@
-import{_ as c,o as n,c as _,F as s,cd as o,b as e}from"./index-17bf5ea8.js";const t={},a=e("div",null," 我是谁 ",-1),l=e("div",null," 我在哪 ",-1),r=e("div",null," 我在干什么 ",-1);function d(i,f){return n(),_(s,null,[a,l,r],64)}typeof o=="function"&&o(t);const m=c(t,[["render",d]]);export{m as default};
