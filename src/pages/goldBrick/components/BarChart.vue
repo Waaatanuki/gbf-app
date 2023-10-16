@@ -1,63 +1,64 @@
 <script setup lang="ts">
-import Chart from 'chart.js/auto'
-import ChartDataLabels from 'chartjs-plugin-datalabels'
+import * as echarts from 'echarts'
 
 const props = defineProps(['id', 'title', 'labels', 'data'])
-let templateChart: Chart
+const mask = inject<globalThis.Ref<boolean>>('mask')
+const chartRef = ref<HTMLDivElement>()
+let chart: echarts.ECharts
+
+const option = computed(() => ({
+  title: { text: props.title },
+  textStyle: {
+    fontFamily: 'LXGW WenKai Screen',
+  },
+  tooltip: { trigger: 'axis' },
+  darkMode: isDark.value,
+  xAxis: {
+    type: 'category',
+    data: props.labels,
+  },
+  yAxis: {
+    type: 'value',
+    axisLine: { show: true },
+    axisTick: { show: true },
+    splitLine: {
+      show: false,
+    },
+  },
+  series: [
+    {
+      data: props.data,
+      type: 'bar',
+      barWidth: '10',
+      label: {
+        show: true,
+        position: 'top',
+      },
+    },
+  ],
+  dataZoom: [
+    {
+      type: 'inside',
+      zoomOnMouseWheel: 'ctrl',
+      moveOnMouseWheel: true,
+      maxValueSpan: 29,
+    },
+  ],
+}))
 
 onMounted(() => {
-  const ctx = document.getElementById(props.id) as HTMLCanvasElement
-  templateChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: props.labels,
-      datasets: [
-        {
-          data: props.data,
-          backgroundColor: '#409EFF',
-          barThickness: 10,
-          datalabels: {
-            anchor: 'end',
-            align: 'top',
-            color: 'gray',
-          },
-        },
-      ],
-    },
-    plugins: [ChartDataLabels],
-    options: {
-      plugins: {
-        legend: {
-          display: false,
-        },
-        title: {
-          display: true,
-          text: props.title,
-          font: {
-            size: 20,
-          },
-          padding: {
-            top: 20,
-            bottom: 20,
-          },
-        },
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
+  nextTick(() => {
+    chart = echarts.init(chartRef.value!, 'chalk')
+    chart.setOption(option.value)
+    mask!.value = false
   })
 })
 
 onUpdated(() => {
-  templateChart.data.labels = props.labels
-  templateChart.data.datasets[0].data = props.data
-  templateChart.update()
+  chart.setOption(option.value)
 })
 </script>
 
 <template>
-  <canvas :id="id" />
+  <div :id="id" ref="chartRef" h-300px w-550px />
 </template>

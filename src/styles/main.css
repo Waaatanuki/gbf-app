@@ -15,7 +15,7 @@ html.dark {
 }
 
 body {
-  font-family: "LXGW WenKai Screen", sans-serif;
+  font-family: 'LXGW WenKai Screen', sans-serif;
 }
 
 #nprogress {
@@ -31,15 +31,4 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-}
-
-.chart-card {
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 750px;
-}
-
-.chart-card-section {
-  height: 350px;
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MonthlyTableData } from '~/constants'
+import type { MonthlyTableData } from 'goldBrick'
 
 defineProps<{ data: MonthlyTableData[] }>()
 </script>

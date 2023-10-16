@@ -23,17 +23,23 @@ const state = reactive({
 
 const { filesList, baseInfo, uploadBtnLoading, drawer } = toRefs(state)
 
+const mask = ref(false)
+provide('mask', mask)
+
 function showChart(raid: AppGoldBrickTableData) {
   if (raid.raidName === 'cb')
     return ElMessage.warning('超巴没有详细图表')
-  state.drawer.visible = true
-  state.drawer.title = `${raid.quest_name_jp} 详细图表`
-  state.drawer.key = raid.quest_id
-  state.drawer.dataSet = state.dataSet.filter((record) => {
-    const raidInfo = Object.values(record)[0]
-    return raid.raidName === raidInfo.raidName
-  })
-  state.drawer.tableData = state.baseInfo.find(item => raid.quest_id === item.quest_id)!.monthlyTableData
+  mask.value = true
+  setTimeout(() => {
+    state.drawer.visible = true
+    state.drawer.title = `${raid.quest_name_jp} 详细图表`
+    state.drawer.key = raid.quest_id
+    state.drawer.dataSet = state.dataSet.filter((record) => {
+      const raidInfo = Object.values(record)[0]
+      return raid.raidName === raidInfo.raidName
+    })
+    state.drawer.tableData = state.baseInfo.find(item => raid.quest_id === item.quest_id)!.monthlyTableData
+  }, 50)
 }
 
 async function init() {
@@ -146,116 +152,118 @@ onMounted(() => {
 </script>
 
 <template>
-  <div mx-auto max-w-1100px>
-    <el-card v-for="item in baseInfo" :key="item.quest_id" mb-2 cursor-pointer shadow="hover" @click="showChart(item)">
-      <div flex gap-5>
-        <div w-180px fc shrink-0>
-          <img w-full :src="getQuestImg(item.quest_id)">
-        </div>
-        <div w-full fc flex-col gap-4>
-          <div flex flex-wrap justify-evenly gap-10>
-            <div w-100px>
-              <el-statistic :value="item.total" title="总次数" />
-            </div>
-            <template v-if="item.is_blue_treasure">
-              <div w-120px>
-                <el-statistic :value="item.blueChest" title="蓝箱" />
-                <div>
-                  <el-text size="small">
-                    蓝箱率： {{ getRatio(item.blueChest, item.total) }}%
-                  </el-text>
-                </div>
+  <el-row v-loading="mask">
+    <div mx-auto max-w-1100px>
+      <el-card v-for="item in baseInfo" :key="item.quest_id" mb-2 cursor-pointer shadow="hover" @click="showChart(item)">
+        <div flex gap-5>
+          <div w-180px fc shrink-0>
+            <img w-full :src="getQuestImg(item.quest_id)">
+          </div>
+          <div w-full fc flex-col gap-4>
+            <div flex flex-wrap justify-evenly gap-10>
+              <div w-100px>
+                <el-statistic :value="item.total" title="总次数" />
               </div>
-              <template v-if="item.quest_id === '301061'">
-                <el-tooltip content="蓝箱金+自发金">
+              <template v-if="item.is_blue_treasure">
+                <div w-120px>
+                  <el-statistic :value="item.blueChest" title="蓝箱" />
+                  <div>
+                    <el-text size="small">
+                      蓝箱率： {{ getRatio(item.blueChest, item.total) }}%
+                    </el-text>
+                  </div>
+                </div>
+                <template v-if="item.quest_id === '301061'">
+                  <el-tooltip content="蓝箱金+自发金">
+                    <div w-100px>
+                      <el-statistic :value="item.blueChestFFJ" title="菲菲金" :suffix="`+ ${item.redChestFFJ}`" />
+                      <div>
+                        <el-text size="small">
+                          蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChest) }}%
+                        </el-text>
+                      </div>
+                    </div>
+                  </el-tooltip>
+                </template>
+                <template v-else>
                   <div w-100px>
-                    <el-statistic :value="item.blueChestFFJ" title="菲菲金" :suffix="`+ ${item.redChestFFJ}`" />
+                    <el-statistic :value="item.blueChestFFJ" title="菲菲金" />
                     <div>
                       <el-text size="small">
                         蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChest) }}%
                       </el-text>
                     </div>
                   </div>
-                </el-tooltip>
-              </template>
-              <template v-else>
+                </template>
                 <div w-100px>
-                  <el-statistic :value="item.blueChestFFJ" title="菲菲金" />
-                  <div>
-                    <el-text size="small">
-                      蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChest) }}%
-                    </el-text>
-                  </div>
+                  <el-statistic :value="item.ring3" title="红戒指" />
+                </div>
+                <div w-100px>
+                  <el-statistic :value="item.ring2" title="黑戒指" />
+                </div>
+                <div w-100px>
+                  <el-statistic :value="item.ring1" title="白戒指" />
                 </div>
               </template>
-              <div w-100px>
-                <el-statistic :value="item.ring3" title="红戒指" />
-              </div>
-              <div w-100px>
-                <el-statistic :value="item.ring2" title="黑戒指" />
-              </div>
-              <div w-100px>
-                <el-statistic :value="item.ring1" title="白戒指" />
-              </div>
-            </template>
-            <template v-else>
-              <el-tooltip content="自发金+金箱金">
-                <div w-100px>
-                  <el-statistic :value="item.redChestFFJ" title="菲菲金" :suffix="`+ ${item.normalChestFFJ}`" />
+              <template v-else>
+                <el-tooltip content="自发金+金箱金">
+                  <div w-100px>
+                    <el-statistic :value="item.redChestFFJ" title="菲菲金" :suffix="`+ ${item.normalChestFFJ}`" />
                   <!-- <div>
                     <el-text size="small">
                       自发金率： {{ getRatio(item.redChestFFJ, item.total) }}%
                     </el-text>
                   </div> -->
-                </div>
-              </el-tooltip>
+                  </div>
+                </el-tooltip>
+              </template>
+            </div>
+            <template v-if="item.is_blue_treasure">
+              <el-text v-if="item.blueChestFFJ === 0" type="warning">
+                还未出过金
+              </el-text>
+              <el-text v-else type="info">
+                距离上次出金已经打了{{ item.lastBlueChestCount }}个蓝箱
+              </el-text>
+            </template>
+            <template v-else>
+              <el-text v-if="item.redChestFFJ === 0" type="warning">
+                还未出过金
+              </el-text>
+              <el-text v-else type="info">
+                距离上次出金已经过去了{{ dayjs().diff(dayjs(item.lastFFJTime), 'day') }}天
+              </el-text>
             </template>
           </div>
-          <template v-if="item.is_blue_treasure">
-            <el-text v-if="item.blueChestFFJ === 0" type="warning">
-              还未出过金
-            </el-text>
-            <el-text v-else type="info">
-              距离上次出金已经打了{{ item.lastBlueChestCount }}个蓝箱
-            </el-text>
-          </template>
-          <template v-else>
-            <el-text v-if="item.redChestFFJ === 0" type="warning">
-              还未出过金
-            </el-text>
-            <el-text v-else type="info">
-              距离上次出金已经过去了{{ dayjs().diff(dayjs(item.lastFFJTime), 'day') }}天
-            </el-text>
-          </template>
         </div>
+      </el-card>
+      <div class="uploader">
+        <el-popconfirm title="清空操作无法恢复，确认清空吗?" width="300" @confirm="clearData">
+          <template #reference>
+            <el-button type="danger">
+              清空数据
+            </el-button>
+          </template>
+        </el-popconfirm>
+        <el-button type="info" @click="handleExport">
+          导出
+        </el-button>
+        <el-upload
+          v-model:file-list="filesList" :on-change="handleUploadChange" :show-file-list="false" :limit="1"
+          :auto-upload="false" accept=".json"
+        >
+          <template #trigger>
+            <el-button type="primary" :loading="uploadBtnLoading" @click="filesList = []">
+              上传
+            </el-button>
+          </template>
+        </el-upload>
       </div>
-    </el-card>
-    <div class="uploader">
-      <el-popconfirm title="清空操作无法恢复，确认清空吗?" width="300" @confirm="clearData">
-        <template #reference>
-          <el-button type="danger">
-            清空数据
-          </el-button>
-        </template>
-      </el-popconfirm>
-      <el-button type="info" @click="handleExport">
-        导出
-      </el-button>
-      <el-upload
-        v-model:file-list="filesList" :on-change="handleUploadChange" :show-file-list="false" :limit="1"
-        :auto-upload="false" accept=".json"
-      >
-        <template #trigger>
-          <el-button type="primary" :loading="uploadBtnLoading" @click="filesList = []">
-            上传
-          </el-button>
-        </template>
-      </el-upload>
+      <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600" destroy-on-close>
+        <ChartDrawer :id="drawer.key" :data="drawer.dataSet" :table-data="drawer.tableData" />
+      </el-drawer>
     </div>
-    <el-drawer v-model="drawer.visible" :title="drawer.title" :size="600" destroy-on-close>
-      <ChartDrawer :id="drawer.key" :data="drawer.dataSet" :table-data="drawer.tableData" />
-    </el-drawer>
-  </div>
+  </el-row>
 </template>
 
 <style lang="scss" scoped>

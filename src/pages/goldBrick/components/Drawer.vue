@@ -126,7 +126,7 @@ const blueChestData = computed<ChartData>(() => {
         :labels="blueChestData.labels"
         :data="blueChestData.count"
       />
-      <DetailTable mt-10 :data="tableData" />
+      <DetailTable :data="tableData" />
     </div>
   </div>
 </template>
