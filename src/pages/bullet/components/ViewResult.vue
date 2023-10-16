@@ -77,9 +77,9 @@ function getImgSrc(item: any) {
           <el-tooltip v-else effect="dark" placement="bottom">
             <img class="m-2 h-14 w-14" :src="getImgSrc(bullet.at(-1))">
             <template #content>
-              <div class="w-44 fc flex-wrap">
-                <div v-for="article, idx1 in bullet.at(-1)?.total" :key="idx1" class="fc flex-col select-none">
-                  <img class="m-1 h-12 w-12" :src="getImgSrc(article)">
+              <div w-55 fc flex-wrap gap-2>
+                <div v-for="article, idx1 in bullet.at(-1)?.total" :key="idx1" fc flex-col select-none>
+                  <img h-12 w-12 :src="getImgSrc(article)">
                   <span>{{ article.number }}</span>
                 </div>
               </div>
@@ -91,9 +91,9 @@ function getImgSrc(item: any) {
             <InfoFilled />
           </el-icon>
           <template #content>
-            <div class="w-44 fc flex-wrap">
-              <div v-for="article, idx in articleList" :key="idx" class="fc flex-col select-none">
-                <img class="m-1 h-12 w-12" :src="getImgSrc(article)">
+            <div w-55 fc flex-wrap gap-2>
+              <div v-for="article, idx in articleList" :key="idx" fc flex-col select-none>
+                <img h-12 w-12 :src="getImgSrc(article)">
                 <span>{{ article.number }}</span>
               </div>
             </div>
