@@ -97,8 +97,7 @@ ${roleName.split('/')[1] ?? ''}
         `
 
   let skillTableStr = formData.value.skillList.reduce(
-    (pre: string, cur) =>
-      `${pre
+    (pre: string, cur) => `${pre
       }
 [tr]
 [td]${cur.name}[/td]
@@ -120,8 +119,7 @@ ${roleName.split('/')[1] ?? ''}
   skillTableStr += '[/table][/quote]'
 
   let supportSkillTableStr = formData.value.supportSkillList.reduce(
-    (pre: string, cur) =>
-      `${pre
+    (pre: string, cur) => `${pre
       }
 [tr]
 [td]${cur.name}[/td]

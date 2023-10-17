@@ -48,7 +48,8 @@ export default defineConfig({
     Components({
       resolvers: [
         ElementPlusResolver(),
-        IconsResolver({ prefix: '' })],
+        IconsResolver({ prefix: '' }),
+      ],
       extensions: ['vue', 'md'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       dts: 'src/components.d.ts',
