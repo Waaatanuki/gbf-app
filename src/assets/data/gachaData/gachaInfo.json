@@ -29,7 +29,7 @@
       "treasure_type": "10"
     }
   },
-  "stone_num": "224172",
+  "stone_num": "231442",
   "gachaticket_popup": [],
   "enable_beginner_free_legend_10": false,
   "enable_free_legend_10": false,
@@ -41,7 +41,7 @@
   "legend": {
     "lineup": [
       {
-        "id": "207210",
+        "id": "207270",
         "name": "レジェンド10連ガチャ",
         "class_name": "prt-title-legend10",
         "bg_image1": "gacha_bg1",
@@ -51,7 +51,7 @@
         },
         "campaign_id": null,
         "campaign_news_id": null,
-        "start": "10月31日 12:00",
+        "start": "11月17日 19:00",
         "end": "12月31日 23:59",
         "image_path": "",
         "text_btn_image": "text_legend10",
@@ -65,7 +65,7 @@
           {
             "ticket_id": 20010,
             "ticket_name": "レジェンド10連ガチャチケット",
-            "ticket_num": 1,
+            "ticket_num": 2,
             "ticket_end_at": null,
             "text_btn_image_ticket": "text_legendticket10",
             "type": null,
@@ -75,12 +75,12 @@
           }
         ],
         "times": "10",
-        "service_start": "2023/10/31 12:00",
-        "service_end": "2023/11/3 18:59",
-        "disp_service_end": "11/3 18:59"
+        "service_start": "2023/11/17 19:00",
+        "service_end": "2023/11/20 18:59",
+        "disp_service_end": "11/20 18:59"
       },
       {
-        "id": "207211",
+        "id": "207271",
         "name": "レジェンドガチャ",
         "class_name": "prt-title-legend1",
         "bg_image1": "gacha_bg1",
@@ -93,7 +93,7 @@
         },
         "campaign_id": null,
         "campaign_news_id": null,
-        "start": "10月31日 12:00",
+        "start": "11月17日 19:00",
         "end": "12月31日 23:59",
         "image_path": "",
         "text_btn_image": "text_legend",
@@ -107,7 +107,7 @@
           {
             "ticket_id": 20011,
             "ticket_name": "レジェンドガチャチケット",
-            "ticket_num": 17,
+            "ticket_num": 28,
             "ticket_end_at": null,
             "text_btn_image_ticket": "text_legendticket",
             "type": null,
@@ -117,29 +117,29 @@
           }
         ],
         "times": "1",
-        "service_start": "2023/10/31 12:00",
-        "service_end": "2023/11/3 18:59",
-        "disp_service_end": "11/3 18:59"
+        "service_start": "2023/11/17 19:00",
+        "service_end": "2023/11/20 18:59",
+        "disp_service_end": "11/20 18:59"
       }
     ],
-    "random_key": "1w2aqv3o"
+    "random_key": "7v0c25z6"
   },
   "event_info": [],
-  "appearance_gacha_id": "207211",
+  "appearance_gacha_id": "207271",
   "user_info": {
     "reward_to": 1,
     "weapon_max": null,
     "weapon_count": null,
     "summon_max": null,
     "summon_count": null,
-    "money": "276166251",
-    "user_money": "224172",
+    "money": "277103997",
+    "user_money": "231442",
     "requirement_money": 100,
     "available_times": 0,
     "limit_count": 100,
     "free_count": 0,
     "gacha_skip_flag": "0",
-    "is_free": true,
+    "is_free": false,
     "normal_gacha_id": "6002"
   },
   "normal": {
@@ -149,11 +149,11 @@
     {
       "ticket_id": "10021",
       "type": "legendticket",
-      "gacha_id": "207210",
+      "gacha_id": "207270",
       "campaign_id": "",
       "title": "Sレア以上確定ガチャチケット",
       "description": "Sレア以上が必ず当たる、特別なガチャチケットです。",
-      "count": "4",
+      "count": "6",
       "expired": false,
       "times": "1",
       "is_before_available": false,
@@ -163,15 +163,29 @@
     {
       "ticket_id": "103301",
       "type": "legendticket",
-      "gacha_id": "207211",
+      "gacha_id": "207271",
       "campaign_id": "",
       "title": "特典ポイントガチャ",
       "description": "特典ポイントガチャが利用できるチケットです。",
-      "count": "5",
+      "count": "10",
       "expired": false,
       "times": "1",
       "is_before_available": false,
       "available_date": null,
+      "is_choice_lineup": false
+    },
+    {
+      "ticket_id": "110521",
+      "type": "ticketonly",
+      "gacha_id": "110521",
+      "campaign_id": "",
+      "title": "2023年11月Sレア武器確定ガチャ",
+      "description": "Sレア武器確定ガチャが引けるチケット！",
+      "count": "10",
+      "expired": false,
+      "times": "1",
+      "is_before_available": false,
+      "available_date": "",
       "is_choice_lineup": false
     }
   ],
@@ -192,9 +206,9 @@
   "ceiling": {
     "name": "蒼光の御印",
     "is_available": true,
-    "start": "2023/10/31 12:00",
-    "end": "2023/11/3 18:59",
-    "disp_end": "11/3 18:59",
+    "start": "2023/11/17 19:00",
+    "end": "2023/11/20 18:59",
+    "disp_end": "11/20 18:59",
     "can_exchange": false,
     "use_count": 0
   },
@@ -264,11 +278,11 @@
   },
   "draw_starlegend_gacha_id": 0,
   "header_images": [
-    "1040915800",
-    "1040117400",
-    "2040424000"
+    "1040117800",
+    "1040516600",
+    "1040025300"
   ],
   "logo_image": "logo",
   "beginner300_remind_popup": null,
-  "gacha_token": "6de0cec1b2b31d2b"
+  "gacha_token": "0e53faa654ccd986"
 }
