@@ -133,7 +133,7 @@ function handleClick(data: CritData) {
             <el-card :body-style="{ padding: '2px' }" w-35 shadow="hover">
               <div fc flex-col cursor-pointer select-none gap-2 text-base>
                 <div>{{ `${data.skillName} Lv${data.level}` }}</div>
-                <div>{{ data.rate }}</div>
+                <div>{{ `效果量: ${data.rate}` }}</div>
               </div>
             </el-card>
           </div>
