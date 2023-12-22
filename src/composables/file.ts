@@ -1,5 +1,5 @@
-export function getLocalImg(type: string, id: string) {
-  return new URL(`/src/assets/image/${type}/${id}.png`, import.meta.url).href
+export function getLocalImg(prop: string, type = 'common') {
+  return new URL(`/src/assets/image/${type}/${prop}.png`, import.meta.url).href
 }
 
 export function getQuestImg(quest_id: string) {

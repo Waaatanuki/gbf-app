@@ -22,7 +22,9 @@ declare module 'goldBrick' {
     ring2: number
     ring3: number
     lastBlueChestCount: number
+    lastBlueChestTake?: number
     lastFFJTime: number
+    lastFFJTakeDay: number
     monthlyTableData: MonthlyTableData[]
   }
 

@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import type { AppGoldBrickTableData, MonthlyTableData, Record } from 'goldBrick'
@@ -81,6 +80,9 @@ function formatData(dataSet: Record[]) {
       raidInfo.goldBrick === '4' && targetRaidInfo.redChestFFJ++
       raidInfo.goldBrick === '11' && targetRaidInfo.blueChestFFJ++
       raidInfo.goldBrick === '11' && hitRow.blueChestFFJ++
+      if (targetRaidInfo.lastFFJTime)
+        targetRaidInfo.lastFFJTakeDay = dayjs().diff(dayjs(targetRaidInfo.lastFFJTime), 'day')
+
       targetRaidInfo.lastFFJTime = raidInfo.timestamp
     }
 
@@ -92,8 +94,10 @@ function formatData(dataSet: Record[]) {
       raidInfo.blueChests === '73_2' && targetRaidInfo.ring2++
       raidInfo.blueChests === '73_3' && targetRaidInfo.ring3++
       raidInfo.blueChests === '73_3' && hitRow.ring3++
-      if (raidInfo.blueChests === '17_20004')
+      if (raidInfo.blueChests === '17_20004') {
+        targetRaidInfo.lastBlueChestTake = targetRaidInfo.lastBlueChestCount
         targetRaidInfo.lastBlueChestCount = 0
+      }
     }
   })
 
@@ -146,6 +150,32 @@ function getRatio(a = 0, b = 0) {
   return ((a / b) * 100).toFixed(2)
 }
 
+function getGoldBrickShowValue(raid: AppGoldBrickTableData) {
+  switch (raid.quest_id) {
+    case '303141':
+      // 超巴
+      return `${raid.redChestFFJ}+${raid.normalChestFFJ}`
+    case '301061':
+      // 大巴
+      return `${raid.blueChestFFJ}+${raid.redChestFFJ}`
+    default:
+      return raid.blueChestFFJ
+  }
+}
+
+function getGoldBrickTips(raid: AppGoldBrickTableData) {
+  switch (raid.quest_id) {
+    case '303141':
+      // 超巴
+      return '自发金+金箱金'
+    case '301061':
+      // 大巴
+      return '蓝箱金+自发金'
+    default:
+      return '蓝箱金'
+  }
+}
+
 onMounted(() => {
   init()
 })
@@ -153,90 +183,84 @@ onMounted(() => {
 
 <template>
   <el-row v-loading="mask">
-    <div mx-auto max-w-1100px>
-      <el-card v-for="item in baseInfo" :key="item.quest_id" mb-2 cursor-pointer shadow="hover" @click="showChart(item)">
-        <div flex gap-5>
-          <div w-180px fc shrink-0>
-            <img w-full :src="getQuestImg(item.quest_id)">
-          </div>
-          <div w-full fc flex-col gap-4>
-            <div flex flex-wrap justify-evenly gap-10>
-              <div w-100px>
-                <el-statistic :value="item.total" title="总次数" />
+    <div mx-auto>
+      <ElCard v-for="item in baseInfo" :key="item.quest_id" mb-2 cursor-pointer shadow="hover" @click="showChart(item)">
+        <div h-100px fc gap-10px text-sm>
+          <div relative shrink-0>
+            <img w-100px :src="getQuestImg(item.quest_id)">
+            <div mt-2px fc gap-2px>
+              <div i-game-icons:crossed-swords />
+              <div text-orange font-black>
+                {{ item.total?.toLocaleString() }}
               </div>
-              <template v-if="item.is_blue_treasure">
-                <div w-120px>
-                  <el-statistic :value="item.blueChest" title="蓝箱" />
-                  <div>
-                    <el-text size="small">
-                      蓝箱率： {{ getRatio(item.blueChest, item.total) }}%
-                    </el-text>
-                  </div>
+              <div i-game-icons:crossed-swords />
+            </div>
+          </div>
+          <div fc flex-col>
+            <div w-600px flex items-center justify-around>
+              <div v-if="item.is_blue_treasure" class="desc-item">
+                <el-badge :value="item.blueChest" type="danger" :max="999999">
+                  <img w-50px :src="getLocalImg('blueChest')">
+                </el-badge>
+
+                <div text-xs>
+                  {{ getRatio(item.blueChest, item.total) }}%
                 </div>
-                <template v-if="item.quest_id === '301061'">
-                  <el-tooltip content="蓝箱金+自发金">
-                    <div w-100px>
-                      <el-statistic :value="item.blueChestFFJ" title="菲菲金" :suffix="`+ ${item.redChestFFJ}`" />
-                      <div>
-                        <el-text size="small">
-                          蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChest) }}%
-                        </el-text>
-                      </div>
-                    </div>
-                  </el-tooltip>
-                </template>
-                <template v-else>
-                  <div w-100px>
-                    <el-statistic :value="item.blueChestFFJ" title="菲菲金" />
-                    <div>
-                      <el-text size="small">
-                        蓝箱金率： {{ getRatio(item.blueChestFFJ, item.blueChest) }}%
-                      </el-text>
-                    </div>
-                  </div>
-                </template>
-                <div w-100px>
-                  <el-statistic :value="item.ring3" title="红戒指" />
-                </div>
-                <div w-100px>
-                  <el-statistic :value="item.ring2" title="黑戒指" />
-                </div>
-                <div w-100px>
-                  <el-statistic :value="item.ring1" title="白戒指" />
-                </div>
-              </template>
-              <template v-else>
-                <el-tooltip content="自发金+金箱金">
-                  <div w-100px>
-                    <el-statistic :value="item.redChestFFJ" title="菲菲金" :suffix="`+ ${item.normalChestFFJ}`" />
-                  <!-- <div>
-                    <el-text size="small">
-                      自发金率： {{ getRatio(item.redChestFFJ, item.total) }}%
-                    </el-text>
-                  </div> -->
-                  </div>
+              </div>
+
+              <div class="desc-item">
+                <el-tooltip :content="getGoldBrickTips(item)">
+                  <el-badge :value="getGoldBrickShowValue(item)" type="danger" :max="999999">
+                    <img w-50px :src="getLocalImg('goldBrick', 'item')">
+                  </el-badge>
                 </el-tooltip>
+
+                <div v-if="item.quest_id !== '303141'" text-xs>
+                  {{ getRatio(item.blueChestFFJ, item.blueChest) }}%
+                </div>
+              </div>
+
+              <template v-if="item.quest_id !== '303141'">
+                <div class="desc-item">
+                  <el-badge :value="item.ring3" type="danger" :max="999999">
+                    <img w-50px :src="getLocalImg('ring3', 'item')">
+                  </el-badge>
+                </div>
+                <div class="desc-item">
+                  <el-badge :value="item.ring2" type="danger" :max="999999">
+                    <img w-50px :src="getLocalImg('ring2', 'item')">
+                  </el-badge>
+                </div>
+                <div class="desc-item">
+                  <el-badge :value="item.ring1" type="danger" :max="999999">
+                    <img w-50px :src="getLocalImg('ring1', 'item')">
+                  </el-badge>
+                </div>
               </template>
             </div>
-            <template v-if="item.is_blue_treasure">
-              <el-text v-if="item.blueChestFFJ === 0" type="warning">
-                还未出过金
-              </el-text>
-              <el-text v-else type="info">
-                距离上次出金已经打了{{ item.lastBlueChestCount }}个蓝箱
-              </el-text>
-            </template>
-            <template v-else>
-              <el-text v-if="item.redChestFFJ === 0" type="warning">
-                还未出过金
-              </el-text>
-              <el-text v-else type="info">
-                距离上次出金已经过去了{{ dayjs().diff(dayjs(item.lastFFJTime), 'day') }}天
-              </el-text>
-            </template>
+            <div mt-20px text-xs text-gray>
+              <template v-if="item.is_blue_treasure">
+                <el-text v-if="item.blueChestFFJ === 0" type="warning">
+                  还未出过金
+                </el-text>
+                <el-text v-else type="info">
+                  {{ `上次出金打了${item.lastBlueChestTake}个蓝箱，已经${item.lastBlueChestCount}个蓝箱没出过了` }}
+                </el-text>
+              </template>
+              <template v-else>
+                <el-text v-if="item.redChestFFJ === 0" type="warning">
+                  还未出过金
+                </el-text>
+                <el-text v-else type="info">
+                  {{ item.lastFFJTakeDay ? `上次出金经过了${item.lastFFJTakeDay}天，` : '' }}
+                  已经{{ dayjs().diff(dayjs(item.lastFFJTime), 'day') }}天没出过了
+                </el-text>
+              </template>
+            </div>
           </div>
         </div>
-      </el-card>
+      </ElCard>
+
       <div class="uploader">
         <el-popconfirm title="清空操作无法恢复，确认清空吗?" width="300" @confirm="clearData">
           <template #reference>
@@ -274,5 +298,14 @@ onMounted(() => {
   button {
     margin: 10px;
   }
+}
+
+.desc-item{
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

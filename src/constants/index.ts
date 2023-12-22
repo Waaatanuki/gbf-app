@@ -24,6 +24,7 @@ export const defaultAppGoldBrickTableData = Raid_GoldBrick.reduce<AppGoldBrickTa
     lastBlueChestCount: 0,
     monthlyTableData: [],
     lastFFJTime: 0,
+    lastFFJTakeDay: 0,
   })
   return pre
 }, [])
