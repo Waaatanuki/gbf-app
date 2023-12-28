@@ -145,7 +145,7 @@ const audio = new Audio()
 onMounted(() => {
   init()
 
-  audio.src = 'src/assets/audio/Wings of Terror.mp3'
+  audio.src = 'src/assets/audio/WingsOfTerror.mp3'
   audio.play()
 })
 
