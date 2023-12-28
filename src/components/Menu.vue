@@ -12,7 +12,3 @@ import { menuList } from '~/constants/menu'
     </el-card>
   </div>
 </template>
-
-<style scoped>
-
-</style>

@@ -6,8 +6,10 @@ import App from './App.vue'
 import generatedRoutes from '~pages'
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
-import 'element-plus/theme-chalk/dark/css-vars.css'
 import 'uno.css'
+import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/dark/css-vars.css'
+import 'animate.css'
 
 const routes = setupLayouts(generatedRoutes)
 

@@ -5,6 +5,7 @@ import ChartDrawer from './components/Drawer.vue'
 import { downloadJSON } from '~/utils/file'
 import db from '~/utils/db'
 import { defaultAppGoldBrickTableData } from '~/constants'
+import Summary from '~/pages/summary/index.vue'
 
 const state = reactive({
   dataSet: [] as Record[],
@@ -23,6 +24,7 @@ const state = reactive({
 const { filesList, baseInfo, uploadBtnLoading, drawer } = toRefs(state)
 
 const mask = ref(false)
+const dialogVisible = ref(false)
 provide('mask', mask)
 
 function showChart(raid: AppGoldBrickTableData) {
@@ -176,6 +178,15 @@ function getGoldBrickTips(raid: AppGoldBrickTableData) {
   }
 }
 
+function showSummary() {
+  if (!isDark.value)
+    toggleDark()
+  if (state.dataSet.length === 0)
+    ElMessage.warning('您完全不猎金吗')
+  else
+    dialogVisible.value = true
+}
+
 onMounted(() => {
   init()
 })
@@ -184,6 +195,12 @@ onMounted(() => {
 <template>
   <el-row v-loading="mask">
     <div mx-auto>
+      <el-tooltip content="音量注意" placement="top">
+        <div mb-20px text-2xl btn @click="showSummary">
+          年度猎金总结
+        </div>
+      </el-tooltip>
+
       <ElCard v-for="item in baseInfo" :key="item.quest_id" mb-2 cursor-pointer shadow="hover" @click="showChart(item)">
         <div h-100px fc gap-10px text-sm>
           <div relative shrink-0>
@@ -288,6 +305,10 @@ onMounted(() => {
       </el-drawer>
     </div>
   </el-row>
+
+  <el-dialog v-model="dialogVisible" destroy-on-close fullscreen>
+    <Summary />
+  </el-dialog>
 </template>
 
 <style lang="scss" scoped>

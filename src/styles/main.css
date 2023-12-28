@@ -32,3 +32,16 @@ body {
   width: 100%;
   height: 2px;
 }
+
+.summary-template-wrapper{
+  background: #3e5151;
+  background: -webkit-linear-gradient(to top, #decba4, #3e5151);
+  background: linear-gradient(to top, #decba4, #3e5151);
+  height: 100%;
+  padding: 70px 20px 50px 20px;
+  color: #E5EAF3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
