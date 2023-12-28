@@ -197,7 +197,7 @@ onMounted(() => {
     <div mx-auto>
       <el-tooltip content="音量注意" placement="top">
         <div mb-20px text-2xl btn @click="showSummary">
-          年度猎金总结
+          年度猎金报告
         </div>
       </el-tooltip>
 

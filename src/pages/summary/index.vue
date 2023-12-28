@@ -58,6 +58,7 @@ async function init() {
   let totalDayCount = 0
   let current = 0
   let currentGoldBrick = 0
+  const dateList: string[] = []
   entries.forEach((entry: any, index: number) => {
     if (dayjs(entry[1].timestamp).year() === 2023) {
       state.dataSet.push({ [entry[0] as string]: entry[1] })
@@ -66,7 +67,10 @@ async function init() {
       if (entry[1].goldBrick)
         currentGoldBrick++
 
-      if (entries[index - 1] && dayjs(entries[index][1].timestamp).isAfter(dayjs(entries[index - 1][1].timestamp), 'day')) {
+      const date = dayjs(entry[1].timestamp).format('MM-DD')
+
+      if (!dateList.includes(date)) {
+        dateList.push(date)
         totalDayCount++
 
         // 统计一天最多猎金次数
