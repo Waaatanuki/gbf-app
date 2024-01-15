@@ -1,0 +1,1 @@
+import{o as c,c as n,F as _,cg as o,b as e}from"./index-wO-3NrcT.js";import{_ as s}from"./_plugin-vue_export-helper-x3n3nnut.js";const t={},a=e("div",null," 我是谁 ",-1),l=e("div",null," 我在哪 ",-1),r=e("div",null," 我在干什么 ",-1);function i(d,f){return c(),n(_,null,[a,l,r],64)}typeof o=="function"&&o(t);const p=s(t,[["render",i]]);export{p as default};
