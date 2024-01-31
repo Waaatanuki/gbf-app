@@ -29,7 +29,7 @@
       "treasure_type": "10"
     }
   },
-  "stone_num": "17637",
+  "stone_num": "20707",
   "gachaticket_popup": [],
   "enable_beginner_free_legend_10": false,
   "enable_free_legend_10": false,
@@ -41,7 +41,7 @@
   "legend": {
     "lineup": [
       {
-        "id": "207470",
+        "id": "207560",
         "name": "レジェンド10連ガチャ",
         "class_name": "prt-title-legend10",
         "bg_image1": "gacha_bg1",
@@ -51,7 +51,7 @@
         },
         "campaign_id": null,
         "campaign_news_id": null,
-        "start": "1月15日 19:00",
+        "start": "1月31日 12:00",
         "end": "12月31日 23:59",
         "image_path": "",
         "text_btn_image": "text_legend10",
@@ -65,7 +65,7 @@
           {
             "ticket_id": 20010,
             "ticket_name": "レジェンド10連ガチャチケット",
-            "ticket_num": 1,
+            "ticket_num": 2,
             "ticket_end_at": null,
             "text_btn_image_ticket": "text_legendticket10",
             "type": null,
@@ -75,12 +75,12 @@
           }
         ],
         "times": "10",
-        "service_start": "2024/1/15 19:00",
-        "service_end": "2024/1/19 18:59",
-        "disp_service_end": "1/19 18:59"
+        "service_start": "2024/1/31 12:00",
+        "service_end": "2024/2/3 18:59",
+        "disp_service_end": "2/3 18:59"
       },
       {
-        "id": "207471",
+        "id": "207561",
         "name": "レジェンドガチャ",
         "class_name": "prt-title-legend1",
         "bg_image1": "gacha_bg1",
@@ -93,7 +93,7 @@
         },
         "campaign_id": null,
         "campaign_news_id": null,
-        "start": "1月15日 19:00",
+        "start": "1月31日 12:00",
         "end": "12月31日 23:59",
         "image_path": "",
         "text_btn_image": "text_legend",
@@ -107,7 +107,7 @@
           {
             "ticket_id": 20011,
             "ticket_name": "レジェンドガチャチケット",
-            "ticket_num": 32,
+            "ticket_num": 30,
             "ticket_end_at": null,
             "text_btn_image_ticket": "text_legendticket",
             "type": null,
@@ -117,29 +117,29 @@
           }
         ],
         "times": "1",
-        "service_start": "2024/1/15 19:00",
-        "service_end": "2024/1/19 18:59",
-        "disp_service_end": "1/19 18:59"
+        "service_start": "2024/1/31 12:00",
+        "service_end": "2024/2/3 18:59",
+        "disp_service_end": "2/3 18:59"
       }
     ],
-    "random_key": "7qdsan4k"
+    "random_key": "64a3jtmb"
   },
   "event_info": [],
-  "appearance_gacha_id": "207471",
+  "appearance_gacha_id": "207561",
   "user_info": {
     "reward_to": 1,
     "weapon_max": null,
     "weapon_count": null,
     "summon_max": null,
     "summon_count": null,
-    "money": "281579862",
-    "user_money": "17637",
+    "money": "281796327",
+    "user_money": "20707",
     "requirement_money": 100,
     "available_times": 0,
     "limit_count": 100,
     "free_count": 0,
     "gacha_skip_flag": "0",
-    "is_free": false,
+    "is_free": true,
     "normal_gacha_id": "6002"
   },
   "normal": {
@@ -149,71 +149,15 @@
     {
       "ticket_id": "10021",
       "type": "legendticket",
-      "gacha_id": "207470",
+      "gacha_id": "207560",
       "campaign_id": "",
       "title": "Sレア以上確定ガチャチケット",
       "description": "Sレア以上が必ず当たる、特別なガチャチケットです。",
-      "count": "7",
+      "count": "2",
       "expired": false,
       "times": "1",
       "is_before_available": false,
       "available_date": null,
-      "is_choice_lineup": false
-    },
-    {
-      "ticket_id": "103301",
-      "type": "legendticket",
-      "gacha_id": "207471",
-      "campaign_id": "",
-      "title": "特典ポイントガチャ",
-      "description": "特典ポイントガチャが利用できるチケットです。",
-      "count": "15",
-      "expired": false,
-      "times": "1",
-      "is_before_available": false,
-      "available_date": null,
-      "is_choice_lineup": false
-    },
-    {
-      "ticket_id": "110781",
-      "type": "ticketonly",
-      "gacha_id": "110781",
-      "campaign_id": "",
-      "title": "2024年1月キャラ武器確定ガチャ",
-      "description": "キャラ武器確定ガチャが引けるチケット！",
-      "count": "1",
-      "expired": false,
-      "times": "1",
-      "is_before_available": false,
-      "available_date": "",
-      "is_choice_lineup": false
-    },
-    {
-      "ticket_id": "110791",
-      "type": "ticketonly",
-      "gacha_id": "110791",
-      "campaign_id": "",
-      "title": "2024年1月召喚石確定ガチャ",
-      "description": "召喚石確定ガチャが引けるチケット！",
-      "count": "1",
-      "expired": false,
-      "times": "1",
-      "is_before_available": false,
-      "available_date": "",
-      "is_choice_lineup": false
-    },
-    {
-      "ticket_id": "110841",
-      "type": "ticketonly",
-      "gacha_id": "110841",
-      "campaign_id": "",
-      "title": "正月特別Sレア以上確定ガチャ",
-      "description": "正月特別Sレア以上確定ガチャが引けるチケット！",
-      "count": "7",
-      "expired": false,
-      "times": "1",
-      "is_before_available": false,
-      "available_date": "",
       "is_choice_lineup": false
     }
   ],
@@ -234,11 +178,11 @@
   "ceiling": {
     "name": "蒼光の御印",
     "is_available": true,
-    "start": "2024/1/15 19:00",
-    "end": "2024/1/19 18:59",
-    "disp_end": "1/19 18:59",
+    "start": "2024/1/31 12:00",
+    "end": "2024/2/3 18:59",
+    "disp_end": "2/3 18:59",
     "can_exchange": false,
-    "use_count": "1"
+    "use_count": 0
   },
   "ceiling_redceiling": {
     "name": "銀朱の御印",
@@ -306,10 +250,10 @@
   },
   "draw_starlegend_gacha_id": 0,
   "header_images": [
-    "1040422400",
-    "1040219000"
+    "1040025700",
+    "1040422500"
   ],
   "logo_image": "logo",
   "beginner300_remind_popup": null,
-  "gacha_token": "1eaceb3bb8357f44"
+  "gacha_token": "d1f5a5e6804814ca"
 }
