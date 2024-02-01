@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
-import scheduleData from '~/assets/data/schedule.json'
 
 const handleColor = function (start: any, end: any) {
   if (dayjs().isBefore(dayjs(start)) && dayjs(start).diff(dayjs(), 'h') < 24)
@@ -13,10 +12,20 @@ const handleColor = function (start: any, end: any) {
     return 'green'
 }
 const { height } = useWindowSize()
+const scheduleData = ref()
+
+onMounted(() => {
+  fetch('https://raw.githubusercontent.com/Waaatanuki/asset/main/gbf/schedule.json')
+    .then((resp) => {
+      return resp.json()
+    }).then((data) => {
+      scheduleData.value = data
+    })
+})
 </script>
 
 <template>
-  <el-card w-300px>
+  <el-card v-if="scheduleData" w-300px>
     <template #header>
       <div text-center>
         <span>{{ dayjs().month() + 1 }}月日程表</span>

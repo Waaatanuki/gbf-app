@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import GachaAnimation from './components/GachaAnimation.vue'
-import gachaNormalRatio from '~/assets/data/gachaData/gachaNormalRatio.json'
-import gachaSrRatio from '~/assets/data/gachaData/gachaSrRatio.json'
-import gachaInfo from '~/assets/data/gachaData/gachaInfo.json'
 
 const { width } = useWindowSize()
+
+const gbf_gacha_info = ref<{ list: any, ratio1: any, ratio2: any }>()
+const gachaInfo = computed(() => gbf_gacha_info.value?.list)
+const gachaNormalRatio = computed(() => gbf_gacha_info.value?.ratio1)
+const gachaSrRatio = computed(() => gbf_gacha_info.value?.ratio2)
+const gachaLineup = computed(() => `*当前卡池时间：${gachaInfo.value?.legend.lineup[0].service_start}—${gachaInfo.value?.legend.lineup[0].service_end}`)
 
 const state = reactive({
   formData: {
@@ -26,22 +29,9 @@ const state = reactive({
   ssrList: [] as any[],
   animationVisible: false,
   animationResult: [] as any[],
-  gachaLineup:
-    `*当前卡池时间：${gachaInfo.legend.lineup[0].service_start}—${gachaInfo.legend.lineup[0].service_end}`,
 })
 
-const {
-  formData,
-  formVisible,
-  totalStone,
-  count,
-  ssrCount,
-  gachaLineup,
-  result,
-  ssrList,
-  animationVisible,
-  animationResult,
-} = toRefs(state)
+const { formData, formVisible, totalStone, count, ssrCount, result, ssrList, animationVisible, animationResult } = toRefs(state)
 
 watchEffect(() => {
   state.totalStone
@@ -113,9 +103,9 @@ function draw(times: number) {
   state.animationVisible = true
   state.animationResult.length = 0
   if (state.cardN.length === 0)
-    state.cardN = getRate(gachaNormalRatio)
+    state.cardN = getRate(gachaNormalRatio.value)
   if (state.cardSR.length === 0)
-    state.cardSR = getRate(gachaSrRatio)
+    state.cardSR = getRate(gachaSrRatio.value)
   for (let i = 0; i < times; i++) {
     state.result = gacha10()
     animationResult.value = animationResult.value.concat([...result.value])
@@ -140,6 +130,15 @@ function closeAnimation() {
   state.animationVisible = false
   state.animationResult.length = 0
 }
+
+onMounted(() => {
+  fetch('https://raw.githubusercontent.com/Waaatanuki/asset/main/gbf/gacha/gbf_gacha_info.json')
+    .then((resp) => {
+      return resp.json()
+    }).then((data) => {
+      gbf_gacha_info.value = data
+    })
+})
 </script>
 
 <template>
