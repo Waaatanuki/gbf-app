@@ -103,16 +103,16 @@ function handleClick(data: CritData) {
         <div fc>
           <el-form-item label="武器加护区">
             <el-radio-group v-model="form.weapon">
-              <el-radio-button :label="0">
+              <el-radio-button :value="0">
                 0把
               </el-radio-button>
-              <el-radio-button :label="30">
+              <el-radio-button :value="30">
                 1把
               </el-radio-button>
-              <el-radio-button :label="60">
+              <el-radio-button :value="60">
                 2把
               </el-radio-button>
-              <el-radio-button :label="90">
+              <el-radio-button :value="90">
                 3把
               </el-radio-button>
             </el-radio-group>

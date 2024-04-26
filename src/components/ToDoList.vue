@@ -70,7 +70,7 @@ onMounted(() => {
     <div flex flex-col>
       <el-checkbox
         v-for="(task, index) in taskList" :key="index"
-        v-model="task.done" :label="task.content"
+        v-model="task.done" :value="task.content"
       >
         <div v-if="delBtnVisible" fc>
           <el-input v-model="task.content" size="small" />

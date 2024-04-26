@@ -29,4 +29,9 @@ export const menuList = [
     icon: 'game-icons:spiky-explosion',
     url: '/crit',
   },
+  {
+    label: '签名制作',
+    icon: 'game-icons:wooden-sign',
+    url: '/sign',
+  },
 ]

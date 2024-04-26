@@ -91,7 +91,7 @@ const result = computed(() => {
     <el-form :model="form" label-width="120px">
       <el-form-item label="类型">
         <el-radio-group v-model="form.type">
-          <el-radio v-for="event in eventInfo" :key="event.type" :label="event.type">
+          <el-radio v-for="event in eventInfo" :key="event.type" :value="event.type">
             {{ event.name }}
           </el-radio>
         </el-radio-group>
