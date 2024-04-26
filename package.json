@@ -27,6 +27,7 @@
     "@antfu/eslint-config": "^2.15.0",
     "@iconify-json/carbon": "^1.1.31",
     "@iconify-json/game-icons": "^1.1.9",
+    "@iconify/vue": "^4.1.2",
     "@plugin-web-update-notification/vite": "^1.7.1",
     "@types/markdown-it-link-attributes": "^3.0.5",
     "@types/node": "^20.12.7",
