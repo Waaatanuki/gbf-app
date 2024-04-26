@@ -2,8 +2,8 @@
 import { VueDraggableNext } from 'vue-draggable-next'
 
 const assetIndex: { [key: string]: { raid_chain: number } } = {
-  characters: { raid_chain: 5 },
-  partners: { raid_chain: 5 },
+  characters: { raid_chain: 6 },
+  partners: { raid_chain: 6 },
   job: { raid_chain: 3 },
 }
 const form = reactive({
