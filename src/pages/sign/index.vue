@@ -51,7 +51,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div h-180px flex gap-2>
+  <div h-180px fc gap-2>
     <div>
       <el-form :model="form" label-width="100">
         <el-form-item label="ID" w-100>
@@ -68,18 +68,20 @@ onMounted(async () => {
         </el-form-item>
       </el-form>
     </div>
-    <div v-if="npcCutInData.length === 0" m-auto>
-      {{ msg }}
-    </div>
-    <div flex gap-2>
-      <div v-for="imgId in npcCutInData" :key="imgId" cursor-pointer @click="handleSelect(imgId)">
-        <img h-full :src="`https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/assets/${isNpc ? 'npc' : 'leader'}/raid_chain/${imgId}.jpg`">
+    <div min-w-350px>
+      <div v-if="npcCutInData.length === 0">
+        {{ msg }}
+      </div>
+      <div v-else flex gap-2>
+        <div v-for="imgId in npcCutInData" :key="imgId" cursor-pointer @click="handleSelect(imgId)">
+          <img h-180px :src="`https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/assets/${isNpc ? 'npc' : 'leader'}/raid_chain/${imgId}.jpg`">
+        </div>
       </div>
     </div>
   </div>
   <div relative mx-auto mt-5 :style="wrapperStyle">
     <img absolute z--1 h-full w-full src="https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/ui/frame/bg.png">
-    <VueDraggableNext v-model="selectImgList" h-full fc gap-2 :style="innerStyle">
+    <VueDraggableNext v-model="selectImgList" :style="innerStyle" relative h-full fc gap-2>
       <transition-group name="list">
         <div v-for="img, idx in selectImgList" :key="img.id" class="group" relative h-full cursor-pointer select-none>
           <div i-carbon:close-filled absolute right-1 top-1 hidden text-white group-hover:block icon-btn @click="selectImgList.splice(idx, 1)" />
