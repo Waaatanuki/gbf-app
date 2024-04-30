@@ -132,7 +132,7 @@ function closeAnimation() {
 }
 
 onMounted(() => {
-  fetch('https://raw.githubusercontent.com/Waaatanuki/asset/main/gbf/gacha/gbf_gacha_info.json')
+  fetch(`https://raw.githubusercontent.com/Waaatanuki/asset/main/gbf/gacha/gbf_gacha_info.json?${Date.now()}`)
     .then((resp) => {
       return resp.json()
     }).then((data) => {
