@@ -15,7 +15,7 @@ const { height } = useWindowSize()
 const scheduleData = ref()
 
 onMounted(() => {
-  fetch('https://raw.githubusercontent.com/Waaatanuki/asset/main/gbf/schedule.json')
+  fetch('https://raw.gitmirror.com/Waaatanuki/asset/main/gbf/schedule.json')
     .then((resp) => {
       return resp.json()
     }).then((data) => {

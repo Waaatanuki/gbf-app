@@ -45,7 +45,7 @@ const innerStyle = computed(() => ({
 }))
 
 onMounted(async () => {
-  const resp = await fetch(`https://raw.githubusercontent.com/MizaGBF/GBFAL/main/json/data.json?${Date.now()}`)
+  const resp = await fetch(`https://raw.gitmirror.com/MizaGBF/GBFAL/main/json/data.json?${Date.now()}`)
   rawData.value = await resp.json()
 })
 </script>
