@@ -178,14 +178,14 @@ function getGoldBrickTips(raid: AppGoldBrickTableData) {
   }
 }
 
-function showSummary() {
-  if (!isDark.value)
-    toggleDark()
-  if (state.dataSet.length === 0)
-    ElMessage.warning('您完全不猎金吗')
-  else
-    dialogVisible.value = true
-}
+// function showSummary() {
+//   if (!isDark.value)
+//     toggleDark()
+//   if (state.dataSet.length === 0)
+//     ElMessage.warning('您完全不猎金吗')
+//   else
+//     dialogVisible.value = true
+// }
 
 onMounted(() => {
   init()
@@ -195,11 +195,11 @@ onMounted(() => {
 <template>
   <el-row v-loading="mask">
     <div mx-auto>
-      <el-tooltip content="音量注意" placement="top">
+      <!-- <el-tooltip content="音量注意" placement="top">
         <div mb-20px text-2xl btn @click="showSummary">
           年度猎金报告
         </div>
-      </el-tooltip>
+      </el-tooltip> -->
 
       <ElCard v-for="item in baseInfo" :key="item.quest_id" mb-2 cursor-pointer shadow="hover" @click="showChart(item)">
         <div h-100px fc gap-10px text-sm>
