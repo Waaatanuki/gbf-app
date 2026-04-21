@@ -88,7 +88,7 @@ function getTotal(bullets: Bullet[]) {
 function getImgSrc(bullet: Bullet) {
   return bullet
     ? `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/bullet/s/${bullet.seq_id}.jpg`
-    : 'https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/job/bullet/empty.png'
+    : 'https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/job/bullet/empty.png'
 }
 </script>
 

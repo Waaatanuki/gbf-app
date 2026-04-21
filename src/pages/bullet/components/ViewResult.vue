@@ -46,7 +46,7 @@ function handleCheck(list: Bullet[], row: Bullet, item: Article, index: number) 
 
 function getImgSrc(item: any) {
   if (!item)
-    return 'https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/job/bullet/empty.png'
+    return 'https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/job/bullet/empty.png'
 
   if (item.article)
     return `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/bullet/s/${item.seq_id}.jpg`

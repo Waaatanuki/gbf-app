@@ -31,7 +31,7 @@ function handleQuery(value: string | number) {
 }
 
 function handleSelect(imgId: string) {
-  selectImgList.value.push({ id: Date.now(), src: `https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/assets/${isNpc.value ? 'npc' : 'leader'}/raid_chain/${imgId}.jpg` })
+  selectImgList.value.push({ id: Date.now(), src: `https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/${isNpc.value ? 'npc' : 'leader'}/raid_chain/${imgId}.jpg` })
 }
 
 const wrapperStyle = computed(() => ({
@@ -74,13 +74,13 @@ onMounted(async () => {
       </div>
       <div v-else flex gap-2>
         <div v-for="imgId in npcCutInData" :key="imgId" cursor-pointer @click="handleSelect(imgId)">
-          <img h-180px :src="`https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/assets/${isNpc ? 'npc' : 'leader'}/raid_chain/${imgId}.jpg`">
+          <img h-180px :src="`https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/assets/${isNpc ? 'npc' : 'leader'}/raid_chain/${imgId}.jpg`">
         </div>
       </div>
     </div>
   </div>
   <div relative mx-auto mt-5 :style="wrapperStyle">
-    <img absolute z--1 h-full w-full src="https://prd-game-a1-granbluefantasy.akamaized.net/assets/img/sp/ui/frame/bg.png">
+    <img absolute z--1 h-full w-full src="https://prd-game-a-granbluefantasy.akamaized.net/assets/img/sp/ui/frame/bg.png">
     <VueDraggableNext v-model="selectImgList" :style="innerStyle" relative h-full fc gap-2>
       <transition-group name="list">
         <div v-for="img, idx in selectImgList" :key="img.id" class="group" relative h-full cursor-pointer select-none>
