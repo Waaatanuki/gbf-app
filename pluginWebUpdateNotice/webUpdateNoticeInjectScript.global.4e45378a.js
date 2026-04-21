@@ -16,5 +16,5 @@
 
   window.__checkUpdateSetup__({"logVersion":true,"injectFileBase":"/gbf-app/"});
       ;const logFn = function bt(t,c){console.log(`version: %c${t}`,"color: #1677ff"),console.log(`release time: %c${new Date(c).toLocaleString()}`,"color: #1677ff")}
-      ;logFn('cea5e2b', 1742979460117)
+      ;logFn('5e789f6', 1776765902497)
     
