@@ -8,10 +8,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import Markdown from 'unplugin-vue-markdown/vite'
-import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
-import Shiki from 'markdown-it-shiki'
 import { webUpdateNotice } from '@plugin-web-update-notification/vite'
 
 export default defineConfig({
@@ -22,11 +19,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    Vue({
-      script: {
-        defineModel: true,
-      },
-    }),
+    Vue(),
     webUpdateNotice({ logVersion: true }),
     Pages({ extensions: ['vue', 'md'] }),
     Layouts(),
@@ -56,24 +49,5 @@ export default defineConfig({
     }),
     Unocss(),
     Icons(),
-    Markdown({
-      wrapperClasses: 'prose prose-sm m-auto text-left',
-      headEnabled: true,
-      markdownItSetup(md) {
-        md.use(Shiki, {
-          theme: {
-            light: 'vitesse-light',
-            dark: 'vitesse-dark',
-          },
-        })
-        md.use(LinkAttributes, {
-          matcher: (link: string) => /^https?:\/\//.test(link),
-          attrs: {
-            target: '_blank',
-            rel: 'noopener',
-          },
-        })
-      },
-    }),
   ],
 })
