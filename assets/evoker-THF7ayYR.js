@@ -1,0 +1,1 @@
+import{I as e,_ as t,p as n,v as r}from"./runtime-core.esm-bundler-8Br1IfNb.js";import{t as i}from"./EvokerInfo-C1s2Vdv2.js";import{t as a}from"./MaterialInfo-BtrW6ag4.js";var o={fc:``,"flex-wrap":``,"gap-10px":``},s=r({__name:`index`,setup(r){return(r,s)=>(e(),n(`div`,o,[t(a),t(i)]))}});export{s as default};
