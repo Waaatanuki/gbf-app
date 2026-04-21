@@ -1,0 +1,1 @@
+import"./chunk-CilyBKbf.js";function e(e,t){let n=new Blob([e],{type:`application/json`}),r=document.createElement(`a`),i=window.URL.createObjectURL(n);r.href=i,r.download=t,document.body.appendChild(r),r.click(),document.body.removeChild(r),window.URL.revokeObjectURL(i)}export{e as t};

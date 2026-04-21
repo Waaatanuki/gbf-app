@@ -1,0 +1,1 @@
+import{I as e,p as t}from"./runtime-core.esm-bundler-8Br1IfNb.js";import{t as n}from"./_plugin-vue_export-helper-DjoU_TXQ.js";var r={},i={class:`app-container`};function a(n,r){return e(),t(`div`,i)}var o=n(r,[[`render`,a]]);export{o as default};
